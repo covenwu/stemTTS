@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>student</title>
+    <style type="text/css">
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        #tb {
+            width: 500px;
+            border: 1px solid #000;
+            border-collapse: collapse;
+        }
+
+        #tb td, #tb th {
+            border: 1px solid #000;
+        }
+
+        #tb thead tr {
+            height: 50px;
+            background-color: lightgray;
+        }
+
+        #tb tbody tr {
+            text-align: center;
+            height: 30px;
+        }
+
+        #tb a {
+            text-decoration: none;
+        }
+
+        #tb a:hover {
+            color: hotpink;
+        }
+    </style>
+</head>
+<body>
+<!--输入框-->
+<textarea id="输入框" style="width:380px;height:auto;"></textarea>
+
+<!--发送按钮-->
+<button type="button" onclick="student_submit()" id="button">提交</button>
+<textarea id="emailcontent" style="width:380px;height:auto;"></textarea>
+
+<script src="jquery-3.3.1.min.js"></script>
+<script src="student_submit.js"></script>
+</body>
+</html>
