@@ -1,0 +1,64 @@
+﻿#mysql终端指令
+
+
+create database database1 charset utf8;
+use database1;
+#账号管理
+create table account(
+id int not null primary key auto_increment,                             #自动分配ID
+account varchar(30) not null,                                           #用户名
+password varchar(20) not null,                                          #用户密码
+name varchar(10) not null,                                              #用户姓名 
+classid varchar(30),                                                    #班号，注册时尚未分配，固设定为可空
+groupid int,                                                            #组号，同上
+role varchar(20) not null,                                              #扮演角色,目前假定注册时进行选择
+email varchar(50) not null                                              #邮箱
+)charset utf8;
+
+#日志管理
+create table action_log(
+id int not null ,                                                
+account varchar(30) not null,
+classid varchar(30) not null,
+groupid int not null,
+taskid int not null,
+time datetime not null,
+actiontype enum('ReadTaskeMail','ReadMaterial','ReadFeedbackEmail','SendTaskEmail','SendMsg'),
+content text,
+sendto varchar(50) not null
+)charset utf8;
+
+#聊天记录
+create table chat_history(
+time datetime not null,			
+classid varchar(30) not null,
+id int not null ,
+account varchar(30) not null,		
+groupid int not null,
+chatcontent text
+)charset utf8;
+
+#作业记录
+create table homework_history(
+time datetime not null,			
+classid varchar(30) not null,
+id int not null ,
+account varchar(30) not null,		
+taskid int not null,
+homeworkcontent text
+)charset utf8;
+
+#邮件记录
+create table email_history(
+time datetime not null,			
+classid varchar(30) not null,
+id int not null ,
+account varchar(30) not null,	
+emailcontent text
+)charset utf8;
+
+#当前状态记录
+create table mood_now(
+id int not null primary key,
+taskidnow int not null
+)charset utf8;
