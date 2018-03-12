@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>虚拟实习设计者界面</title>
+     <meta charset="utf-8">
+     <script src="http://cdn.static.runoob.com/libs/jquery/1.10.2/jquery.min.js">
+     </script>
+    <script>
+     $(document).ready(function(){
+     $("#b1").click(function(){
+     $("#u1").toggle();
+     });
+     });
+     $(document).ready(function(){
+     $("#b2").click(function(){
+     $("#u2").toggle();
+     });
+     });
+    </script>
+  <style>
+   body{margin:0px;}
+   ul{list-style:none;}
+  </style>
+</head>
+<body>
+	 <div style="background-color:#EEE9E9;width:100%;height:100px;line-height:100px">
+     <p style="margin:0px;float:left">师大附小STEM课程开发项目</p>
+    <button style="width:150px;height:50px;float:right;margin-top:25px;margin-right:50px;">注销</button>
+   </div>
+     <div style="width:30%;background-color:#FFF68F;float:left;height:655px">
+       <h1 style="text-indent:10px;width:200px;height:50px;margin:0px;">任务编辑</h1>
+        <button id="b1">任务1</button>
+          <ul id="u1">
+          <li><a href="#">任务邮件</a></li>
+          <li><a href="#">资源</a></li>
+          <li><a href="#">评价</a></li>
+          <li><a href="#">讨论</a></li>
+          <li><a href="#">反馈邮件</a></li>
+          </ul>
+         <button id="b2" >任务2</button>
+          <ul id="u2">
+          <li><a href="#">任务邮件</a></li>
+          <li><a href="#">资源</a></li>
+          <li><a href="#">评价</a></li>
+          <li><a href="#">讨论</a></li>
+          <li><a href="#">反馈邮件</a></li>
+          </ul> 
+         <button >添加任务</button><button >删除任务</button>
+     </div> 
+     <div style="width:69%;background-color:#FFFFFF;float:left;height:655px;border:2px solid;">
+
+     </div> 
+</body>
+</html>
