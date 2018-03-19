@@ -1,5 +1,5 @@
 /*//1111部分为未完成部分，请忽略
-1.切换笔记本时清空输入框，添加”请输入作业内容“
+1.邮件列表css设置交给凌志威
 */
 
 
@@ -7,21 +7,26 @@ var student_id=1;           //1111 需要动态获取学生id的方法
 //headers数组设置邮件列表的表头
 var headers = ["邮件列表"];
 //初始时下拉栏状态记录为“主页”
-var listMood="主页"
+var listMood="主页";
 getData();
+
 
 //下拉菜单的选项被点击时listMood变量会改变为点击的按钮名（innerHTML),借此区分状态
 $(".listButton").click(function () {
     changeListMood(this.innerHTML)
 });
-//登录按钮暂用于测试,此处应换为提交按钮
+//设置切换到笔记本模式时输入框清空，提示“请输入”
+$("#笔记本").click(function () {
+    document.getElementById("emailcontent").value="请输入作业内容";
+});
+//登录按钮暂用于测试,此处应换为提交作业按钮
 $("#登录").click(function () {
     if(listMood=="笔记本"){
         submitHomework();
     }
 });
 
-
+//从数据库取得邮件数据并生成列表的函数
 function getData(){
     //ajax请求
     $.get("student_get_email.php",{id:student_id},function(data){
@@ -33,7 +38,6 @@ function getData(){
         creatTable(email,headers,data_array);
     })
 }
-
 
 //动态生成列表的函数
 function creatTable(parent, headers, datas) {
@@ -94,7 +98,7 @@ function changeListMood(mood) {
 
 function submitHomework() {
     var text=document.getElementById("emailcontent").value;
-    $.get("submit_homework.php",{id:student_id,text:text},function(data){
+    $.get("student_submit_homework.php",{id:student_id,text:text},function(data){
         //php文件运行成功返回的data为success
         alert(data);
     })
