@@ -1,16 +1,18 @@
 /*//1111部分为未完成部分，请忽略
 1.邮件列表css设置交给凌志威
+2.计划在页面功能基本实现时再设置定时刷新
 */
 
-
+//-----------------执行部分----------------------------------------------
+//-----------------设置变量---------------------
 var student_id=1;           //1111 需要动态获取学生id的方法
-//headers数组设置邮件列表的表头
+//headers数组设置邮件列表的表头    1111可能被取消
 var headers = ["邮件列表"];
 //初始时下拉栏状态记录为“主页”
 var listMood="主页";
 getData();
 
-
+//-----------------设置点击事件------------------
 //下拉菜单的选项被点击时listMood变量会改变为点击的按钮名（innerHTML),借此区分状态
 $(".listButton").click(function () {
     changeListMood(this.innerHTML)
@@ -26,6 +28,8 @@ $("#登录").click(function () {
     }
 });
 
+
+//-----------------函数定义部分----------------------------------------------
 //从数据库取得邮件数据并生成列表的函数
 function getData(){
     //ajax请求
@@ -52,6 +56,7 @@ function creatTable(parent, headers, datas) {
     var tr = document.createElement("tr");
     thead.appendChild(tr);
 
+    //1111 暂被取消的表头
     /*for (var i = 0; i < headers.length; i++) {
         var th = document.createElement("th");
         th.innerHTML = headers[i];
@@ -61,33 +66,29 @@ function creatTable(parent, headers, datas) {
     var tbody = document.createElement("tbody");
     table.appendChild(tbody);
 
+    //创建‘邮件n'的单元列
     for (var i = 0; i < datas.length; i++) {
-        var tr = document.createElement("tr");
-        tbody.appendChild(tr);
-        //在新创建的行内填写除“操作”以外的列
-        /*for (var k in datas[i]) {
-            if(k!='emailcontent'){
-                var td = document.createElement("td");
-                td.innerHTML = datas[i][k];
-                tr.appendChild(td);
+        //此处如不使用匿名函数封装，直接写进循环会报错'mutable variable accessing closure
+        (function () {
+            //新建一行
+            var tr = document.createElement("tr");
+            tbody.appendChild(tr);
+            /*在新创建的行内创建'邮件n'的单元格，附加点击展示邮件内容的功能*/
+            //设置新建的td元素
+            var display= document.createElement("td");
+            //命名'邮件n'时n要相对数组索引加1
+            var emailnum=i+1;
+            display.innerHTML ="email"+emailnum;
+            tr.appendChild(display);
+            display.setAttribute('id','display'+i);
+            //取得emailcontent内容
+            var content=datas[i]['emailcontent'];
+            //设置点击展示邮件内容的功能
+            var disp=document.getElementById('display'+i);
+            disp.onclick = function () {
+                document.getElementById("emailcontent").value=content;
             }
-        }*/
-
-        /*在新创建的行内填写“操作”列，附加点击展示邮件内容的功能*/
-        //设置新建的td元素
-        var display= document.createElement("td");
-        //display.innerHTML = "<a href='javascript:'></a>";
-        var emailnum=i+1;
-        display.innerHTML ="email"+emailnum;
-        tr.appendChild(display);
-        display.setAttribute('id','display'+i)
-        //取得emailcontent内容
-        var content=datas[i]['emailcontent'];
-        //设置点击展示邮件内容的功能
-        var disp=document.getElementById('display'+i);
-        disp.onclick = function () {
-            document.getElementById("emailcontent").value=content;
-        }
+        })(i)
     }
 }
 
@@ -96,6 +97,7 @@ function changeListMood(mood) {
     listMood=mood;
 }
 
+//提交作业到后台写入数据库的函数
 function submitHomework() {
     var text=document.getElementById("emailcontent").value;
     $.get("student_submit_homework.php",{id:student_id,text:text},function(data){
