@@ -1,0 +1,124 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Ajax 聊天室</title>
+    <style>
+        #up {
+            height:320px;
+            width:100%;
+            overflow:auto;
+        }
+
+
+    </style>
+    <script>
+        // 记录当前获取到的id的最大值，防止获取到重复的信息
+
+        var maxId = 0;
+        function showmessage(){
+            var ajax = new XMLHttpRequest();
+            // 从服务器获取并处理数据
+            ajax.onreadystatechange = function(){
+                if(ajax.readyState==4) {
+                    //alert(ajax.responseText);
+                    // 将获取到的字符串转换成实体
+                    eval('var data = '+ajax.responseText);
+                    // 遍历data数组，把内部的信息一个个的显示到页面上
+                    var s = "";
+                    for(var i = 0 ; i < data.length;i++){
+                        data[i];
+                        s += "("+data[i].add_time+") >>>";
+                        s += "<p style='color:"+data[i].color+";'>";
+                        s += data[i].sender +"&nbsp;对&nbsp;" + data[i].receiver +"&nbsp;&nbsp;"+ data[i].biaoqing+"说：" + data[i].msg;
+                        s += "</p>";
+                        // 把已经获得的最大的记录id更新
+                        maxId = data[i].id;
+                    }
+                    // 开始向页面时追加信息
+                    var showmessage = document.getElementById("up");
+                    showmessage.innerHTML += s;
+                    //showmessage.scrollTop 可以实现div底部最先展示
+                    // divnode.scrollHeight而已获得div的高度包括滚动条的高度
+                    showmessage.scrollTop = showmessage.scrollHeight-showmessage.style.height;
+                }
+            };
+            ajax.open('get','./chatroom.php?maxId='+maxId);
+            ajax.send(null);
+
+        }
+
+        // 更新信息的执行时机
+        window.onload = function(){
+            //showmessage();
+            // 制作轮询,实现自动的页面更新
+            setInterval("showmessage()",1500);
+            //setTimeout(showmessage(),100)
+        }
+    </script>
+
+</head>
+
+<body style="background-color:silver">
+<div id="main">
+    <h3>消息显示区</h3>
+    <div id="up">
+    </div>
+    <hr />
+    <h3>发言栏</h3>
+    <div id="bottom">
+        <form action="./chatroom_insert.php">
+            <div id="chat_up">
+                <span>颜色</span>
+                <input type="color" name="color"/>
+                <span>表情</span>
+                <select name="biaoqing">
+                    <option value="微笑地">微笑地</option>
+                    <option value="猥琐地">猥琐地</option>
+                    <option value="和蔼地">和蔼地</option>
+                    <option value="目不转睛地">目不转睛地</option>
+                    <option value="傻傻地">傻傻地</option>
+                </select>
+                <span>聊天对象</span>
+                <select name="receiver">
+                    <option value="">所有的人</option>
+                    <option value="老郭">老郭</option>
+                    <option value="小郭">小郭</option>
+                    <option value="大郭">大郭</option>
+                </select>
+            </div>
+            <div id="chat_bottom">
+                <script>
+                    function send(){
+                        // 向服务器差入相关的数据
+                        var form = document.getElementsByTagName('form')[0];
+                        var formdata = new FormData(form);
+                        var xhr = new XMLHttpRequest();
+                        xhr.onreadystatechange = function(){
+                            if(xhr.readyState==4) {
+                                //alert(xhr.resposneText);
+                                document.getElementById("result").innerHTML = xhr.responseText;
+                                setTimeout("hideresult()",2000);
+                            }
+                        }
+                        xhr.open('post','./chatroom_insert.php');
+                        xhr.send(formdata);
+                        document.getElementById("msg").value="";
+                        //return false;
+                    }
+
+                    // 2秒后实现提示信息的消失
+                    function hideresult(){
+                        document.getElementById('result').innerHTML = "";
+                    }
+                </script>
+                <textarea id="msg" name="msg" style="width:380px;height:auto;"></textarea>
+                <input type="button" value="发言" onclick="send()" />
+                发言：<span id="result"></span>
+            </div>
+        </form>
+    </div>
+
+</div>
+</body>
+</html>
