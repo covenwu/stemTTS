@@ -1,3 +1,6 @@
+<!--
+1.聊天室接口是一个div
+-->
 <!DOCTYPE html>
 <html>
 <head>
@@ -48,6 +51,14 @@
 
         #tb a:hover {
             color: hotpink;
+        }
+    </style>
+    <!--聊天室css-->
+    <style>
+        #up {
+            height:320px;
+            width:100%;
+            overflow:auto;
         }
     </style>
 </head>
@@ -103,14 +114,55 @@
      <li>郑六</li>
      <li>导师</li>
    </ul>
-   <textarea style="width:433px;height:230px;margin:10px;float:left;border:1px solid black;font-size:17px;margin-top:0px;margin-bottom:0px;">聊天室的历史聊天记录</textarea>
-   <textarea style="width:433px;height:180px;margin:10px;float:left;border:1px solid black;font-size:17px;margin-top:3px;margin-bottom:3px;">在这里输入聊天内容</textarea>
-   <form action="#" method="post">
+  <!--用div的聊天室替换-->
+   <!--<textarea style="width:433px;height:230px;margin:10px;float:left;border:1px solid black;font-size:17px;margin-top:0px;margin-bottom:0px;">聊天室的历史聊天记录</textarea>
+   <textarea style="width:433px;height:180px;margin:10px;float:left;border:1px solid black;font-size:17px;margin-top:3px;margin-bottom:3px;">在这里输入聊天内容</textarea>-->
+  <!--聊天室模块开始-->
+  <div id="main">
+      <h3>消息显示区</h3>
+      <div id="up">
+      </div>
+      <hr />
+      <h3>发言栏</h3>
+      <div id="bottom">
+          <form action="./chatroom_insert.php">
+              <div id="chat_up">
+                  <span>颜色</span>
+                  <input type="color" name="color"/>
+                  <span>表情</span>
+                  <select name="biaoqing">
+                      <option value="微笑地">微笑地</option>
+                      <option value="猥琐地">猥琐地</option>
+                      <option value="和蔼地">和蔼地</option>
+                      <option value="目不转睛地">目不转睛地</option>
+                      <option value="傻傻地">傻傻地</option>
+                  </select>
+                  <span>聊天对象</span>
+                  <select name="receiver">
+                      <option value="">所有的人</option>
+                      <option value="老郭">老郭</option>
+                      <option value="小郭">小郭</option>
+                      <option value="大郭">大郭</option>
+                  </select>
+              </div>
+              <div id="chat_bottom">
+                  <textarea id="msg" name="msg" style="width:380px;height:auto;"></textarea>
+                  <input type="button" value="发言" onclick="send()" />
+                  发言：<span id="result"></span>
+              </div>
+          </form>
+      </div>
+
+  </div>
+  <!--聊天室模块结束-->
+
+  <form action="#" method="post">
        <!--<input style="width:150px;height:50px;margin-left:9px" type="submit" id="登录" value="登录">-->
        <!--此处更改仅是供测试使用-->
        <input style="width:150px;height:50px;margin-left:9px" id="登录" value="登录">
    </form>
   <script src="jquery-3.3.1.min.js"></script>
   <script src="student1.js"></script>
+  <script src="js/chatroom.js"></script>
 </body>
 </html>
