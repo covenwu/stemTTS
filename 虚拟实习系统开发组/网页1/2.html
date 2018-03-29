@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<TITLE>虚拟实习设计者页面</TITLE>
+	<meta charset=UTF-8>
+	<style>
+	 ul{list-style-type:none;}
+	</style>
+</head>
+<body>
+	<body style="margin:0;">
+	 <div style="background-color:#EEE9E9;width:100%;height:100px;line-height:100px;margin:0;">
+     <p style="margin:0px;float:left">&nbsp;&nbsp;&nbsp;&nbsp;师大附小STEM课程开发项目</p>
+    <button style="width:150px;height:50px;float:right;margin-top:25px;margin-right:50px;">注销</button>
+   </div>
+
+	<h2>&nbsp&nbsp&nbsp任务编辑</h2>
+<ul id="myList"></ul>
+<iframe src="button.html" height="550px" width="305px"></iframe>
+<iframe src="任务邮件.html" height="550px" width="1200px" name="l1"></iframe>
+<script>
+x=0;
+function myFunction1()
+{
+  x=x+1;
+  var node=document.createElement("ul");
+  var textnode=document.createTextNode("任务"+x);
+  var thing=document.createElement("li");
+  addA1(thing,"任务邮件<br>");
+  addA2(thing,"资源<br>");
+  addA3(thing,"评价<br>");
+  addA4(thing,"讨论<br>");
+  addA5(thing,"反馈邮件<br>");
+  node.appendChild(textnode);
+  node.appendChild(thing);
+  document.getElementById("myList").appendChild(node);
+}
+function addA1(li,text){
+	var a_1=document.createElement("a");
+	    a_1.innerHTML=text;
+	    a_1.href="任务邮件.html";
+	    a_1.target="l1"
+	    li.appendChild(a_1);
+}
+function addA2(li,text){
+	var a_1=document.createElement("a");
+	    a_1.innerHTML=text;
+	    a_1.href="资源.html";
+	    a_1.target="l1"
+	    li.appendChild(a_1);
+}
+function addA3(li,text){
+	var a_1=document.createElement("a");
+	    a_1.innerHTML=text;
+	    a_1.href="评价.html";
+	    a_1.target="l1"
+	    li.appendChild(a_1);
+}
+function addA4(li,text){
+	var a_1=document.createElement("a");
+	    a_1.innerHTML=text;
+	    a_1.href="讨论.html";
+	    a_1.target="l1"
+	    li.appendChild(a_1);
+}
+function addA5(li,text){
+	var a_1=document.createElement("a");
+	    a_1.innerHTML=text;
+	    a_1.href="反馈邮件.html";
+	    a_1.target="l1"
+	    li.appendChild(a_1);
+}
+function myFunction2()
+{
+x=x-1;
+document.getElementById("myList").lastChild.remove();
+}
+</script>
+</body>
+</html>

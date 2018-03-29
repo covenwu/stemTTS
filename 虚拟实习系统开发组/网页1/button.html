@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<body>
+	<ul id="myList"></ul>
+<button onclick="myFunction1()">添加任务</button>
+<button onclick="myFunction2()">删除任务</button>
+<button>保存</button> 
+<script>
+x=0;
+function myFunction1()
+{
+  x=x+1;
+  var node=document.createElement("ul");
+  var textnode=document.createTextNode("任务"+x);
+  var thing=document.createElement("li");
+  addA1(thing,"任务邮件<br>");
+  addA2(thing,"资源<br>");
+  addA3(thing,"评价<br>");
+  addA4(thing,"讨论<br>");
+  addA5(thing,"反馈邮件<br>");
+  node.appendChild(textnode);
+  node.appendChild(thing);
+  document.getElementById("myList").appendChild(node);
+}
+function addA1(li,text){
+	var a_1=document.createElement("a");
+	    a_1.innerHTML=text;
+	    a_1.href="任务邮件.html";
+	    a_1.target="l1"
+	    li.appendChild(a_1);
+}
+function addA2(li,text){
+	var a_1=document.createElement("a");
+	    a_1.innerHTML=text;
+	    a_1.href="资源.html";
+	    a_1.target="l1"
+	    li.appendChild(a_1);
+}
+function addA3(li,text){
+	var a_1=document.createElement("a");
+	    a_1.innerHTML=text;
+	    a_1.href="评价.html";
+	    a_1.target="l1"
+	    li.appendChild(a_1);
+}
+function addA4(li,text){
+	var a_1=document.createElement("a");
+	    a_1.innerHTML=text;
+	    a_1.href="讨论.html";
+	    a_1.target="l1"
+	    li.appendChild(a_1);
+}
+function addA5(li,text){
+	var a_1=document.createElement("a");
+	    a_1.innerHTML=text;
+	    a_1.href="反馈邮件.html";
+	    a_1.target="l1"
+	    li.appendChild(a_1);
+}
+function myFunction2()
+{
+x=x-1;
+document.getElementById("myList").lastChild.remove();
+}
+</script>
+</body>
+</html>
