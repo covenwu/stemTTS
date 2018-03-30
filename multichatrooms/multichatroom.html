@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>多聊天室</title>
+</head>
+<body>
+ <!--聊天室模块开始-->
+<div id="main0">
+    <h3>消息显示区</h3>
+    <div id="chatcontent0">
+    </div>
+    <hr />
+    <h3>发言栏</h3>
+    <div id="bottom0">
+        <form action="./chatroom_insert.php" id="chatform0">
+            <div id="chat_up0">
+                <span>颜色</span>
+                <input type="color" name="color"/>
+                <span>表情</span>
+                <select name="biaoqing">
+                    <option value="微笑地">微笑地</option>
+                    <option value="猥琐地">猥琐地</option>
+                    <option value="和蔼地">和蔼地</option>
+                    <option value="目不转睛地">目不转睛地</option>
+                    <option value="傻傻地">傻傻地</option>
+                </select>
+                <span>聊天对象</span>
+                <select name="receiver">
+                    <option value="">所有的人</option>
+                    <option value="老郭">老郭</option>
+                    <option value="小郭">小郭</option>
+                    <option value="大郭">大郭</option>
+                </select>
+            </div>
+            <div id="chat_bottom0">
+                <textarea id="msg0" name="msg" style="width:380px;height:auto;"></textarea>
+                <!--send()的参数为chatroomid-->
+                <input type="button" value="发言" onclick="send(0)" />
+                发言：<span id="result0"></span>
+            </div>
+        </form>
+    </div>
+
+</div>
+<!--聊天室模块结束-->
+ <!--聊天室模块开始-->
+ <div id="main1">
+     <h3>消息显示区</h3>
+     <div id="chatcontent1">
+     </div>
+     <hr />
+     <h3>发言栏</h3>
+     <div id="bottom1">
+         <form action="./chatroom_insert.php" id="chatform1">
+             <div id="chat_up1">
+                 <span>颜色</span>
+                 <input type="color" name="color"/>
+                 <span>表情</span>
+                 <select name="biaoqing">
+                     <option value="微笑地">微笑地</option>
+                     <option value="猥琐地">猥琐地</option>
+                     <option value="和蔼地">和蔼地</option>
+                     <option value="目不转睛地">目不转睛地</option>
+                     <option value="傻傻地">傻傻地</option>
+                 </select>
+                 <span>聊天对象</span>
+                 <select name="receiver">
+                     <option value="">所有的人</option>
+                     <option value="老郭">老郭</option>
+                     <option value="小郭">小郭</option>
+                     <option value="大郭">大郭</option>
+                 </select>
+             </div>
+             <div id="chat_bottom1">
+                 <textarea id="msg1" name="msg" style="width:381px;height:auto;"></textarea>
+                 <!--send()的参数为chatroomid-->
+                 <input type="button" value="发言" onclick="send(1)" />
+                 发言：<span id="result1"></span>
+             </div>
+         </form>
+     </div>
+
+ </div>
+ <!--聊天室模块结束--> <!--聊天室模块开始-->
+ <div id="main2">
+     <h3>消息显示区</h3>
+     <div id="chatcontent2">
+     </div>
+     <hr />
+     <h3>发言栏</h3>
+     <div id="bottom2">
+         <form action="./chatroom_insert.php" id="chatform2">
+             <div id="chat_up2">
+                 <span>颜色</span>
+                 <input type="color" name="color"/>
+                 <span>表情</span>
+                 <select name="biaoqing">
+                     <option value="微笑地">微笑地</option>
+                     <option value="猥琐地">猥琐地</option>
+                     <option value="和蔼地">和蔼地</option>
+                     <option value="目不转睛地">目不转睛地</option>
+                     <option value="傻傻地">傻傻地</option>
+                 </select>
+                 <span>聊天对象</span>
+                 <select name="receiver">
+                     <option value="">所有的人</option>
+                     <option value="老郭">老郭</option>
+                     <option value="小郭">小郭</option>
+                     <option value="大郭">大郭</option>
+                 </select>
+             </div>
+             <div id="chat_bottom2">
+                 <textarea id="msg2" name="msg" style="width:382px;height:auto;"></textarea>
+                 <!--send()的参数为chatroomid-->
+                 <input type="button" value="发言" onclick="send(2)" />
+                 发言：<span id="result2"></span>
+             </div>
+         </form>
+     </div>
+
+ </div>
+ <!--聊天室模块结束--> <!--聊天室模块开始-->
+ <div id="main3">
+     <h3>消息显示区</h3>
+     <div id="chatcontent3">
+     </div>
+     <hr />
+     <h3>发言栏</h3>
+     <div id="bottom3">
+         <form action="./chatroom_insert.php" id="chatform3">
+             <div id="chat_up3">
+                 <span>颜色</span>
+                 <input type="color" name="color"/>
+                 <span>表情</span>
+                 <select name="biaoqing">
+                     <option value="微笑地">微笑地</option>
+                     <option value="猥琐地">猥琐地</option>
+                     <option value="和蔼地">和蔼地</option>
+                     <option value="目不转睛地">目不转睛地</option>
+                     <option value="傻傻地">傻傻地</option>
+                 </select>
+                 <span>聊天对象</span>
+                 <select name="receiver">
+                     <option value="">所有的人</option>
+                     <option value="老郭">老郭</option>
+                     <option value="小郭">小郭</option>
+                     <option value="大郭">大郭</option>
+                 </select>
+             </div>
+             <div id="chat_bottom3">
+                 <textarea id="msg3" name="msg" style="width:383px;height:auto;"></textarea>
+                 <!--send()的参数为chatroomid-->
+                 <input type="button" value="发言" onclick="send(3)" />
+                 发言：<span id="result3"></span>
+             </div>
+         </form>
+     </div>
+
+ </div>
+ <!--聊天室模块结束-->
+<script src="jquery-3.3.1.min.js"></script>
+<script src="multichatroom.js"></script>
+</body>
+</html>
