@@ -127,6 +127,9 @@
       <div id="bottom">
           <form action="./chatroom_insert.php" id="chatform">
               <div id="chat_up">
+                  <span>在线用户</span>
+                  <select name="在线列表" id="onlineuserlist">
+                  </select>
               </div>
               <div id="chat_bottom">
                   <textarea id="msg" name="msg" style="width:380px;height:auto;"></textarea>
@@ -147,5 +150,6 @@
   <script src="../all/jquery-3.3.1.min.js"></script>
   <script src="student1.js"></script>
   <script src="chatroom.js"></script>
+  <script src="update_get_onlineuser.js"></script>
 </body>
 </html>
