@@ -1,0 +1,45 @@
+
+<form action="#" method="POST">
+ 
+  消息标题<input></input><button class="del-btn" type="button">删除消息</button><br>
+  消息内容<input></input><br>
+  <button id="btn2" type="button">添加消息</button>
+  <a href="#">保存</a>
+</form>
+
+
+<script type="text/javascript">
+var options = ['', '111', '222', '333', '444'];
+var form = document.querySelector('form');
+var btn2 = document.querySelector('#btn2');
+
+
+btn2.addEventListener('click', createSelect);
+form.addEventListener('click', delSelect);
+
+
+
+
+function createSelect(ev) {
+  var ele = document.createElement('div');
+  ele.innerHTML = "消息标题"+'<input>' + '</input><button class="del-btn" type="button">删除消息</button>'+"<br>"+"消息内容"+"<input>"+'</input>'+"<br>";
+  form.insertBefore(ele, ev.currentTarget);
+}
+
+function delSelect(ev) {
+  if (ev.target.className.indexOf('del-btn') < 0) return;
+  var ele = ev.target.parentNode;
+  form.removeChild(ele);
+}
+
+function updateOptions(ev) {
+  var val = inputColor.value.trim();
+  if (ev && val.length <= 0) return;
+  if (val) options.push(inputColor.value);
+  var html = getOptionsHtml();
+  var eles = Array.prototype.slice.call(form.querySelectorAll('select'));
+  eles.forEach(function(ele) {
+    ele.innerHTML = html;
+  });
+}
+</script>
