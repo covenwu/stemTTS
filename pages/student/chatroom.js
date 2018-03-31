@@ -1,4 +1,11 @@
-/**/
+/*
+功能：1.聊天内容的获取和显示
+        2.发送聊天信息
+接口：1.从chatroom.php获得聊天数据
+待办：
+*/
+//-----------------测试用----------------------------------------------
+
 
 //-----------------执行部分----------------------------------------------
 //-----------------设置变量---------------------
@@ -26,13 +33,12 @@ function showmessage(){
             // 遍历data数组，把内部的信息一个个的显示到页面上
             var s = "";
             for(var i = 0 ; i < data.length;i++){
-                //data[i];
                 s += "("+data[i].add_time+") >>>";
-                s += "<p style='color:"+data[i].color+";'>";
-                s += data[i].sender +"&nbsp;对&nbsp;" + data[i].receiver +"&nbsp;&nbsp;"+ data[i].biaoqing+"说：" + data[i].msg;
+                s += "<p>";
+                s += data[i].sender +"&nbsp;"+"说：" + data[i].msg;
                 s += "</p>";
                 // 把已经获得的最大信息id更新
-                maxId = data[i].id;
+                maxId = data[i].messageid;
             }
             // 显示聊天内容（onload事件）
             var showmessage = document.getElementById("up");
@@ -48,7 +54,7 @@ function showmessage(){
 
 //发送聊天消息的函数
 function send(){
-    var form = document.getElementsByTagName('form')[0];
+    var form = document.getElementById('chatform');
     //将取得的表单数据转换为formdata形式，在php中以$_POST['name']形式引用
     var formdata = new FormData(form);
     //ajax请求
@@ -67,7 +73,7 @@ function send(){
     document.getElementById("msg").value="";
 }
 
-// 清楚提示发送成功的消息
+// 清除提示发送成功的消息
 function hideresult(){
     document.getElementById('result').innerHTML = "";
 }

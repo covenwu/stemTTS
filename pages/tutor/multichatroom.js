@@ -27,19 +27,15 @@ function get_chat_data(){
     $.get("get_chat_data.php",{maxid:maxid},function(data){
         //返回的json数据解码，数据存进data_array
         var data_array=eval(data);
-        //alert(data_array[0][0]['msg']);
         var s="";
         for(var k=0;k<group_num;k++){
             for(var i=0;i<data[k].length;i++){
                 s += "("+data_array[k][i].add_time+") >>>";
-               /* s += "<p style='color:"+data_array[k][i].color+";'>";
-                s += data_array[k][i].sender +"&nbsp;对&nbsp;" + data_array[k][i].receiver +"&nbsp;&nbsp;"+ data_array[k][i].biaoqing+"说：" + data_array[k][i].msg;
-                s += "</p>";*/
                 s += "<p>";
                 s += data_array[k][i].sender +"&nbsp;"+"说：" + data_array[k][i].msg;
                 s += "</p>";
             }
-            //当前聊天室id最大的记录与maxid比较，若超过则更新maxid
+            //maxid增加这一组这一次接收的聊天信息条数
             maxid+=data[k].length;
             // 显示聊天内容（onload事件）
             var showmessage = document.getElementById("chatcontent"+k);
@@ -70,7 +66,7 @@ function send(chatroomid) {
             setTimeout(function () { hideresult(chatroomid) },2000);
         }
     };
-    xhr.open('post','./chatroom_insert.php');
+    xhr.open('post','./multichatroom_insert.php');
     xhr.send(formdata);
 }
 

@@ -5,12 +5,14 @@
 
 //-----------------执行部分----------------------------------------------
 //-----------------设置变量---------------------
-var student_id=1;           //1111 需要动态获取学生id的方法
+//var student_id=1;           //1111 需要动态获取学生id的方法
 //headers数组设置邮件列表的表头    1111可能被取消
 var headers = ["邮件列表"];
 //初始时下拉栏状态记录为“主页”
 var listMood="主页";
-getData();
+//取得用户信息
+getUserInfo();
+getEmailData();
 
 //-----------------设置点击事件------------------
 //下拉菜单的选项被点击时listMood变量会改变为点击的按钮名（innerHTML),借此区分状态
@@ -30,14 +32,22 @@ $("#登录").click(function () {
 
 
 //-----------------函数定义部分----------------------------------------------
+//从session中取得用户信息到js
+function getUserInfo() {
+    $.get("get_user_info.php",function(data){
+        //返回的json数据解码，数据存进user_info_array
+        user_info_array=eval(data);
+    })
+}
+
 //从数据库取得邮件数据并生成列表的函数
-function getData(){
+function getEmailData(){
     //ajax请求
-    $.get("student_get_email.php",{id:student_id},function(data){
+    $.get("student_get_email.php",function(data){
         //返回的json数据解码，数据存进data_array
         var data_array=eval(data);
         //eamil为显示邮件列表的div元素
-        var email=document.getElementById("email");
+        var email=document.getElementById("emaillist");
         //创建表格
         creatTable(email,headers,data_array);
     })
@@ -100,8 +110,9 @@ function changeListMood(mood) {
 //提交作业到后台写入数据库的函数
 function submitHomework() {
     var text=document.getElementById("emailcontent").value;
-    $.get("student_submit_homework.php",{id:student_id,text:text},function(data){
+    $.get("student_submit_homework.php",{text:text},function(data){
         //php文件运行成功返回的data为success
         alert(data);
     })
 }
+

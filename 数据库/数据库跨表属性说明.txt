@@ -1,5 +1,0 @@
-#数据库跨表属性说明
-classid   班级		classid varchar(30) not null,
-id        用户id	id int not null ,
-name	  用户名	name varchar(10) not null,
-taskid    任务号	taskid int not null,

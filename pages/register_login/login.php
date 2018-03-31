@@ -1,8 +1,17 @@
 <!DOCTYPE html>
 <html>
+<!--
+功能：1.登陆界面
+    2.提供‘记住我’选项，提示后台将邮箱保存到cookie
+    3.在登录失败是根据错误码显示失败原因
+    4.提供向注册页面的跳转
+接口：1.点击登录按钮后跳转到loginaction.php,并提供$_POST['emailaddress']，$_POST['password']，$_POST['remember']
+    2.检查$_GET['err'],根据错误码显示登录失败原因
+    3.点击‘注册’按钮跳转到注册页面
+-->
 <head>
     <title>登录</title>
-    <meta name="content-type"; charset=UTF-8">
+    <meta name="content-type"  charset=UTF-8">
 </head>
 <body>
 <div class="content" align="center">
@@ -17,8 +26,8 @@
                 <tr>
                     <td>邮      箱：</td>
                     <td>
-                        <input type="email" id="email" name="email" required="required"
-                               value="<?php echo isset($_COOKIE["wang"])?$_COOKIE["wang"]:"";?>">
+                        <input type="email" id="email" name="emailaddress" required="required"
+                               value="<?php echo isset($_COOKIE["username"])?$_COOKIE["username"]:"";?>">
                     </td>
                 </tr>
                 <tr>
