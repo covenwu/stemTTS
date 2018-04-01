@@ -19,6 +19,7 @@ var group_num=4;
 window.onload = function(){
     // 轮询以实现自动的页面更新
     setInterval(function () {get_chat_data();},1500);
+    setInterval("updateGetOnlineuser()",2000);
 
 };
 
@@ -73,4 +74,25 @@ function send(chatroomid) {
 // 清除提示发送成功的消息
 function hideresult(chatroomid){
     document.getElementById('result'+chatroomid).innerHTML = "";
+}
+
+
+function updateGetOnlineuser() {
+    var chatroomid;
+    for (chatroomid=0;chatroomid<4;chatroomid++){
+        (function (chatid) {
+            //ajax请求
+            $.get("update_get_onlineuser.php",{chatroomid:chatid},function(data){
+                //返回的json数据解码，数据存进data_array
+                var data_array=eval(data);
+                var onlineuserlist=$("#onlineuserlist"+chatid);
+                onlineuserlist.empty();
+                var onlineusername="";
+                for(var k in data_array){
+                    onlineusername=data_array[k]["username"];
+                    onlineuserlist.append("<option value=''>"+onlineusername+"</option>");
+                }
+            })
+        })(chatroomid)
+    }
 }

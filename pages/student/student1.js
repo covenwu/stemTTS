@@ -2,18 +2,17 @@
 1.邮件列表css设置交给凌志威
 2.计划在页面功能基本实现时再设置定时刷新
 */
-
 //-----------------执行部分----------------------------------------------
 //-----------------设置变量---------------------
-//var student_id=1;           //1111 需要动态获取学生id的方法
 //headers数组设置邮件列表的表头    1111可能被取消
+
 var headers = ["邮件列表"];
 //初始时下拉栏状态记录为“主页”
 var listMood="主页";
 //取得用户信息
 getUserInfo();
 getEmailData();
-
+setInterval("updateGetOnlineuser()",2000);
 //-----------------设置点击事件------------------
 //下拉菜单的选项被点击时listMood变量会改变为点击的按钮名（innerHTML),借此区分状态
 $(".listButton").click(function () {
@@ -113,6 +112,23 @@ function submitHomework() {
     $.get("student_submit_homework.php",{text:text},function(data){
         //php文件运行成功返回的data为success
         alert(data);
+    })
+}
+
+//更新在线用户列表的函数
+function updateGetOnlineuser() {
+    //ajax请求
+    $.get("update_get_onlineuser.php",function(data){
+        //返回的json数据解码，数据存进data_array
+        var data_array=eval(data);
+        var onlineuserlist=$("#onlineuserlist");
+        onlineuserlist.empty();
+        var onlineusername="";
+        for(var k in data_array){
+            onlineusername=data_array[k]["username"];
+            onlineuserlist.append("<option value=''>"+onlineusername+"</option>");
+        }
+
     })
 }
 
