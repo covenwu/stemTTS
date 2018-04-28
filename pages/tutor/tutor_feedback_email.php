@@ -6,7 +6,6 @@
 
 //-----------------连接mysql服务器----------------------------------------------
 $link =mysqli_connect('localhost:3306','root','12345678') ;
-//var_dump($link);
 $res=mysqli_set_charset($link,'utf8');
 //设置时区保证时间戳正确
 date_default_timezone_set('PRC');

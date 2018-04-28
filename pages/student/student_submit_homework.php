@@ -2,6 +2,7 @@
 /*
 功能：1.学生提交作业的后台处理
 接口：1.从$_GET和$_SESSION,见下方源代码‘获取接口变量’部分
+        2.homework_history表
 待办：1.classid获取
 */
 //-----------------测试用----------------------------------------------
@@ -23,15 +24,17 @@ $taskidnow=$_SESSION['taskidnow'];
 //$classid=$_SESSION['classid'];                                    11111
 $username=$_SESSION['username'];
 $time=date('Y-m-d H:i:s',time());
-
-
+$groupid=$_SESSION['groupid'];
+$numberingroup=$_SESSION['numberingroup'];
+//echo($taskidnow);
+/*
 //删除对应taskid旧记录
 $query="delete from homework_history where taskid='$taskidnow' AND userid='$userid' ";
-mysqli_query($link,$query);
+mysqli_query($link,$query);*/
 
 //-----------------对应插入新纪录---------------------------------------------
-$query="insert into homework_history(time,classid,userid,username,taskid,homeworkcontent) values('$time'
-          ,'$classid','$userid','$username','$taskidnow','$text')";
+$query="insert into homework_history(time,classid,userid,username,taskid,homeworkcontent,evaluation,groupid,numberingroup) values('$time'
+          ,'$classid','$userid','$username','$taskidnow','$text','批改中','$groupid','$numberingroup')";
 mysqli_query($link,$query);
 
 //回显发送成功提示

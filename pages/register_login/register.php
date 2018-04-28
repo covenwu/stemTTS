@@ -33,12 +33,12 @@
                     <td>重复密码：</td>
                     <td><input type="password" id="re_password" name="re_password" required="required"></td>
                 </tr>
-                <tr>
+               <!-- <tr>
                     <td>身&nbsp;&nbsp;&nbsp;份：</td>
                     <td>
                         <input type="radio" id="role" name="role" value="tutor">教师
                         <input type="radio" id="role" name="role" value="student">学生
-                    </td>
+                    </td>-->
                 </tr>
                 <tr>
                     <td>Email：</td>

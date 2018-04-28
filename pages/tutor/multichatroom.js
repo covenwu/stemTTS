@@ -23,6 +23,7 @@ window.onload = function(){
 
 };
 
+
 function get_chat_data(){
     //ajax请求
     $.get("get_chat_data.php",{maxid:maxid},function(data){
@@ -96,3 +97,4 @@ function updateGetOnlineuser() {
         })(chatroomid)
     }
 }
+

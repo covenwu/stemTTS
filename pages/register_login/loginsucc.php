@@ -48,6 +48,12 @@
         }
         //根据用户身份跳转到不同页面
         if($_SESSION['role']=='student'){
+            $groupid=$_SESSION['groupid'];
+            $query="SELECT(taskidnow) FROM group_attr WHERE groupid='$groupid' limit 1";
+            $ret=mysqli_query($link,$query);
+            $row=mysqli_fetch_assoc($ret);
+            $_SESSION['taskidnow']=$row['taskidnow'];
+            //echo($_SESSION['taskidnow']);
             header("Location:../student/student.html");
         }
         elseif ($_SESSION['role']=="tutor"){
@@ -59,6 +65,7 @@
             foreach ($row as $key => $value){
                 $_SESSION[$key]=$value;
             }
+
             header("Location:../tutor/tutor.html");
         }
 
