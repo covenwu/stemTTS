@@ -1,29 +1,86 @@
 /*
-提示：1.处理按钮颜色及可用
+提示：
 */
+//-----------------常量设置----------------------------------------------
+var GROUPNUM=4;
+var EVALUATIONNUM=4;
 var homework=[];
 var user_info_array=[];
-var GROUPNUM=4;
+
+//--------评价作业时的学生信息
+var stu_group=0;
+var stu_taskid=0;
+var stu_numberingroup=0;
+
 //-----------------执行部分----------------------------------------------
 getUserInfo();
 getHomework();
-/*
-$("#sendemail").click(function () {
-    sendTaskEmail();
-});
-*/
+
 
 //-----------------函数定义部分----------------------------------------------
-/*function sendTaskEmail() {
-    //获取id为emailcontent的输入框中的内容
-    var emailcontent=document.getElementById("emailcontent").value;
+function feedbackEmail() {
+    var emailcontent=document.getElementById("教师反馈").value.trim();
+    if(emailcontent==""){
+        alert("您还没输入评价哦，orz");
+        return(0);
+    }
+    /*
+    alert(emailcontent)
+    if (emailcontent.replace(/(^s*)|(s*$)/g, "").length ==0){
+        alert('不能为空');
+    }
+    value = value.replace('\s+', '');
+    if(value.length > 0) {
+    } else {
+        alert('shit , 全是空格');
+    }
+    check(emailcontent);
+    */
+    if(checkAllGood()){
+        var evaluation="通过";
+    }else{
+        evaluation='待修改';
+    }
+
+    var groupid=user_info_array['group'+stu_group];
     //ajax请求将数据送往后台
-    $.get("php/teacher_feedback_email.php",{id:student_id,taskid:taskid,emailcontent:emailcontent},function(data){
+    $.get("tutor_feedback_email.php",{groupid:groupid,numberingroup:stu_numberingroup,taskid:stu_taskid,emailcontent:emailcontent,evaluation:evaluation},function(data){
         //php文件运行成功返回的data为success
         alert(data);
     })
-}*/
+}
 
+/*
+function check(test) {
+    var input  = /^[\s]*$/;
+    if (input.test(tset)){
+        alert("输入不能为空");
+        return false;
+    }
+*/
+
+function   checkGood(radioName)
+{
+    var obj = document.getElementsByName(radioName);  //这个是以标签的name来取控件
+    for(var i=0; i<obj.length;i++)    {
+        if(obj[i].checked)    {
+            if(obj[i].nextSibling.nodeValue!="好"){
+                //alert(obj[i].nextSibling.nodeValue);
+                return false;
+            }
+        }
+    }
+    return true;
+}
+
+function checkAllGood() {
+    for(var i=0;i<EVALUATIONNUM;i++){
+        if(!checkGood("evaluation"+i)){
+            return false;
+        }
+    }
+    return true;
+}
 //取得作业表存入homework数组
 function getHomework() {
     $.get("get_homework.php",function (data) {
@@ -35,7 +92,7 @@ function getHomework() {
 }
 
 
-//开关查看学生作业界面
+//开关评价学生作业界面
 $(function(){
 })
 function openDialog(){
@@ -54,6 +111,25 @@ function dialog(group,taskid,numberingoup){
             document.getElementById('学生作业').value=homework[i]['homeworkcontent'];
         }
     }
+    stu_group=group;
+    stu_numberingroup=numberingoup;
+    stu_taskid=taskid;
+    //检查作业的批改状态
+    var groupid=user_info_array['group'+stu_group];
+    $.get("check_homework_evaluation.php",{groupid:groupid,numberingroup:stu_numberingroup,taskid:stu_taskid},function (data) {
+        var message=eval(data);
+        var button=$("#feedback");
+        if(message=='作业已通过！'||message=='作业待学生修改！'){
+            var textarea=document.getElementById("教师反馈");
+            textarea.setAttribute('readonly','readonly');
+            textarea.value=message;
+            button.hide();
+        }else{
+            button.show();
+        }
+
+
+    });
     openDialog();
 
 }

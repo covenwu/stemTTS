@@ -209,13 +209,13 @@
         学员作业<br><textarea style="width:200px;height:300px;" id="学生作业"></textarea>
       </div>
       <div style="width:32%;float:left;">
-        <div style="float:top;">STEM课堂教学目标<textarea></textarea><input type="radio">好<input type="radio">中<input type="radio">差</div>
-        <div style="float:top;">STEM任务描述&nbsp&nbsp&nbsp<textarea></textarea><input type="radio">好<input type="radio">中<input type="radio">差</div>
-        <div style="float:top;">STEM课堂教学支架<textarea></textarea><input type="radio">好<input type="radio">中<input type="radio">差</div>
-        <div style="float:top;">STEM学习评价方法<textarea></textarea><input type="radio">好<input type="radio">中<input type="radio">差</div>
+        <div style="float:top;">STEM课堂教学目标<textarea></textarea><input type="radio" name="evaluation1">好<input type="radio" name="evaluation1">中<input type="radio" name="evaluation1">差</div>
+        <div style="float:top;">STEM任务描述&nbsp&nbsp&nbsp<textarea></textarea><input type="radio" name="evaluation2">好<input type="radio" name="evaluation2">中<input type="radio" name="evaluation2">差</div>
+        <div style="float:top;">STEM课堂教学支架<textarea></textarea><input type="radio" name="evaluation3">好<input type="radio" name="evaluation3">中<input type="radio" name="evaluation3">差</div>
+        <div style="float:top;">STEM学习评价方法<textarea></textarea><input type="radio" name="evaluation4">好<input type="radio" name="evaluation4">中<input type="radio" name="evaluation4">差</div>
       </div>
       <div style="width:30%;float:left;"><textarea style="width:200px;height:300px;" id="教师反馈"></textarea>
-        <button>发送邮件</button></div>
+        <button onclick="feedbackEmail()" id="feedback">发送邮件</button></div>
       <a href = "javascript:void(0)" onclick = "closeDialog()">点这里关闭本窗口</a>
     </div> 
         <div id="fade" class="black_overlay"></div> 
