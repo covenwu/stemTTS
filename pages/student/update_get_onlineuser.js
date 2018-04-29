@@ -11,10 +11,10 @@ function updateGetOnlineuser() {
         var onlineuserlist=$("#onlineuserlist");
         onlineuserlist.empty();
         var onlineusername="";
-        for(var k in data_array){
+        /*for(var k in data_array){
             onlineusername=data_array[k]["username"];
             onlineuserlist.append("<option value=''>"+onlineusername+"</option>");
-        }
+        }*/
 
     })
 }

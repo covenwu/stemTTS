@@ -3,6 +3,8 @@
 /*
 
 */
+$NUMBERINGROUP=4;
+$TASKNUM=10;
 
 //-----------------连接mysql服务器----------------------------------------------
 $link =mysqli_connect('localhost:3306','root','12345678') ;
@@ -30,7 +32,23 @@ $classid=$stu_info['classid'];
 $username=$stu_info['username'];
 $userid=$stu_info['userid'];
 
-
+if($evaluation=='通过'){
+    $query="SELECT oknumber,taskidnow FROM group_attr WHERE groupid='$groupid'";
+    mysqli_query($link,$query);
+    $ret=mysqli_query($link,$query);
+    $info_array=mysqli_fetch_assoc($ret);
+    $oknumber=$info_array['oknumber'];
+    $taskidnow=$info_array['taskidnow'];
+    if($oknumber==$NUMBERINGROUP-1){
+        if($taskidnow<=$TASKNUM){
+            $query="UPDATE group_attr SET taskidnow='$taskidnow'+1,oknumber=0 WHERE groupid='$groupid'";
+            mysqli_query($link,$query);
+        }
+    }elseif ($oknumber<$NUMBERINGROUP-1){
+        $query="UPDATE group_attr SET oknumber=oknumber+1 WHERE groupid='$groupid'";
+        mysqli_query($link,$query);
+    }
+}
 
 $query="INSERT into email_history(time,classid,userid,username,emailcontent,taskid) values('$time'
           ,'$classid','$userid','$username','$emailcontent','$taskid')";

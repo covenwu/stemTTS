@@ -27,12 +27,10 @@ $time=date('Y-m-d H:i:s',time());
 $groupid=$_SESSION['groupid'];
 $numberingroup=$_SESSION['numberingroup'];
 //echo($taskidnow);
-/*
-//删除对应taskid旧记录
-$query="delete from homework_history where taskid='$taskidnow' AND userid='$userid' ";
-mysqli_query($link,$query);*/
+
 
 //-----------------对应插入新纪录---------------------------------------------
+
 $query="insert into homework_history(time,classid,userid,username,taskid,homeworkcontent,evaluation,groupid,numberingroup) values('$time'
           ,'$classid','$userid','$username','$taskidnow','$text','批改中','$groupid','$numberingroup')";
 mysqli_query($link,$query);
