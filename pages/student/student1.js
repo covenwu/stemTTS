@@ -120,15 +120,38 @@ function updateGetOnlineuser() {
     //ajax请求
     $.get("update_get_onlineuser.php",function(data){
         //返回的json数据解码，数据存进data_array
+        //alert(data)
         var data_array=eval(data);
-        var onlineuserlist=$("#onlineuserlist");
-        onlineuserlist.empty();
-        var onlineusername="";
-        for(var k in data_array){
+        //var onlineuserlist=$("#onlineuserlist");
+        //var onlineuserlist=document.getElementById("onlineuserlist");
+        //onlineuserlist.empty();
+        var onlineuserlist_str="";
+        /*for(var k in data_array){
             onlineusername=data_array[k]["username"];
             onlineuserlist.append("<option value=''>"+onlineusername+"</option>");
-        }
+        }*/
+        //alert(data_array['student_name'][0])
+       /* for (var k=0;k<data_array['onlineuser_name'].length;k++) {
+            alert(data_array['onlineuser_name'][k]);
+        }*/
+            for (var k=0;k<data_array['student_name'].length;k++){
+            if(jQuery.inArray(data_array['student_name'][k],data_array['onlineuser_name'])!=-1){
+                onlineuserlist_str+=data_array['student_name'][k]+'(在线）<br/>';
+                //alert(data_array['student_name'][k])
+            }else{
+                onlineuserlist_str+=data_array['student_name'][k]+'<br/>';
+                //alert(onlineuserlist_str)
 
-    })
+            }
+        }
+        if(jQuery.inArray(data_array['tutor_name'],data_array['onlineuser_name'])!=-1){
+            onlineuserlist_str+='导师&nbsp'+data_array['tutor_name']+'(在线）';
+        }else{
+            onlineuserlist_str+='导师&nbsp'+data_array['tutor_name'];
+        }
+        document.getElementById("在线列表").innerHTML=onlineuserlist_str;
+        //onlineuserlist.appendChild(onlineuserlist_str);
+        })
 }
 
+//
