@@ -25,11 +25,15 @@
     //选择数据库
     mysqli_query($link,'use database1');
 
-
+    $sid=$_GET['sid'];
+    echo((string)$sid);
+    session_id($sid);
     //开启session
     session_start();
+    echo(session_id());
     //获取变量
-    $emailaddress= isset($_SESSION['emailaddress'])?$_SESSION['emailaddress']:"";
+   $emailaddress= isset($_SESSION['emailaddress'])?$_SESSION['emailaddress']:"";
+    //$userid=isset($_SESSION['userid'])?$_SESSION['userid']:"";
     //判断session是否为空
     if(!empty($emailaddress)){
         ?>
@@ -54,7 +58,7 @@
             $row=mysqli_fetch_assoc($ret);
             $_SESSION['taskidnow']=$row['taskidnow'];
             //echo($_SESSION['taskidnow']);
-            header("Location:../student/student.html");
+            header("Location:../student/student.html?sid=".$sid);                                 //1111
         }
         elseif ($_SESSION['role']=="tutor"){
             $userid=$_SESSION['userid'];

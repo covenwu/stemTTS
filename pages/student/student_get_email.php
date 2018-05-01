@@ -9,8 +9,11 @@ $res=mysqli_set_charset($link,'utf8');
 //选择数据库
 mysqli_query($link,'use database1');
 
-session_start();
 //-----------------获取接口变量----------------------------------------------
+$sid=$_GET['sid'];
+session_id($sid);
+session_start();
+
 $userid=$_SESSION['userid'];
 
 //查询数据

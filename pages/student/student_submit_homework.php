@@ -6,7 +6,6 @@
 待办：1.classid获取
 */
 //-----------------测试用----------------------------------------------
-$classid=1;
 
 //-----------------连接mysql服务器----------------------------------------------
 $link =mysqli_connect('localhost:3306','root','12345678') ;
@@ -16,12 +15,14 @@ date_default_timezone_set('PRC');
 //选择数据库
 mysqli_query($link,'use database1');
 
-session_start();
 //-----------------获取接口变量----------------------------------------------
+$sid=$_GET['sid'];
+session_id($sid);
+session_start();
 $text=$_GET["text"];
 $userid=$_SESSION['userid'];
 $taskidnow=$_SESSION['taskidnow'];
-//$classid=$_SESSION['classid'];                                    11111
+$classid=$_SESSION['classid'];                      //1111
 $username=$_SESSION['username'];
 $time=date('Y-m-d H:i:s',time());
 $groupid=$_SESSION['groupid'];

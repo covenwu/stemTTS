@@ -9,6 +9,7 @@
 var headers = ["邮件列表"];
 //初始时下拉栏状态记录为“主页”
 var listMood="主页";
+var sid=getQueryString("sid");
 //取得用户信息
 getUserInfo();
 getEmailData();
@@ -31,9 +32,21 @@ $("#登录").click(function () {
 
 
 //-----------------函数定义部分----------------------------------------------
+
+//1111
+
+//获取get传值的方法
+function getQueryString(name) {
+    var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+    var r = window.location.search.substr(1).match(reg);
+    if (r != null) return decodeURI(r[2]);
+    return null;
+}
+
+
 //从session中取得用户信息到js
 function getUserInfo() {
-    $.get("get_user_info.php",function(data){
+    $.get("get_user_info.php",{sid:sid},function(data){
         //返回的json数据解码，数据存进user_info_array
         user_info_array=eval(data);
     })
@@ -42,7 +55,7 @@ function getUserInfo() {
 //从数据库取得邮件数据并生成列表的函数
 function getEmailData(){
     //ajax请求
-    $.get("student_get_email.php",function(data){
+    $.get("student_get_email.php",{sid:sid},function(data){
         //返回的json数据解码，数据存进data_array
         var data_array=eval(data);
         //eamil为显示邮件列表的div元素
@@ -109,7 +122,7 @@ function changeListMood(mood) {
 //提交作业到后台写入数据库的函数
 function submitHomework() {
     var text=document.getElementById("emailcontent").value;
-    $.get("student_submit_homework.php",{text:text},function(data){
+    $.get("student_submit_homework.php",{text:text,sid:sid},function(data){
         //php文件运行成功返回的data为success
         alert(data);
     })
@@ -118,7 +131,7 @@ function submitHomework() {
 //更新在线用户列表的函数
 function updateGetOnlineuser() {
     //ajax请求
-    $.get("update_get_onlineuser.php",function(data){
+    $.get("update_get_onlineuser.php",{sid:sid},function(data){
         //返回的json数据解码，数据存进data_array
         //alert(data)
         var data_array=eval(data);

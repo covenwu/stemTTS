@@ -20,8 +20,10 @@ date_default_timezone_set('PRC');
 //选择数据库
 mysqli_query($link,'use database1');
 
-session_start();
 //-----------------获取接口变量----------------------------------------------
+$sid=$_GET['sid'];
+session_id($sid);
+session_start();
 $userid=$_SESSION['userid'];
 $username=$_SESSION['username'];
 $groupid=$_SESSION['groupid'];

@@ -19,11 +19,12 @@ if(!empty($emailaddress)&&!empty($password)) {
     //选择数据库
     mysqli_query($link,'use database1');
     //准备SQL语句
-    $query_select = "SELECT emailaddress,password FROM account WHERE emailaddress = '$emailaddress' AND password = '$password'";
+    $query_select = "SELECT emailaddress,password,userid FROM account WHERE emailaddress = '$emailaddress' AND password = '$password'";
     //执行SQL语句
     $ret = mysqli_query($link,$query_select);
     $row = mysqli_fetch_array($ret);
 
+    $userid=$row['userid'];
     //判断用户名或密码是否正确
     if($emailaddress==$row['emailaddress']&&$password==$row['password']) {
         //选中“记住我”
@@ -31,16 +32,28 @@ if(!empty($emailaddress)&&!empty($password)) {
             //创建cookie
             setcookie("emailaddress", $emailaddress, time()+7*24*3600);
         }
+
+        //1111
+        $sid="sid".$userid;
+        session_id($sid);
+
         session_start();
+
+        //1111
+        //$sid=session_id();
+
+
+
         $_SESSION['emailaddress']=$emailaddress;
         //开启session
 
         /*$query_insert = "INSERT INTO deng(emailaddress) VALUES('$emailaddress')";
         mysqli_query($link,$query_insert);
         //日志写入文件，如实现此功能，需要创建文件目录logs        11111*/
-
+        $destination="Location:loginsucc.php?sid=".$sid;
         //跳转到loginsucc.php页面
-        header("Location:loginsucc.php");
+        //header("Location:loginsucc.php?sid='$sid'");       //1111
+        header($destination);
         //关闭数据库
         mysqli_close($link);
     }else {

@@ -5,8 +5,7 @@
 待办：
 */
 //-----------------测试用----------------------------------------------
-
-
+//var sid=getQueryString("sid");
 //-----------------执行部分----------------------------------------------
 //-----------------设置变量---------------------
 // 记录当前获取到的消息id的最大值，防止获取到重复的信息
@@ -22,6 +21,15 @@ window.onload = function(){
 
 
 //-----------------函数定义部分----------------------------------------------
+
+//获取get传值的方法
+function getQueryString(name) {
+    var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+    var r = window.location.search.substr(1).match(reg);
+    if (r != null) return decodeURI(r[2]);
+    return null;
+}
+
 //显示聊天内容的函数
 function showmessage(){
     //ajax请求
@@ -48,7 +56,7 @@ function showmessage(){
             showmessage.scrollTop = showmessage.scrollHeight-showmessage.style.height;
         }
     };
-    ajax.open('get','./chatroom.php?maxId='+maxId);
+    ajax.open('get','./chatroom.php?maxId='+maxId+'&sid='+sid);
     ajax.send(null);
 }
 
@@ -57,6 +65,7 @@ function send(){
     var form = document.getElementById('chatform');
     //将取得的表单数据转换为formdata形式，在php中以$_POST['name']形式引用
     var formdata = new FormData(form);
+    formdata.append('sid',sid);
     //ajax请求
     var xhr = new XMLHttpRequest();
     xhr.onreadystatechange = function(){

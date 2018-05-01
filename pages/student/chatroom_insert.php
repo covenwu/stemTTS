@@ -22,9 +22,13 @@ if($_POST['msg']==""){
     exit;
 }
 
-//开启session
-session_start();
+
 //-----------------获取接口变量----------------------------------------------
+//开启session
+$sid=$_POST['sid'];
+
+session_id($sid);
+session_start();
 $msg=$_POST['msg'];
 $sender=$_SESSION['username'];
 //$groupid=$_SESSION['groupid']                                             1111
