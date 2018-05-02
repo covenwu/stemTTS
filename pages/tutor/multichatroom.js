@@ -26,7 +26,7 @@ window.onload = function(){
 
 function get_chat_data(){
     //ajax请求
-    $.get("get_chat_data.php",{maxid:maxid},function(data){
+    $.get("get_chat_data.php",{sid:sid,maxid:maxid},function(data){
         //返回的json数据解码，数据存进data_array
         var data_array=eval(data);
         var s="";
@@ -58,6 +58,8 @@ function send(chatroomid) {
     //将取得的表单数据转换为formdata形式，在php中以$_POST['name']形式引用
     var formdata = new FormData(form);
     formdata.append('chatroomid',chatroomid);
+    formdata.append('sid',sid);
+
     //ajax请求
     var xhr = new XMLHttpRequest();
     xhr.onreadystatechange = function(){
@@ -83,7 +85,7 @@ function updateGetOnlineuser() {
     for (chatroomid=0;chatroomid<4;chatroomid++){
         (function (chatid) {
             //ajax请求
-            $.get("update_get_onlineuser.php",{chatroomid:chatid},function(data){
+            $.get("update_get_onlineuser.php",{sid:sid,chatroomid:chatid},function(data){
                 //返回的json数据解码，数据存进data_array
                 var data_array=eval(data);
                 var onlineuserlist=$("#onlineuserlist"+chatid);

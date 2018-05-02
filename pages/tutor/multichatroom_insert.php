@@ -16,9 +16,12 @@ mysqli_query($link,'use database1');
 
 //-----------------测试部分----------------------------------------------
 //$groupid=1;
-
-session_start();
 //-----------------获取接口变量----------------------------------------------
+
+$sid=$_POST['sid'];
+
+session_id($sid);
+session_start();
 $username=$_SESSION['username'];
 $msg=$_POST['msg'];
 $groupid=$_SESSION['group'.$_POST['chatroomid']];

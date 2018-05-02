@@ -70,7 +70,7 @@
                 $_SESSION[$key]=$value;
             }
 
-            header("Location:../tutor/tutor.html");
+            header("Location:../tutor/tutor.html?sid=".$sid);
         }
 
         ?>

@@ -6,6 +6,7 @@ var GROUPNUM=4;
 var EVALUATIONNUM=4;
 var homework=[];
 var user_info_array=[];
+var sid=getQueryString("sid");
 
 //--------评价作业时的学生信息
 var stu_group=0;
@@ -18,6 +19,15 @@ getHomework();
 
 
 //-----------------函数定义部分----------------------------------------------
+
+//获取get传值的方法
+function getQueryString(name) {
+    var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+    var r = window.location.search.substr(1).match(reg);
+    if (r != null) return decodeURI(r[2]);
+    return null;
+}
+
 function feedbackEmail() {
     var emailcontent=document.getElementById("教师反馈").value.trim();
     if(emailcontent==""){
@@ -36,10 +46,14 @@ function feedbackEmail() {
     }
     check(emailcontent);
     */
-    if(checkAllGood()){
+    // checkallgood 统计所有评价选项   0有中或差  1全为好 2评价没选全
+    var checkallgood=checkAllGood();
+    if(checkallgood==1){
         var evaluation="通过";
-    }else{
+    }else if(checkallgood==0){
         evaluation='待修改';
+    }else {
+        return false;
     }
 
     var groupid=user_info_array['group'+stu_group];
@@ -59,33 +73,53 @@ function check(test) {
     }
 */
 
+//检查一项评价选择的是‘好中差’  0中或差  1好 2未选择
 function   checkGood(radioName)
 {
     var obj = document.getElementsByName(radioName);  //这个是以标签的name来取控件
+    var uncheckednum=0;
     for(var i=0; i<obj.length;i++)    {
         if(obj[i].checked)    {
             if(obj[i].nextSibling.nodeValue!="好"){
                 //alert(obj[i].nextSibling.nodeValue);
-                return false;
+                return 0;
+            }
+        }else{
+            uncheckednum++;
+            if(uncheckednum==3){
+                return 2;
             }
         }
     }
-    return true;
+    return 1;
 }
 
+//统计所有评价选项   0有中或差  1全为好 2评价没选全
 function checkAllGood() {
-    for(var i=0;i<EVALUATIONNUM;i++){
+    /*for(var i=0;i<EVALUATIONNUM;i++){
         if(!checkGood("evaluation"+i)){
             return false;
         }
+    }*/
+    var check_result=0;
+    for(var i=0;i<EVALUATIONNUM;i++){
+        check_result=checkGood("evaluation"+i);
+        if(check_result==2){
+            alert("评价选项没选全哦，orz");
+            return 2;
+        }else if(check_result==0){
+            return 0;
+        }
     }
-    return true;
+    return 1;
 }
 //取得作业表存入homework数组
 function getHomework() {
-    $.get("get_homework.php",function (data) {
+    $.get("get_homework.php",{sid:sid},function (data) {
         //此处解析不能通过alert来查看，但可以直接使用
+
         homework=eval(data);
+
         buttonControl();
 
     })
@@ -119,12 +153,15 @@ function dialog(group,taskid,numberingoup){
     $.get("check_homework_evaluation.php",{groupid:groupid,numberingroup:stu_numberingroup,taskid:stu_taskid},function (data) {
         var message=eval(data);
         var button=$("#feedback");
+        var textarea=document.getElementById("教师反馈");
         if(message=='作业已通过！'||message=='作业待学生修改！'){
-            var textarea=document.getElementById("教师反馈");
+
             textarea.setAttribute('readonly','readonly');
             textarea.value=message;
             button.hide();
         }else{
+            textarea.value="";
+            textarea.removeAttribute('readonly')
             button.show();
         }
 
@@ -136,16 +173,23 @@ function dialog(group,taskid,numberingoup){
 
 //取得$_SESSION中的用户信息
 function getUserInfo() {
-    $.get("../all/get_user_info.php",function(data){
+    $.get("../all/get_user_info.php",{sid:sid},function(data){
         //返回的json数据解码，数据存进user_info_array
         user_info_array=eval(data);
     })
 }
 
 function buttonControl() {
-    for(var i=0;i<homework.length;i++){
+    //alert(homework[6]['homeworkcontent'])
+   /* for(var i=0;i<homework.length;i++){
+        alert(homework[i]['homeworkcontent'])
+    }*/
+
+        for(var i=0;i<homework.length;i++){
+        //alert(homework[i]['homeworkcontent'])
         var groupid=transferGroupid(homework[i]['groupid']);
         var taskid=homework[i]['taskid'];
+        //alert(homework[i]['homeworkcontent'])
         var numberingroup=homework[i]['numberingroup'];
         //var id=groupid+" "+taskid+" "+numberingroup;
         var id=String(groupid)+String(taskid)+String(numberingroup);

@@ -17,8 +17,10 @@ date_default_timezone_set('PRC');
 //选择数据库OFFLINETIME=60;
 mysqli_query($link,'use database1');
 
-session_start();
 //-----------------获取接口变量----------------------------------------------
+$sid=$_GET['sid'];
+session_id($sid);
+session_start();
 $chatroomid=$_GET['chatroomid'];
 $userid=$_SESSION['userid'];
 $username=$_SESSION['username'];
