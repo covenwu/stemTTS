@@ -19,12 +19,40 @@ setInterval("updateGetOnlineuser()",2000);
 $(".listButton").click(function () {
     changeListMood(this.innerHTML)
 });
-//设置切换到笔记本模式时输入框清空，提示“请输入”
+//设置切换到笔记本模式时输入框清空，依据当前作业评价状态提示“请输入”，或禁止输入
 $("#笔记本").click(function () {
-    document.getElementById("emailcontent").value="请输入作业内容";
+    $.get("get_homework_evaluation.php",{sid:sid},function(data){
+        //返回的json数据解码，数据存进user_info_array
+        //alert(data)
+        var evaluation=eval(data);
+        var submitbutton=document.getElementById('提交作业');
+        //alert(evaluation_array)
+        //var evaluation=evaluation_array['evaluation'];      //111
+        var textarea=document.getElementById('emailcontent');
+        if(evaluation=='未提交'||evaluation=='待修改'){
+            //document.getElementById("emailcontent").value="请输入作业内容";
+            textarea.value="请输入作业内容";
+            textarea.removeAttribute('readonly');
+            submitbutton.removeAttribute('disabled');
+        }
+        else if(evaluation=='批改中'){
+            //document.getElementById("emailcontent").value="作业待教师批改";
+            textarea.setAttribute('readonly','readonly');
+            textarea.value="作业待教师批改";
+            submitbutton.setAttribute('disabled','disabled');
+        }
+        else if(evaluation=='通过'){
+            //document.getElementById("emailcontent").value="您的作业已通过，等待小组其他成员通过后系统将下发下一个任务";
+            textarea.value="您的作业已通过，等待小组其他成员通过后系统将下发下一个任务";
+            textarea.setAttribute('readonly','readonly');
+            submitbutton.setAttribute('disabled','disabled');
+
+        }
+    })
+    //document.getElementById("emailcontent").value="请输入作业内容";
 });
-//登录按钮暂用于测试,此处应换为提交作业按钮
-$("#登录").click(function () {
+//提交作业按钮暂用于测试,此处应换为提交作业按钮
+$("#提交作业").click(function () {
     if(listMood=="笔记本"){
         submitHomework();
     }
@@ -121,6 +149,8 @@ function changeListMood(mood) {
 
 //提交作业到后台写入数据库的函数
 function submitHomework() {
+    //先禁用按钮，防止重复提交
+    document.getElementById('提交作业').setAttribute('disabled','disabled');
     var text=document.getElementById("emailcontent").value;
     $.get("student_submit_homework.php",{text:text,sid:sid},function(data){
         //php文件运行成功返回的data为success

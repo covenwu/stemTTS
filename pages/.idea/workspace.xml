@@ -17,8 +17,8 @@
       <file leaf-file-name="login.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/register_login/login.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="207">
-              <caret line="24" column="30" lean-forward="true" selection-start-line="24" selection-start-column="30" selection-end-line="24" selection-end-column="30" />
+            <state relative-caret-position="552">
+              <caret line="39" column="25" lean-forward="true" selection-start-line="39" selection-start-column="25" selection-end-line="39" selection-end-column="25" />
               <folding />
             </state>
           </provider>
@@ -27,11 +27,86 @@
       <file leaf-file-name="tutor.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tutor/tutor.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1495">
-              <caret line="108" column="21" lean-forward="false" selection-start-line="108" selection-start-column="21" selection-end-line="108" selection-end-column="21" />
+            <state relative-caret-position="437">
+              <caret line="38" column="0" lean-forward="false" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
               <folding>
                 <element signature="n#!!block;n#getQueryString#0" expanded="false" />
-                <element signature="n#!!block;n#dialog#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="student_submit_homework.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/student/student_submit_homework.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="392">
+              <caret line="31" column="0" lean-forward="true" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
+              <folding>
+                <marker date="1525259229722" expanded="true" signature="975:1069" ph="SELECT evalu... homework_history" />
+                <marker date="1525259229722" expanded="true" signature="1231:1259" ph="DELETE FROM homework_history... " />
+                <marker date="1525259229722" expanded="true" signature="1231:1314" ph="DELETE FROM homework_history... " />
+                <marker date="1525259229722" expanded="true" signature="1360:1589" ph="insert into homework_history... " />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="student.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/student/student.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="592">
+              <caret line="152" column="37" lean-forward="true" selection-start-line="152" selection-start-column="37" selection-end-line="152" selection-end-column="37" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="tutor.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/tutor/tutor.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="461">
+              <caret line="217" column="55" lean-forward="false" selection-start-line="217" selection-start-column="55" selection-end-line="217" selection-end-column="55" />
+              <folding>
+                <element signature="n#style#0;n#head#0;n#html#0;n#!!top" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="student1.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/student/student1.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="438">
+              <caret line="151" column="18" lean-forward="false" selection-start-line="151" selection-start-column="18" selection-end-line="151" selection-end-column="18" />
+              <folding>
+                <element signature="n#!!doc" expanded="true" />
+                <element signature="n#!!block;n#getQueryString#0" expanded="false" />
+                <element signature="n#!!block;n#changeListMood#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="get_homework_evaluation.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/student/get_homework_evaluation.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="414">
+              <caret line="18" column="44" lean-forward="true" selection-start-line="18" selection-start-column="44" selection-end-line="18" selection-end-column="44" />
+              <folding>
+                <marker date="1525258013035" expanded="true" signature="427:521" ph="SELECT evalu... homework_history" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="student_get_email.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/student/student_get_email.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="690">
+              <caret line="33" column="0" lean-forward="true" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
+              <folding>
+                <marker date="1525260875478" expanded="true" signature="493:567" ph="select time,... " />
+                <marker date="1525260875478" expanded="true" signature="668:729" ph="SELECT email... task_email" />
               </folding>
             </state>
           </provider>
@@ -50,100 +125,18 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="student_submit_homework.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/student/student_submit_homework.php">
+      <file leaf-file-name="tutor_feedback_email.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/tutor/tutor_feedback_email.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="415">
-              <caret line="28" column="42" lean-forward="true" selection-start-line="28" selection-start-column="42" selection-end-line="28" selection-end-column="42" />
+            <state relative-caret-position="644">
+              <caret line="47" column="84" lean-forward="true" selection-start-line="47" selection-start-column="84" selection-end-line="47" selection-end-column="84" />
               <folding>
-                <marker date="1525183603838" expanded="true" signature="964:1193" ph="insert into homework_history... " />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="tutor.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/tutor/tutor.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="424">
-              <caret line="53" column="95" lean-forward="false" selection-start-line="53" selection-start-column="95" selection-end-line="53" selection-end-column="95" />
-              <folding>
-                <element signature="n#style#0;n#head#0;n#html#0;n#!!top" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="get_homework.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/tutor/get_homework.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="207">
-              <caret line="9" column="16" lean-forward="true" selection-start-line="9" selection-start-column="16" selection-end-line="9" selection-end-column="16" />
-              <folding>
-                <marker date="1525227043506" expanded="true" signature="414:469" ph="SELECT * FRO... homework_history" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="student1.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/student/student1.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-733">
-              <caret line="11" column="30" lean-forward="true" selection-start-line="11" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
-              <folding>
-                <element signature="n#!!block;n#getQueryString#0" expanded="false" />
-                <element signature="n#!!block;n#getUserInfo#0" expanded="false" />
-                <element signature="n#!!block;n#getEmailData#0" expanded="false" />
-                <element signature="n#!!block;n#creatTable#0" expanded="false" />
-                <element signature="n#!!block;n#changeListMood#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="update_get_onlineuser.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/tutor/update_get_onlineuser.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="460">
-              <caret line="25" column="32" lean-forward="true" selection-start-line="25" selection-start-column="32" selection-end-line="25" selection-end-column="32" />
-              <folding>
-                <marker date="1525227043669" expanded="true" signature="827:906" ph="delete from onlineuser... " />
-                <marker date="1525227043669" expanded="true" signature="977:1044" ph="delete from onlineuser... " />
-                <marker date="1525227043669" expanded="true" signature="1091:1192" ph="insert into onlineuser... " />
-                <marker date="1525227043669" expanded="true" signature="1246:1309" ph="select useri... onlineuser" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="multichatroom.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/tutor/multichatroom.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="415">
-              <caret line="89" column="42" lean-forward="true" selection-start-line="89" selection-start-column="42" selection-end-line="89" selection-end-column="42" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="update_get_onlineuser.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/student/update_get_onlineuser.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="166">
-              <caret line="23" column="0" lean-forward="false" selection-start-line="23" selection-start-column="0" selection-end-line="24" selection-end-column="17" />
-              <folding>
-                <marker date="1525183603807" expanded="true" signature="880:959" ph="delete from onlineuser... " />
-                <marker date="1525183603807" expanded="true" signature="1030:1075" ph="delete from onlineuser... " />
-                <marker date="1525183603807" expanded="true" signature="1122:1223" ph="insert into onlineuser... " />
-                <marker date="1525183603807" expanded="true" signature="1277:1333" ph="select useri... onlineuser" />
-                <marker date="1525183603807" expanded="true" signature="1577:1611" ph="SELECT class... account" />
-                <marker date="1525183603807" expanded="true" signature="1577:1627" ph="SELECT class... account" />
-                <marker date="1525183603807" expanded="true" signature="1577:1635" ph="SELECT class... account" />
-                <marker date="1525183603807" expanded="true" signature="1762:1778" ph="SELECT usern... " />
-                <marker date="1525183603807" expanded="true" signature="1762:1821" ph="SELECT usern... account" />
-                <marker date="1525183603807" expanded="true" signature="1762:1846" ph="SELECT usern... account" />
-                <marker date="1525183603807" expanded="true" signature="1991:2044" ph="SELECT usern... account" />
+                <marker date="1524978925553" expanded="true" signature="689:792" ph="SELECT useri... account" />
+                <marker date="1524978925553" expanded="true" signature="993:1059" ph="SELECT oknum... group_attr" />
+                <marker date="1524978925553" expanded="true" signature="1344:1426" ph="UPDATE group_attr... " />
+                <marker date="1524978925553" expanded="true" signature="1537:1603" ph="UPDATE group_attr... " />
+                <marker date="1524978925553" expanded="true" signature="1659:1820" ph="INSERT into email_history... " />
+                <marker date="1524978925553" expanded="true" signature="1860:1956" ph="UPDATE homework_history... " />
               </folding>
             </state>
           </provider>
@@ -167,6 +160,8 @@
       <find>opendialog()</find>
       <find>0</find>
       <find>type=&quot;radio&quot;</find>
+      <find>登录</find>
+      <find>登</find>
     </findStrings>
     <replaceStrings>
       <replace>emailaddress</replace>
@@ -175,12 +170,12 @@
       <replace>dialog()</replace>
       <replace>1</replace>
       <replace>type=&quot;radio&quot; name=&quot;evaluation'</replace>
+      <replace>提交作业</replace>
     </replaceStrings>
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/student_get_email.php" />
         <option value="$PROJECT_DIR$/student.js" />
         <option value="$PROJECT_DIR$/submit_homework.php" />
         <option value="$PROJECT_DIR$/php/teacher_feedback_email.php" />
@@ -213,15 +208,11 @@
         <option value="$PROJECT_DIR$/tutor/tutor_feedback_email.php" />
         <option value="$PROJECT_DIR$/register_login/test.php" />
         <option value="$PROJECT_DIR$/student/test.js" />
-        <option value="$PROJECT_DIR$/student/student.html" />
         <option value="$PROJECT_DIR$/register_login/loginaction.php" />
-        <option value="$PROJECT_DIR$/student/student_get_email.php" />
         <option value="$PROJECT_DIR$/all/get_user_info.php" />
         <option value="$PROJECT_DIR$/student/chatroom.js" />
         <option value="$PROJECT_DIR$/student/chatroom_insert.php" />
         <option value="$PROJECT_DIR$/student/chatroom.php" />
-        <option value="$PROJECT_DIR$/student/student_submit_homework.php" />
-        <option value="$PROJECT_DIR$/student/student1.js" />
         <option value="$PROJECT_DIR$/student/update_get_onlineuser.php" />
         <option value="$PROJECT_DIR$/register_login/loginsucc.php" />
         <option value="$PROJECT_DIR$/tutor/get_homework.php" />
@@ -229,6 +220,11 @@
         <option value="$PROJECT_DIR$/tutor/multichatroom_insert.php" />
         <option value="$PROJECT_DIR$/tutor/multichatroom.js" />
         <option value="$PROJECT_DIR$/tutor/update_get_onlineuser.php" />
+        <option value="$PROJECT_DIR$/student/get_homework_evaluation.php" />
+        <option value="$PROJECT_DIR$/student/student.html" />
+        <option value="$PROJECT_DIR$/student/student1.js" />
+        <option value="$PROJECT_DIR$/student/student_submit_homework.php" />
+        <option value="$PROJECT_DIR$/student/student_get_email.php" />
         <option value="$PROJECT_DIR$/tutor/tutor.html" />
         <option value="$PROJECT_DIR$/tutor/tutor.js" />
       </list>
@@ -379,7 +375,7 @@
       <workItem from="1524919811534" duration="7212000" />
       <workItem from="1524952840644" duration="10862000" />
       <workItem from="1525098041896" duration="4668000" />
-      <workItem from="1525179656430" duration="9879000" />
+      <workItem from="1525179656430" duration="17467000" />
     </task>
     <servers />
   </component>
@@ -389,7 +385,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="163868000" />
+    <option name="totallyTimeSpent" value="171456000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1048" extended-state="7" />
@@ -429,13 +425,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/register_login/logout.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/student_get_email.php" />
     <entry file="file://$PROJECT_DIR$/php/teacher_feedback_email.php" />
     <entry file="file://$PROJECT_DIR$/js/chatroom.js" />
@@ -484,31 +473,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/register_login/register.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="322">
-          <caret line="39" column="84" lean-forward="false" selection-start-line="39" selection-start-column="84" selection-end-line="39" selection-end-column="84" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/student/update_get_onlineuser.js" />
-    <entry file="file://$PROJECT_DIR$/tutor/tutor_feedback_email.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-298">
-          <caret line="17" column="71" lean-forward="true" selection-start-line="17" selection-start-column="71" selection-end-line="17" selection-end-column="71" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/register_login/test.php" />
     <entry file="file://$PROJECT_DIR$/student/test.js" />
-    <entry file="file://$PROJECT_DIR$/student/student.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="622">
-          <caret line="150" column="0" lean-forward="false" selection-start-line="150" selection-start-column="0" selection-end-line="150" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/student/chatroom.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="368">
@@ -529,32 +496,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/register_login/loginsucc.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="392">
-          <caret line="74" column="0" lean-forward="true" selection-start-line="74" selection-start-column="0" selection-end-line="74" selection-end-column="0" />
-          <folding>
-            <marker date="1525226246817" expanded="true" signature="1269:1333" ph="SELECT * FRO... account" />
-            <marker date="1525226246817" expanded="true" signature="2241:2291" ph="SELECT * FRO... teacher_group" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/tutor/multichatroom.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/student/student_get_email.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="322">
-          <caret line="17" column="0" lean-forward="true" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
-          <folding>
-            <marker date="1525182321539" expanded="true" signature="458:532" ph="select time,... " />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -647,14 +593,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/register_login/login.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="207">
-          <caret line="24" column="30" lean-forward="true" selection-start-line="24" selection-start-column="30" selection-end-line="24" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/tutor/get_homework.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="207">
@@ -665,26 +603,34 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tutor/tutor.html">
+    <entry file="file://$PROJECT_DIR$/register_login/register.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="424">
-          <caret line="53" column="95" lean-forward="false" selection-start-line="53" selection-start-column="95" selection-end-line="53" selection-end-column="95" />
+        <state relative-caret-position="322">
+          <caret line="39" column="84" lean-forward="false" selection-start-line="39" selection-start-column="84" selection-end-line="39" selection-end-column="84" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/register_login/loginsucc.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="695">
+          <caret line="74" column="0" lean-forward="true" selection-start-line="74" selection-start-column="0" selection-end-line="74" selection-end-column="0" />
           <folding>
-            <element signature="n#style#0;n#head#0;n#html#0;n#!!top" expanded="false" />
+            <marker date="1525226246817" expanded="true" signature="1269:1333" ph="SELECT * FRO... account" />
+            <marker date="1525226246817" expanded="true" signature="2241:2291" ph="SELECT * FRO... teacher_group" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/student/student1.js">
+    <entry file="file://$PROJECT_DIR$/student/student_submit_homework.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-733">
-          <caret line="11" column="30" lean-forward="true" selection-start-line="11" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+        <state relative-caret-position="392">
+          <caret line="31" column="0" lean-forward="true" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
           <folding>
-            <element signature="n#!!block;n#getQueryString#0" expanded="false" />
-            <element signature="n#!!block;n#getUserInfo#0" expanded="false" />
-            <element signature="n#!!block;n#getEmailData#0" expanded="false" />
-            <element signature="n#!!block;n#creatTable#0" expanded="false" />
-            <element signature="n#!!block;n#changeListMood#0" expanded="false" />
+            <marker date="1525259229722" expanded="true" signature="975:1069" ph="SELECT evalu... homework_history" />
+            <marker date="1525259229722" expanded="true" signature="1231:1259" ph="DELETE FROM homework_history... " />
+            <marker date="1525259229722" expanded="true" signature="1231:1314" ph="DELETE FROM homework_history... " />
+            <marker date="1525259229722" expanded="true" signature="1360:1589" ph="insert into homework_history... " />
           </folding>
         </state>
       </provider>
@@ -700,23 +646,86 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tutor/tutor.js">
+    <entry file="file://$PROJECT_DIR$/student/get_homework_evaluation.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1495">
-          <caret line="108" column="21" lean-forward="false" selection-start-line="108" selection-start-column="21" selection-end-line="108" selection-end-column="21" />
+        <state relative-caret-position="414">
+          <caret line="18" column="44" lean-forward="true" selection-start-line="18" selection-start-column="44" selection-end-line="18" selection-end-column="44" />
           <folding>
-            <element signature="n#!!block;n#getQueryString#0" expanded="false" />
-            <element signature="n#!!block;n#dialog#0" expanded="false" />
+            <marker date="1525258013035" expanded="true" signature="427:521" ph="SELECT evalu... homework_history" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/student/student_submit_homework.php">
+    <entry file="file://$PROJECT_DIR$/register_login/login.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="415">
-          <caret line="28" column="42" lean-forward="true" selection-start-line="28" selection-start-column="42" selection-end-line="28" selection-end-column="42" />
+        <state relative-caret-position="552">
+          <caret line="39" column="25" lean-forward="true" selection-start-line="39" selection-start-column="25" selection-end-line="39" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/student/student.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="592">
+          <caret line="152" column="37" lean-forward="true" selection-start-line="152" selection-start-column="37" selection-end-line="152" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tutor/tutor.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="461">
+          <caret line="217" column="55" lean-forward="false" selection-start-line="217" selection-start-column="55" selection-end-line="217" selection-end-column="55" />
           <folding>
-            <marker date="1525183603838" expanded="true" signature="964:1193" ph="insert into homework_history... " />
+            <element signature="n#style#0;n#head#0;n#html#0;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/student/student1.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="438">
+          <caret line="151" column="18" lean-forward="false" selection-start-line="151" selection-start-column="18" selection-end-line="151" selection-end-column="18" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+            <element signature="n#!!block;n#getQueryString#0" expanded="false" />
+            <element signature="n#!!block;n#changeListMood#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tutor/tutor.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="437">
+          <caret line="38" column="0" lean-forward="false" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
+          <folding>
+            <element signature="n#!!block;n#getQueryString#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tutor/tutor_feedback_email.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="644">
+          <caret line="47" column="84" lean-forward="true" selection-start-line="47" selection-start-column="84" selection-end-line="47" selection-end-column="84" />
+          <folding>
+            <marker date="1524978925553" expanded="true" signature="689:792" ph="SELECT useri... account" />
+            <marker date="1524978925553" expanded="true" signature="993:1059" ph="SELECT oknum... group_attr" />
+            <marker date="1524978925553" expanded="true" signature="1344:1426" ph="UPDATE group_attr... " />
+            <marker date="1524978925553" expanded="true" signature="1537:1603" ph="UPDATE group_attr... " />
+            <marker date="1524978925553" expanded="true" signature="1659:1820" ph="INSERT into email_history... " />
+            <marker date="1524978925553" expanded="true" signature="1860:1956" ph="UPDATE homework_history... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/student/student_get_email.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="690">
+          <caret line="33" column="0" lean-forward="true" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
+          <folding>
+            <marker date="1525260875478" expanded="true" signature="493:567" ph="select time,... " />
+            <marker date="1525260875478" expanded="true" signature="668:729" ph="SELECT email... task_email" />
           </folding>
         </state>
       </provider>

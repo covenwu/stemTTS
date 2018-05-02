@@ -29,9 +29,13 @@ function getQueryString(name) {
 }
 
 function feedbackEmail() {
+
+
+
     var emailcontent=document.getElementById("教师反馈").value.trim();
     if(emailcontent==""){
         alert("您还没输入评价哦，orz");
+        //submitbutton.removeAttribute('disabled');
         return(0);
     }
     /*

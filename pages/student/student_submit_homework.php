@@ -31,6 +31,16 @@ $numberingroup=$_SESSION['numberingroup'];
 
 
 //-----------------对应插入新纪录---------------------------------------------
+//此处可移至前端完成
+$query="SELECT evaluation FROM homework_history WHERE userid='$userid' AND taskid='$taskidnow' limit 1";
+$ret=mysqli_query($link,$query);
+$evaluation_array=mysqli_fetch_assoc($ret);
+$evaluation=$evaluation_array['evaluation'];
+
+if($evaluation=='待修改'){
+    $query="DELETE FROM homework_history WHERE userid='$userid' AND taskid='$taskidnow' limit 1";
+    mysqli_query($link,$query);
+}
 
 $query="insert into homework_history(time,classid,userid,username,taskid,homeworkcontent,evaluation,groupid,numberingroup) values('$time'
           ,'$classid','$userid','$username','$taskidnow','$text','批改中','$groupid','$numberingroup')";

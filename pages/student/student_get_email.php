@@ -15,13 +15,19 @@ session_id($sid);
 session_start();
 
 $userid=$_SESSION['userid'];
+$taskidnow=$_SESSION['taskidnow'];
 
 //查询数据
 $query="select time,classid,emailcontent from email_history where userid='$userid'";
 $result=mysqli_query($link,$query);
 //从结果中获得数据
-$row=mysqli_fetch_all($result,1);
+$email_array=mysqli_fetch_all($result,1);
+
+$query="SELECT emailcontent FROM task_email WHERE taskid='$taskidnow'";
+$ret=mysqli_query($link,$query);
+$taskemail_array=mysqli_fetch_assoc($ret);
+$email_array[]['emailcontent']=$taskemail_array['emailcontent'];
 //回显json格式的结果
-if(!empty($row)) {
-    echo json_encode($row);
+if(!empty($email_array)) {
+    echo json_encode($email_array);
 }
