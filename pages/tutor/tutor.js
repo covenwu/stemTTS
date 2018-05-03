@@ -29,13 +29,16 @@ function getQueryString(name) {
 }
 
 function feedbackEmail() {
-
+    //document.getElementById('feedback').setAttribute('disabled','disabled');
+    var button=document.getElementById('feedback');
+    button.setAttribute('disabled','disabled')
 
 
     var emailcontent=document.getElementById("教师反馈").value.trim();
     if(emailcontent==""){
         alert("您还没输入评价哦，orz");
         //submitbutton.removeAttribute('disabled');
+        button.removeAttribute('disabled')
         return(0);
     }
     /*
@@ -167,6 +170,7 @@ function dialog(group,taskid,numberingoup){
             textarea.value="";
             textarea.removeAttribute('readonly')
             button.show();
+            document.getElementById('feedback').removeAttribute('disabled');
         }
 
 
