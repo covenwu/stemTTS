@@ -6,16 +6,10 @@
 表中的所有用户id。
 */
 
-//-----------------常量设置----------------------------------------------
-$offlinetime=60;
-
-//-----------------连接mysql服务器----------------------------------------------
-$link =mysqli_connect('localhost:3306','root','12345678') ;
-$res=mysqli_set_charset($link,'utf8');
 //设置时区保证时间戳正确
 date_default_timezone_set('PRC');
-//选择数据库OFFLINETIME=60;
-mysqli_query($link,'use database1');
+//-----------------常量设置----------------------------------------------
+$offlinetime=60;
 
 //-----------------获取接口变量----------------------------------------------
 $sid=$_GET['sid'];
@@ -25,8 +19,12 @@ $chatroomid=$_GET['chatroomid'];
 $userid=$_SESSION['userid'];
 $username=$_SESSION['username'];
 $groupid=$_SESSION['group'.$chatroomid];
-
 $time=date('Y-m-d H:i:s',time());
+//-----------------连接mysql服务器----------------------------------------------
+$link =mysqli_connect('localhost:3306','root','12345678') ;
+$res=mysqli_set_charset($link,'utf8');
+//选择数据库
+mysqli_query($link,'use database1');
 //删除离线用户
 $query="delete from onlineuser where TIMESTAMPDIFF(SECOND,time,'$time') >'$offlinetime'";
 mysqli_query($link,$query);
@@ -42,7 +40,7 @@ mysqli_query($link,$query);
 //获取更新过的在线用户表
 $query="select userid,username from onlineuser WHERE groupid='$groupid'";
 $result=mysqli_query($link,$query);
-
+mysqli_close($link);
 //从结果中获得数据
 $row=mysqli_fetch_all($result,1);
 //回显json格式的结果

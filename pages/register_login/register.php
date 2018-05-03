@@ -4,8 +4,7 @@
 功能：1.注册页面
 接口：1.将注册信息表单提交到registeraction.php
         2.从$_GET['err']接收错误码
-提示：1.可能出现表单name问题
-        2.注意role字段教师是tutor不是teacher
+提示：2.注意role字段教师是tutor不是teacher
 -->
 <head>
     <title>注册</title>
@@ -38,8 +37,8 @@
                     <td>
                         <input type="radio" id="role" name="role" value="tutor">教师
                         <input type="radio" id="role" name="role" value="student">学生
-                    </td>-->
-                </tr>
+                    </td>
+                </tr>-->
                 <tr>
                     <td>Email：</td>
                     <td><input type="email" id="email" name="emailaddress" required="required"></td>

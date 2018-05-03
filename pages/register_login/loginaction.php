@@ -2,9 +2,10 @@
 /*
 功能：1.判断登录是否成功
       2.根据'记住我'选项设置cookie保存邮箱
+    3.登录成功时跳转到loginsucc.php
+    4.登录失败时跳转回login.php并用$_GET['err']传递错误码
 接口:1.需要获得$_POST['emailaddress']，$_POST['password']，$_POST['remember']
-    2.登录成功时跳转到loginsucc.php
-    3.登录失败时跳转回login.php并用$_GET['err']传递错误码
+    4.按照sid+user的方式生成sid，例： sid12
  */
 header("content-type:text/html;charset=utf-8");
 //声明变量
@@ -23,8 +24,13 @@ if(!empty($emailaddress)&&!empty($password)) {
     //执行SQL语句
     $ret = mysqli_query($link,$query_select);
     $row = mysqli_fetch_array($ret);
-
+    //-----------------获取接口变量----------------------------------------------
     $userid=$row['userid'];
+    $sid="sid".$userid;
+    session_id($sid);
+    session_start();
+    $_SESSION['emailaddress']=$emailaddress;
+
     //判断用户名或密码是否正确
     if($emailaddress==$row['emailaddress']&&$password==$row['password']) {
         //选中“记住我”
@@ -32,27 +38,8 @@ if(!empty($emailaddress)&&!empty($password)) {
             //创建cookie
             setcookie("emailaddress", $emailaddress, time()+7*24*3600);
         }
-
-        //1111
-        $sid="sid".$userid;
-        session_id($sid);
-
-        session_start();
-
-        //1111
-        //$sid=session_id();
-
-
-
-        $_SESSION['emailaddress']=$emailaddress;
-        //开启session
-
-        /*$query_insert = "INSERT INTO deng(emailaddress) VALUES('$emailaddress')";
-        mysqli_query($link,$query_insert);
-        //日志写入文件，如实现此功能，需要创建文件目录logs        11111*/
-        $destination="Location:loginsucc.php?sid=".$sid;
         //跳转到loginsucc.php页面
-        //header("Location:loginsucc.php?sid='$sid'");       //1111
+        $destination="Location:loginsucc.php?sid=".$sid;
         header($destination);
         //关闭数据库
         mysqli_close($link);

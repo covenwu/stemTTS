@@ -3,27 +3,25 @@
 /*
 
 */
-$NUMBERINGROUP=4;
-$TASKNUM=10;
-
-//-----------------连接mysql服务器----------------------------------------------
-$link =mysqli_connect('localhost:3306','root','12345678') ;
-$res=mysqli_set_charset($link,'utf8');
 //设置时区保证时间戳正确
 date_default_timezone_set('PRC');
 
-//选择数据库
-mysqli_query($link,'use database1');
+//-----------------常量设置----------------------------------------------
+$NUMBERINGROUP=4;
+$TASKNUM=10;
 
 //-----------------获取接口变量----------------------------------------------
 $emailcontent=$_GET["emailcontent"];
-//获取time
 $time=date('Y-m-d H:i:s',time());
 $taskid=$_GET['taskid'];
 $numberingroup=$_GET['numberingroup'];
 $groupid=$_GET['groupid'];
 $evaluation=$_GET['evaluation'];
-
+//-----------------连接mysql服务器----------------------------------------------
+$link =mysqli_connect('localhost:3306','root','12345678') ;
+$res=mysqli_set_charset($link,'utf8');
+//选择数据库
+mysqli_query($link,'use database1');
 //-----------------对应插入新纪录----------------------------------------------
 $query="SELECT userid,username,classid FROM account WHERE groupid='$groupid' AND numberingroup='$numberingroup'";
 $ret=mysqli_query($link,$query);
@@ -39,23 +37,26 @@ if($evaluation=='通过'){
     $info_array=mysqli_fetch_assoc($ret);
     $oknumber=$info_array['oknumber'];
     $taskidnow=$info_array['taskidnow'];
+    //如果通过数等于小组人数，小组当前任务号加1，当前任务通过人数归0
     if($oknumber==$NUMBERINGROUP-1){
         if($taskidnow<=$TASKNUM){
             $query="UPDATE group_attr SET taskidnow='$taskidnow'+1,oknumber=0 WHERE groupid='$groupid'";
             mysqli_query($link,$query);
         }
-    }elseif ($oknumber<$NUMBERINGROUP-1){
+    }
+    //通过数小于组员数，当前通过人数+1
+    elseif ($oknumber<$NUMBERINGROUP-1){
         $query="UPDATE group_attr SET oknumber=oknumber+1 WHERE groupid='$groupid'";
         mysqli_query($link,$query);
     }
 }
-
+//插入反馈邮件
 $query="INSERT into email_history(time,classid,userid,username,emailcontent,taskid) values('$time'
           ,'$classid','$userid','$username','$emailcontent','$taskid')";
 mysqli_query($link,$query);
-
+//更改作业的评价状态
 $query="UPDATE homework_history SET evaluation='$evaluation' WHERE userid='$userid' AND taskid='$taskid'";
 mysqli_query($link,$query);
-
+mysqli_close($link);
 //回显发送成功提示
 echo("success");

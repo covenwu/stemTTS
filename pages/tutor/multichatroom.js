@@ -7,10 +7,10 @@
       5.需要jquery
       6.每个聊天室有chatroomid（0-3）来做区分，其每个子模块的id均为模块名+chatroomid，例如result0，chatcontent2
       7.发送聊天信息时提供chatroomid给后端，
+      8.事先获得sid
 提示：1.teacher_id暂定保存在服务器端
-待办：1.get列表用id
  */
-
+//-----------------常量设置------------------
 var maxid=0;
 var group_num=4;
 
@@ -20,10 +20,10 @@ window.onload = function(){
     // 轮询以实现自动的页面更新
     setInterval(function () {get_chat_data();},1500);
     setInterval("updateGetOnlineuser()",2000);
-
 };
 
-
+//-----------------函数定义部分----------------------------------------------
+//获取聊天信息
 function get_chat_data(){
     //ajax请求
     $.get("get_chat_data.php",{sid:sid,maxid:maxid},function(data){
@@ -74,12 +74,12 @@ function send(chatroomid) {
     xhr.send(formdata);
 }
 
-// 清除提示发送成功的消息
+//清除提示发送成功的消息
 function hideresult(chatroomid){
     document.getElementById('result'+chatroomid).innerHTML = "";
 }
 
-
+//获取在线用户列表
 function updateGetOnlineuser() {
     var chatroomid;
     for (chatroomid=0;chatroomid<4;chatroomid++){

@@ -7,18 +7,8 @@
 */
 header("Content-Type:application/json");
 
-//-----------------测试用----------------------------------------------
-
 //-----------------常量设置----------------------------------------------
 $offlinetime=60;
-
-//-----------------连接mysql服务器----------------------------------------------
-$link =mysqli_connect('localhost:3306','root','12345678') ;
-$res=mysqli_set_charset($link,'utf8');
-//设置时区保证时间戳正确
-date_default_timezone_set('PRC');
-//选择数据库
-mysqli_query($link,'use database1');
 
 //-----------------获取接口变量----------------------------------------------
 $sid=$_GET['sid'];
@@ -27,8 +17,16 @@ session_start();
 $userid=$_SESSION['userid'];
 $username=$_SESSION['username'];
 $groupid=$_SESSION['groupid'];
-
+//设置时区保证时间戳正确
+date_default_timezone_set('PRC');
 $time=date('Y-m-d H:i:s',time());
+
+//-----------------连接mysql服务器----------------------------------------------
+$link =mysqli_connect('localhost:3306','root','12345678') ;
+$res=mysqli_set_charset($link,'utf8');
+//选择数据库
+mysqli_query($link,'use database1');
+
 //删除离线用户
 $query="delete from onlineuser where TIMESTAMPDIFF(SECOND,time,'$time') >'$offlinetime'";
 mysqli_query($link,$query);
@@ -46,7 +44,6 @@ $query="select username from onlineuser WHERE groupid='$groupid'";
 $result=mysqli_query($link,$query);
 
 //从结果中获得数据
-//$onlineuser_array=mysqli_fetch_all($result,1);
 $onlineuser_name=array();
 while ($onlineuser=mysqli_fetch_assoc($result)){
     $onlineuser_name[]=$onlineuser['username'];
@@ -65,14 +62,14 @@ $tutor_name=$tutor_name_array['username'];
 //获取小组全部学生成员
 $query="SELECT username FROM account WHERE groupid='$groupid'";
 $ret=mysqli_query($link,$query);
-
-
+mysqli_close($link);
 //整理所有信息存入$info_array
 $info_array=array();
 $info_array['student_name']=array();
 while($stu_name=mysqli_fetch_assoc($ret)){
     $info_array['student_name'][]=$stu_name['username'];
 }
+
 $info_array['tutor_name']=$tutor_name;
 $info_array['onlineuser_name']=$onlineuser_name;
 //回显json格式的结果
