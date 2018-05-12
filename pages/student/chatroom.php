@@ -4,8 +4,6 @@
 接口：1.$_GET['maxId']
         2.$_SESSION['groupid']
         3.sid
-待办：1.在线用户列表待开发
-        2.$groupid动态获取
 */
 //-----------------测试用----------------------------------------------
 
@@ -17,13 +15,16 @@ mysqli_query($link, 'use database1');
 
 //-----------------获取接口变量----------------------------------------------
 $sid = $_GET['sid'];
-$maxId = $_GET['maxId'];
+//$maxId = $_GET['maxId'];
 session_id($sid);
 session_start();
 $groupid = $_SESSION['groupid'];
+$classid=$_SESSION['classid'];
+$maxtimeStamp=$_GET['maxtimeStamp'];
 
 // 防止获取重复数据，本次请求的记录结果id要大于上次获得的id
-$query = "select * from message where messageid >'$maxId'AND groupid='$groupid'";
+//$query = "select * from message where messageid >'$maxId'AND groupid='$groupid'";
+$query="SELECT timeStamp,username,content FROM log WHERE classid='$classid' AND groupid='$groupid' AND actiontype='ChatMsg' AND timeStamp>'$maxtimeStamp';";
 $qry = mysqli_query($link, $query);
 mysqli_close($link);
 $info = array();

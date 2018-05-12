@@ -11,8 +11,9 @@
 提示：1.teacher_id暂定保存在服务器端
  */
 //-----------------常量设置------------------
-var maxid=0;
+//var maxid=0;
 var group_num=4;
+var maxtimeStamp='1000-01-01 00:00:00';
 
 //-----------------设置事件------------------
 // 设置onload事件
@@ -26,19 +27,25 @@ window.onload = function(){
 //获取聊天信息
 function get_chat_data(){
     //ajax请求
-    $.get("get_chat_data.php",{sid:sid,maxid:maxid},function(data){
+    $.get("get_chat_data.php",{sid:sid,maxtimeStamp:maxtimeStamp},function(data){
         //返回的json数据解码，数据存进data_array
         var data_array=eval(data);
         var s="";
-        for(var k=0;k<group_num;k++){
+        for(var k=1;k<=group_num;k++){
             for(var i=0;i<data[k].length;i++){
-                s += "("+data_array[k][i].add_time+") >>>";
+                s += "("+data_array[k][i].timeStamp+") >>>";
                 s += "<p>";
-                s += data_array[k][i].sender +"&nbsp;"+"说：" + data_array[k][i].msg;
+                s += data_array[k][i].username +"&nbsp;"+"说：" + data_array[k][i].content;
                 s += "</p>";
             }
             //maxid增加这一组这一次接收的聊天信息条数
-            maxid+=data[k].length;
+            //maxid+=data[k].length;
+            var lastmessage=data_array[k].length-1;
+
+            var lasttimeStamp=data_array[k][lastmessage]['timeStamp'];
+            if(lasttimeStamp>maxtimeStamp){
+                maxtimeStamp=lasttimeStamp;
+            }
             // 显示聊天内容（onload事件）
             var showmessage = document.getElementById("chatcontent"+k);
             showmessage.innerHTML += s;

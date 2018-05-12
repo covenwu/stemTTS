@@ -17,6 +17,7 @@ session_start();
 $userid=$_SESSION['userid'];
 $username=$_SESSION['username'];
 $groupid=$_SESSION['groupid'];
+$classid=$_SESSION['classid'];
 //设置时区保证时间戳正确
 date_default_timezone_set('PRC');
 $time=date('Y-m-d H:i:s',time());
@@ -50,17 +51,18 @@ while ($onlineuser=mysqli_fetch_assoc($result)){
 }
 
 //获取小组的教师
-$query="SELECT classid FROM account WHERE userid='$userid' limit 1";
+/*$query="SELECT classid FROM account WHERE userid='$userid' limit 1";
 $ret=mysqli_query($link,$query);
 $classid_array=mysqli_fetch_assoc($ret);
-$tutor_classid=$classid_array['classid'];
-$query="SELECT username FROM account WHERE classid='$tutor_classid' AND role='tutor' LIMIT 1";
+$tutor_classid=$classid_array['classid'];*/
+//$query="SELECT username FROM account WHERE classid='$tutor_classid' AND role='tutor' LIMIT 1";
+$query="SELECT username FROM account WHERE classid='$classid' AND role='tutor' LIMIT 1";
 $ret=mysqli_query($link,$query);
 $tutor_name_array=mysqli_fetch_assoc($ret);
 $tutor_name=$tutor_name_array['username'];
 
 //获取小组全部学生成员
-$query="SELECT username FROM account WHERE groupid='$groupid'";
+$query="SELECT username FROM account WHERE classid='$classid' AND groupid='$groupid' AND role='student'";
 $ret=mysqli_query($link,$query);
 mysqli_close($link);
 //整理所有信息存入$info_array

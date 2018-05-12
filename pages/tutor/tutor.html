@@ -42,38 +42,38 @@
     <div style="width:100%;height:120px;background-color:#FFFFFF;text-align:center;line-height:120px;">组一</div>
     <div>任务1
         <!--id三位命名数字分别为：组号，taskid，numberingroup-->
-      <button href="JavaScript:void(0)" onclick = "dialog(0,1,1)" disabled="disabled" id="011">1</button>
-      <button href="JavaScript:void(0)" onclick = "dialog(0,1,2)" disabled="disabled" id="012">2</button>
-      <button href="JavaScript:void(0)" onclick = "dialog(0,1,3)" disabled="disabled" id="013">3</button>
-      <button href="JavaScript:void(0)" onclick = "dialog(0,1,4)" disabled="disabled" id="014">4</button>
+      <button href="JavaScript:void(0)" onclick = "dialog(1,1,1)" disabled="disabled" id="111">1</button>
+      <button href="JavaScript:void(0)" onclick = "dialog(1,1,2)" disabled="disabled" id="112">2</button>
+      <button href="JavaScript:void(0)" onclick = "dialog(1,1,3)" disabled="disabled" id="113">3</button>
+      <button href="JavaScript:void(0)" onclick = "dialog(1,1,4)" disabled="disabled" id="114">4</button>
     </div>
     <div>任务2
-        <button href="JavaScript:void(0)" onclick = "dialog(0,2,1)" disabled="disabled" id="021">1</button>
-        <button href="JavaScript:void(0)" onclick = "dialog(0,2,2)" disabled="disabled" id="022">2</button>
-        <button href="JavaScript:void(0)" onclick = "dialog(0,2,3)" disabled="disabled" id="023">3</button>
-        <button href="JavaScript:void(0)" onclick = "dialog(0,2,4)" disabled="disabled" id="024">4</button>
+        <button href="JavaScript:void(0)" onclick = "dialog(1,2,1)" disabled="disabled" id="121">1</button>
+        <button href="JavaScript:void(0)" onclick = "dialog(1,2,2)" disabled="disabled" id="122">2</button>
+        <button href="JavaScript:void(0)" onclick = "dialog(1,2,3)" disabled="disabled" id="123">3</button>
+        <button href="JavaScript:void(0)" onclick = "dialog(1,2,4)" disabled="disabled" id="124">4</button>
     </div>
     聊天记录
     <!--<textarea style="width:98%;height:150px;float:left;border:1px solid black;font-size:17px;"></textarea>-->
        <!--聊天室模块开始-->
        <div id="main0">
            <h3>消息显示区</h3>
-           <div id="chatcontent0">
+           <div id="chatcontent1">
            </div>
            <hr />
            <h3>发言栏</h3>
            <div id="bottom0">
-               <form action="./chatroom_insert.php" id="chatform0">
+               <form action="./chatroom_insert.php" id="chatform1">
                    <div id="chat_up0">
                        <span>在线用户</span>
-                       <select name="在线列表" id="onlineuserlist0">
+                       <select name="在线列表" id="onlineuserlist1">
                        </select>
                    </div>
                    <div id="chat_bottom0">
                        <textarea id="msg0" name="msg" style="width:380px;height:auto;"></textarea>
                        <!--send()的参数为chatroomid-->
-                       <input type="button" value="发言" onclick="send(0)" />
-                       发言：<span id="result0"></span>
+                       <input type="button" value="发言" onclick="send(1)" />
+                       发言：<span id="result1"></span>
                    </div>
                </form>
            </div>
@@ -98,22 +98,22 @@
        <!--聊天室模块开始-->
        <div id="main1">
            <h3>消息显示区</h3>
-           <div id="chatcontent1">
+           <div id="chatcontent2">
            </div>
            <hr />
            <h3>发言栏</h3>
            <div id="bottom1">
-               <form action="multichatroom_insert.php" id="chatform1">
+               <form action="multichatroom_insert.php" id="chatform2">
                    <div id="chat_up1">
                        <span>在线用户</span>
-                       <select name="在线列表" id="onlineuserlist1">
+                       <select name="在线列表" id="onlineuserlist2">
                        </select>
                    </div>
                    <div id="chat_bottom1">
                        <textarea id="msg1" name="msg" style="width:381px;height:auto;"></textarea>
                        <!--send()的参数为chatroomid-->
-                       <input type="button" value="发言" onclick="send(1)" />
-                       发言：<span id="result1"></span>
+                       <input type="button" value="发言" onclick="send(2)" />
+                       发言：<span id="result2"></span>
                    </div>
                </form>
            </div>
@@ -139,22 +139,22 @@
        <!--聊天室模块开始-->
        <div id="main2">
            <h3>消息显示区</h3>
-           <div id="chatcontent2">
+           <div id="chatcontent3">
            </div>
            <hr />
            <h3>发言栏</h3>
            <div id="bottom2">
-               <form action="./chatroom_insert.php" id="chatform2">
+               <form action="./chatroom_insert.php" id="chatform3">
                    <div id="chat_up2">
                        <span>在线用户</span>
-                       <select name="在线列表" id="onlineuserlist2">
+                       <select name="在线列表" id="onlineuserlist3">
                        </select>
                    </div>
                    <div id="chat_bottom2">
                        <textarea id="msg2" name="msg" style="width:382px;height:auto;"></textarea>
                        <!--send()的参数为chatroomid-->
-                       <input type="button" value="发言" onclick="send(2)" />
-                       发言：<span id="result2"></span>
+                       <input type="button" value="发言" onclick="send(3)" />
+                       发言：<span id="result3"></span>
                    </div>
                </form>
            </div>
@@ -180,22 +180,22 @@
        <!--聊天室模块开始-->
        <div id="main3">
            <h3>消息显示区</h3>
-           <div id="chatcontent3">
+           <div id="chatcontent4">
            </div>
            <hr />
            <h3>发言栏</h3>
            <div id="bottom3">
-               <form action="./chatroom_insert.php" id="chatform3">
+               <form action="./chatroom_insert.php" id="chatform4">
                    <div id="chat_up3">
                        <span>在线用户</span>
-                       <select name="在线列表" id="onlineuserlist3">
+                       <select name="在线列表" id="onlineuserlist4">
                        </select>
                    </div>
                    <div id="chat_bottom3">
                        <textarea id="msg3" name="msg" style="width:383px;height:auto;"></textarea>
                        <!--send()的参数为chatroomid-->
-                       <input type="button" value="发言" onclick="send(3)" />
-                       发言：<span id="result3"></span>
+                       <input type="button" value="发言" onclick="send(4)" />
+                       发言：<span id="result4"></span>
                    </div>
                </form>
            </div>

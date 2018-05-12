@@ -5,9 +5,10 @@
 待办：
 */
 //-----------------设置变量---------------------
-// 记录当前获取到的消息id的最大值，防止获取到重复的信息
-// 服务器只返回maxid以后的消息
-var maxId = 0;
+// 记录当前获取到的聊天消息id的最大值，防止获取到重复的信息
+// 服务器只返回maxid以后的聊天信息
+//var maxId = 0;
+var maxtimeStamp='1000-01-01 00:00:00';
 
 //-----------------设置事件------------------
 // 设置onload事件
@@ -37,22 +38,26 @@ function showmessage() {
             // 遍历data数组，把内部的信息一个个的显示到页面上
             var s = "";
             for (var i = 0; i < data.length; i++) {
-                s += "(" + data[i].add_time + ") >>>";
+                s += "(" + data[i].timeStamp + ") >>>";
                 s += "<p>";
-                s += data[i].sender + "&nbsp;" + "说：" + data[i].msg;
+                s += data[i].username + "&nbsp;" + "说：" + data[i].content;
                 s += "</p>";
                 // 把已经获得的最大信息id更新
-                maxId = data[i].messageid;
+                //maxId = data[i].messageid;
             }
+            //记录最大的timeStamp
+            maxtimeStamp=data[data.length-1].timeStamp;
             // 显示聊天内容（onload事件）
             var showmessage = document.getElementById("up");
             showmessage.innerHTML += s;
+            //showmessage.innerHTML = s;
             //showmessage.scrollTop 可以实现div底部最先展示
-            // divnode.scrollHeight而已获得div的高度包括滚动条的高度
+            //divnode.scrollHeight而已获得div的高度包括滚动条的高度
             showmessage.scrollTop = showmessage.scrollHeight - showmessage.style.height;
         }
     };
-    ajax.open('get', './chatroom.php?maxId=' + maxId + '&sid=' + sid);
+    //ajax.open('get', './chatroom.php?maxId=' + maxId + '&sid=' + sid);
+    ajax.open('get', './chatroom.php?maxtimeStamp=' + maxtimeStamp + '&sid=' + sid);
     ajax.send(null);
 }
 

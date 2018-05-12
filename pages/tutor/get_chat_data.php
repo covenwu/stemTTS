@@ -14,7 +14,9 @@ $sid=$_GET['sid'];
 session_id($sid);
 session_start();
 $userid=$_SESSION['userid'];
-$maxid=$_GET["maxid"];
+$classid=$_SESSION['classid'];
+//$maxid=$_GET["maxid"];
+$maxtimeStamp=$_GET['maxtimeStamp'];
 
 //$chat_data数组用来存放聊天信息
 $chat_data=array();
@@ -22,13 +24,13 @@ $chat_data=array();
 //-----------------连接mysql服务器----------------------------------------------
 $link =mysqli_connect('localhost:3306','root','12345678') ;
 $res=mysqli_set_charset($link,'utf8');
-//选择数据库
 mysqli_query($link,'use database1');
 
-//依据groupid取聊天数据存入$chat_data
-for($i=0;$i<$group_num;$i++){
-    $groupid=$_SESSION["group".(string)$i];
-    $query="select * from message where groupid='$groupid'and messageid>'$maxid'";
+for($i=1;$i<=$group_num;$i++){
+    //$groupid=$_SESSION["group".(string)$i];
+    $query="SELECT timeStamp,username,content FROM log WHERE classid='$classid' AND groupid='$i' AND actiontype='ChatMsg' AND timeStamp>'$maxtimeStamp';";
+
+    //$query="select * from message where groupid='$groupid'and messageid>'$maxid'";
     $result=mysqli_query($link,$query);
 
     $info = array();

@@ -4,7 +4,7 @@
 接口：1.session
     2.sid
 */
-
+/*
 //-----------------获取接口变量----------------------------------------------
 $sid = $_GET['sid'];
 session_id($sid);
@@ -27,6 +27,34 @@ $ret = mysqli_query($link, $query);
 mysqli_close($link);
 $taskemail_array = mysqli_fetch_assoc($ret);
 $email_array[]['emailcontent'] = $taskemail_array['emailcontent'];
+//回显json格式的结果
+if (!empty($email_array)) {
+    echo json_encode($email_array);
+}
+
+*/
+
+header("Content-Type:application/json");
+
+//-----------------获取接口变量----------------------------------------------
+$sid = $_GET['sid'];
+session_id($sid);
+session_start();
+$userid = $_SESSION['userid'];
+$classid=$_SESSION['classid'];
+$groupid=$_SESSION['groupid'];
+//-----------------连接mysql服务器----------------------------------------------
+$link = mysqli_connect('localhost:3306', 'root', '12345678');
+$res = mysqli_set_charset($link, 'utf8');
+//选择数据库
+mysqli_query($link, 'use database1');
+
+$query="SELECT timeStamp,taskid,content,actiontype FROM log WHERE (userid='$userid' AND actiontype='ReportFeedback') OR (actiontype='TaskEmail' AND classid='$classid' AND groupid='$groupid')";
+$ret = mysqli_query($link, $query);
+mysqli_close($link);
+while ($rst = mysqli_fetch_assoc($ret)) {
+    $email_array[] = $rst;
+}
 //回显json格式的结果
 if (!empty($email_array)) {
     echo json_encode($email_array);

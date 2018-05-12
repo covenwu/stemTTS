@@ -50,24 +50,24 @@
         }
         //根据用户身份跳转到不同页面
         if($_SESSION['role']=='student'){
-            $groupid=$_SESSION['groupid'];
+            /*$groupid=$_SESSION['groupid'];
             //查询当前任务id
             $query="SELECT taskidnow FROM group_attr WHERE groupid='$groupid' limit 1";
             $ret=mysqli_query($link,$query);
             $row=mysqli_fetch_assoc($ret);
-            $_SESSION['taskidnow']=$row['taskidnow'];
+            $_SESSION['taskidnow']=$row['taskidnow'];*/
             header("Location:../student/student.html?sid=".$sid);
         }
         elseif ($_SESSION['role']=="tutor"){
-            $userid=$_SESSION['userid'];
+            //$userid=$_SESSION['userid'];
             //查询教师管理的小组
-            $query_select="SELECT * FROM teacher_group WHERE userid='$userid'";
+            /*$query_select="SELECT * FROM teacher_group WHERE userid='$userid'";
             $ret=mysqli_query($link,$query_select);
             $row=mysqli_fetch_assoc($ret);
             //将信息存储到session
             foreach ($row as $key => $value){
                 $_SESSION[$key]=$value;
-            }
+            }*/
             header("Location:../tutor/tutor.html?sid=".$sid);
         }
 
