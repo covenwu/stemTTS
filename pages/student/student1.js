@@ -15,6 +15,7 @@ getUserInfo();
 //getEmailData();
 setInterval("getEmailData();", 3000);
 setInterval("updateGetOnlineuser()", 5000);
+homeworkList();
 //-----------------设置点击事件------------------
 //下拉菜单的选项被点击时listMood变量会改变为点击的按钮名（innerHTML),借此区分状态
 $(".listButton").click(function () {
@@ -77,26 +78,26 @@ function getUserInfo() {
 
 //从数据库取得邮件数据并生成列表的函数
 function getEmailData() {
-    //ajax请求
     $.get("student_get_email.php", {sid:sid}, function (data) {
         //返回的json数据解码，数据存进data_array
         var data_array = eval(data);
         //eamil为显示邮件列表的div元素
         var email = document.getElementById("emaillist");
         //创建表格
-        creatTable(email, data_array);
+        createTable(email, data_array,'emailtable');
     })
 }
 
 //动态生成列表的函数
-function creatTable(parent,datas) {
-    var child=document.getElementById('tb');
+function createTable(parent,datas,tablename) {
+    /*
+    var child=document.getElementById(tablename);
     if(child){
         parent.removeChild(child);
     }
 
     var table = document.createElement("table");
-    table.id = "tb";
+    table.id = tablename;
     parent.appendChild(table);
 
     var thead = document.createElement("thead");
@@ -107,6 +108,8 @@ function creatTable(parent,datas) {
 
     var tbody = document.createElement("tbody");
     table.appendChild(tbody);
+    */
+    var tbody=prepareTable(parent,tablename);
 
     //创建‘邮件n'的单元列
     for (var i = 0; i < datas.length; i++) {
@@ -228,4 +231,87 @@ function updateGetOnlineuser() {
     })
 }
 
-//
+//生成作业列表
+function homeworkList() {
+    $.get("stu_homework_list.php", {sid:sid}, function (data) {
+        //返回的json数据解码，数据存进data_array
+        var homework_array = eval(data);
+        //eamil为显示邮件列表的div元素
+
+        var homeworkdiv = document.getElementById("homeworklist");
+        //创建表格
+
+        createTable2(homeworkdiv, homework_array,'homeworktable');
+    })
+}
+
+function createTable2(parent,datas,tablename) {
+    /*var child=document.getElementById(tablename);
+    if(child){
+        parent.removeChild(child);
+    }
+
+    var table = document.createElement("table");
+    table.id = tablename;
+    parent.appendChild(table);
+
+    var thead = document.createElement("thead");
+    table.appendChild(thead);
+
+    var tr = document.createElement("tr");
+    thead.appendChild(tr);
+
+    var tbody = document.createElement("tbody");
+    table.appendChild(tbody);
+    */
+
+    var tbody=prepareTable(parent,tablename);
+    //创建‘邮件n'的单元列
+    for (var i = 0; i < datas.length; i++) {
+        //此处如不使用匿名函数封装，直接写进循环会报错'mutable variable accessing closure
+        (function () {
+            //新建一行
+            var tr = document.createElement("tr");
+            tbody.appendChild(tr);
+            /*在新创建的行内创建'邮件n'的单元格，附加点击展示邮件内容的功能*/
+            //设置新建的td元素
+            var display = document.createElement("td");
+
+            //处理显示的邮件主题
+            var content=datas[i]['content'];
+            var timeStamp=datas[i]['timeStamp'];
+
+            display.innerHTML = 'report'+i+' '+timeStamp;
+
+
+            tr.appendChild(display);
+            display.setAttribute('id', 'homework' + i);
+            //设置点击展示邮件内容的功能
+            var disp = document.getElementById('homework' + i);
+            disp.onclick = function () {
+                document.getElementById("emailcontent").value = content;
+            }
+        })(i)
+    }
+}
+
+function prepareTable(parent,tablename) {
+    var child=document.getElementById(tablename);
+    if(child){
+        parent.removeChild(child);
+    }
+
+    var table = document.createElement("table");
+    table.id = tablename;
+    parent.appendChild(table);
+
+    var thead = document.createElement("thead");
+    table.appendChild(thead);
+
+    var tr = document.createElement("tr");
+    thead.appendChild(tr);
+
+    var tbody = document.createElement("tbody");
+    table.appendChild(tbody);
+    return(tbody);
+}

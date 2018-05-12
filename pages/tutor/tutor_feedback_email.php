@@ -33,19 +33,25 @@ $stu_info=mysqli_fetch_assoc($ret);
 $username=$stu_info['username'];
 $userid=$stu_info['userid'];
 
-
+$query="SELECT oknumber,taskidnow FROM group_attr WHERE groupid='$groupid'";
+mysqli_query($link,$query);
+$ret=mysqli_query($link,$query);
+$info_array=mysqli_fetch_assoc($ret);
+$oknumber=$info_array['oknumber'];
+$taskidnow=$info_array['taskidnow'];
 if($evaluation=='通过'){
-    $query="SELECT oknumber,taskidnow FROM group_attr WHERE groupid='$groupid'";
-    mysqli_query($link,$query);
-    $ret=mysqli_query($link,$query);
-    $info_array=mysqli_fetch_assoc($ret);
-    $oknumber=$info_array['oknumber'];
-    $taskidnow=$info_array['taskidnow'];
+
     //如果通过数等于小组人数，小组当前任务号加1，当前任务通过人数归0
     if($oknumber==$NUMBERINGROUP-1){
         if($taskidnow<=$TASKNUM){
             $query="UPDATE group_attr SET taskidnow='$taskidnow'+1,oknumber=0 WHERE classid='$classid'AND groupid='$groupid'";
             mysqli_query($link,$query);
+            //发送下一个任务
+            $nexttaskid=$taskidnow+1;
+            $taskcontetnt='任务内容'.$nexttaskid;
+            $query="INSERT INTO log(timeStamp,classid,groupid,actiontype,content,taskid) VALUES ('$time','$classid','$groupid','TaskEmail','$taskcontetnt','$nexttaskid')";
+            mysqli_query($link,$query);
+
         }
     }
     //通过数小于组员数，当前通过人数+1
