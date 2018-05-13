@@ -61,6 +61,13 @@
             overflow:auto;
         }
     </style>
+    <!--pdf容器css-->
+    <!--<style>
+        .pdfobject-container{
+            width: 500px;
+            height: 300px;
+        }
+    </style>-->
 </head>
 <body>
   <div style="overflow:hidden;">
@@ -81,7 +88,7 @@
        <a href="#" id="笔记本" class="listButton">笔记本</a>
        <a href="#" class="listButton">收件箱</a>
        <a href="#" class="listButton">共享空间</a>
-       <a href="#" class="listButton">资源库</a>
+       <a href="#" id='资源库' class="listButton">资源库</a>
       </div>
     </div >
     <!--邮件列表区-->
@@ -93,7 +100,7 @@
     <div style="height:220px;width:298px;border:1px solid black;text-align:center;line-height:220px;display:block;">收件箱邮件列表</div>
   </div>
    <div style="width:700px;height:689.5px;border:1px solid black;float:left;margin:7px;">
-     <div style="width:200px;height:50px;background-color:#ADADAD;text-align:center;line-height:50px;margin:10px;float:left;">寄件人</div>
+     <!--<div style="width:200px;height:50px;background-color:#ADADAD;text-align:center;line-height:50px;margin:10px;float:left;">寄件人</div>
      <div style="width:400px;height:48px;line-height:50px;margin:10px;float:left;border:1px solid black;">导师</div>
      <div style="width:200px;height:50px;background-color:#ADADAD;text-align:center;line-height:50px;margin:10px;float:left;">收件人</div>
      <div style="width:400px;height:48px;line-height:50px;margin:10px;float:left;border:1px solid black;">李四</div>
@@ -102,7 +109,8 @@
      <div style="width:200px;height:50px;background-color:#ADADAD;text-align:center;line-height:50px;margin:10px;float:left;">时间</div>
      <div style="width:400px;height:48px;line-height:50px;margin:10px;float:left;border:1px solid black;">2017年11月1日 15：25：45</div>
      <div style="width:200px;height:50px;background-color:#ADADAD;text-align:center;line-height:50px;margin:10px;float:left;">主题</div>
-     <div style="width:400px;height:48px;line-height:50px;margin:10px;float:left;border:1px solid black;">欢迎参加实习</div>
+     <div style="width:400px;height:48px;line-height:50px;margin:10px;float:left;border:1px solid black;">欢迎参加实习</div>-->
+       <div id="pdf" class="pdfobject-container"></div>
      <!--邮件显示区域及提交作业的输入区-->
        <textarea id="emailcontent" style="width:615px;height:300px;margin:10px;float:left;border:1px solid black;font-size:20px;"></textarea>
    </div>
@@ -149,8 +157,12 @@
       <input style="width:150px;height:50px;margin-left:9px" id="提交作业" value="提交作业">
    </form>
   <div id="homeworklist">作业列表</div>
-
+    <div id="urllist">资源链接</div>
+  <button onclick="addInput()">添加附件</button>
+  <button onclick="deleteInput()">删除附件</button>
+  <form id="upload" enctype="multipart/form-data">上传</form>
   <script src="../all/jquery-3.3.1.min.js"></script>
+  <script src="js/pdfobject.js"></script>
   <script src="student1.js"></script>
   <script src="chatroom.js"></script>
 </body>
