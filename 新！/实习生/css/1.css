@@ -1,0 +1,77 @@
+*{ margin:0px; padding:0px;}  
+a{text-decoration:none;color:black;}
+#nav{ width:600px; height:40px; margin:0 auto;float:right;}  
+#nav ul{ list-style:none;}  
+#nav ul li{ float:right;margin-top:10px; margin-right: 100px;line-height:40px; text-align:center; position:relative;}  
+#nav ul li a{ text-decoration:none; color:#000; display:block;padding:0px 10px;}  
+#nav ul li a:hover{ color:#FFF; background:#333}  
+#nav ul li ul{ position:absolute; display:none;}  
+#nav ul li ul li{ float:none; line-height:30px; text-align:left;}  
+#nav ul li ul li a{ width:180%;}  
+#nav ul li ul li a:hover{ background-color:#06f;}  
+#nav ul li:hover ul{ display:block}  
+.box_shadow{
+	width:100%;
+	height:90px;
+	background:#00000;
+	box-shadow:0 10px 2px #00000;
+}
+#bottom{
+	background-color: #F2F4F5;
+	width:100%;
+	height:640px;
+}
+
+.tab-wrapper {
+  margin: 3px auto;
+  width: 100%;
+  max-width:500px;
+}
+
+.tab-menu li {
+  position:relative;
+  background-color: #fff;
+  color:#bcbcbc;
+  display: inline-block;
+  padding: 20px 30px;
+  opacity: 0.8;
+  cursor:pointer;
+  z-index:0;
+}
+
+.tab-menu li:hover {
+  color:#464646;
+}
+
+.tab-menu li.active {
+  color:#464646;
+  opacity: 1;
+}
+
+.tab-menu li.active:hover {
+  color:#464646;
+}
+.tab-content{
+  margin:10px;
+  position:absolute;
+  left:40px;
+}
+.tab-content>div {
+  background-color: #fff;
+  box-sizing:border-box;
+  width: 1420px;
+  height:560px;
+  padding: 0px;   
+  min-height:200px;
+}
+
+.line {
+  position:absolute;
+  width: 0;
+  height: 7px;
+  background-color: aqua;
+  top: 0;
+  left: 0;
+}
+
+
