@@ -12,7 +12,7 @@ insert into homework_history(time,classid,id,name,taskid,homeworkcontent) values
 delete from homework_history where name="Paul" AND taskid=123;
 
 #account表
-insert into account(userid,username,classid,groupid,role,emailaddress,taskidnow) values(1,'张润权',0,0,'student',
+insert into account(userid,username,classid,groupid,role,emailaddress,numberingroup,taskidnow) values(1,'张润权',0,0,'student',
 
 #homework_history表
 insert into homework_history(time,classid,id,name,taskid,homeworkcontent) values('1000-01-01 00:00:00'
