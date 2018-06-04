@@ -80,9 +80,19 @@ else{
     $query="INSERT INTO homework_mood VALUES ('$userid','$taskidnow','批改中')";
     mysqli_query($link,$query);
 }
+
+//向report表插入记录
+/*
+$query="INSERT INTO report VALUES ('$classid','$groupid','$numberingroup'
+          ,'$userid','$taskidnow','$text','$url')";
+*/
+$query="UPDATE report SET classid='$classid',groupid='$groupid',groupNO='$numberingroup',userid='$userid',taskid='$taskidnow',content='$text',url='$url' WHERE  userid='$userid' AND taskid='$taskidnow'";
+mysqli_query($link,$query);
+
 mysqli_close($link);
 //回显发送成功提示
 echo("作业提交成功！");
+
 
 function upload_single($file,$allow_type,$allow_format=array(),$error,$path,$max_size){
     //判断文件是否有效

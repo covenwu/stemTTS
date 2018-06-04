@@ -15,7 +15,7 @@ $(document).ready(function() {
   $allTabs.each(function(i) {
     $(this).attr('data-tab', 'tab'+i);
   });
-  
+
   $tabMenu.on('click', function() {
     
     var dataTab = $(this).data('tab'),

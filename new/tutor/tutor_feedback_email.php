@@ -1,7 +1,7 @@
 <?php
 //导师发送反馈邮件的后台处理
 /*
-
+1.evaluation待处理
 */
 //设置时区保证时间戳正确
 date_default_timezone_set('PRC');
@@ -39,10 +39,17 @@ $ret=mysqli_query($link,$query);
 $info_array=mysqli_fetch_assoc($ret);
 $oknumber=$info_array['oknumber'];
 $taskidnow=$info_array['taskidnow'];
-//插入反馈邮件
+//向log插入反馈邮件
 $query="INSERT INTO log(timeStamp,classid,groupid,groupNO,userid,username,actiontype,content,taskid) VALUES ('$time','$classid',
           '$groupid','$numberingroup','$userid','$username','ReportFeedback','$emailcontent','$taskidnow')";
 mysqli_query($link,$query);
+
+//向feedback插入反馈邮件
+$query="INSERT INTO feedback VALUES ('$time','$userid','$taskidnow','$emailcontent','$evaluation',0)";
+mysqli_query($link,$query);
+
+
+
 if($evaluation=='通过'){
 
     //如果通过数等于小组人数，小组当前任务号加1，当前任务通过人数归0
@@ -55,6 +62,12 @@ if($evaluation=='通过'){
             $taskcontetnt='任务内容'.$nexttaskid;
             $query="INSERT INTO log(timeStamp,classid,groupid,actiontype,content,taskid) VALUES ('$time','$classid','$groupid','TaskEmail','$taskcontetnt','$nexttaskid')";
             mysqli_query($link,$query);
+
+            //更新小组成员task时间
+            $time_added=','.$time;
+            $query="UPDATE task SET timeStamp=CONCAT(timeStamp,'$time_added'),checked=0 WHERE userid IN (SELECT userid FROM account WHERE classid='$classid' AND groupid='$groupid')";
+            mysqli_query($link,$query);
+
 
         }
     }

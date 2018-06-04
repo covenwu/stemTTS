@@ -49,7 +49,7 @@
         }
         //根据用户身份跳转到不同页面
         if($_SESSION['role']=='student'){
-            header("Location:../student/student.html?sid=".$sid);
+            header("Location:../student/student2.html?sid=".$sid);
         }
         elseif ($_SESSION['role']=="tutor"){
             header("Location:../tutor/tutor.html?sid=".$sid);
