@@ -45,7 +45,6 @@
             <div class="tab-content">
                 <div>
                     <div id="在线列表">在线</div>
-
                 </div>
                 <!------------------------------------------------------------收件箱------------------------------------------------------------------------------------- -->
                 <div>
@@ -65,15 +64,15 @@
 
                     <div  style="overflow:hidden;height:520px;width:800px;float:left;">
                         <!--此处用空格做样式可能导致问题-->
-                        <p id='r_title'>欢迎参加实习（主题/标题)</p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <p id='r_title'>主题:</p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <button onclick="createAndJump()">回复邮件</button>
+                        <button id="response" onclick="createAndJump()" style="display: none">回复邮件</button>
                         <p>发件人：张华</p>
                         <p id="r_time">时间：2018/4/25</p>
                         <p id="r_receiver">收件人：孙三</p>
                         <p id="r_copy"></p>
                         <div style="overflow:hidden;height:70px;width:800px;float:left;background-color: #A9D0F5"></div>
-                        <textarea id="receiveemail" style="resize:none;height:510px;width:800px"></textarea>
+                        <textarea id="receiveemail" style="resize:none;height:270px;width:800px;" readonly="readonly"></textarea>
                     </div>
 
                     <div style="overflow:hidden;height:370px;width:300px;float:left;margin:10px;border:1px solid">
@@ -91,6 +90,8 @@
                                 <!--<textarea id="msg" name="msg" style="width:380px;height:auto;"></textarea>-->
                                 <textarea id="msg" name="msg" style="position:absolute;left:1020px;top:400px;width:300px;height:100px"></textarea>
                                 <input type="button" value="发言" onclick="send()" style="position:absolute;left:1020px;top:500px;"/>
+                                <input type="button" value="停止自动滚动" onclick="changeAutoflow()" id="autocontrol" style="position:absolute;left:1080px;top:500px;"/>
+
                                 <!--发言：<span id="result"></span>-->
                                 <!--</div>-->
                             </form>
@@ -132,11 +133,11 @@
                         </br><p id="s_title">主题：</p>&nbsp;&nbsp;&nbsp;<!--<input  style="width:600px">-->
                         <!--<button>添加附件</button>-->
                         <button id='addfile' onclick="addInput()" style="display: none">添加附件</button>
-                        <button id="deletefile" onclick="deleteInput()" style="display: none">删除附件</button>
+                        <!--<button id="deletefile" onclick="deleteInput()" style="display: none">删除附件</button>-->
                         <div style="overflow:hidden;height:70px;width:800px;float:left;background-color: #A9D0F5">
-                            <form id="upload" enctype="multipart/form-data" style="display: none">上传</form>
+                            <form id="upload" enctype="multipart/form-data">上传</form>
                         </div>
-                        <textarea id="sendemail" style="resize:none;height:510px;width:800px;margin-top:10px"></textarea>
+                        <textarea id="sendemail" style="resize:none;height:510px;width:800px;margin-top:10px" readonly="readonly"></textarea>
                     </div>
 
                     <div style="overflow:hidden;height:370px;width:300px;float:left;margin:10px;border:1px solid">

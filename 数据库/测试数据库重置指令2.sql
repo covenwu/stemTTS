@@ -29,6 +29,42 @@ url text,
 checked tinyint default 0
 )charset utf8;
 
+#反馈邮件表
+create table feedback(
+timeStamp datetime not null,			
+userid int,
+taskid int,
+content text,
+evaluation text,
+checked tinyint default 0
+)charset utf8;
+
+#任务时间表
+create table task(
+userid int,
+timeStamp text,
+checked tinyint default 0	
+)charset utf8;
+
+#report表
+create table report(
+classid int,
+groupid int,
+groupNO int,
+userid int,
+taskid int,
+content text,
+url text
+)charset utf8;
+
+create table chat(
+timeStamp datetime not null,			
+classid varchar(30) not null,
+groupid int,
+username varchar(10),		#username为用户名
+content text
+)charset utf8;
+
 #作业状态
 create table homework_mood(
 userid int not null ,
@@ -36,18 +72,16 @@ taskid int not null,
 evaluation enum("未提交",'批改中','待修改','通过') not null		#作业状态	1未提交 2批改中 3待修改 4通过 
 )charset utf8;
 
-
-
 #在线用户表
 create table onlineuser(
 userid int not null,
 username varchar(10) not null,	
 groupid int not null,
+classid int not null,
 time datetime
 )charset utf8;
 
-
-#小组对应任务id表
+#小组信息表
 create table group_attr(
 classid int not null,
 groupid int not null,
@@ -93,6 +127,10 @@ insert into group_attr(classid,groupid,taskidnow) values(2,3,1);
 
 #insert into log values('1000-01-01 00:00:00',1,1,1,1,'student0','TaskEmail',1,'系统任务1',0);
 INSERT INTO log(timeStamp,classid,groupid,actiontype,content,taskid) VALUES ('1000-01-02 00:00:00',1,1,'TaskEmail','系统任务1',1);
+INSERT INTO task VALUES (1,'1000-01-02 00:00:00',0);
+INSERT INTO task VALUES (2,'1000-01-02 00:00:00',0);
+INSERT INTO task VALUES (3,'1000-01-02 00:00:00',0);
+INSERT INTO task VALUES (4,'1000-01-02 00:00:00',0);
 
 
 #url 测试

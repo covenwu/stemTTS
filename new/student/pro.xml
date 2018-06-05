@@ -1,3 +1,426 @@
 <?xml version="1.0" encoding="utf-8"?>
-<tasks><task id="1"><taskName>task1</taskName><taskEmail><backgroundInfo>b1</backgroundInfo><taskReq>R1</taskReq><deadline>d1</deadline></taskEmail><resources><resource id="1"><introRes>test.pdf</introRes><resURL>test.pdf</resURL></resource></resources><assessment><section id="1"><rubrics>rubrics1</rubrics><score>score1</score><feedback>feedback1</feedback></section></assessment><chats><chat id="1"><chatName>chatName1</chatName><chatMsg>chatMsg1</chatMsg></chat></chats><feedbackEmail><feedbackIntro>feedbackIntro1</feedbackIntro><allAcceptFeedback>allAcceptFeedback1</allAcceptFeedback><allReviseFeedback>allReviseFeedback1</allReviseFeedback><excellentSection>excellentSection1</excellentSection><goodSection>goodSection1</goodSection><reviseSection>reviseSection1</reviseSection><reviseDeadline>reviseDeadline1</reviseDeadline><absentEmail>absentEmail1</absentEmail><missDeadlineEmail>missDeadlineEmail1</missDeadlineEmail></feedbackEmail></task>
-    <task id="2"><taskName>task2</taskName><taskEmail><backgroundInfo>b2</backgroundInfo><taskReq>R2</taskReq><deadline>d2</deadline></taskEmail><resources><resource id="1"><introRes>workflow.pdf</introRes><resURL>workflow.pdf</resURL></resource></resources><assessment><section id="1"><rubrics>rubrics2</rubrics><score>score2</score><feedback>feedback2</feedback></section></assessment><chats><chat id="1"><chatName>chatName2</chatName><chatMsg>chatMsg2</chatMsg></chat></chats><feedbackEmail><feedbackIntro>feedbackIntro2</feedbackIntro><allAcceptFeedback>allAcceptFeedback2</allAcceptFeedback><allReviseFeedback>allReviseFeedback2</allReviseFeedback><excellentSection>excellentSection2</excellentSection><goodSection>goodSection2</goodSection><reviseSection>reviseSection2</reviseSection><reviseDeadline>reviseDeadline2</reviseDeadline><absentEmail>absentEmail2</absentEmail><missDeadlineEmail>missDeadlineEmail2</missDeadlineEmail></feedbackEmail></task><task id="3"><taskName>task3</taskName><taskEmail><backgroundInfo>b3</backgroundInfo><taskReq>R3</taskReq><deadline>d3</deadline></taskEmail><resources><resource id="1"><introRes>introRes3</introRes><resURL>resURL3</resURL></resource></resources><assessment><section id="1"><rubrics>rubrics3</rubrics><score>score3</score><feedback>feedback3</feedback></section></assessment><chats><chat id="1"><chatName>chatName3</chatName><chatMsg>chatMsg3</chatMsg></chat></chats><feedbackEmail><feedbackIntro>feedbackIntro3</feedbackIntro><allAcceptFeedback>allAcceptFeedback3</allAcceptFeedback><allReviseFeedback>allReviseFeedback3</allReviseFeedback><excellentSection>excellentSection3</excellentSection><goodSection>goodSection3</goodSection><reviseSection>reviseSection3</reviseSection><reviseDeadline>reviseDeadline3</reviseDeadline><absentEmail>absentEmail3</absentEmail><missDeadlineEmail>missDeadlineEmail3</missDeadlineEmail></feedbackEmail></task><task id="4"><taskName>task4</taskName><taskEmail><backgroundInfo>b4</backgroundInfo><taskReq>R4</taskReq><deadline>d4</deadline></taskEmail><resources><resource id="1"><introRes>introRes4</introRes><resURL>resURL4</resURL></resource></resources><assessment><section id="1"><rubrics>rubrics4</rubrics><score>score4</score><feedback>feedback4</feedback></section></assessment><chats><chat id="1"><chatName>chatName4</chatName><chatMsg>chatMsg4</chatMsg></chat></chats><feedbackEmail><feedbackIntro>feedbackIntro4</feedbackIntro><allAcceptFeedback>allAcceptFeedback4</allAcceptFeedback><allReviseFeedback>allReviseFeedback4</allReviseFeedback><excellentSection>excellentSection4</excellentSection><goodSection>goodSection4</goodSection><reviseSection>reviseSection4</reviseSection><reviseDeadline>reviseDeadline4</reviseDeadline><absentEmail>absentEmail4</absentEmail><missDeadlineEmail>missDeadlineEmail4</missDeadlineEmail></feedbackEmail></task><task id="5"><taskName>task5</taskName><taskEmail><backgroundInfo>b5</backgroundInfo><taskReq>R5</taskReq><deadline>d5</deadline></taskEmail><resources><resource id="1"><introRes>introRes5</introRes><resURL>resURL5</resURL></resource></resources><assessment><section id="1"><rubrics>rubrics5</rubrics><score>score5</score><feedback>feedback5</feedback></section></assessment><chats><chat id="1"><chatName>chatName5</chatName><chatMsg>chatMsg5</chatMsg></chat></chats><feedbackEmail><feedbackIntro>feedbackIntro5</feedbackIntro><allAcceptFeedback>allAcceptFeedback5</allAcceptFeedback><allReviseFeedback>allReviseFeedback5</allReviseFeedback><excellentSection>excellentSection5</excellentSection><goodSection>goodSection5</goodSection><reviseSection>reviseSection5</reviseSection><reviseDeadline>reviseDeadline5</reviseDeadline><absentEmail>absentEmail5</absentEmail><missDeadlineEmail>missDeadlineEmail5</missDeadlineEmail></feedbackEmail></task><task id="6"><taskName>task6</taskName><taskEmail><backgroundInfo>b6</backgroundInfo><taskReq>R6</taskReq><deadline>d6</deadline></taskEmail><resources><resource id="1"><introRes>introRes6</introRes><resURL>resURL6</resURL></resource></resources><assessment><section id="1"><rubrics>rubrics6</rubrics><score>score6</score><feedback>feedback6</feedback></section></assessment><chats><chat id="1"><chatName>chatName6</chatName><chatMsg>chatMsg6</chatMsg></chat></chats><feedbackEmail><feedbackIntro>feedbackIntro6</feedbackIntro><allAcceptFeedback>allAcceptFeedback6</allAcceptFeedback><allReviseFeedback>allReviseFeedback6</allReviseFeedback><excellentSection>excellentSection6</excellentSection><goodSection>goodSection6</goodSection><reviseSection>reviseSection6</reviseSection><reviseDeadline>reviseDeadline6</reviseDeadline><absentEmail>absentEmail6</absentEmail><missDeadlineEmail>missDeadlineEmail6</missDeadlineEmail></feedbackEmail></task><task id="7"><taskName>task7</taskName><taskEmail><backgroundInfo>b7</backgroundInfo><taskReq>R7</taskReq><deadline>d7</deadline></taskEmail><resources><resource id="1"><introRes>introRes7</introRes><resURL>resURL7</resURL></resource></resources><assessment><section id="1"><rubrics>rubrics7</rubrics><score>score7</score><feedback>feedback7</feedback></section></assessment><chats><chat id="1"><chatName>chatName7</chatName><chatMsg>chatMsg7</chatMsg></chat></chats><feedbackEmail><feedbackIntro>feedbackIntro7</feedbackIntro><allAcceptFeedback>allAcceptFeedback7</allAcceptFeedback><allReviseFeedback>allReviseFeedback7</allReviseFeedback><excellentSection>excellentSection7</excellentSection><goodSection>goodSection7</goodSection><reviseSection>reviseSection7</reviseSection><reviseDeadline>reviseDeadline7</reviseDeadline><absentEmail>absentEmail7</absentEmail><missDeadlineEmail>missDeadlineEmail7</missDeadlineEmail></feedbackEmail></task><task id="8"><taskName>task8</taskName><taskEmail><backgroundInfo>b8</backgroundInfo><taskReq>R8</taskReq><deadline>d8</deadline></taskEmail><resources><resource id="1"><introRes>introRes8</introRes><resURL>resURL8</resURL></resource></resources><assessment><section id="1"><rubrics>rubrics8</rubrics><score>score8</score><feedback>feedback8</feedback></section></assessment><chats><chat id="1"><chatName>chatName8</chatName><chatMsg>chatMsg8</chatMsg></chat></chats><feedbackEmail><feedbackIntro>feedbackIntro8</feedbackIntro><allAcceptFeedback>allAcceptFeedback8</allAcceptFeedback><allReviseFeedback>allReviseFeedback8</allReviseFeedback><excellentSection>excellentSection8</excellentSection><goodSection>goodSection8</goodSection><reviseSection>reviseSection8</reviseSection><reviseDeadline>reviseDeadline8</reviseDeadline><absentEmail>absentEmail8</absentEmail><missDeadlineEmail>missDeadlineEmail8</missDeadlineEmail></feedbackEmail></task><task id="9"><taskName>task9</taskName><taskEmail><backgroundInfo>b9</backgroundInfo><taskReq>R9</taskReq><deadline>d9</deadline></taskEmail><resources><resource id="1"><introRes>introRes9</introRes><resURL>resURL9</resURL></resource></resources><assessment><section id="1"><rubrics>rubrics9</rubrics><score>score9</score><feedback>feedback9</feedback></section></assessment><chats><chat id="1"><chatName>chatName9</chatName><chatMsg>chatMsg9</chatMsg></chat></chats><feedbackEmail><feedbackIntro>feedbackIntro9</feedbackIntro><allAcceptFeedback>allAcceptFeedback9</allAcceptFeedback><allReviseFeedback>allReviseFeedback9</allReviseFeedback><excellentSection>excellentSection9</excellentSection><goodSection>goodSection9</goodSection><reviseSection>reviseSection9</reviseSection><reviseDeadline>reviseDeadline9</reviseDeadline><absentEmail>absentEmail9</absentEmail><missDeadlineEmail>missDeadlineEmail9</missDeadlineEmail></feedbackEmail></task><task id="10"><taskName>task10</taskName><taskEmail><backgroundInfo>b10</backgroundInfo><taskReq>R10</taskReq><deadline>d10</deadline></taskEmail><resources><resource id="1"><introRes>introRes10</introRes><resURL>resURL10</resURL></resource></resources><assessment><section id="1"><rubrics>rubrics10</rubrics><score>score10</score><feedback>feedback10</feedback></section></assessment><chats><chat id="1"><chatName>chatName10</chatName><chatMsg>chatMsg10</chatMsg></chat></chats><feedbackEmail><feedbackIntro>feedbackIntro10</feedbackIntro><allAcceptFeedback>allAcceptFeedback10</allAcceptFeedback><allReviseFeedback>allReviseFeedback10</allReviseFeedback><excellentSection>excellentSection10</excellentSection><goodSection>goodSection10</goodSection><reviseSection>reviseSection10</reviseSection><reviseDeadline>reviseDeadline10</reviseDeadline><absentEmail>absentEmail10</absentEmail><missDeadlineEmail>missDeadlineEmail10</missDeadlineEmail></feedbackEmail></task></tasks>
+<tasks>
+    <task id="1">
+        <taskName>
+            欢迎实习生
+        </taskName>
+        <taskEmail>
+            <backgroundInfo>
+                欢迎你来到华师附小实习。我是我校四年级的年级组长张华。在你实习期间，我将担任你的实习导师，负责实习任务的安排，实习工作的指导和反馈，以及整个实习阶段表现的评估。你将和其他参加此次实习的同学以小组的形式完成实习任务。这次实习的其中一个工作是要设计一门适合我们学校四年级小朋友的STEM校本课程，每个小组需要合作完成一个专题的课程教学设计。在实习结束后，我会根据你在实习期间的工作学习表现，向你所在的院系提交实习生评估报告。希望你在接下来四周的实习中，能学有所获，有出色的表现。
+            </backgroundInfo>
+            <taskReq>
+                在正式开始工作之前，你需要先熟悉一下我们学校开发STEM课程的工作流程（请见附件），我们在完成此次STEM课程开发任务的时候将会依照这个流程开展。为了确保你对于工作流程了解无误，请根据附件的说明，撰写一个工作流程的总结报告。
+            </taskReq>
+            <deadline>
+                请你在今天下午5点之前提交这份报告给我。
+            </deadline>
+        </taskEmail>
+        <resources>
+            <resource id="1">
+                <introRes>
+                    华师附小校本课程开发流程
+                </introRes>
+                <resURL>
+                    workflow.pdf
+                </resURL>
+            </resource>
+        </resources>
+        <assessment>
+            <section id="1">
+                <rubrics>
+                    校本课程开发流程总结完整，步骤没有遗漏
+                </rubrics>
+                <score>
+                    2
+                </score>
+                <feedback>
+                    校本课程的开发步骤有所遗留，请再仔细阅读工作文档，并补充完整。
+                </feedback>
+            </section>
+        </assessment>
+        <chats>
+            <chat id="1">
+                <chatName>
+                    介绍实习小组
+                </chatName>
+                <chatMsg>
+                    大家好，欢迎来到华师附小！我是张华。我将担任你们实习期间校本课程开发的指导老师。如果有任何问题，欢迎你在这里随时提出。
+                </chatMsg>
+            </chat>
+            <chat id="2">
+                <chatName>
+                    认识组员
+                </chatName>
+                <chatMsg>
+                    为了使大家能尽快相互熟悉，我们先各自做个自我介绍，包括你来自哪所大学，就读什么专业，以及你参加这次实习有什么样的期待和目标。然后请大家相互提问，了解彼此。最后各组总结一下本组成员身上的3个共同点和各人的一个特点。
+                </chatMsg>
+            </chat>
+        </chats>
+        <feedbackEmail>
+            <feedbackIntro>
+                你的报告已经收到。
+            </feedbackIntro>
+            <allAcceptFeedback>
+                你这次写的报告很完整，符合要求。
+            </allAcceptFeedback>
+            <allReviseFeedback>
+                你这次写的报告还不太符合要求。具体意见如下：
+            </allReviseFeedback>
+            <excellentSection>
+            </excellentSection>
+            <goodSection>
+            </goodSection>
+            <reviseSection>
+            </reviseSection>
+            <reviseDeadline>
+                请你在明天上午9点之前重新提交修改后的报告。
+            </reviseDeadline>
+            <absentEmail>
+            </absentEmail>
+            <missDeadlineEmail>
+            </missDeadlineEmail>
+        </feedbackEmail>
+    </task>
+    <task id="2">
+        <taskName>task2</taskName>
+        <taskEmail>
+            <backgroundInfo>b2</backgroundInfo>
+            <taskReq>R2</taskReq>
+            <deadline>d2</deadline>
+        </taskEmail>
+        <resources>
+            <resource id="1">
+                <introRes>workflow.pdf</introRes>
+                <resURL>workflow.pdf</resURL>
+            </resource>
+        </resources>
+        <assessment>
+            <section id="1">
+                <rubrics>rubrics2</rubrics>
+                <score>score2</score>
+                <feedback>feedback2</feedback>
+            </section>
+        </assessment>
+        <chats>
+            <chat id="1">
+                <chatName>chatName2</chatName>
+                <chatMsg>chatMsg2</chatMsg>
+            </chat>
+        </chats>
+        <feedbackEmail>
+            <feedbackIntro>feedbackIntro2</feedbackIntro>
+            <allAcceptFeedback>allAcceptFeedback2</allAcceptFeedback>
+            <allReviseFeedback>allReviseFeedback2</allReviseFeedback>
+            <excellentSection>excellentSection2</excellentSection>
+            <goodSection>goodSection2</goodSection>
+            <reviseSection>reviseSection2</reviseSection>
+            <reviseDeadline>reviseDeadline2</reviseDeadline>
+            <absentEmail>absentEmail2</absentEmail>
+            <missDeadlineEmail>missDeadlineEmail2</missDeadlineEmail>
+        </feedbackEmail>
+    </task>
+    <task id="3">
+        <taskName>task3</taskName>
+        <taskEmail>
+            <backgroundInfo>b3</backgroundInfo>
+            <taskReq>R3</taskReq>
+            <deadline>d3</deadline>
+        </taskEmail>
+        <resources>
+            <resource id="1">
+                <introRes>introRes3</introRes>
+                <resURL>resURL3</resURL>
+            </resource>
+        </resources>
+        <assessment>
+            <section id="1">
+                <rubrics>rubrics3</rubrics>
+                <score>score3</score>
+                <feedback>feedback3</feedback>
+            </section>
+        </assessment>
+        <chats>
+            <chat id="1">
+                <chatName>chatName3</chatName>
+                <chatMsg>chatMsg3</chatMsg>
+            </chat>
+        </chats>
+        <feedbackEmail>
+            <feedbackIntro>feedbackIntro3</feedbackIntro>
+            <allAcceptFeedback>allAcceptFeedback3</allAcceptFeedback>
+            <allReviseFeedback>allReviseFeedback3</allReviseFeedback>
+            <excellentSection>excellentSection3</excellentSection>
+            <goodSection>goodSection3</goodSection>
+            <reviseSection>reviseSection3</reviseSection>
+            <reviseDeadline>reviseDeadline3</reviseDeadline>
+            <absentEmail>absentEmail3</absentEmail>
+            <missDeadlineEmail>missDeadlineEmail3</missDeadlineEmail>
+        </feedbackEmail>
+    </task>
+    <task id="4">
+        <taskName>task4</taskName>
+        <taskEmail>
+            <backgroundInfo>b4</backgroundInfo>
+            <taskReq>R4</taskReq>
+            <deadline>d4</deadline>
+        </taskEmail>
+        <resources>
+            <resource id="1">
+                <introRes>introRes4</introRes>
+                <resURL>resURL4</resURL>
+            </resource>
+        </resources>
+        <assessment>
+            <section id="1">
+                <rubrics>rubrics4</rubrics>
+                <score>score4</score>
+                <feedback>feedback4</feedback>
+            </section>
+        </assessment>
+        <chats>
+            <chat id="1">
+                <chatName>chatName4</chatName>
+                <chatMsg>chatMsg4</chatMsg>
+            </chat>
+        </chats>
+        <feedbackEmail>
+            <feedbackIntro>feedbackIntro4</feedbackIntro>
+            <allAcceptFeedback>allAcceptFeedback4</allAcceptFeedback>
+            <allReviseFeedback>allReviseFeedback4</allReviseFeedback>
+            <excellentSection>excellentSection4</excellentSection>
+            <goodSection>goodSection4</goodSection>
+            <reviseSection>reviseSection4</reviseSection>
+            <reviseDeadline>reviseDeadline4</reviseDeadline>
+            <absentEmail>absentEmail4</absentEmail>
+            <missDeadlineEmail>missDeadlineEmail4</missDeadlineEmail>
+        </feedbackEmail>
+    </task>
+    <task id="5">
+        <taskName>task5</taskName>
+        <taskEmail>
+            <backgroundInfo>b5</backgroundInfo>
+            <taskReq>R5</taskReq>
+            <deadline>d5</deadline>
+        </taskEmail>
+        <resources>
+            <resource id="1">
+                <introRes>introRes5</introRes>
+                <resURL>resURL5</resURL>
+            </resource>
+        </resources>
+        <assessment>
+            <section id="1">
+                <rubrics>rubrics5</rubrics>
+                <score>score5</score>
+                <feedback>feedback5</feedback>
+            </section>
+        </assessment>
+        <chats>
+            <chat id="1">
+                <chatName>chatName5</chatName>
+                <chatMsg>chatMsg5</chatMsg>
+            </chat>
+        </chats>
+        <feedbackEmail>
+            <feedbackIntro>feedbackIntro5</feedbackIntro>
+            <allAcceptFeedback>allAcceptFeedback5</allAcceptFeedback>
+            <allReviseFeedback>allReviseFeedback5</allReviseFeedback>
+            <excellentSection>excellentSection5</excellentSection>
+            <goodSection>goodSection5</goodSection>
+            <reviseSection>reviseSection5</reviseSection>
+            <reviseDeadline>reviseDeadline5</reviseDeadline>
+            <absentEmail>absentEmail5</absentEmail>
+            <missDeadlineEmail>missDeadlineEmail5</missDeadlineEmail>
+        </feedbackEmail>
+    </task>
+    <task id="6">
+        <taskName>task6</taskName>
+        <taskEmail>
+            <backgroundInfo>b6</backgroundInfo>
+            <taskReq>R6</taskReq>
+            <deadline>d6</deadline>
+        </taskEmail>
+        <resources>
+            <resource id="1">
+                <introRes>introRes6</introRes>
+                <resURL>resURL6</resURL>
+            </resource>
+        </resources>
+        <assessment>
+            <section id="1">
+                <rubrics>rubrics6</rubrics>
+                <score>score6</score>
+                <feedback>feedback6</feedback>
+            </section>
+        </assessment>
+        <chats>
+            <chat id="1">
+                <chatName>chatName6</chatName>
+                <chatMsg>chatMsg6</chatMsg>
+            </chat>
+        </chats>
+        <feedbackEmail>
+            <feedbackIntro>feedbackIntro6</feedbackIntro>
+            <allAcceptFeedback>allAcceptFeedback6</allAcceptFeedback>
+            <allReviseFeedback>allReviseFeedback6</allReviseFeedback>
+            <excellentSection>excellentSection6</excellentSection>
+            <goodSection>goodSection6</goodSection>
+            <reviseSection>reviseSection6</reviseSection>
+            <reviseDeadline>reviseDeadline6</reviseDeadline>
+            <absentEmail>absentEmail6</absentEmail>
+            <missDeadlineEmail>missDeadlineEmail6</missDeadlineEmail>
+        </feedbackEmail>
+    </task>
+    <task id="7">
+        <taskName>task7</taskName>
+        <taskEmail>
+            <backgroundInfo>b7</backgroundInfo>
+            <taskReq>R7</taskReq>
+            <deadline>d7</deadline>
+        </taskEmail>
+        <resources>
+            <resource id="1">
+                <introRes>introRes7</introRes>
+                <resURL>resURL7</resURL>
+            </resource>
+        </resources>
+        <assessment>
+            <section id="1">
+                <rubrics>rubrics7</rubrics>
+                <score>score7</score>
+                <feedback>feedback7</feedback>
+            </section>
+        </assessment>
+        <chats>
+            <chat id="1">
+                <chatName>chatName7</chatName>
+                <chatMsg>chatMsg7</chatMsg>
+            </chat>
+        </chats>
+        <feedbackEmail>
+            <feedbackIntro>feedbackIntro7</feedbackIntro>
+            <allAcceptFeedback>allAcceptFeedback7</allAcceptFeedback>
+            <allReviseFeedback>allReviseFeedback7</allReviseFeedback>
+            <excellentSection>excellentSection7</excellentSection>
+            <goodSection>goodSection7</goodSection>
+            <reviseSection>reviseSection7</reviseSection>
+            <reviseDeadline>reviseDeadline7</reviseDeadline>
+            <absentEmail>absentEmail7</absentEmail>
+            <missDeadlineEmail>missDeadlineEmail7</missDeadlineEmail>
+        </feedbackEmail>
+    </task>
+    <task id="8">
+        <taskName>task8</taskName>
+        <taskEmail>
+            <backgroundInfo>b8</backgroundInfo>
+            <taskReq>R8</taskReq>
+            <deadline>d8</deadline>
+        </taskEmail>
+        <resources>
+            <resource id="1">
+                <introRes>introRes8</introRes>
+                <resURL>resURL8</resURL>
+            </resource>
+        </resources>
+        <assessment>
+            <section id="1">
+                <rubrics>rubrics8</rubrics>
+                <score>score8</score>
+                <feedback>feedback8</feedback>
+            </section>
+        </assessment>
+        <chats>
+            <chat id="1">
+                <chatName>chatName8</chatName>
+                <chatMsg>chatMsg8</chatMsg>
+            </chat>
+        </chats>
+        <feedbackEmail>
+            <feedbackIntro>feedbackIntro8</feedbackIntro>
+            <allAcceptFeedback>allAcceptFeedback8</allAcceptFeedback>
+            <allReviseFeedback>allReviseFeedback8</allReviseFeedback>
+            <excellentSection>excellentSection8</excellentSection>
+            <goodSection>goodSection8</goodSection>
+            <reviseSection>reviseSection8</reviseSection>
+            <reviseDeadline>reviseDeadline8</reviseDeadline>
+            <absentEmail>absentEmail8</absentEmail>
+            <missDeadlineEmail>missDeadlineEmail8</missDeadlineEmail>
+        </feedbackEmail>
+    </task>
+    <task id="9">
+        <taskName>task9</taskName>
+        <taskEmail>
+            <backgroundInfo>b9</backgroundInfo>
+            <taskReq>R9</taskReq>
+            <deadline>d9</deadline>
+        </taskEmail>
+        <resources>
+            <resource id="1">
+                <introRes>introRes9</introRes>
+                <resURL>resURL9</resURL>
+            </resource>
+        </resources>
+        <assessment>
+            <section id="1">
+                <rubrics>rubrics9</rubrics>
+                <score>score9</score>
+                <feedback>feedback9</feedback>
+            </section>
+        </assessment>
+        <chats>
+            <chat id="1">
+                <chatName>chatName9</chatName>
+                <chatMsg>chatMsg9</chatMsg>
+            </chat>
+        </chats>
+        <feedbackEmail>
+            <feedbackIntro>feedbackIntro9</feedbackIntro>
+            <allAcceptFeedback>allAcceptFeedback9</allAcceptFeedback>
+            <allReviseFeedback>allReviseFeedback9</allReviseFeedback>
+            <excellentSection>excellentSection9</excellentSection>
+            <goodSection>goodSection9</goodSection>
+            <reviseSection>reviseSection9</reviseSection>
+            <reviseDeadline>reviseDeadline9</reviseDeadline>
+            <absentEmail>absentEmail9</absentEmail>
+            <missDeadlineEmail>missDeadlineEmail9</missDeadlineEmail>
+        </feedbackEmail>
+    </task>
+    <task id="10">
+        <taskName>task10</taskName>
+        <taskEmail>
+            <backgroundInfo>b10</backgroundInfo>
+            <taskReq>R10</taskReq>
+            <deadline>d10</deadline>
+        </taskEmail>
+        <resources>
+            <resource id="1">
+                <introRes>introRes10</introRes>
+                <resURL>resURL10</resURL>
+            </resource>
+        </resources>
+        <assessment>
+            <section id="1">
+                <rubrics>rubrics10</rubrics>
+                <score>score10</score>
+                <feedback>feedback10</feedback>
+            </section>
+        </assessment>
+        <chats>
+            <chat id="1">
+                <chatName>chatName10</chatName>
+                <chatMsg>chatMsg10</chatMsg>
+            </chat>
+        </chats>
+        <feedbackEmail>
+            <feedbackIntro>feedbackIntro10</feedbackIntro>
+            <allAcceptFeedback>allAcceptFeedback10</allAcceptFeedback>
+            <allReviseFeedback>allReviseFeedback10</allReviseFeedback>
+            <excellentSection>excellentSection10</excellentSection>
+            <goodSection>goodSection10</goodSection>
+            <reviseSection>reviseSection10</reviseSection>
+            <reviseDeadline>reviseDeadline10</reviseDeadline>
+            <absentEmail>absentEmail10</absentEmail>
+            <missDeadlineEmail>missDeadlineEmail10</missDeadlineEmail>
+        </feedbackEmail>
+    </task>
+</tasks>

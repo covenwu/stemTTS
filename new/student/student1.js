@@ -42,6 +42,8 @@ var sid = getQueryString("sid");
 //-----------------发件箱------------
 //记录最后一次点击的发件列表项是否为最后一封,可为'other'和'last'
 var lastclick='other';
+//记录上一次查询的作业评价状态
+var lastevaluation='';
 //生成上传按钮部分
 var attachname ="attach";
 var attachnum=1;
@@ -52,7 +54,7 @@ var maxEmailTimeStamp='1000-01-01 00:00:00';
 // 记录当前获取到的聊天消息id的最大值，防止获取到重复的信息
 // 服务器只返回maxtimeStamp以后的聊天信息
 var maxChattimeStamp='1000-01-01 00:00:00';
-
+var chatautoflow=1;
 //-----------------执行部分----------------------------------------------
 initialize();
 prepareAllTable();
@@ -67,7 +69,7 @@ setInterval("updateGetOnlineuser()", updateOnlineInterval);
 
 //-----------------函数定义部分----------------------------------------------
 //-----------------获取信息及相应处理----------------------------------------------
-//初始所有一开始即可获得的信息
+//初始所有一开始即可获得的信息,(js控制台中可查看相应的数据结构）
 function initialize() {
     $.ajax({ url: "info.php",
         data:{sid:sid},
@@ -185,6 +187,7 @@ function getNewEmail() {
                 getdata=1;
             }
             if(getdata){
+                hideButton('response');
                 createEmailTable('emailtable',info_email,'emailtbody');
                 urlList();
             }
@@ -193,7 +196,7 @@ function getNewEmail() {
         }
     });
 }
-//利用递归算法找出info_email中taskid最大的taskemail
+//利用递归算法找出info_email中taskid最大的taskemail，参数index为info_email的最后一个索引，即从数组最后一项开始向前检查
 function getLastTaskEmail(index) {
     if(typeof(info_email[index]['content'])=='undefined'){
         return info_email[index];
@@ -257,7 +260,7 @@ function getQueryString(name) {
     if (r != null) return decodeURI(r[2]);
     return null;
 }
-//隐藏按钮
+//隐藏按钮(实际上可以隐藏任意元素）
 function hideButton(id) {
     document.getElementById(id).style.display='none';
 }
@@ -265,8 +268,9 @@ function hideButton(id) {
 function hideAllButton() {
     hideButton('提交作业');
     hideButton('addfile');
-    hideButton('deletefile');
+    //hideButton('deletefile');
     hideButton('save');
+    hideButton('upload')
 }
 //显示按钮
 function showButton(id) {
@@ -276,8 +280,9 @@ function showButton(id) {
 function showAllButton(){
     showButton('提交作业');
     showButton('addfile');
-    showButton('deletefile');
+    //showButton('deletefile');
     showButton('save');
+    showButton('upload')
 }
 //计算类型为object的数组的长度
 function objectLength(obj) {
@@ -299,6 +304,7 @@ function submitHomework() {
     //先禁用按钮，防止重复提交
     //document.getElementById('提交作业').setAttribute('disabled', 'disabled');
     hideAllButton();
+    document.getElementById('upload').innerHTML='';
     saveDraftLocal();
     var text = document.getElementById("sendemail").value;
     //
@@ -336,7 +342,7 @@ function saveDraft() {
         })
     }
 }
-//检查作业是不是可修改状态，并显示提示语
+//根据作业批改状态显示相应内容
 function checkHomeworkEvaluation() {
     if(evaluationchange==0){
         console.log('evaluation check escaped');
@@ -345,6 +351,7 @@ function checkHomeworkEvaluation() {
         var textarea = document.getElementById('sendemail');
         if (evaluation == '未提交' || evaluation == '待修改') {
             var content=info_report[info_report.length-1]['content'];
+            showAllButton();
             if(content!=''){
                 textarea.value = content;
             }
@@ -377,6 +384,7 @@ function checkHomeworkEvaluation() {
         var submitbutton = document.getElementById('提交作业');
         var textarea = document.getElementById('sendemail');
         if (evaluation == '未提交' || evaluation == '待修改') {
+            showAllButton();
             var content=info_report[info_report.length-1]['content'];
             if(content!=''){
                 textarea.value = content;
@@ -403,11 +411,13 @@ function checkHomeworkEvaluation() {
         return false;
     })
 }
+//
 //-----------------收件箱部分----------------------------------------------
 //如果符合条件，创建一封新发件，并跳转到发件箱
 function createAndJump() {
     createReport();
     document.getElementById('sendbox').click();
+    document.getElementById('lastreport').click();
 }
 //创建新report
 function createReport() {
@@ -418,6 +428,7 @@ function createReport() {
         console.log('report created');
         console.log(info_report);
         createHomeworkTable(info_report,'homeworktbody');
+        showAllButton();
         $.ajax({ url: "create_report.php",
             data:{sid:sid,taskidnow:taskidnow},
             success: function (data) {
@@ -476,28 +487,32 @@ function createHomeworkTable(datas,tbodyid){
             var td = document.createElement("td");
 
             var taskid=i+1;
+            //规避闭包带来的问题
+            var index=i;
             var content=datas[i]['content'];
             td.innerHTML = 'report'+taskid;
             tr.appendChild(td);
             //设置点击展示邮件内容的功能
             td.onclick = function () {
+                var textarea=document.getElementById("sendemail");
                 if(lastclick=='other'){
-                    document.getElementById("sendemail").value = content;
-                    //document.getElementById("s_title").innerHTML=taskname_url_arr[taskid]['taskname'];
-                    document.getElementById("s_title").innerHTML=taskid;
+                    textarea.value = content;
+                    document.getElementById("s_title").innerHTML= '主题:'+info_pro[index]['taskname'];
 
                 }
                 else if(lastclick=='last'){
-                    console.log('click save')
+                    console.log('onclick savedraft local');
                     saveDraftLocal();
-                    document.getElementById("sendemail").value = content ;
-                    //document.getElementById("s_title").innerHTML=taskname_url_arr[taskid]['taskname'];
-                    document.getElementById("s_title").innerHTML=taskid;
+                    textarea.value = content ;
+                    document.getElementById("s_title").innerHTML= '主题:'+info_pro[index]['taskname'];
                 }
                 hideAllButton();
+                if(lastclick=='last'){
+                    textarea.setAttribute('readonly','readonly')
+                }
                 lastclick='other';
                 console.log('lastclick changed to :'+lastclick);
-            }(i)
+            }
         })(i);
     }
     //处理最后一项
@@ -508,15 +523,17 @@ function createHomeworkTable(datas,tbodyid){
     var taskid=i+1;
     var content=datas[i]['content'];
     td.innerHTML = 'report'+taskid;
+    //仅给最后一个report设置id
+    td.id='lastreport';
     tr.appendChild(td);
     //设置点击展示邮件内容的功能
     td.onclick = function () {
         if (lastclick =='other') {
-            //document.getElementById("s_title").innerHTML = taskname_url_arr[len]['taskname'];
-            document.getElementById("s_title").innerHTML = 'last report';
+            document.getElementById("s_title").innerHTML = '主题:'+info_pro[i]['taskname'];
+            //document.getElementById("s_title").innerHTML = 'last report';
             checkHomeworkEvaluation();
-            showAllButton();
         }
+        //document.getElementById('sendemail').removeAttribute('readonly');
         lastclick = 'last';
         console.log('lastclick changed to :'+lastclick);
     };
@@ -524,13 +541,141 @@ function createHomeworkTable(datas,tbodyid){
     lastclick='other';
     console.log('homeworktable created');
 }
+//利用递归算法找出info_email中taskid最大的taskemail，参数index为info_email的最后一个索引，即从数组最后一项开始向前检查,返回值为taskemail的索引
+function getLastTaskEmailIndex(index) {
+    if(typeof(info_email[index]['content'])=='undefined'){
+        return index;
+    }
+    else {
+        return getLastTaskEmailIndex(index-1);
+    }
+}
 //生成系统和教师邮件列表的函数
 function createEmailTable(parent,datas,tbodyid) {
     console.log('info_email');
     console.log(info_email);
     var tbody=document.getElementById(tbodyid);
     tbody.innerHTML='';
+    //取得最后一封taskemail的索引，这个索引及其之后的邮件会绑定显示‘回复邮件’按钮的功能
+    var index=getLastTaskEmailIndex(info_email.length-1);
+    console.log(index)
+    for (var i = 0; i < index; i++) {
+        //此处如不使用匿名函数封装，直接写进循环会报错'mutable variable accessing closure
+        (function () {
+            //新建一行
+            var tr = document.createElement("tr");
+            tbody.appendChild(tr);
+            var td= document.createElement("td");
 
+            var taskid=datas[i]['taskid'];
+            var timeStamp=datas[i]['timeStamp'];
+            //taskemail
+            if(typeof(info_email[i]['content'])=='undefined'){
+                //title=taskname_url_arr[taskid]['taskname']+'\n'+timeStamp;
+                title=info_pro[taskid-1]['taskname']+'<br>'+timeStamp;
+                var content=info_user['username']+',你好！';
+                content+=info_pro[i]['backgroundinfo'];
+                content+=info_pro[i]['taskreq'];
+                content+=info_pro[i]['deadline'];
+                td.id='taskemail'+taskid
+            }
+            //feedback
+            else
+            {
+                var title='RE:Report'+taskid+'<br>'+timeStamp;
+                content = datas[i]['content'];
+
+            }
+            td.innerHTML = title;
+            tr.appendChild(td);
+            td.setAttribute('listindex',i);
+            td.onclick = function () {
+                hideButton('response');
+                var index=this.getAttribute('listindex');
+                if(typeof (info_email[index]['checked'])!=='undefined'&&info_email[index]['checked']==0){
+                    //任务邮件情况
+                    if(typeof (info_email[index]['content'])=='undefined'){
+                        checkTaskemail();
+                        info_email[index]['checked']=1;
+                    }
+                    //feedback情况
+                    else{
+                        checkFeedback(taskid);
+                        info_email[index]['checked']=1;
+                    }
+                }
+                document.getElementById("receiveemail").value = content;
+                $.get("read_task_log.php", {sid:sid,taskid:taskid}, function (data) {
+                    console.log(data);
+                });
+
+                //document.getElementById("r_title").innerHTML=taskname_url_arr[taskid]['taskname'];
+                document.getElementById("r_title").innerHTML= '主题:'+info_pro[taskid-1]['taskname'];
+
+                document.getElementById('r_time').innerHTML='时间:'+timeStamp;
+
+            }
+        })(i)
+    }
+    for (i = index; i < datas.length; i++) {
+        //此处如不使用匿名函数封装，直接写进循环会报错'mutable variable accessing closure
+        (function () {
+            //新建一行
+            var tr = document.createElement("tr");
+            tbody.appendChild(tr);
+            var td= document.createElement("td");
+
+            var taskid=datas[i]['taskid'];
+            var timeStamp=datas[i]['timeStamp'];
+            //taskemail
+            if(typeof(info_email[i]['content'])=='undefined'){
+                //title=taskname_url_arr[taskid]['taskname']+'\n'+timeStamp;
+                title=info_pro[taskid-1]['taskname']+'<br>'+timeStamp;
+                var content=info_user['username']+',你好！';
+                content+=info_pro[i]['backgroundinfo'];
+                content+=info_pro[i]['taskreq'];
+                content+=info_pro[i]['deadline'];
+                td.id='taskemail'+taskid;
+            }
+            //feedback
+            else
+            {
+                var title='RE:Report'+taskid+'<br>'+timeStamp;
+                content = datas[i]['content'];
+
+            }
+            td.innerHTML = title;
+            tr.appendChild(td);
+            td.setAttribute('listindex',i);
+            td.onclick = function () {
+                showButton('response');
+                var index=this.getAttribute('listindex');
+                if(typeof (info_email[index]['checked'])!=='undefined'&&info_email[index]['checked']==0){
+                    //任务邮件情况
+                    if(typeof (info_email[index]['content'])=='undefined'){
+                        checkTaskemail();
+                        info_email[index]['checked']=1;
+                    }
+                    //feedback情况
+                    else{
+                        checkFeedback(taskid);
+                        info_email[index]['checked']=1;
+                    }
+                }
+                document.getElementById("receiveemail").value = content;
+                $.get("read_task_log.php", {sid:sid,taskid:taskid}, function (data) {
+                    console.log(data);
+                });
+
+                //document.getElementById("r_title").innerHTML=taskname_url_arr[taskid]['taskname'];
+                document.getElementById("r_title").innerHTML= '主题:'+info_pro[taskid-1]['taskname'];
+
+                document.getElementById('r_time').innerHTML='时间:'+timeStamp;
+
+            }
+        })(i)
+    }
+    /*
     for (var i = 0; i < datas.length; i++) {
         //此处如不使用匿名函数封装，直接写进循环会报错'mutable variable accessing closure
         (function () {
@@ -584,7 +729,7 @@ function createEmailTable(parent,datas,tbodyid) {
 
             }
         })(i)
-    }
+    }*/
 }
 //处理生成资源列表所需的数据结构
 function urlList() {
@@ -678,9 +823,18 @@ function createInput(nm) {
     aElement.id = nm;
     aElement.type = "file";
     aElement.size = "50";
-//aElement.value="thanks";
-//aElement.onclick=Function("asdf()");
-    if (document.getElementById("upload").appendChild(aElement) == null)
+    var deleteinput=document.createElement('input');
+    deleteinput.size = "50";
+    deleteinput.type='button';
+    deleteinput.value='删除';
+    deleteinput.setAttribute('targetid',nm);
+    deleteinput.onclick=function (ev) {
+        var targetid=this.getAttribute('targetid');
+        var target=document.getElementById(targetid);
+        target.parentNode.removeChild(target);
+        this.parentNode.removeChild(this);
+    };
+    if (document.getElementById("upload").appendChild(aElement) == null||document.getElementById('upload').appendChild(deleteinput)==null)
         return false;
     return true;
 }
@@ -690,6 +844,8 @@ function removeInput(nm) {
         return false;
     return true;
 }
+
+
 
 //-----------------聊天室部分----------------------------------------------
 //显示聊天内容的函数
@@ -718,7 +874,10 @@ function showmessage() {
             //showmessage.innerHTML = s;
             //showmessage.scrollTop 可以实现div底部最先展示
             //divnode.scrollHeight而已获得div的高度包括滚动条的高度
-            showmessage.scrollTop = showmessage.scrollHeight - showmessage.style.height;
+            //showmessage.scrollTop = showmessage.scrollHeight - showmessage.style.height;
+            if(chatautoflow==1){
+                autoflow('up');
+            }
             console.log('chat message updated');
         }
     };
@@ -743,6 +902,20 @@ function send() {
     //自动清空输入框
     document.getElementById("msg").value = "";
 }
+function autoflow(id) {
+    var target=document.getElementById(id);
+    target.scrollTop = target.scrollHeight - target.style.height;
+}
+//改变聊天室自动滚动状态
+function changeAutoflow() {
+    if(chatautoflow==1){
+        chatautoflow=0;
+        document.getElementById('autocontrol').value='自动滚动';
+    }
+    else{
+        chatautoflow=1;
+        document.getElementById('autocontrol').value='停止自动滚动';
+    }
 
-
+}
 

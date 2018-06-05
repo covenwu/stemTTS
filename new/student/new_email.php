@@ -45,6 +45,7 @@ while ($rst = mysqli_fetch_assoc($ret_task)) {
 $time_arr=explode(",",$task[0]['timeStamp']);
 $time_arr = array_filter($time_arr);
 $info['task'][0]['timeStamp']=end($time_arr);
+$info['task'][0]['checked']=0;
 
 
 echo json_encode($info);

@@ -65,6 +65,10 @@ for($i=0;$i<$taskemailnum;$i++){
         $pro[$i]['intro'][$k]=(string)$resouces->resource[$k]->introRes;
         $pro[$i]['url'][$k]=(string)$resouces->resource[$k]->resURL;
     }
+    $taskemail=$task->taskEmail;
+    $pro[$i]['backgroundinfo']=(string)$taskemail->backgroundInfo;
+    $pro[$i]['taskreq']=(string)$taskemail->taskReq;
+    $pro[$i]['deadline']=(string)$taskemail->deadline;
 }
 
 
