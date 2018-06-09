@@ -28,11 +28,17 @@ $ret=mysqli_query($link,$query);
 $evaluaion_array=mysqli_fetch_assoc($ret);
 
 //查询作业内容
-$query="SELECT max(timeStamp),content FROM log WHERE userid='$userid' AND actiontype='ReportSubmit'";
+$query="SELECT content,url FROM report WHERE userid='$userid'AND taskid='$taskid'";
 $ret=mysqli_query($link,$query);
 mysqli_close($link);
 $homeworkcontent_arr=mysqli_fetch_assoc($ret);
 $info_arr['content']=$homeworkcontent_arr['content'];
+$url_str=$homeworkcontent_arr['url'];
+$url_arr=explode(",",$url_str);
+$url_arr = array_filter($url_arr);
+$info_arr['url']=[];
+$info_arr['url']=$url_arr;
+
 //此处可移至前端
 $evaluaion=$evaluaion_array['evaluation'];
 if($evaluaion=='通过'){

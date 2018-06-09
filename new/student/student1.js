@@ -82,7 +82,9 @@ function initialize() {
             //减去checked项
             taskidnow=objectLength(info['task'])-1;
             sortEmailarr(info['task'],info['feedback'],0);
+            groupstunumber=objectLength(info_group['userid'])-1;
 
+            console.log('group stu num :'+groupstunumber);
             console.log('initialize info');
             console.log(info);
             console.log('info_email');
@@ -274,7 +276,7 @@ function hideAllButton() {
 }
 //显示按钮
 function showButton(id) {
-    document.getElementById(id).style.display='block';
+    document.getElementById(id).style.display='inline';
 }
 //显示发件箱所有按钮
 function showAllButton(){
@@ -304,13 +306,14 @@ function submitHomework() {
     //先禁用按钮，防止重复提交
     //document.getElementById('提交作业').setAttribute('disabled', 'disabled');
     hideAllButton();
-    document.getElementById('upload').innerHTML='';
     saveDraftLocal();
     var text = document.getElementById("sendemail").value;
     //
     var fileform = document.getElementById('upload');
     //将取得的表单数据转换为formdata形式，在php中以$_POST['name']形式引用
     var formdata = new FormData(fileform);
+    document.getElementById('upload').innerHTML='';
+
     formdata.append('sid', sid);
     formdata.append('text', text);
     formdata.append('evaluation', evaluation);
@@ -321,7 +324,6 @@ function submitHomework() {
             //提示区会提示success表示发送成功
             //document.getElementById("result").innerHTML = xhr.responseText;
             alert(xhr.responseText)
-
         }
     };
     xhr.open('post', './student_submit_homework.php');

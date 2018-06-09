@@ -28,7 +28,7 @@ $res=mysqli_set_charset($link,'utf8');
 mysqli_query($link,'use database1');
 //-----------------对应插入新纪录---------------------------------------------
 
-$query="UPDATE report SET classid='$classid',groupid='$groupid',groupNO='$numberingroup',userid='$userid',taskid='$taskidnow',content='$text',url='$url' WHERE  userid='$userid' AND taskid='$taskidnow'";
+$query="UPDATE report SET classid='$classid',groupid='$groupid',groupNO='$numberingroup',userid='$userid',taskid='$taskidnow',content='$text' WHERE  userid='$userid' AND taskid='$taskidnow'";
 mysqli_query($link,$query);
 
 mysqli_close($link);

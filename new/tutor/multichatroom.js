@@ -19,7 +19,7 @@ var maxtimeStamp='1000-01-01 00:00:00';
 // 设置onload事件
 window.onload = function(){
     // 轮询以实现自动的页面更新
-    //setInterval(function () {get_chat_data();},1500);
+    setInterval(function () {get_chat_data();},1500);
     //setInterval("updateGetOnlineuser()",2000);
 };
 
@@ -53,7 +53,7 @@ function get_chat_data(){
             s="";
             //showmessage.scrollTop 可以实现div底部最先展示
             // divnode.scrollHeight而已获得div的高度包括滚动条的高度
-            showmessage.scrollTop = showmessage.scrollHeight-showmessage.style.height;
+            //showmessage.scrollTop = showmessage.scrollHeight-showmessage.style.height;
         }
 
     })

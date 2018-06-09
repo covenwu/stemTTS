@@ -68,6 +68,20 @@ if($evaluation=='通过'){
             $query="UPDATE task SET timeStamp=CONCAT(timeStamp,'$time_added'),checked=0 WHERE userid IN (SELECT userid FROM account WHERE classid='$classid' AND groupid='$groupid')";
             mysqli_query($link,$query);
 
+            //查询小组学生的userid
+            $query="SELECT * FROM account WHERE classid='$classid' AND groupid='$groupid'";
+            $ret=mysqli_query($link,$query);
+            $userid_arr=[];
+            while($userid=mysqli_fetch_assoc($ret)){
+                $userid_arr[]=$userid;
+            }
+
+            //更新学生作业状态为‘未提交’
+            foreach ($userid_arr as $key=>$value){
+                $query="INSERT INTO homework_mood VALUES ('$value','$nexttaskid','未提交')";
+                mysqli_query($link,$query);
+            }
+
 
         }
     }

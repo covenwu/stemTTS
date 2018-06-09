@@ -42,7 +42,6 @@ foreach ($_FILES as $key => $value){
     $file=$value;
     $url.='../upload/'.upload_single($file,$allow_type,$allow_format,$error,$path,$max_size).',';
 }
-
 /*
 $query="insert into href VALUES ('$href')";
 mysqli_query($link,$query);
@@ -77,7 +76,7 @@ if($evaluation=='待修改'){
 }
 //插入新作业状态纪录
 else{
-    $query="INSERT INTO homework_mood VALUES ('$userid','$taskidnow','批改中')";
+    $query="INSERT INTO homework_mood VALUES('$userid','$taskidnow','批改中')";
     mysqli_query($link,$query);
 }
 

@@ -7,18 +7,18 @@
 //设置时区保证时间戳正确
 date_default_timezone_set('PRC');
 //-----------------获取接口变量----------------------------------------------
-$sid=$_POST['sid'];
+$sid=$_GET['sid'];
 session_id($sid);
 session_start();
 $username=$_SESSION['username'];
-$msg=$_POST['msg'];
-$groupid=$_POST['chatroomid'];
+$msg=$_GET['msg'];
+$groupid=$_GET['chatroomid'];
 $classid=$_SESSION['classid'];
 $userid=$_SESSION['userid'];
 $time=date('Y-m-d H:i:s',time());
 
 //检查输入的聊天信息，若为空则提示用户并结束
-if($_POST['msg']==""){
+if($_GET['msg']==""){
     echo ("请输入信息哦orz");
     exit;
 }

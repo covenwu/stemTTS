@@ -52,7 +52,7 @@
             header("Location:../student/student2.html?sid=".$sid);
         }
         elseif ($_SESSION['role']=="tutor"){
-            header("Location:../tutor/tutor.html?sid=".$sid);
+            header("Location:../tutor/tutor1.html?sid=".$sid);
         }
 
         ?>
