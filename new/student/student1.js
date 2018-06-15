@@ -3,7 +3,7 @@
        3.将changelistmood改为changemood
        4.可能可以合并请求来减少请求次数
        6.可以根据新邮件来减少checkhoemworkevaluaion
-
+进度：
 */
 
 //-----------------控制台--------------------
@@ -12,6 +12,7 @@ var getEmailInterval=6000;
 var groupstunumber=4;
 var getChatmsgInterval=3000;
 var updateOnlineInterval=10000;
+var shareListInterval=10000;
 
 //-----------------设置变量---------------------
 //-----------------信息存储---------------------
@@ -65,6 +66,7 @@ window.onbeforeunload = function(){
 setInterval("getNewEmail()",getEmailInterval);
 setInterval("showmessage()", getChatmsgInterval);
 setInterval("updateGetOnlineuser()", updateOnlineInterval);
+setInterval("shareListData()",shareListInterval);
 
 
 //-----------------函数定义部分----------------------------------------------
@@ -137,9 +139,11 @@ function testFeedback(feedback,index,taskid){
 }
 //用获得数据生成依赖数据的界面，依赖于initialize()取得的数据
 function createUI() {
+    shareListData();
     createEmailTable('emailtable',info_email,'emailtbody');
     createHomeworkTable(info_report,'homeworktbody');
     urlList();
+    document.getElementById('chatroom_headline').innerHTML='NO.'+info_user['groupid']+'小组聊天室';
     //填写抄送
     var str=info_group['username'][0];
     for(var j=1;j<groupstunumber;j++){
@@ -227,6 +231,8 @@ function reminder(feedback,task) {
 //更新在线用户列表
 function updateGetOnlineuser() {
     $.get("update_get_onlineuser.php", {sid: sid}, function (data) {
+        console.log('online user data: ');
+        console.log(data);
         //返回的json数据解码，数据存进data_array
         var data_array = eval(data);
         var onlineuserlist_str = "";
@@ -305,8 +311,18 @@ function changemood(target,mood) {
 function submitHomework() {
     //先禁用按钮，防止重复提交
     //document.getElementById('提交作业').setAttribute('disabled', 'disabled');
+    var input_arr=document.getElementById('upload').children;
+    var len=info_report.length;
+    for(var i=0;i<input_arr.length;i++){
+        if(input_arr[i].files!=null){
+            var name=input_arr[i].files[0].name;
+            info_report[len-1]['urlname'].push(name);
+        }
+    }
     hideAllButton();
     saveDraftLocal();
+
+
     var text = document.getElementById("sendemail").value;
     //
     var fileform = document.getElementById('upload');
@@ -323,7 +339,11 @@ function submitHomework() {
         if (xhr.readyState == 4) {
             //提示区会提示success表示发送成功
             //document.getElementById("result").innerHTML = xhr.responseText;
-            alert(xhr.responseText)
+            info_report[info_report.length-1]['url']=JSON.parse(xhr.responseText);
+            console.log('info report: '+info_report);
+            console.log('作业提交成功');
+            evaluationchange=1;
+            checkHomeworkEvaluation();
         }
     };
     xhr.open('post', './student_submit_homework.php');
@@ -426,6 +446,7 @@ function createReport() {
     if(info_report.length<taskidnow){
         var report=[];
         report['content']='';
+        report['urlname']=[];
         info_report.push(report);
         console.log('report created');
         console.log(info_report);
@@ -490,12 +511,18 @@ function createHomeworkTable(datas,tbodyid){
 
             var taskid=i+1;
             //规避闭包带来的问题
-            var index=i;
             var content=datas[i]['content'];
+            td.setAttribute('index',i);
             td.innerHTML = 'report'+taskid;
             tr.appendChild(td);
             //设置点击展示邮件内容的功能
             td.onclick = function () {
+                //处理邮件链接
+                var urldiv=document.getElementById('upload');
+                urldiv.innerHTML='';
+
+                var index=this.getAttribute('index');
+                //处理邮件文本内容
                 var textarea=document.getElementById("sendemail");
                 if(lastclick=='other'){
                     textarea.value = content;
@@ -508,9 +535,25 @@ function createHomeworkTable(datas,tbodyid){
                     textarea.value = content ;
                     document.getElementById("s_title").innerHTML= '主题:'+info_pro[index]['taskname'];
                 }
-                hideAllButton();
+                hideButton('提交作业');
+                hideButton('addfile');
+                hideButton('save');
                 if(lastclick=='last'){
                     textarea.setAttribute('readonly','readonly')
+                }
+                var url_arr=info_report[index]['url'];
+                var urlname_arr=info_report[index]['urlname'];
+                console.log('url_arr');
+                console.log(url_arr);
+                console.log('urlname');
+                console.log(urlname_arr);
+                for(var k=0;k<url_arr.length;k++){
+                    var a=document.createElement('a');
+                    a.href=url_arr[k];
+                    a.download=urlname_arr[k];
+                    var node = document.createTextNode(urlname_arr[k]);
+                    a.appendChild(node);
+                    urldiv.appendChild(a);
                 }
                 lastclick='other';
                 console.log('lastclick changed to :'+lastclick);
@@ -531,6 +574,7 @@ function createHomeworkTable(datas,tbodyid){
     //设置点击展示邮件内容的功能
     td.onclick = function () {
         if (lastclick =='other') {
+            document.getElementById('upload').innerHTML='';
             document.getElementById("s_title").innerHTML = '主题:'+info_pro[i]['taskname'];
             //document.getElementById("s_title").innerHTML = 'last report';
             checkHomeworkEvaluation();
@@ -574,11 +618,23 @@ function createEmailTable(parent,datas,tbodyid) {
             //taskemail
             if(typeof(info_email[i]['content'])=='undefined'){
                 //title=taskname_url_arr[taskid]['taskname']+'\n'+timeStamp;
-                title=info_pro[taskid-1]['taskname']+'<br>'+timeStamp;
+                /*title=info_pro[taskid-1]['taskname']+'<br>'+timeStamp;
                 var content=info_user['username']+',你好！';
                 content+=info_pro[i]['backgroundinfo'];
                 content+=info_pro[i]['taskreq'];
                 content+=info_pro[i]['deadline'];
+                content+='\n'+'祝好!'+'\n'+'张华';*/
+                title=info_pro[taskid-1]['taskname']+'<br>'+timeStamp;
+                //var content=info_user['username']+',你好！';
+                var content='<p>'+info_user['username']+',你好！'+'</p>';
+                content+='<p>'+'&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp'+info_pro[i]['backgroundinfo']+'</p>';
+                content+='<p>'+'&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp'+info_pro[i]['taskreq']+'</p>';
+                content+='<p>'+'&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp'+info_pro[i]['deadline']+'</p>';
+                //content+=info_pro[i]['taskreq'];
+                //content+=info_pro[i]['deadline'];
+                //content+='\n'+'祝好!'+'\n'+'张华';
+                content+='<p align="right">祝好！</p>';
+                content+='<p align="right">张华&nbsp&nbsp&nbsp&nbsp</p>';
                 td.id='taskemail'+taskid
             }
             //feedback
@@ -633,10 +689,16 @@ function createEmailTable(parent,datas,tbodyid) {
             if(typeof(info_email[i]['content'])=='undefined'){
                 //title=taskname_url_arr[taskid]['taskname']+'\n'+timeStamp;
                 title=info_pro[taskid-1]['taskname']+'<br>'+timeStamp;
-                var content=info_user['username']+',你好！';
-                content+=info_pro[i]['backgroundinfo'];
-                content+=info_pro[i]['taskreq'];
-                content+=info_pro[i]['deadline'];
+                //var content=info_user['username']+',你好！';
+                var content='<p>'+info_user['username']+',你好！'+'</p>';
+                content+='<p>'+'&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp'+info_pro[i]['backgroundinfo']+'</p>';
+                content+='<p>'+'&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp'+info_pro[i]['taskreq']+'</p>';
+                content+='<p>'+'&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp'+info_pro[i]['deadline']+'</p>';
+                //content+=info_pro[i]['taskreq'];
+                //content+=info_pro[i]['deadline'];
+                //content+='\n'+'祝好!'+'\n'+'张华';
+                content+='<p align="right">祝好！</p>';
+                content+='<p align="right">张华&nbsp&nbsp&nbsp&nbsp</p>';
                 td.id='taskemail'+taskid;
             }
             //feedback
@@ -664,7 +726,8 @@ function createEmailTable(parent,datas,tbodyid) {
                         info_email[index]['checked']=1;
                     }
                 }
-                document.getElementById("receiveemail").value = content;
+                //document.getElementById("receiveemail").value = content;
+                document.getElementById("receiveemail").innerHTML = content;
                 $.get("read_task_log.php", {sid:sid,taskid:taskid}, function (data) {
                     console.log(data);
                 });
@@ -770,8 +833,7 @@ function createUrlTable(datas, tbodyid) {
             var hreftag = document.createElement('a');
             var node = document.createTextNode(datas['intro'][i]);
             hreftag.appendChild(node);
-            //hreftag.setAttribute('href',datas[i]['url']);
-            //display.innerHTML = datas[i]['url'];
+
             display.appendChild(hreftag);
             hreftag.onclick = function (ev) {
                 PDFObject.embed(href, "#pdf")
@@ -805,6 +867,36 @@ function checkFeedback(taskid) {
     });
 }
 //-----------------上传附件部分----------------------------------------------
+function addInput(parentid) {
+    if (attachnum > 0) {
+        var attach = attachname + attachnum;
+        if (createInput(attach,parentid))
+            attachnum = attachnum + 1;
+    }
+}
+function createInput(nm,parentid) {
+    var aElement = document.createElement("input");
+    aElement.name = nm;
+    aElement.id = nm;
+    aElement.type = "file";
+    aElement.size = "50";
+    var deleteinput=document.createElement('input');
+    deleteinput.size = "50";
+    deleteinput.type='button';
+    deleteinput.value='删除';
+    deleteinput.setAttribute('targetid',nm);
+    deleteinput.onclick=function (ev) {
+        var targetid=this.getAttribute('targetid');
+        var target=document.getElementById(targetid);
+        target.parentNode.removeChild(target);
+        this.parentNode.removeChild(this);
+    };
+    if (document.getElementById(parentid).appendChild(aElement) == null||document.getElementById(parentid).appendChild(deleteinput)==null)
+        return false;
+    return true;
+}
+
+/*
 function addInput() {
     if (attachnum > 0) {
         var attach = attachname + attachnum;
@@ -846,8 +938,7 @@ function removeInput(nm) {
         return false;
     return true;
 }
-
-
+*/
 
 //-----------------聊天室部分----------------------------------------------
 //显示聊天内容的函数
@@ -921,3 +1012,68 @@ function changeAutoflow() {
 
 }
 
+//-----------------资源共享----------------------------------------------
+function submitShareFile() {
+    var fileform = document.getElementById('share_upload');
+    //将取得的表单数据转换为formdata形式，在php中以$_POST['name']形式引用
+    var formdata = new FormData(fileform);
+    formdata.append('sid',sid);
+
+    //ajax请求
+    var xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState == 4) {
+            console.log('submitShareFile() response: ');
+            console.log(xhr.responseText);
+            fileform.innerHTML='';
+        }
+    };
+    xhr.open('post', 'share_file.php');
+    xhr.send(formdata);
+    console.log('formdata');
+    console.log(formdata);
+}
+//从后台获取分享列表的数据
+function shareListData() {
+    $.ajax({
+        url:'share_list_data.php',
+        data:{sid:sid},
+        success:function (data) {
+            var info=JSON.parse(data);
+            console.log('shareListData result: ');
+            console.log(info);
+            createShareTable(info,'sharelist')
+        }
+    })
+}
+//根据数据创建共享列表
+function createShareTable(data,tbodyid) {
+    var tbody = document.getElementById(tbodyid);
+    tbody.innerHTML='';
+    for(var i=0;i<objectLength(data);i++){
+        (function () {
+            var tr = document.createElement("tr");
+            tbody.appendChild(tr);
+            var filename=data['filename'][i];
+            //正则表达式 取得文件扩展名 结果不包含'.'  形如  pdf
+            var FileExt = filename.replace(/.+\./, "").toLowerCase();
+            var sharefile=data['sharefile'][i];
+            var sharetime=data['sharetime'][i];
+
+            var a = document.createElement('a');
+            if(FileExt=='pdf'){
+                a.onclick=function () {
+                    PDFObject.embed(sharefile, "#share_pdf")
+                }
+            }
+            else{
+                a.href=sharefile;
+                a.download=filename;
+            }
+            var node=document.createElement('span');
+            node.innerHTML=filename+'<br/>'+sharetime;
+            a.appendChild(node);
+            tr.appendChild(a);
+        })(i)
+    }
+}

@@ -10,16 +10,23 @@
 date_default_timezone_set('PRC');
 //-----------------常量设置----------------------------------------------
 $offlinetime=60;
-
+$groupnum=4;
 //-----------------获取接口变量----------------------------------------------
 $sid=$_GET['sid'];
 session_id($sid);
 session_start();
-$chatroomid=$_GET['chatroomid'];
 $userid=$_SESSION['userid'];
 $username=$_SESSION['username'];
-$groupid=$_SESSION['group'.$chatroomid];
+$classid=$_SESSION['classid'];
 $time=date('Y-m-d H:i:s',time());
+
+/*
+$values_str='';
+for($i=1;$i<=$groupnum-1;$i++){
+    $values_str.='(\'$userid\',\'$username\','.(string)$i.',\'$time\',\'$classid\'),';
+}
+$values_str.='(\'$userid\',\'$username\','.(string)$groupnum.',\'$time\',\'$classid\')';
+*/
 //-----------------连接mysql服务器----------------------------------------------
 $link =mysqli_connect('localhost:3306','root','12345678') ;
 $res=mysqli_set_charset($link,'utf8');
@@ -31,12 +38,14 @@ mysqli_query($link,$query);
 
 //将请求这个文件的用户写入记录
 //先删除这个用户的旧记录
-$query="delete from onlineuser where userid='$userid'AND groupid='$groupid'";
-mysqli_query($link,$query);
-//写入新记录
-$query="insert into onlineuser(userid,username,groupid,time) values('$userid','$username','$groupid','$time')";
+$query="delete from onlineuser where userid='$userid'";
 mysqli_query($link,$query);
 
+//写入新记录
+$query="insert into onlineuser(userid,username,groupid,time,classid) values('$userid','$username',1,'$time','$classid'),
+    ('$userid','$username',2,'$time','$classid'),('$userid','$username',3,'$time','$classid'),('$userid','$username',4,'$time','$classid')";
+mysqli_query($link,$query);
+/*
 //获取更新过的在线用户表
 $query="select userid,username from onlineuser WHERE groupid='$groupid'";
 $result=mysqli_query($link,$query);
@@ -47,6 +56,6 @@ $row=mysqli_fetch_all($result,1);
 if(!empty($row)) {
     echo json_encode($row);
 }
-
-
+*/
+echo('update online user successfully');
 

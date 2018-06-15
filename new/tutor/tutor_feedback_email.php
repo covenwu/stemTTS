@@ -27,7 +27,16 @@ $res=mysqli_set_charset($link,'utf8');
 //选择数据库
 mysqli_query($link,'use database1');
 //-----------------对应插入新纪录----------------------------------------------
-$query="SELECT userid,username FROM account WHERE groupid='$groupid' AND numberingroup='$numberingroup'";
+$query="SELECT userid FROM account WHERE groupid='$groupid' AND classid='$classid'";
+$ret=mysqli_query($link,$query);
+$num=0;
+while($temp=mysqli_fetch_assoc($ret)){
+    $num++;
+}
+$NUMBERINGROUP=$num;
+
+
+$query="SELECT userid,username FROM account WHERE groupid='$groupid' AND numberingroup='$numberingroup' AND classid='$classid' limit 1";
 $ret=mysqli_query($link,$query);
 $stu_info=mysqli_fetch_assoc($ret);
 $username=$stu_info['username'];
@@ -48,7 +57,9 @@ mysqli_query($link,$query);
 $query="INSERT INTO feedback VALUES ('$time','$userid','$taskidnow','$emailcontent','$evaluation',0)";
 mysqli_query($link,$query);
 
-
+//更改作业的评价状态
+$query="UPDATE homework_mood SET evaluation='$evaluation' WHERE userid='$userid' AND taskid='$taskid'";
+mysqli_query($link,$query);
 
 if($evaluation=='通过'){
 
@@ -73,7 +84,7 @@ if($evaluation=='通过'){
             $ret=mysqli_query($link,$query);
             $userid_arr=[];
             while($userid=mysqli_fetch_assoc($ret)){
-                $userid_arr[]=$userid;
+                $userid_arr[]=$userid['userid'];
             }
 
             //更新学生作业状态为‘未提交’
@@ -92,9 +103,7 @@ if($evaluation=='通过'){
     }
 }
 
-//更改作业的评价状态
-$query="UPDATE homework_mood SET evaluation='$evaluation' WHERE userid='$userid' AND taskid='$taskid'";
-mysqli_query($link,$query);
+
 
 mysqli_close($link);
 //回显发送成功提示

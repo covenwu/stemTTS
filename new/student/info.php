@@ -34,7 +34,7 @@ $query="SELECT * FROM feedback WHERE userid='$userid'";
 $ret_feedback=mysqli_query($link,$query);
 
 //查询report
-$query="SELECT content FROM report WHERE userid='$userid' limit {$taskidnow}";
+$query="SELECT content,url,urlname FROM report WHERE userid='$userid' limit {$taskidnow}";
 $ret_report=mysqli_query($link,$query);
 
 //查询task的时间
@@ -87,7 +87,19 @@ $info['report']=[];
 while ($rst = mysqli_fetch_assoc($ret_report)) {
     $info['report'][] = $rst;
 }
-
+$num=count($info['report']);
+for($i=0;$i<$num;$i++){
+    //处理url
+    $url_str=$info['report'][$i]['url'];
+    $url_arr=explode(',',$url_str);
+    $url_arr = array_filter($url_arr);
+    $info['report'][$i]['url']=$url_arr;
+    //处理urlname
+    $urlname_str=$info['report'][$i]['urlname'];
+    $urlname_arr=explode('@!',$urlname_str);
+    $urlname_arr = array_filter($urlname_arr);
+    $info['report'][$i]['urlname']=$urlname_arr;
+}
 
 
 $info['task']=[];

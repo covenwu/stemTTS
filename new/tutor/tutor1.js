@@ -1,6 +1,10 @@
 /*
 提示：初始化info_pop,应对taskid更新情况
 */
+
+var buttonInterval=5000;
+var chatInterval=2000;
+var onlineuserInterval=7000;
 //-----------------常量设置----------------------------------------------
 var GROUPNUM = 4;
 var EVALUATIONNUM = 4;
@@ -26,12 +30,13 @@ var stu_numberingroup = 0;
 //getUserInfo();
 //getHomework();
 initialize();
-setInterval("buttonControl()", 5000);
+setInterval("buttonControl()", buttonInterval);
 window.onload = function(){
     // 轮询以实现自动的页面更新
-    setInterval(function () {get_chat_data();},1500);
-    //setInterval("updateGetOnlineuser()",2000);
+    setInterval(function () {get_chat_data();},chatInterval);
 };
+setInterval("updateGetOnlineuser()",onlineuserInterval);
+
 //-----------------函数定义部分----------------------------------------------
 function get_chat_data(){
     //ajax请求
@@ -485,14 +490,14 @@ function dialog(groupid, taskid, numberingroup) {
     stu_numberingroup = numberingroup;
     stu_taskid = taskid;
     EVALUATIONNUM=info_pro[taskid-1]['rubrics'].length;
-
+    document.getElementById("教师反馈").innerHTML='';
     $.get("check_homework_evaluation.php", {
         groupid: stu_group,
         numberingroup: stu_numberingroup,
         taskid: stu_taskid,
         sid:sid
     }, function (data) {
-        console.log(data)
+        console.log(data);
         var info_arr=JSON.parse(data);
         var message=info_arr['evaluation'];
         document.getElementById('学生作业').value =info_arr['content'];
@@ -501,9 +506,10 @@ function dialog(groupid, taskid, numberingroup) {
         for(var i=0;i<info_arr['url'].length;i++){
             var a=document.createElement('a');
             a.href=info_arr['url'][i];
-            a.download='12.pdf';
+            //a.innerText=info_arr['urlname'][i];
+            a.download=info_arr['urlname'][i];
             //a.target="_blank";
-            var node = document.createTextNode(info_arr['url'][i]);
+            var node = document.createTextNode(info_arr['urlname'][i]);
             a.appendChild(node);
             urldiv.appendChild(a);
         }
@@ -588,6 +594,14 @@ function getUserInfo() {
     $.get("../all/get_user_info.php", {sid:sid}, function (data) {
         //返回的json数据解码，数据存进user_info_array
         user_info_array = eval(data);
+    })
+}
+
+//更新在线用户列表
+function updateGetOnlineuser() {
+    //ajax请求
+    $.get("update_get_onlineuser.php", {sid: sid}, function (data) {
+     console.log(data)
     })
 }
 

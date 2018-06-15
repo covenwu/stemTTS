@@ -24,6 +24,7 @@ $time=date('Y-m-d H:i:s',time());
 $groupid=$_SESSION['groupid'];
 $numberingroup=$_SESSION['numberingroup'];
 $url='';
+$urlname='';
 
 //给出数据
 //$file=$_FILES['image'];
@@ -38,9 +39,13 @@ $filename=upload_single($file,$allow_type,$allow_format,$error,$path,$max_size);
 $href='upload/'.$filename;
 echo ($filename);
 */
+$url_arr=[];
 foreach ($_FILES as $key => $value){
     $file=$value;
-    $url.='../upload/'.upload_single($file,$allow_type,$allow_format,$error,$path,$max_size).',';
+    $urlname.=$file['name'].'@!';
+    $temp='../upload/'.upload_single($file,$allow_type,$allow_format,$error,$path,$max_size);
+    $url.=$temp.',';
+    $url_arr[]=$temp;
 }
 /*
 $query="insert into href VALUES ('$href')";
@@ -85,12 +90,13 @@ else{
 $query="INSERT INTO report VALUES ('$classid','$groupid','$numberingroup'
           ,'$userid','$taskidnow','$text','$url')";
 */
-$query="UPDATE report SET classid='$classid',groupid='$groupid',groupNO='$numberingroup',userid='$userid',taskid='$taskidnow',content='$text',url='$url' WHERE  userid='$userid' AND taskid='$taskidnow'";
+$query="UPDATE report SET classid='$classid',groupid='$groupid',groupNO='$numberingroup',userid='$userid',taskid='$taskidnow',content='$text',url='$url',urlname='$urlname' WHERE  userid='$userid' AND taskid='$taskidnow'";
 mysqli_query($link,$query);
 
 mysqli_close($link);
 //回显发送成功提示
-echo("作业提交成功！");
+//echo("作业提交成功！");
+echo(json_encode($url_arr));
 
 
 function upload_single($file,$allow_type,$allow_format=array(),$error,$path,$max_size){
@@ -153,7 +159,7 @@ function upload_single($file,$allow_type,$allow_format=array(),$error,$path,$max
         echo '文件移动失败';
         return false;
     }
-    echo 'upload succeed';
+    //echo 'upload succeed';
     return($fullname);
 }
 

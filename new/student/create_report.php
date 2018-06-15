@@ -38,7 +38,7 @@ $res=mysqli_set_charset($link,'utf8');
 mysqli_query($link,'use database1');
 //-----------------对应插入新纪录---------------------------------------------
 //向report表插入记录
-$query="INSERT INTO report VALUES ('$classid','$groupid','$numberingroup'
+$query="INSERT INTO report(classid,groupid,groupNO,userid,taskid,content,url) VALUES ('$classid','$groupid','$numberingroup'
           ,'$userid','$taskidnow','$text','$url')";
 mysqli_query($link,$query);
 mysqli_close($link);

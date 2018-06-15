@@ -11,7 +11,7 @@ header("Content-Type:application/json");
 $offlinetime=60;
 
 //-----------------获取接口变量----------------------------------------------
-/*
+
 $sid=$_GET['sid'];
 session_id($sid);
 session_start();
@@ -22,12 +22,14 @@ $classid=$_SESSION['classid'];
 //设置时区保证时间戳正确
 date_default_timezone_set('PRC');
 $time=date('Y-m-d H:i:s',time());
-*/
+
+/*
 $userid=1;
 $username='af';
 $groupid=1;
 $classid=1;
 $time='2018-05-11 16:36:35';
+*/
 //-----------------连接mysql服务器----------------------------------------------
 $link =mysqli_connect('localhost:3306','root','12345678') ;
 $res=mysqli_set_charset($link,'utf8');

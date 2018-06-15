@@ -28,7 +28,7 @@ $ret=mysqli_query($link,$query);
 $evaluaion_array=mysqli_fetch_assoc($ret);
 
 //查询作业内容
-$query="SELECT content,url FROM report WHERE userid='$userid'AND taskid='$taskid'";
+$query="SELECT content,url,urlname FROM report WHERE userid='$userid'AND taskid='$taskid'";
 $ret=mysqli_query($link,$query);
 mysqli_close($link);
 $homeworkcontent_arr=mysqli_fetch_assoc($ret);
@@ -38,6 +38,12 @@ $url_arr=explode(",",$url_str);
 $url_arr = array_filter($url_arr);
 $info_arr['url']=[];
 $info_arr['url']=$url_arr;
+$urlname_str=$homeworkcontent_arr['urlname'];
+$urlname_arr=explode('@!',$urlname_str);
+$urlname_arr = array_filter($urlname_arr);
+$info_arr['urlname']=[];
+$info_arr['urlname']=$urlname_arr;
+
 
 //此处可移至前端
 $evaluaion=$evaluaion_array['evaluation'];
