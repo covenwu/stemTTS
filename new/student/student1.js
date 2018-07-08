@@ -76,6 +76,7 @@ function initialize() {
     $.ajax({ url: "info.php",
         data:{sid:sid},
         success: function (data) {
+            console.log(data);
             var info=JSON.parse(data);
             info_group=info['group'];
             info_report=info['report'];
@@ -140,6 +141,7 @@ function testFeedback(feedback,index,taskid){
 //用获得数据生成依赖数据的界面，依赖于initialize()取得的数据
 function createUI() {
     shareListData();
+    reportAttachmentData();
     createEmailTable('emailtable',info_email,'emailtbody');
     createHomeworkTable(info_report,'homeworktbody');
     urlList();
@@ -337,6 +339,7 @@ function submitHomework() {
     var xhr = new XMLHttpRequest();
     xhr.onreadystatechange = function () {
         if (xhr.readyState == 4) {
+            console.log(xhr.responseText)
             //提示区会提示success表示发送成功
             //document.getElementById("result").innerHTML = xhr.responseText;
             info_report[info_report.length-1]['url']=JSON.parse(xhr.responseText);
@@ -950,12 +953,30 @@ function showmessage() {
             // 将获取到的字符串存入data变量
             eval('var data = ' + ajax.responseText);
             // 遍历data数组，把内部的信息一个个的显示到页面上
+            var username=info_user['username'];
             var s = "";
+            /*
             for (var i = 0; i < data.length; i++) {
                 s += "(" + data[i].timeStamp + ") >>>";
-                s += "<p>";
+                s += "<p class='box'>";
                 s += data[i].username + "&nbsp;" + "说：" + data[i].content;
                 s += "</p>";
+            }*/
+            for (var i = 0; i < data.length; i++) {
+                if(data[i].username==username){
+                    s += "<p class='userbox'>";
+                    //s += "(" + data[i].timeStamp + ") >>>"+'<br/>';
+                    s += data[i].timeStamp+'<br/>';
+                    s += data[i].username + "&nbsp;" + "说：" + data[i].content;
+                    s += "</p>";
+                }
+                else{
+                    s += "<p class='otherbox'>";
+                    s += "(" + data[i].timeStamp + ") >>>"+'<br/>';
+                    s += data[i].username + "&nbsp;" + "说：" + data[i].content;
+                    s += "</p>";
+                }
+
             }
             //记录最大的timeStamp
             if(data.length!==0){
@@ -1012,7 +1033,8 @@ function changeAutoflow() {
 
 }
 
-//-----------------资源共享----------------------------------------------
+//-----------------资源共享页面----------------------------------------------
+//提交分享文件
 function submitShareFile() {
     var fileform = document.getElementById('share_upload');
     //将取得的表单数据转换为formdata形式，在php中以$_POST['name']形式引用
@@ -1042,7 +1064,11 @@ function shareListData() {
             var info=JSON.parse(data);
             console.log('shareListData result: ');
             console.log(info);
-            createShareTable(info,'sharelist')
+            console.log(typeof (info['filename'][0]) )
+            if(typeof (info['filename'][0]) !='undefined'){
+                createShareTable(info,'sharelist')
+
+            }
         }
     })
 }
@@ -1076,4 +1102,80 @@ function createShareTable(data,tbodyid) {
             tr.appendChild(a);
         })(i)
     }
+}
+//获取历史report的附件的名字和路径
+function reportAttachmentData() {
+    $.ajax({
+        url:'report_attachment.php',
+        data:{sid:sid},
+        success:function (data) {
+            var info=JSON.parse(data);
+            console.log('report_attachment result: ');
+            console.log(info);
+            createAttachmentTable(info,'attachment_history');
+        }
+    })
+}
+//根据数据创建历史report附件列表
+function createAttachmentTable(data,tbodyid) {
+    var tbody = document.getElementById(tbodyid);
+    tbody.innerHTML='';
+    for(var i=0;i<objectLength(data);i++){
+        (function () {
+            var tr = document.createElement("tr");
+            tbody.appendChild(tr);
+            var filename=data['urlname'][i];
+            //正则表达式 取得文件扩展名 结果不包含'.'  形如  pdf
+            var FileExt = filename.replace(/.+\./, "").toLowerCase();
+            var sharefile=data['url'][i];
+            var uploadtime=data['time'][i];
+            var shared=data['shared'][i];
+            var number=data['number'][i];
+            var taskid=data['taskid'][i];
+            //创建并设置a标签和文字node
+            var a = document.createElement('a');
+            if(FileExt=='pdf'){
+                a.onclick=function () {
+                    PDFObject.embed(sharefile, "#share_pdf")
+                }
+            }
+            else{
+                a.href=sharefile;
+                a.download=filename;
+            }
+            var node=document.createElement('span');
+            node.innerHTML=filename+'<br/>'+uploadtime;
+            //绑定标签
+            a.appendChild(node);
+            tr.appendChild(a);
+            //创建一键分享按钮
+            var button=document.createElement('input');
+            button.type='button';
+            if(shared==0){
+                button.value='分享';
+                button.setAttribute('style',"width:60px;height:25px");
+                button.onclick=function (ev) {
+                    alert(1);
+                    shareAttachment(filename,sharefile,number,taskid);
+                }
+            }
+            else{
+                button.value='已分享';
+                button.setAttribute('disabled','disabled');
+            }
+            //tr.appendChild(button);
+            tbody.appendChild(button);
+
+        })(i)
+    }
+}
+//分享report附件列表中的附件
+function shareAttachment(filename,url,number,taskid) {
+    $.ajax({
+        url:'share_attachment.php',
+        data:{sid:sid,filename:filename,url:url,taskid:taskid,number:number},
+        success:function (data) {
+            console.log(data);
+        }
+    })
 }

@@ -8,7 +8,7 @@ $group_num=4;
 $sid=$_GET['sid'];
 session_id($sid);
 session_start();
-$classid=$_SESSION['classid'];
+$classid=$_GET['classid'];
 
 //-----------------连接mysql服务器----------------------------------------------
 $link =mysqli_connect('localhost:3306','root','12345678') ;

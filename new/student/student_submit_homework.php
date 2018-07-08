@@ -40,12 +40,16 @@ $href='upload/'.$filename;
 echo ($filename);
 */
 $url_arr=[];
+//记录文件分享状态（shared字段）的字符串
+$shared_str='';
+
 foreach ($_FILES as $key => $value){
     $file=$value;
     $urlname.=$file['name'].'@!';
     $temp='../upload/'.upload_single($file,$allow_type,$allow_format,$error,$path,$max_size);
     $url.=$temp.',';
     $url_arr[]=$temp;
+    $shared_str.='0,';
 }
 /*
 $query="insert into href VALUES ('$href')";
@@ -90,14 +94,13 @@ else{
 $query="INSERT INTO report VALUES ('$classid','$groupid','$numberingroup'
           ,'$userid','$taskidnow','$text','$url')";
 */
-$query="UPDATE report SET classid='$classid',groupid='$groupid',groupNO='$numberingroup',userid='$userid',taskid='$taskidnow',content='$text',url='$url',urlname='$urlname' WHERE  userid='$userid' AND taskid='$taskidnow'";
+$query="UPDATE report SET classid='$classid',groupid='$groupid',groupNO='$numberingroup',userid='$userid',taskid='$taskidnow',content='$text',url='$url',urlname='$urlname',timeStamp='$time',shared='$shared_str' WHERE  userid='$userid' AND taskid='$taskidnow'";
 mysqli_query($link,$query);
 
 mysqli_close($link);
 //回显发送成功提示
 //echo("作业提交成功！");
 echo(json_encode($url_arr));
-
 
 function upload_single($file,$allow_type,$allow_format=array(),$error,$path,$max_size){
     //判断文件是否有效

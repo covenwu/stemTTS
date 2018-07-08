@@ -11,6 +11,7 @@ $sid=$_GET['sid'];
 session_id($sid);
 session_start();
 $classid=$_SESSION['classid'];
+$tutorid=$_SESSION['tutorid'];
 
 //-----------------连接mysql服务器----------------------------------------------
 
@@ -22,6 +23,8 @@ $query="SELECT taskid,evaluation,groupid,numberingroup FROM account INNER JOIN h
 $ret=mysqli_query($link,$query);
 $query="SELECT groupid,taskidnow FROM group_attr WHERE classid='$classid' ORDER BY groupid";
 $ret_taskid=mysqli_query($link,$query);
+$query="SELECT classid  FROM account WHERE tutorid='$tutorid'";
+$ret_classid=mysqli_query($link,$query);
 mysqli_close($link);
 $homeworkmood=[];
 while ($rst = mysqli_fetch_assoc($ret)) {
@@ -30,6 +33,10 @@ while ($rst = mysqli_fetch_assoc($ret)) {
 $taskid_arr=[];
 while ($rst = mysqli_fetch_assoc($ret_taskid)) {
     $taskid_arr[] = $rst;
+}
+$classid_arr=[];
+while($rst=mysqli_fetch_assoc($ret_classid)){
+    $classid_arr[]=$rst['classid'];
 }
 $xml=simplexml_load_file('pro.xml');
 $pro=[];
@@ -64,4 +71,5 @@ $info=[];
 $info['pro']=$pro;
 $info['homeworkmood']=$homeworkmood;
 $info['taskid']=$taskid_arr;
+$info['classid']=$classid_arr;
 echo(json_encode($info));

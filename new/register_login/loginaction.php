@@ -20,7 +20,7 @@ if(!empty($emailaddress)&&!empty($password)) {
     //选择数据库
     mysqli_query($link,'use database1');
     //准备SQL语句
-    $query_select = "SELECT emailaddress,password,userid FROM account WHERE emailaddress = '$emailaddress' AND password = '$password'";
+    $query_select = "SELECT emailaddress,password,userid FROM account WHERE emailaddress = '$emailaddress' AND password = '$password' limit 1";
     //执行SQL语句
     $ret = mysqli_query($link,$query_select);
     $row = mysqli_fetch_array($ret);

@@ -35,8 +35,8 @@ if ($emailaddress != $re_emailaddress) {
     mysqli_query($conn, 'use database1');
 
     //准备SQL语句,查询用户名
-    $sql_select = "SELECT username FROM account WHERE username = '$username'";
-    $sql_select1 = "SELECT emailaddress FROM account WHERE emailaddress='$emailaddress'";
+    $sql_select = "SELECT username FROM account WHERE username = '$username' limit 1";
+    $sql_select1 = "SELECT emailaddress FROM account WHERE emailaddress='$emailaddress' limit 1";
     //执行SQL语句
     $ret = mysqli_query($conn, $sql_select);
     $ret1 = mysqli_query($conn, $sql_select1);
@@ -51,6 +51,14 @@ if ($emailaddress != $re_emailaddress) {
     } else {
         //用户名不存在，插入数据语句
         $sql_insert = "INSERT INTO account(username,password,emailaddress,role,taskidnow) VALUES('$username','$password','$emailaddress','$role',1)";
+        //教师注册处理
+        /*
+        $query="SELECT MAX(tutorid) FROM account limit 1";
+        $ret=mysqli_query($conn,$query);
+        $res=mysqli_fetch_assoc($ret);
+        $newtutorid=$res['tutorid']+1;
+        $sql_insert = "INSERT INTO account(username,password,emailaddress,role,taskidnow,tu) VALUES('$username','$password','$emailaddress','$role',1)";
+        */
         //邮箱发送
         $smtp = new Smtp($smtpserver, $smtpserverport, true, $smtpuser, $smtppass);
         $smtp->debug = true;
