@@ -23,7 +23,8 @@ $res = mysqli_set_charset($link, 'utf8');
 //选择数据库
 mysqli_query($link, 'use database1');
 // 防止获取重复数据，本次请求的记录结果id要大于上次获得的timeStamp
-$query="SELECT timeStamp,username,content FROM log WHERE classid='$classid' AND groupid='$groupid' AND actiontype='ChatMsg' AND timeStamp>'$maxtimeStamp';";
+//$query="SELECT timeStamp,username,content FROM log WHERE classid='$classid' AND groupid='$groupid' AND actiontype='ChatMsg' AND timeStamp>'$maxtimeStamp';";
+$query="SELECT timeStamp,username,content FROM chat WHERE classid='$classid' AND groupid='$groupid' AND timeStamp>'$maxtimeStamp';";
 $qry = mysqli_query($link, $query);
 mysqli_close($link);
 $info = array();

@@ -13,7 +13,7 @@ session_start();
 $username=$_SESSION['username'];
 $msg=$_GET['msg'];
 $groupid=$_GET['chatroomid'];
-$classid=$_SESSION['classid'];
+$classid=$_GET['classid'];
 $userid=$_SESSION['userid'];
 $time=date('Y-m-d H:i:s',time());
 
@@ -29,8 +29,11 @@ $res=mysqli_set_charset($link,'utf8');
 mysqli_query($link,'use database1');
 //-----------------对应插入新纪录----------------------------------------------
 //$query="insert into message(msg,sender,add_time,groupid) values('$msg','$username','$add_time','$groupid')";
-$query="INSERT INTO log(timeStamp,classid,userid,username,actiontype,content,groupid) VALUES ('$time','$classid','$userid','$username','ChatMsg','$msg','$groupid')";
+$query="INSERT INTO log(timeStamp,classid,username,actiontype,content,groupid) VALUES ('$time','$classid','$username','ChatMsg','$msg','$groupid')";
 mysqli_query($link,$query);
+$query="INSERT INTO chat(timeStamp,classid,username,content,groupid) VALUES ('$time','$classid','$username','$msg','$groupid')";
+mysqli_query($link,$query);
+
 mysqli_close($link);
 //回显发送成功提示
 echo("success");
