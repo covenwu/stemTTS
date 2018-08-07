@@ -8,6 +8,7 @@
     <link href="src/styles.min.css" rel="stylesheet"/>
     <!-- 聊天室css-->
     <style>
+        p{margin:0}
         #up {
             width:320px;
             height:315px;
@@ -26,10 +27,11 @@
             padding:0;
         }
         .otherbox{
+            margin: 5px;
             position: relative;
             top:10px;
             left:50px;
-            width: 140px;
+            width: 200px;
             background: #088cb7;
             -moz-border-radius: 12px;
             -webkit-border-radius: 12px;
@@ -41,17 +43,18 @@
             width: 0;
             height: 0;
             right: 100%;
-            top: 38px;
+            top: 10px;
             border-top: 13px solid transparent;
             border-right: 26px solid #088cb7;
             border-bottom: 13px solid transparent;
 
         }
         .userbox{
+            margin: 5px;
             position: relative;
             top:10px;
-            left:135px;
-            width: 140px;
+            left:75px;
+            width: 200px;
             background: #088cb7;
             -moz-border-radius: 12px;
             -webkit-border-radius: 12px;
@@ -64,7 +67,7 @@
             width: 0;
             height: 0;
             left: 100%;
-            top: 38px;
+            top: 10px;
             border-top: 13px solid transparent;
             border-left: 26px solid #088cb7;
             border-bottom: 13px solid transparent;
@@ -93,10 +96,10 @@
         <div class="tab-wrapper">
 
             <ul class="tab-menu">
-                <li onclick="changeListMood('mainmenu')" class="active">首页</li>
-                <li onclick="changeListMood('receivebox')">收件箱</li>
+                <li class="active">首页</li>
+                <li >收件箱</li>
                 <li id="sendbox">发件箱</li>
-                <li onclick="changeListMood('resourcebox')">资源</li>
+                <li id="ziyuan">资源</li>
                 <li>共享</li>
             </ul>
 
@@ -108,11 +111,8 @@
                 <!------------------------------------------------------------收件箱------------------------------------------------------------------------------------- -->
                 <div>
                     <div style="overflow:hidden;height:560px;width:200px;float:left;">
-                        <div id="emaillist" style="border:1px solid;">&nbsp;&nbsp;&nbsp;所有邮件</div>
-                        <!--<ul style="margin:0;padding:0px;">
-                            <li><a href="#"><button>邮件主题</button></a></li>
-                            <li><a href="#"><button>邮件主题</button></a></li>
-                        </ul>-->
+                        <div id="emaillist" style="border:1px solid;height:560px;overflow: auto">&nbsp;&nbsp;&nbsp;所有邮件</div>
+
                     </div>
 
                     <table style="float:left;height:560px;border-color:000000;border-left-style:solid;border-width:1px">
@@ -123,33 +123,25 @@
 
                     <div  style="overflow:hidden;height:520px;width:800px;float:left;">
                         <!--此处用空格做样式可能导致问题-->
-                        <p id='r_title'>主题:</p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <button id="response" onclick="createAndJump()" style="display: none">回复邮件</button>
+                        <p id='r_title'>主题:</p>
+                        <button id="response" onclick="createAndJump()" style="position: absolute;left: 700px;top:1px;">回复邮件</button>
                         <p>发件人：张华</p>
                         <p id="r_time">时间：2018/4/25</p>
                         <p id="r_receiver">收件人：孙三</p>
                         <p id="r_copy"></p>
-                        <div style="overflow:hidden;height:70px;width:800px;float:left;background-color: #A9D0F5"></div>
+                        <div style="overflow:auto;height:70px;width:800px;float:left;" id="shoujianurl"></div>
                         <!--<textarea id="receiveemail" style="resize:none;height:250px;width:800px;" readonly="readonly"></textarea>-->
-                        <div id="receiveemail" style="resize:none;height:250px;width:800px;overflow: auto" readonly="readonly" ></div>
+                        <div id="receiveemail" style="resize:none;height:370px;width:800px;overflow: auto" readonly="readonly" ></div>
                     </div>
                     <!--<input id="msg" style="position:absolute;left:1020px;top:400px;width:300px;height:100px">-->
                     <!--<button style="position:absolute;left:1020px;top:500px;">发送</button>-->
                 </div>
                 <!------------------------------------------------------------发件箱------------------------------------------------------------------------------------- -->
                 <div>
-                    <div style="overflow:hidden;height:500px;width:200px;float:left;">
+                    <div style="overflow:hidden;height:560px;width:200px;float:left;">
                         <div style="border:1px solid;">&nbsp;&nbsp;&nbsp;所有邮件</div>
-                        <!--<ul style="margin:0;padding:0px;">
-                            <li><a href="#">
-                                <button>邮件主题</button>
-                            </a></li>
-                            <li><a href="#">
-                                <button>邮件主题</button>
-                            </a></li>
-                        </ul>-->
-                        <div id="homeworklist">作业列表</div>
+
+                        <div id="homeworklist" style="height: 380px;overflow: auto"></div>
 
                     </div>
 
@@ -168,7 +160,7 @@
                         <!--<button>添加附件</button>-->
                         <button id='addfile' onclick="addInput('upload')" style="display: none">添加附件</button>
                         <!--<button id="deletefile" onclick="deleteInput()" style="display: none">删除附件</button>-->
-                        <div style="overflow:hidden;height:70px;width:800px;float:left;background-color: #A9D0F5">
+                        <div style="overflow:hidden;height:70px;width:800px;float:left;">
                             <form id="upload" enctype="multipart/form-data">上传</form>
                             <div id="attach"></div>
                         </div>
@@ -179,19 +171,11 @@
                 </div>
                 <!------------------------------------------------------------资源------------------------------------------------------------------------------------- -->
                 <div>
-                    <!--<iframe src="resource.html" width="1420" height="560" class="dom" style="display: block;" >
-                            </iframe>-->
-                    <div style="overflow:hidden;height:500px;width:200px;float:left;">
+
+                    <div style="overflow:hidden;height:560px;width:200px;float:left;">
                         <div style="border:1px solid;">&nbsp;&nbsp;&nbsp;资源列表</div>
-                        <!--<ul style="margin:0;padding:0px;">
-                            <li><a href="#">
-                                <button>资源标题</button>
-                            </a></li>
-                            <li><a href="#">
-                                <button>资源标题</button>
-                            </a></li>
-                        </ul>-->
-                        <div id="urllist">资源链接</div>
+
+                        <div id="urllist" style="height: 530px;overflow: auto"></div>
 
                     </div>
 
@@ -212,14 +196,17 @@
                 <div>
                     <!--<iframe src="resource.html" width="1420" height="560" class="dom" style="display: block;" >
                             </iframe>-->
-                    <div style="overflow:hidden;height:500px;width:200px;float:left;">
+                    <div style="overflow:hidden;height:560px;width:200px;float:left;">
                         <div style="border:1px solid;">&nbsp;&nbsp;&nbsp;共享列表</div>
-                        <div id="sharelist">资源链接</div>
-                        <div id="attachment_history">作业附件历史</div>
-                        <form id="share_upload">待分享文件
-                        </form>
-                        <button onclick="addInput('share_upload')">添加附件</button>
-                        <button onclick="submitShareFile()">分享</button>
+                        <div style="height: 530px;overflow: auto;">
+                            <div id="sharelist">资源链接</div>
+                            <div id="attachment_history">作业附件历史</div>
+                            <form id="share_upload">待分享文件
+                            </form>
+                            <button onclick="addInput('share_upload')">添加附件</button>
+                            <button onclick="submitShareFile()">分享</button>
+                        </div>
+
                     </div>
 
                     <table style="float:left;height:560px;border-color:000000;border-left-style:solid;border-width:1px">

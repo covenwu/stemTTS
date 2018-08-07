@@ -93,6 +93,7 @@ function createButton(groupid,taskid,numberingroup,parentnode) {
     button.onclick=function (ev) {
         dialog(groupid,taskid,numberingroup);
     };
+    button.style='height:50px;width:50px;margin:0';
     button.style.display='none';
     //元素绑定
     parentnode.appendChild(button);
@@ -101,7 +102,8 @@ function createButton(groupid,taskid,numberingroup,parentnode) {
 function createTaskdiv(taskid,parentnode,groupid) {
     //创建div
     var div=document.createElement('div');
-    div.innerHTML='任务'+taskid;
+    div.style="vertical-align:middle;";
+    div.innerHTML='<span>'+'任务'+taskid+'</span>';
     //创建每一个button并绑定
     for (var i=0;i<membernum;++i){
         createButton(groupid,taskid,i+1,div)
@@ -409,18 +411,18 @@ function buttonControl(classid) {
             var evaluation=homeworkmood[i]['evaluation'];
             //根据状态显示不同的图标
             if(evaluation=='通过'){
-                button.style="background:url('image/4.png')no-repeat;width: 70px;height: 70px;border: none;";
+                button.style="background:url('image/4.png')no-repeat;width: 50px;height: 50px;border: none;padding:0;";
                 button.style.display='inline';
                 //任务图标可能在处于其他状态时被禁止过
                 button.removeAttribute('disabled');
             }
             else if(evaluation=='批改中'){
-                button.style="background:url('image/2.png')no-repeat;width: 70px;height: 70px;border: none;";
+                button.style="background:url('image/2.png')no-repeat;width: 50px;height: 50px;border: none;margin:0;padding:0;";
                 button.style.display='inline';
                 //任务图标可能在处于其他状态时被禁止过
                 button.removeAttribute('disabled');
             }else if(evaluation=='未提交'||evaluation=='待修改'){
-                button.style="background:url('image/3.png')no-repeat;width: 70px;height: 70px;border: none;";
+                button.style="background:url('image/3.png')no-repeat;width: 50px;height: 50px;border: none;padding:0;";
                 button.style.display='inline';
                 button.setAttribute('disabled','disabled');
             }
