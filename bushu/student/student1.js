@@ -155,6 +155,10 @@ function createUI() {
         str += ';' + info_group['username'][j];
     }
     document.getElementById("r_copy").innerHTML = '抄送:' + str;
+    //填写收件人，右上角登录用户名
+    document.getElementById('user').innerHTML=info_user['username'];
+    document.getElementById('r_receiver').innerHTML='收件人:'+info_user['username'];
+    document.getElementById('s_receiver').innerHTML='收件人:'+info_user['username'];
 }
 
 //轮询取得新收到的邮件
@@ -323,7 +327,6 @@ function submitHomework() {
             info_report[len - 1]['urlname'].push(name);
         }
     }
-
     hideAllButton();
     saveDraftLocal();
 
@@ -341,9 +344,10 @@ function submitHomework() {
     var xhr = new XMLHttpRequest();
     xhr.onreadystatechange = function () {
         if (xhr.readyState == 4) {
-            //提示区会提示success表示发送成功
+            console.log(xhr.responseText)
             info_report[info_report.length - 1]['url'] = JSON.parse(xhr.responseText);
             //将evaluationchange置为1，保证checkevaluation（）会查询数据库
+            console.log('subm suc')
             evaluationchange = 1;
             checkHomeworkEvaluation();
             reportAttachmentData();
@@ -351,6 +355,7 @@ function submitHomework() {
     };
     xhr.open('post', './student_submit_homework.php');
     xhr.send(formdata);
+
 }
 
 //向数据库保存草稿
@@ -469,6 +474,7 @@ function createReport() {
         var report = [];
         report['content'] = '';
         report['urlname'] = [];
+        report['url']=[];
         info_report.push(report);
         //刷新发件列表
         createHomeworkTable(info_report, 'homeworktbody');
@@ -477,6 +483,7 @@ function createReport() {
             url: "create_report.php",
             data: {sid: sid, taskidnow: taskidnow},
             success: function (data) {
+                console.log('createReport():'+data)
             }
         });
     }
@@ -1193,7 +1200,9 @@ function reportAttachmentData() {
 function createAttachmentTable(data, tbodyid) {
     var tbody = document.getElementById(tbodyid);
     tbody.innerHTML = '附件历史'+'<br/>';
-    for (var i = 0; i < objectLength(data); i++) {
+    console.log('createAttachment')
+    console.log(data)
+    for (var i = 0; i < objectLength(data['urlname']); i++) {
         (function () {
             var tr = document.createElement("tr");
             tbody.appendChild(tr);

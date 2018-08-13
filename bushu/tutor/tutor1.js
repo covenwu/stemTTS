@@ -26,6 +26,8 @@ var info_pop=[];
 var info_classid=[];
 //tutor的username
 var info_username='';
+//班级信息
+var info_classinfo=[];
 //当前classid
 var classidnow=0;
 //控制是否刷新聊天信息,0不刷新，1刷新,（可能是用于防止在更换班级时，之前已发出的ajax请求造成干扰，但并不确定有用）
@@ -62,19 +64,26 @@ function objectLength(obj) {
     var arr=Object.keys(obj);
     return arr.length;
 }
+//清空一个元素的value
+function emptyElement(id) {
+    var target=document.getElementById(id);
+    target.value='';
+}
 
 
 //-----------------初始化----------------------------------------------
 //初始化所有内容
 function initialize() {
+    var a=document.getElementById('classmanage');
+    a.href="../group/group.html?sid="+sid;
     $.get("initialize.php", {sid:sid}, function (data) {
         console.log('initialize');
         console.log(data);
         var info = JSON.parse(data);
         info_pro=info['pro'];
-        info_taskid=info['taskid'];
         info_classid=info['classid'];
         info_username=info['username'];
+        info_classinfo=info['classinfo'];
         tasknum=objectLength(info_pro);
         console.log('tasknum');
         console.log(tasknum);
@@ -84,6 +93,7 @@ function initialize() {
         console.log(info);
     })
 }
+
 //创建一个任务按钮
 //参数为组号，taskid，numberingroup,索引均从一开始
 function createButton(groupid,taskid,numberingroup,parentnode) {
@@ -138,7 +148,7 @@ function classSelect() {
             var a=document.createElement('a');
             li.appendChild(a);
             var classid=info_classid[i];
-            var text=classid+'班';
+            var text=getClassname(classid,info_classinfo);
             var textnode=document.createTextNode(text);
             a.appendChild(textnode);
             a.setAttribute('classid',classid);
@@ -149,20 +159,86 @@ function classSelect() {
         })(i)
     }
 }
+function getClassname(classid,classinfo) {
+    var len=classinfo.length;
+    for(var i=0;i<len;++i){
+        if(classinfo[i]['classid']==classid){
+            return classinfo[i]['classname'];
+        }
+    }
+    console.log('error:classname not found')
+}
 //选择班级后重新初始化数据和界面
 function changeClass(classid) {
+    //changeClassData()
     //更改classid
     classidnow=classid;
-    //重置聊天室
-    resetChatroom();
+
     //启动作业图标状态自动刷新
     buttoncontrol=1;
     //重置所有作业状态图标
     resetButton();
-    //立刻将作业图标状态刷新为新切换的班级的
-    buttonControl();
+
+    $.get("button_control.php", {sid:sid,classid:classidnow}, function (data) {
+        //此处解析不能通过alert来查看，但可以直接使用
+        var info=JSON.parse(data);
+        console.log('button_control');
+        console.log(info)
+        var homeworkmood = info['homeworkmood'];
+        info_taskid=info['taskid'];
+        updateTaskid(info['taskid']);
+
+        for(var i=0;i<homeworkmood.length;i++){
+            var numberingroup=homeworkmood[i]['numberingroup'];
+            //按规则求出按钮的id，规则为：id三位命名数字分别为：组号，taskid，numberingroup
+            var id=homeworkmood[i]['groupid'].toString()+homeworkmood[i]['taskid']+numberingroup;
+            var button=document.getElementById(id);
+            var evaluation=homeworkmood[i]['evaluation'];
+            //根据状态显示不同的图标
+            if(evaluation=='通过'){
+                button.style="background:url('image/4.png')no-repeat;width: 50px;height: 50px;border: none;padding:0;";
+                button.style.display='inline';
+                //任务图标可能在处于其他状态时被禁止过
+                button.removeAttribute('disabled');
+            }
+            else if(evaluation=='批改中'){
+                button.style="background:url('image/2.png')no-repeat;width: 50px;height: 50px;border: none;margin:0;padding:0;";
+                button.style.display='inline';
+                //任务图标可能在处于其他状态时被禁止过
+                button.removeAttribute('disabled');
+            }else if(evaluation=='未提交'||evaluation=='待修改'){
+                button.style="background:url('image/3.png')no-repeat;width: 50px;height: 50px;border: none;padding:0;";
+                button.style.display='inline';
+                button.setAttribute('disabled','disabled');
+            }
+        }
+        //重置聊天室
+        resetChatroom();
+    })
+
 
 }
+/*
+//改变班级时获得班级相关数据
+function changeClassData() {
+    $.get("initialize.php", {sid:sid}, function (data) {
+        console.log('initialize');
+        console.log(data);
+        var info = JSON.parse(data);
+        info_pro=info['pro'];
+        info_taskid=info['taskid'];
+        info_classid=info['classid'];
+        info_username=info['username'];
+        info_classinfo=info['classinfo'];
+        tasknum=objectLength(info_pro);
+        console.log('tasknum');
+        console.log(tasknum);
+        classSelect();
+        createAllTaskbutton(group_num,tasknum);
+        console.log('initialize');
+        console.log(info);
+    })
+}*/
 //重置聊天室
 function resetChatroom() {
     //停止聊天消息刷新
@@ -221,13 +297,6 @@ function get_chat_data(){
         var data_array=eval(data);
         var s="";
         for(var k=1;k<=group_num;k++){
-            /*
-            for(var i=0;i<data[k].length;i++){
-                s += "("+data_array[k][i].timeStamp+") >>>";
-                s += "<p>";
-                s += data_array[k][i].username +"&nbsp;"+"说：" + data_array[k][i].content;
-                s += "</p>";
-            }*/
 
             for (var i = 0; i < data[k].length; i++) {
                 if(data_array[k][i].username==info_username){
@@ -267,6 +336,7 @@ function get_chat_data(){
 //发送聊天消息的函数
 function send(chatroomid) {
     var content=document.getElementById('msg'+chatroomid).value;
+    emptyElement('msg'+chatroomid);
     $.ajax({ url: "multichatroom_insert.php",
         data:{sid:sid,chatroomid:chatroomid,msg:content,classid:classidnow},
         success: function (data) {
@@ -400,6 +470,8 @@ function buttonControl(classid) {
     $.get("button_control.php", {sid:sid,classid:classidnow}, function (data) {
         //此处解析不能通过alert来查看，但可以直接使用
         var info=JSON.parse(data);
+        console.log('button_control');
+        console.log(info)
         var homeworkmood = info['homeworkmood'];
         updateTaskid(info['taskid']);
         info_taskid=info['taskid'];
@@ -429,6 +501,7 @@ function buttonControl(classid) {
         }
     })
 }
+
 //展开作业评价面板前的准备处理
 function dialog(groupid, taskid, numberingroup) {
     //将当前这在评价的作业的学生的信息存入全局变量
@@ -445,11 +518,16 @@ function dialog(groupid, taskid, numberingroup) {
         groupid: stu_group,
         numberingroup: stu_numberingroup,
         taskid: stu_taskid,
+        classid:classidnow,
         sid:sid
     }, function (data) {
         var info_arr=JSON.parse(data);
+        console.log('dialog');
+        console.log(info_arr)
         //学生作业评价状态
         var message=info_arr['evaluation'];
+        console.log('dialog content')
+        console.log(info_arr['content'])
         //显示学生作业内容
         document.getElementById('学生作业').value =info_arr['content'];
         //清空附件显示区
@@ -611,7 +689,8 @@ function feedbackEmail() {
         emailcontent:emailcontent,
         evaluation: evaluation,
         sid:sid,
-        tasknum:tasknum
+        tasknum:tasknum,
+        classid:classidnow
     }, function (data) {
         //php文件运行成功返回的data为success
         alert(data);

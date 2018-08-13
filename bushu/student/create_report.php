@@ -40,7 +40,10 @@ mysqli_query($link, 'use '.$dbname);
 //向report表插入记录
 $query="INSERT INTO report(classid,groupid,groupNO,userid,taskid,content,url) VALUES ('$classid','$groupid','$numberingroup'
           ,'$userid','$taskidnow','$text','$url')";
-mysqli_query($link,$query);
+$ret=mysqli_query($link,$query);
+if(!$ret){
+    echo('error 1');
+}
 mysqli_close($link);
 
 

@@ -8,7 +8,7 @@
 $sid=$_GET['sid'];
 session_id($sid);
 session_start();
-$classid=$_SESSION['classid'];
+$classid=$_GET['classid'];
 $groupid=$_GET['groupid'];
 $taskid=$_GET['taskid'];
 $numberingroup=$_GET['numberingroup'];
@@ -29,8 +29,9 @@ $query="SELECT userid FROM account WHERE classid='$classid' AND groupid='$groupi
 $ret=mysqli_query($link,$query);
 $stu_info=mysqli_fetch_assoc($ret);
 $userid=$stu_info['userid'];
+
 //查询评价状态
-$query="SELECT evaluation FROM homework_mood WHERE userid='$userid' AND taskid='$taskid'";
+$query="SELECT evaluation FROM homework_mood WHERE userid='$userid' AND taskid='$taskid' limit 1";
 $ret=mysqli_query($link,$query);
 $evaluaion_array=mysqli_fetch_assoc($ret);
 

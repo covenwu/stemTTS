@@ -14,7 +14,7 @@ $TASKNUM;
 $sid=$_GET['sid'];
 session_id($sid);
 session_start();
-$classid=$_SESSION['classid'];
+$classid=$_GET['classid'];
 $emailcontent=$_GET["emailcontent"];
 $time=date('Y-m-d H:i:s',time());
 $taskid=$_GET['taskid'];
@@ -57,15 +57,25 @@ $taskidnow=$info_array['taskidnow'];
 //向log插入反馈邮件
 $query="INSERT INTO log(timeStamp,classid,groupid,groupNO,userid,username,actiontype,content,taskid) VALUES ('$time','$classid',
           '$groupid','$numberingroup','$userid','$username','ReportFeedback','$emailcontent','$taskidnow')";
-mysqli_query($link,$query);
+$ret=mysqli_query($link,$query);
+if(!$ret){
+    echo($classid);
+    echo ('error 1');
+}
 
 //向feedback插入反馈邮件
 $query="INSERT INTO feedback VALUES ('$time','$userid','$taskidnow','$emailcontent','$evaluation',0)";
-mysqli_query($link,$query);
+$ret=mysqli_query($link,$query);
+if(!$ret){
+    echo ('error 2');
+}
 
 //更改作业的评价状态
 $query="UPDATE homework_mood SET evaluation='$evaluation' WHERE userid='$userid' AND taskid='$taskid'";
-mysqli_query($link,$query);
+$ret=mysqli_query($link,$query);
+if(!$ret){
+    echo ('error 3');
+}
 
 if($evaluation=='通过'){
 

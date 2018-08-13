@@ -283,6 +283,7 @@
                 <ul>
                     <li><a href="../register_login/login.php">切换用户</a></li>
                     <li><a href="../register_login/login.php">注销</a></li>
+                    <li><a id="classmanage">班级管理</a> </li>
                 </ul>
             </li>
         </ul>
@@ -349,7 +350,7 @@
                         <a href="#demo1-2">聊天</a>
                         <div id="demo1-2" class="content">
                             <input id="msg1">
-                            <button type="button" onclick="send(1)" class="msgbutton">发送</button>
+                            <button type="button" id='inputsend1'onclick="send(1)" class="msgbutton">发送</button>
                         </div>
                     </li>
                 </ul>
@@ -363,8 +364,9 @@
                     <li class="accordion-navigation">
                         <a href="#demo2-1">提问</a>
                         <div id="demo2-1" class="content active">
-                            <input type="text" name="country" value="你完成了对STEM课程利益相关团体的需求调研，从中你了解了哪些信息？"
-                                   readonly="readonly" id="sentence2"/>
+
+                            <textarea style="height:60px;width:350px;font-size:15px;resize:none;overflow: auto" type="text"
+                                      name="country" readonly="readonly" id="sentence2" > 你完成了对STEM课程利益相关团体的需求调研，从中你了解了哪些信息？</textarea>
                             <button onclick="changesentence(2,-1)">上一条</button>
                             <button onclick="changesentence(2,1)">下一条</button>
                             <button type="button" onclick="sendSentence(2)">发送</button>
@@ -374,7 +376,7 @@
                         <a href="#demo2-2">聊天</a>
                         <div id="demo2-2" class="content">
                             <input id="msg2">
-                            <button type="button" onclick="send(2)">发送</button>
+                            <button type="button" id='inputsend2' onclick="send(2)">发送</button>
                         </div>
                     </li>
                 </ul>
@@ -387,8 +389,8 @@
                     <li class="accordion-navigation">
                         <a href="#demo3-1">提问</a>
                         <div id="demo3-1" class="content active">
-                            <input type="text" name="country" value="你完成了对STEM课程利益相关团体的需求调研，从中你了解了哪些信息？"
-                                   readonly="readonly" id="sentence3"/>
+                            <textarea style="height:60px;width:350px;font-size:15px;resize:none;overflow: auto" type="text"
+                                      name="country" readonly="readonly" id="sentence3" > 你完成了对STEM课程利益相关团体的需求调研，从中你了解了哪些信息？</textarea>
                             <button onclick="changesentence(3,-1)">上一条</button>
                             <button onclick="changesentence(3,1)">下一条</button>
                             <button type="button" onclick="sendSentence(3)">发送</button>
@@ -398,7 +400,7 @@
                         <a href="#demo3-2">聊天</a>
                         <div id="demo3-2" class="content">
                             <input id="msg3">
-                            <button type="button" onclick="send(1)">发送</button>
+                            <button type="button" id='inputsend3' onclick="send(3)">发送</button>
                         </div>
                     </li>
                 </ul>
@@ -411,8 +413,8 @@
                     <li class="accordion-navigation">
                         <a href="#demo4-1">提问</a>
                         <div id="demo4-1" class="content active">
-                            <input type="text" name="country" value="你完成了对STEM课程利益相关团体的需求调研，从中你了解了哪些信息？"
-                                   readonly="readonly" id="sentence4"/>
+                            <textarea style="height:60px;width:350px;font-size:15px;resize:none;overflow: auto" type="text"
+                                      name="country" readonly="readonly" id="sentence4" > 你完成了对STEM课程利益相关团体的需求调研，从中你了解了哪些信息？</textarea>
                             <button onclick="changesentence(4,-1)">上一条</button>
                             <button onclick="changesentence(4,1)">下一条</button>
                             <button type="button" onclick="sendSentence(4)">发送</button>
@@ -422,7 +424,7 @@
                         <a href="#demo4-2">聊天</a>
                         <div id="demo4-2" class="content">
                             <input id="msg4">
-                            <button type="button" onclick="send(1)">发送</button>
+                            <button type="button" id='inputsend4' onclick="send(4)">发送</button>
                         </div>
                     </li>
                 </ul>

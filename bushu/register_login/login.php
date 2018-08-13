@@ -52,6 +52,9 @@
                             case 2:
                                 echo "用户名或密码不能为空！";
                                 break;
+                            case 3:
+                                echo "<script language=\"JavaScript\">alert(\"请等待老师完成分班\");</script>";
+                                break;
                         }
                         ?>
                     </td>

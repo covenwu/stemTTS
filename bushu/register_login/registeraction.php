@@ -56,7 +56,7 @@ if ($emailaddress != $re_emailaddress) {
         header("Location:register.php?err=5");
     } else {
         //用户名不存在，插入数据语句
-        $sql_insert = "INSERT INTO account(username,password,emailaddress,role,taskidnow) VALUES('$username','$password','$emailaddress','$role',1)";
+        $sql_insert = "INSERT INTO account(username,password,emailaddress,role) VALUES('$username','$password','$emailaddress','$role')";
         //教师注册处理
         /*
         $query="SELECT MAX(tutorid) FROM account limit 1";

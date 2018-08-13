@@ -20,6 +20,7 @@ $link = mysqli_connect($servername,$usern ,$passw);;
 $res = mysqli_set_charset($link, 'utf8');
 //选择数据库
 mysqli_query($link, 'use '.$dbname);
+
 //联合查询作业状态数据
 $query="SELECT taskid,evaluation,groupid,numberingroup FROM account INNER JOIN homework_mood ON account.userid=homework_mood.userid WHERE account.classid='$classid'";
 $ret=mysqli_query($link,$query);

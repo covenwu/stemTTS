@@ -27,7 +27,7 @@ if(!empty($emailaddress)&&!empty($password)) {
     //选择数据库
     mysqli_query($link,'use '.$dbname);
     //准备SQL语句
-    $query_select = "SELECT emailaddress,password,userid FROM account WHERE emailaddress = '$emailaddress' AND password = '$password' limit 1";
+    $query_select = "SELECT emailaddress,password,userid,classid FROM account WHERE emailaddress = '$emailaddress' AND password = '$password' limit 1";
     //执行SQL语句
     $ret = mysqli_query($link,$query_select);
     $row = mysqli_fetch_array($ret);
@@ -45,9 +45,15 @@ if(!empty($emailaddress)&&!empty($password)) {
             //创建cookie
             setcookie("emailaddress", $emailaddress, time()+7*24*3600);
         }
-        //跳转到loginsucc.php页面
-        $destination="Location:loginsucc.php?sid=".$sid;
-        header($destination);
+        if($row['classid']!=0){
+            //跳转到loginsucc.php页面
+            $destination="Location:loginsucc.php?sid=".$sid;
+            header($destination);
+        }
+        else{
+            $destination="Location:login.php?err=3";
+            header($destination);
+        }
         //关闭数据库
         mysqli_close($link);
     }else {
