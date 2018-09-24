@@ -1,0 +1,216 @@
+<meta charset=UTF-8>
+
+<form action="#" method="GET" id="resources">
+ <input name="q" id="q" type="hidden" value="saveResources"></input>
+ <input name="p" id="p" type="hidden"></input>
+ <div id="1">
+  资源名<input id="name1" name="name1"></input><br>
+  资源上传<input id="file1" type="file" name="file1"></input>
+  <!--<button type="button">选择文件</button><br>-->
+ </div>
+ <button id="btn2" type="button">添加资源</button>
+  <a href="#" onclick="test()">保存</a>
+ <button onclick="clean()">qingchu</button>
+</form>
+
+<script src="jquery-3.3.1.min.js"></script>
+<script type="text/javascript">
+var options = ['', '111', '222', '333', '444'];
+var form = document.querySelector('form');
+var btn2 = document.querySelector('#btn2');
+var x=2;
+var xm;
+
+
+
+btn2.addEventListener('click', createSelect);
+form.addEventListener('click', delSelect);
+
+
+
+
+function createSelect(ev) {
+  //  alert(x);
+  var ele = document.createElement('div');
+  ele.innerHTML = "资源名"+'<input id="name'+x+'" name="name'+x+'">' + '</input><button class="del-btn" type="button" >删除资源</button>'+"<br>"+"资源上传"+"<input id='file"+x+"' name='file"+x+"' type='file'>"+'</input>';
+  ele.setAttribute("id",x);
+  form.insertBefore(ele, ev.currentTarget);
+  xm=x;
+    x+=1;
+
+ //   console.log(x);
+
+}
+
+function delSelect(ev) {
+  if (ev.target.className.indexOf('del-btn') < 0) return;
+    var ele = ev.target.parentNode;
+    var xp=ele.getAttribute("id");
+    form.removeChild(ele);
+    if(xp==xm){x-=1;xm-=1;}
+}
+
+function updateOptions(ev) {
+  var val = inputColor.value.trim();
+  if (ev && val.length <= 0) return;
+  if (val) options.push(inputColor.value);
+  var html = getOptionsHtml();
+  var eles = Array.prototype.slice.call(form.querySelectorAll('select'));
+  eles.forEach(function(ele) {
+    ele.innerHTML = html;
+  });
+}
+
+function getQueryString(name) {
+    var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+    var r = window.location.search.substr(1).match(reg);
+    if (r != null) return decodeURI(r[2]);
+    return null;
+}
+
+var str;
+window.onload=function() {
+    var xmlhttp;
+    if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
+        xmlhttp = new XMLHttpRequest();
+    }
+    else {// code for IE6, IE5
+        xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+    }
+
+    xmlhttp.onreadystatechange= function ()
+    {
+        if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+            str = eval(xmlhttp.responseText);
+            var i;
+            console.log(str);
+            for (i = 1; i < str[0]; i++) {
+                x=str[i+1][0];
+                document.getElementById('btn2').click();
+            }
+            for(i=1;i<=str[0];i++) {
+                for(var j=1;j<3;j++)if(!str[i][j][0]) str[i][j][0]='';
+                document.getElementById("name" + str[i][0]).value = str[i][1][0];
+          //      document.getElementById("file" + i).value = str[i][1][0];
+                creatLink(str[i][0],str[i][2][0]);
+            }
+        }
+    }
+    var p = getQueryString("x");
+    document.getElementById('p').value=p;
+    xmlhttp.open("GET", "project1.php?p=" + p + "&q=resources", true);
+    xmlhttp.send();
+}
+
+function test(){
+    var form = new FormData(document.getElementById("resources"));
+    var oDiv = document.getElementsByTagName("div");
+    var num= new Array();
+    num[0]=oDiv.length;
+    for(var i=0; i<oDiv.length; i++){
+        num[i+1]=oDiv[i]['id'];
+    }
+    console.log(num);
+
+    var number=num[0];
+    /*
+    var ju;//判断是否有a
+    for(var j=1;j<=num[0];j++){
+        ju=0;
+        for(var k=1;k<=str[0];k++){
+        if(j==str[k][0]){ju=1;}
+    }*/
+    for(var j=1;j<num[0];j++)
+        if(document.getElementById("file".num[j]).innerHTML==""){
+        var div=document.getElementById(num[j]);
+        var a = div.getElementsByTagName('a').href;
+            form.append("name"+num[j],a);
+        }
+
+     var val1=document.getElementById("name"+num[j]).value;
+     console.log(val1);
+     if(val1=="") {alert("请填写资源名！");return;}
+     var val2=document.getElementById("file"+num[j]).value;
+     console.log(val2);
+     if(val2==""&&ju==0){
+      alert("请添加文件！");return;
+     }
+
+
+ /*   for(var j=2;j<num[0];j++)//仅传有更改的文件
+        for(var k=1;k<=str[0];k++)
+            if(num[j]==str[k][0]){
+               for(var l=j;l<str[0];l++){
+                   num[j]=num[j+1];
+                   str[0]--;
+               }
+            }//?
+*/
+
+    form.append("num",num);
+
+    var xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState == 4) {
+            console.log(xhr.responseText)
+        }
+    };
+    xhr.open('post', 'resources.php');
+    xhr.send(form);
+}
+
+
+function creatLink(y,href) {
+    var a = document.createElement('a');
+    var text = document.createTextNode('resURL'+y);
+    a.appendChild(text);
+    a.href = href;
+    var div = document.getElementById(y);
+    div.appendChild(a);
+}
+    function clean(y) {
+        document.getElementById('file'+y).innerHTML = '';
+    }
+/*
+function saveAssessment(){
+    var oDiv = document.getElementsByTagName("div");
+    var num= new Array();
+    num[0]=oDiv.length;
+    for(var i=0; i<oDiv.length; i++){
+        console.log(oDiv[i]['id']);
+        num[i+1]=oDiv[i]['id'];
+    }
+
+    for(var j=1;j<=num[0];j++){
+        var val1=document.getElementById("name".num[j]).value;
+        if(val1=="")alert("请填写资源名！");
+        var val2=document.getElementById("file".num[j]).value;
+        if(val2=="")alert("请添加文件！");
+
+    }
+
+    $.ajax({
+        url:"project1.php",
+        type:"GET",
+        dataType:"json",
+        data:$('#assessment').serialize()+'&'+"num="+num,
+        processData:false,
+        contentType:false,
+        success:function(data){
+            //    window.clearInterval(timer);
+            console.log("over.."+data);
+            alert("success!");
+        },
+        error:function(e){
+            alert("ok！！");
+            console.log(e);
+            //        window.clearInterval(timer);
+        }
+    });
+
+
+}*/
+
+/*检验文件文本框里若没有值，用a填充，若没有a，报错*/
+/*点击提交后刷新页面，或清空框内数值？*/
+</script>

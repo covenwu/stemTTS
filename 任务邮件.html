@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<head>
+	<meta charset="UTF-8">
+</head>
+<html>
+<body>
+<form id="form1" action="##" method="get">
+	<h2>任务邮件</h2>
+	<p>背景信息</p>
+	<input style="height:120px;width:650px;" name="backgroundInfo" id="backgroundInfo"></input>
+	<p>任务信息</p>
+	<input style="height:120px;width:650px;" name="taskReq" id="taskReq"></input>
+	<p>完成时间</p>
+	<input style="height:120px;width:650px;" name="deadline" id="deadline"></input>
+	<input name="q" id="q" type="hidden" value="saveTaskEmail"></input>
+	<input name="p" id="p" type="hidden"></input>
+</form>
+<input onclick="save()" type="button" value="保存">
+</body>
+<script src="jquery-3.3.1.min.js"></script>
+<script type="text/javascript">
+
+    function getQueryString(name) {
+        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+        var r = window.location.search.substr(1).match(reg);
+        if (r != null) return decodeURI(r[2]);
+        return null;
+    }
+
+
+    window.onload=function(){
+        var xmlhttp;
+        if (window.XMLHttpRequest)
+        {// code for IE7+, Firefox, Chrome, Opera, Safari
+            xmlhttp=new XMLHttpRequest();
+        }
+        else
+        {// code for IE6, IE5
+            xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        xmlhttp.onreadystatechange=function()
+        {
+            if (xmlhttp.readyState==4 && xmlhttp.status==200)
+            {
+                var str=eval(xmlhttp.responseText);
+                for(var i=0;i<3;i++)if(!str[i][0]) str[i][0]='';
+                document.getElementById("backgroundInfo").value=str[0][0];
+                document.getElementById("taskReq").value=str[1][0];
+                document.getElementById("deadline").value=str[2][0];
+            }
+        }
+        var x = getQueryString("x");
+        xmlhttp.open("GET","project1.php?p="+x+"&q=taskEmail",true);
+        xmlhttp.send();
+        document.getElementById("p").value=x;
+    }
+
+    function save() {
+        $.ajax({
+            //几个参数需要注意一下
+            type: "GET",//方法类型
+            dataType: "json",//预期服务器返回的数据类型
+            contentType: "application/json",//post请求的信息格式
+            url: "project1.php" ,//url
+            data: $('#form1').serialize(),
+            success: function (result) {
+                console.log(result);//打印服务端返回的数据(调试用)
+                if (result.resultCode == 200) {
+                    alert("SUCCESS");
+                };
+            },
+            error : function() {
+                alert("完成！");
+            }
+        });
+    }
+
+</script>
+</html>

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="Content-Type" content="text/html">
+	<script type="text/javascript" src="project1.php">
+	</script>
+
+	<title>反馈邮件</title>
+</head>
+<script type="text/javascript" >
+
+    function getQueryString(name) {
+        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+        var r = window.location.search.substr(1).match(reg);
+        if (r != null) return decodeURI(r[2]);
+        return null;
+    }
+
+
+    window.onload=function(){
+        var xmlhttp;
+        if (window.XMLHttpRequest)
+        {// code for IE7+, Firefox, Chrome, Opera, Safari
+            xmlhttp=new XMLHttpRequest();
+        }
+        else
+        {// code for IE6, IE5
+            xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        xmlhttp.onreadystatechange=function()
+        {
+            if (xmlhttp.readyState==4 && xmlhttp.status==200)
+            {
+                var str=eval(xmlhttp.responseText);
+                for(var i=0;i<8;i++)if(!str[i][0]) str[i][0]='';
+                document.getElementById("feedbackIntro").value=str[0][0];
+                document.getElementById("allAcceptFeedback").value=str[1][0];
+                document.getElementById("allReviseFeedback").value=str[2][0];
+                document.getElementById("excellentSection").value=str[3][0];
+                document.getElementById("reviseSection").value=str[4][0];
+                document.getElementById("reviseDeadline").value=str[5][0];
+                document.getElementById("absentEmail").value=str[6][0];
+                document.getElementById("missDeadlineEmail").value=str[7][0];
+            }
+        }
+        var x = getQueryString("x");
+        xmlhttp.open("GET","project1.php?p="+x+"&q=feedbackEmail",true);
+        xmlhttp.send();
+        document.getElementById("p").value=x;
+    }
+
+    function save() {
+        $.ajax({
+            //几个参数需要注意一下
+            type: "GET",//方法类型
+            dataType: "json",//预期服务器返回的数据类型
+            contentType: "application/json",//post请求的信息格式
+            url: "project1.php" ,//url
+            data: $('#form1').serialize(),
+            success: function (result) {
+                console.log(result);//打印服务端返回的数据(调试用)
+                if (result.resultCode == 200) {
+                    alert("SUCCESS");
+                };
+            },
+            error : function() {
+                alert("完成！");
+            }
+        });
+    }
+
+    /*function save(){
+        var form = new FormData(document.getElementById("form1"));
+             var req = new XMLHttpRequest();
+             req.open("GET", "project1.php");
+             req.send(form);*/
+    /*       $.ajax({
+               url:"project1.php",
+               type:"get",
+               data:form,
+               processData:false,
+               contentType:false,
+               success:function(data){
+                   alert("成功！");
+                   console.log("over..");
+               },
+               error:function(e){
+                   alert("错误！！");
+               }
+           });*/
+    //    get();//此处为上传文件的进度条
+    //   }
+
+</script>
+
+<script src="jquery-3.3.1.min.js"></script>
+
+<body>
+
+<form id="form1" action="##" method="get">
+
+	<h3 >反馈邮件开头
+		<input style="text-align: center;width:400px;height:60px;"  name="feedbackIntro" id="feedbackIntro"></input></h3>
+	<h3 >总体合格
+		<input style="text-align: center;width:400px;height:60px;" name="allAcceptFeedback" id="allAcceptFeedback"></input></h3>
+	<h3 >总体修改意见
+		<input style="text-align: center;width:400px;height:60px;text-align: center;" name="allReviseFeedback" id="allReviseFeedback"></input></h3>
+	<h3>出色的部分
+		<input style="width:400px;height:60px;text-align: center;" name="excellentSection" id="excellentSection"></input></h3>
+	<h3 >不合格的部分
+		<input style="text-align: center;width:400px;height:60px;" name="reviseSection" id="reviseSection"></input></h3>
+	<h3 >修改截止
+		<input style="width:400px;height:60px;text-align: center;" name="reviseDeadline" id="reviseDeadline"></input></h3>
+	<h3 >未交作业
+		<input style="text-align: center;width:400px;height:60px;" name="absentEmail" id="absentEmail"></input></h3>
+	<h3 >作业未按时提交
+		<input style="width:400px;height:60px;text-align: center;" name="missDeadlineEmail" id="missDeadlineEmail"></input></h3>
+	<input name="q" id="q" type="hidden" value="saveFeedbackEmail"></input>
+	<input name="p" id="p" type="hidden"></input>
+
+
+</form>
+<input type="button" value="保存" onclick="save()">
+</body>
+
+
+</html>

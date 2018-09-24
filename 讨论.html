@@ -1,0 +1,177 @@
+
+<form action="#" method="GET" id="chats">
+ <input name="q" id="q" type="hidden" value="saveChats"></input>
+ <input name="p" id="p" type="hidden"></input>
+ <div id="1">
+  讨论1<br>
+  消息标题<input id="chatName1" name="chatName1"></input><br>
+  消息内容<input id="chatMsg1" name="chatMsg1"></input><br>
+ </div>
+ <button id="btn2" type="button" style="display: none"></button>
+ <button id="btn22" type="button" >添加消息</button>
+  <a href="#" onclick=saveChats()>保存</a>
+</form>
+
+<script src="jquery-3.3.1.min.js"></script>
+<script type="text/javascript">
+var options = ['', '111', '222', '333', '444'];
+var form = document.querySelector('form');
+var btn2 = document.querySelector('#btn2');
+var btn22 = document.querySelector('#btn22');
+var x=2;
+var xm;
+
+
+btn2.addEventListener('click', createSelect);
+btn22.addEventListener('click', createSelect2);
+form.addEventListener('click', delSelect);
+
+
+
+
+function createSelect(ev) {
+  var ele = document.createElement('div');
+  ele.innerHTML = "消息"+x+"<br>消息标题"+'<input id="chatName'+x+'" name="chatName'+x+'">' + '</input><button class="del-btn" type="button">删除消息</button>'+"<br>"+"消息内容"+"<input id='chatMsg"+x+"' name='chatMsg"+x+"'>"+'</input>'+"<br>";
+    ele.setAttribute("id",x);
+  form.insertBefore(ele, ev.currentTarget);
+  xm=x;
+    x+=1;
+}
+
+function createSelect2(ev) {
+    var ele = document.createElement('div');
+    ele.innerHTML = "消息"+x+"<br>消息标题"+'<input id="chatName'+x+'" name="chatName'+x+'">' + '</input><button class="del-btn" type="button">删除消息</button>'+"<br>"+"消息内容"+"<input id='chatMsg"+x+"' name='chatMsg"+x+"'>"+'</input>'+"<br>";
+    ele.setAttribute("id",x);
+    form.insertBefore(ele, ev.currentTarget);
+    xm=x;
+
+    $.ajax({
+        //几个参数需要注意一下
+        type: "GET",//方法类型
+        dataType: "json",//预期服务器返回的数据类型
+        url: "project1.php" ,//url
+        data: {
+            q:'addChat',
+            p:x,
+            x:getQueryString("x")
+        },
+        success: function (result) {
+            console.log(result);//打印服务端返回的数据(调试用)
+            if (result.resultCode == 200) {
+                alert("SUCCESS");
+            };
+        },
+        error : function() {
+            alert("完成！");
+        }
+    });
+    x+=1;
+}
+
+function delSelect(ev) {
+  if (ev.target.className.indexOf('del-btn') < 0) return;
+  var ele = ev.target.parentNode;
+    var xp=ele.getAttribute("id");
+  form.removeChild(ele);
+    $.ajax({
+        //几个参数需要注意一下
+        type: "GET",//方法类型
+        dataType: "json",//预期服务器返回的数据类型
+        url: "project1.php" ,//url
+        data: {
+            q:'deleteChat',
+            p:xp,
+            x:getQueryString("x")
+        },
+        success: function (result) {
+            console.log(result);//打印服务端返回的数据(调试用)
+            if (result.resultCode == 200) {
+                alert("SUCCESS");
+            };
+        },
+        error : function() {
+            alert("完成！");
+        }
+    });
+    if(xp==xm){x-=1;xm-=1;}
+}
+
+function updateOptions(ev) {
+  var val = inputColor.value.trim();
+  if (ev && val.length <= 0) return;
+  if (val) options.push(inputColor.value);
+  var html = getOptionsHtml();
+  var eles = Array.prototype.slice.call(form.querySelectorAll('select'));
+  eles.forEach(function(ele) {
+    ele.innerHTML = html;
+  });
+}
+
+function getQueryString(name) {
+    var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+    var r = window.location.search.substr(1).match(reg);
+    if (r != null) return decodeURI(r[2]);
+    return null;
+}
+
+window.onload=function() {
+    var xmlhttp;
+
+    if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
+        xmlhttp = new XMLHttpRequest();
+    }
+    else {// code for IE6, IE5
+        xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+    }
+
+    xmlhttp.onreadystatechange= function ()
+    {
+        if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+            var str = eval(xmlhttp.responseText);
+            var i;
+            //       console.log(str);
+            for (i = 1; i < str[0]; i++) {
+                x=str[i+1][0];
+                document.getElementById('btn2').click();
+            }
+            for(i=1;i<=str[0];i++) {
+                for(var j=1;j<3;j++)if(!str[i][j][0]) str[i][j][0]='';
+                document.getElementById("chatName" + str[i][0]).value = str[i][1][0];
+                document.getElementById("chatMsg" + str[i][0]).value = str[i][2][0];
+            }
+            document.getElementById('p').value=getQueryString("x");
+        }
+    }
+    var p = getQueryString("x");
+    xmlhttp.open("GET", "project1.php?p=" + p + "&q=chats", true);
+    xmlhttp.send();
+}
+function saveChats(){
+    var oDiv = document.getElementsByTagName("div");
+    var num= new Array();
+    num[0]=oDiv.length;
+    for(var i=0; i<oDiv.length; i++){
+        console.log(oDiv[i]['id']);
+        num[i+1]=oDiv[i]['id'];
+    }
+
+    $.ajax({
+        url:"project1.php",
+        type:"GET",
+        dataType:"json",
+        data:$('#chats').serialize()+'&'+"num="+num,
+        processData:false,
+        contentType:false,
+        success:function(data){
+            //    window.clearInterval(timer);
+            console.log("over.."+data);
+            alert("success!");
+        },
+        error:function(e){
+            alert("ok！！");
+            console.log(e);
+            //        window.clearInterval(timer);
+        }
+    });
+}
+</script>
