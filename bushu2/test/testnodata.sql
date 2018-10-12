@@ -42,7 +42,7 @@ CREATE TABLE `account` (
 
 LOCK TABLES `account` WRITE;
 /*!40000 ALTER TABLE `account` DISABLE KEYS */;
-INSERT INTO `account` VALUES (1,'123','student30','0',0,'student','30@qq.com',NULL,NULL),(2,'123','student31','0',0,'student','31@qq.com',NULL,NULL),(3,'123','student32','0',0,'student','32@qq.com',NULL,NULL),(4,'123','student33','0',0,'student','33@qq.com',NULL,NULL),(5,'123','student34','0',0,'student','34@qq.com',NULL,NULL),(6,'123','student35','0',0,'student','35@qq.com',NULL,NULL),(7,'123','student36','0',0,'student','36@qq.com',NULL,NULL),(8,'123','tutor1','0',0,'tutor','12@qq.com',NULL,1);
+INSERT INTO `account` VALUES (1,'123','student30','0',0,'student','30@qq.com',NULL,NULL),(2,'123','student31','0',0,'student','31@qq.com',NULL,NULL),(3,'123','student32','0',0,'student','32@qq.com',NULL,NULL),(4,'123','student33','0',0,'student','33@qq.com',NULL,NULL),(5,'123','student34','0',0,'student','34@qq.com',NULL,NULL),(6,'123','student35','0',0,'student','35@qq.com',NULL,NULL),(7,'123','student36','0',0,'student','36@qq.com',NULL,NULL),(8,'deit','tutor1','0',0,'tutor','12@qq.com',NULL,1);
 /*!40000 ALTER TABLE `account` ENABLE KEYS */;
 UNLOCK TABLES;
 
