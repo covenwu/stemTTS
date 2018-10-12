@@ -58,6 +58,9 @@ $filename_str=$share_arr[0]['filename'];*/
 
 foreach ($_FILES as $key => $value){
     $file=$value;
+    if($file['name']==''){
+        continue;
+    }
     $filename_str.=$file['name'].'@!';
     $sharefile_str.='../upload/'.upload_single($file,$allow_type,$allow_format,$error,$path,$max_size).',';
     $sharetime_str.=date('Y-m-d H:i:s',time()).',';

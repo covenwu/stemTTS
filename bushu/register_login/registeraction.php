@@ -21,7 +21,8 @@ $password = isset($_POST['password']) ? $_POST['password'] : "";
 $re_password = isset($_POST['re_password']) ? $_POST['re_password'] : "";
 $emailaddress = isset($_POST['emailaddress']) ? $_POST['emailaddress'] : "";
 $username = isset($_POST['username']) ? $_POST['username'] : "";
-$role = isset($_POST['role']) ? $_POST['role'] : "";
+//$role = isset($_POST['role']) ? $_POST['role'] : "";
+$role='student';
 $re_emailaddress = isset($_POST['re_emailaddress']) ? $_POST['re_emailaddress'] : "";
 //引用邮件类
 require_once "Smtp.class.php";
@@ -31,11 +32,11 @@ if ($emailaddress != $re_emailaddress) {
     //-----------------mysql参数----------------------------------------------
     $servername = "47.96.146.26";
     $usern = "root";
-    $password = "B4F393c91945";
+    $passw = "B4F393c91945";
     $dbname = "mysql";
 
     //-----------------连接mysql服务器----------------------------------------------
-    $conn = mysqli_connect($servername,$usern ,$password);;
+    $conn = mysqli_connect($servername,$usern ,$passw);;
     $res = mysqli_set_charset($conn, 'utf8');
     //选择数据库
     mysqli_query($conn, 'use '.$dbname);
@@ -46,6 +47,12 @@ if ($emailaddress != $re_emailaddress) {
     //执行SQL语句
     $ret = mysqli_query($conn, $sql_select);
     $ret1 = mysqli_query($conn, $sql_select1);
+    if(!$ret){
+        echo 'fail 1';
+    }
+    if(!$ret1){
+        echo 'fail 2';
+    }
     $row = mysqli_fetch_array($ret);
     $row1 = mysqli_fetch_array($ret1);
     //判断用户名是否已存在
@@ -70,9 +77,14 @@ if ($emailaddress != $re_emailaddress) {
         $smtp->debug = true;
         $state = $smtp->sendmail($emailaddress, $smtpusermail, $mailtitle, $mailcontent, $mailtype);
         //执行数据插入
-        mysqli_query($conn, $sql_insert);
-        //反馈注册成功情况
-        header("Location:register.php?err=3");
+        $res=mysqli_query($conn, $sql_insert);
+        if(!$res){
+            echo 'fail 3';
+        }else{
+            //反馈注册成功情况
+            header("Location:register.php?err=3");
+        }
+
     }
     //关闭数据库
     mysqli_close($conn);

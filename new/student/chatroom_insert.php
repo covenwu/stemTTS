@@ -33,7 +33,16 @@ mysqli_query($link, 'use database1');
 //插入聊天信息
 $query="INSERT INTO log(timeStamp,classid,groupid,groupNO,userid,username,actiontype,content) VALUES ('$time','$classid',
           '$groupid','$numberingroup','$userid','$username','ChatMsg','$msg')";
-mysqli_query($link, $query);
+if(!mysqli_query($link, $query)){
+    echo("error1:failed to insert into (table)log");
+    exit();
+}
+$query="INSERT INTO chat(timeStamp,classid,groupid,username,content) VALUES('$time','$classid','$groupid','$username','$msg')";
+if(!mysqli_query($link,$query)){
+    echo("error2:failed to insert into (table)chat");
+    exit();
+}
+
 mysqli_close($link);
 
 //回显发送成功提示

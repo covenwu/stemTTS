@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"> 
+<title>分组</title>
+<style type="text/css">
+html,body,div,span,h1,h2,h3,h4,h5,h6,p,pre,a,code,em,img,small,strong,sub,sup,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}
+a{text-decoration:none;}
+a:hover{text-decoration:underline}
+ol,ul{list-style:none}
+table{border-collapse:collapse;border-spacing:0}
+h2.top_title{margin:4px 20px; padding-top:15px; padding-left:20px; padding-bottom:10px; border-bottom:1px solid #d3d3d3; font-size:18px; color:#a84c10;}
+#classlist li {font-size: 15px}
+#dates {width: 760px;height: 60px;overflow: hidden;position:absolute;left:300px;top:6px;}
+#dates li {list-style: none;float: left;width:200px;height: 50px;font-size: 15px;text-align: center;}
+#dates a {line-height: 38px;padding-bottom: 10px;}
+#dates .selected {font-size: 38px;}
+#issues {width: 760px;height: 300px;overflow: hidden;}	
+#issues li {width: 760px;height: 300px;list-style: none;float: left;}
+#issues li h1 {color: #ffcc00;font-size: 42px;margin: 20px 0;text-shadow: #000 1px 1px 2px;}
+#issues li p {font-size: 14px;margin-right: 70px; margin:10px; font-weight: normal;line-height: 22px;}
+div{margin:0;}
+li{list-style-type: none;}
+.box_shadow{
+	width:100%;
+	height:90px;
+	background:#00000;
+	box-shadow:0 10px 2px #00000;
+}
+.black_overlay{ 
+            display: none; 
+            position: absolute; 
+            top: 0%; 
+            left: 0%; 
+            width: 100%; 
+            height: 100%; 
+            background-color: black; 
+            z-index:1001; 
+            -moz-opacity: 0.8; 
+            opacity:.80; 
+            filter: alpha(opacity=88); 
+        } 
+.white_content { 
+            display: none; 
+            position: absolute; 
+            top: 10%; 
+            left: 12%; 
+            width: 55%; 
+            height: 55%; 
+            padding: 20px; 
+            border: 1px solid; 
+            background-color: white; 
+            z-index:1002; 
+            overflow: auto; 
+        } 
+.parentWrap{
+    overflow: hidden;
+    background-color: #FFFFFF;
+}
+.parent{
+    margin-right: -20px;
+    overflow: hidden;
+}
+.child{
+    float: left;
+    height: 500px;
+    width: 25%;
+    padding-right: 20px;
+    box-sizing: border-box;
+    background-clip: content-box;
+}
+#panel
+{
+	position:absolute;
+	width:100%;
+	height:500px;
+	bottom:50px;
+	padding:5px;
+	text-align:center;
+	background-color:#e5eecc;
+	border:solid 1px #c3c3c3;
+}
+#flip
+{
+	cursor:pointer;
+	width:300px;
+	position:absolute;
+	left:600px;
+	bottom:10px;
+	padding:5px;
+	text-align:center;
+	background-color:#e5eecc;
+	border:solid 1px #c3c3c3;
+}
+#panel
+{
+	padding:5px;
+	display:none;
+}
+ul{padding:0;}
+li{text-align:center;}
+p{text-align:center;}
+a{text-decoration:none;color:black;}
+#nav{ width:600px; height:40px;position: absolute;top:1px;right:100px;}  
+#nav ul{ list-style:none;}  
+#nav ul li{ float:right;margin-top:10px; margin-right: 100px;line-height:40px; text-align:center; position:relative;}  
+#nav ul li a{ text-decoration:none; color:#000; display:block;padding:0px 10px;}  
+#nav ul li a:hover{ color:#FFF; background:#333}  
+#nav ul li ul{ position:absolute; display:none;}  
+#nav ul li ul li{ float:none; line-height:30px; text-align:left;}  
+#nav ul li ul li a{ width:300%;}  
+#nav ul li ul li a:hover{ background-color:#06f;}  
+#nav ul li:hover ul{ display:block} 
+#a1, #a2, #a3, #a4, #a5
+{float:left;border:1px solid #aaaaaa;border-radius:25px;margin:10px;}
+#groupdiv1,#groupdiv2,#groupdiv3,#groupdiv4, #div3, #div4, #div5
+{float:left; width:180px; height:350px;margin:10px;float:left;}
+#div1,#div2{border:1px solid #aaaaaa;float:left; width:180px; height:550px;margin:10px;float:left;
+position:absolute;left:100px;text-align:center;border-radius:15px;}
+</style>
+<script>
+function allowDrop(ev)
+{
+    //未选择班级时不允许将学生拖入小组
+    if(classidnow==0){
+        return;
+    }
+	ev.preventDefault();
+}
+
+function drag(ev)
+{
+	ev.dataTransfer.setData("Text",ev.target.id);
+}
+
+function drop(ev)
+{
+    //未选择班级时不允许将学生拖入小组
+    if(classidnow==0){
+        return;
+    }
+	ev.preventDefault();
+	var data=ev.dataTransfer.getData("Text");
+	var targetclass=ev.target.getAttribute('class');
+	console.log('targetclass:'+targetclass)
+	if(targetclass!='stu'){
+        ev.target.appendChild(document.getElementById(data));
+        var li=document.getElementById(data);
+        var oldclassid=li.getAttribute('classid');
+        var oldgroupid=li.getAttribute('groupid');
+        var userid=li.getAttribute('userid');
+        //被拖进待分组
+        if(targetclass=='nogroupclass'){
+            resetStu(userid,oldclassid,oldgroupid);
+            //设置标签里存储的数据
+            li.setAttribute('classid','0');
+            li.setAttribute('groupid','0');
+        }
+        //被拖进某小组
+        else if(targetclass=='groupclass'){
+            var newgroupid=ev.target.getAttribute('data-groupid');
+            assignStu(userid,classidnow,newgroupid,oldclassid,oldgroupid,info_stu);
+            //设置标签里存储的数据
+            li.setAttribute('classid',classidnow);
+            li.setAttribute('groupid',newgroupid);
+        }
+        else{
+            console.log('error 1');
+        }
+	}
+}
+</script>
+<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+<script type="text/javascript" src="js/jquery.timelinr-0.9.53.js"></script>
+<script type="text/javascript">
+$(function(){
+    $().timelinr({
+		autoPlay: 'true',
+		autoPlayDirection: 'forward',
+		startAt: 100
+	})
+});
+</script>
+</head>
+<body>
+<div class="box_shadow">
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="image/logo.jpg">
+		<div id="nav">   
+        <ul>   
+        	<li><a href="#">导师</a>  
+            <ul>  
+             <li><a href="#">切换用户</a></li>  
+             <li><a href="#">注销</a></li>   
+            </ul>  
+            </li>
+         <ul>         
+        </div>  
+</div>
+
+<div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)" class="nogroupclass">
+	<ul style="margin:0;padding:0" id="noclass" >
+	<li >报名学员</li>
+		<!--
+	<li style="margin:0"><div  draggable="true" ondragstart="drag(event)" id="drag1" style="background-color: #F0F8FF">1</div></li>
+	<li style="margin:0"><div  draggable="true" ondragstart="drag(event)" id="drag2" style="background-color: #F0F8FF">2</div></li>
+	<li style="margin:0"><div  draggable="true" ondragstart="drag(event)" id="drag3" style="background-color: #F0F8FF">3</div></li>-->
+    </ul>
+</div>
+<div id="div2" ondrop="drop(event)" ondragover="allowDrop(event)" class="nogroupclass" style="left:300px;position: absolute;overflow: auto;overflow-x: hidden">
+    <ul style="margin:0;padding:0;" id="classlist" >
+        <li >班级列表</li>
+        <!--
+    <li style="margin:0"><div  draggable="true" ondragstart="drag(event)" id="drag1" style="background-color: #F0F8FF">1</div></li>
+    <li style="margin:0"><div  draggable="true" ondragstart="drag(event)" id="drag2" style="background-color: #F0F8FF">2</div></li>
+    <li style="margin:0"><div  draggable="true" ondragstart="drag(event)" id="drag3" style="background-color: #F0F8FF">3</div></li>-->
+    </ul>
+</div>
+<!--
+<div style="border-radius:25px;height:50px;width:600px;border:1px solid;float:left;position:absolute;left:460px;overflow: hidden" id="datesdiv">
+   <ul id="dates">
+      <li><a href="#c1">班级1</a></li>
+   </ul>	
+</div>-->
+<button style="position:absolute;left:870px;top:105px;height:40px;width:150px;border-radius: 10px;background-color: #8470FF" onclick = "openDialog()" id="test">班级管理</button>
+<div style="position:absolute;left:500px;top:200px">
+<div id="a1">
+	<ul style="padding:5">
+	<li style="margin:0"><p>组一</p></li>
+	<li style="margin:0"><div id="groupdiv1" ondrop="drop(event)" ondragover="allowDrop(event)" class="groupclass" data-groupid="1" style="height: 100px"></div></li>
+    </ul>
+</div>
+<div id="a2">
+	<ul>
+	<li><p>组二</p></li>
+	<li><div id="groupdiv2" ondrop="drop(event)" ondragover="allowDrop(event)" class="groupclass" data-groupid="2" style="height: 100px"></div></li>
+    </ul>
+</div>
+<div id="a3">
+	<ul>
+	<li><p>组三</p></li>
+	<li><div id="groupdiv3" ondrop="drop(event)" ondragover="allowDrop(event)" class="groupclass" data-groupid="3" style="height: 100px"></div></li>
+    </ul>
+</div>
+<div id="a4">
+	<ul>
+	<li><p>组四</p></li>
+	<li><div id="groupdiv4" ondrop="drop(event)" ondragover="allowDrop(event)"class="groupclass" data-groupid="4"style="height: 100px"></div></li>
+    </ul>
+</div>
+</div>
+<script type="text/javascript">
+        function openDialog(){
+            document.getElementById('light').style.display='block';
+            document.getElementById('fade').style.display='block'
+        }
+        function closeDialog(){
+            document.getElementById('light').style.display='none';
+            document.getElementById('fade').style.display='none'
+        }
+        function del(thisdel){
+            thisdel.parentNode.parentNode.removeChild(thisdel.parentNode);
+        }
+        function app(){
+        	var light =document.getElementById("l1");
+        	str=document.getElementById("i1").value;
+        	b = document.createElement('button');
+        	b.style="border-radius:5px;height:50px;width:200px;text-align:center;font-size:16px;line-height:40px;"
+        	b.innerHTML=str+"<a href='javascript:void(0)' onclick  = 'del(this)' style='float:right' ><img border='0' src='image/1.png'></a>";
+        	light.appendChild(b);
+        }
+ </script>
+ <div id="light" class="white_content" style="width:1200px;height:600px;border-radius:15px;">
+ 	<p >班级管理</p><br>
+ 	<input id="i1" placeholder="请输入班级名(2-15个字符)" style="height:40px;width:400px;font-size:16px;"></input>
+ 	<button style="height:40px;width:150px;border-radius:10px;background-color: #8470FF;" id="newclass">新建班级</button>
+ 	 <div id="l1" style="overflow:auto;border:1px solid;height:500px;width:1200px;font-size:0px;">
+ 	 <!--
+ 	 <button style="border-radius:5px;height:50px;width:200px;text-align:center;font-size:16px;line-height:40px;">班级1<a href = "javascript:void(0)" onclick  = "del(this)" style="float:right">
+      	<img border="0" src="image/1.png" /></a>
+     </button>-->
+     
+
+    </div>
+ 	<a href = "javascript:void(0)" onclick = "closeDialog()" style="position:absolute;top:10px;right:5px">
+      	<img border="0" src="image/1.png" />
+    </a>
+ </div>
+ <div id="fade" class="black_overlay"></div>
+<button onclick="show12()">show</button>
+<script src="group.js"></script>
+</body>
+</html>

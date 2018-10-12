@@ -1,0 +1,1 @@
+mysqldump -hlocalhost -uroot -p12345678 database1>D://test1.sql

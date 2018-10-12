@@ -97,10 +97,11 @@
                 <div>
                     <div id="在线列表">在线</div>
                 </div>
+
                 <!------------------------------------------------------------收件箱------------------------------------------------------------------------------------- -->
                 <div>
                     <div style="overflow:hidden;height:500px;width:200px;float:left;">
-                        <div id="emaillist" style="border:1px solid;">&nbsp;&nbsp;&nbsp;所有邮件</div>
+                        <div id="emaillist" style="border:1px solid;overflow: scroll">&nbsp;&nbsp;&nbsp;所有邮件</div>
                         <!--<ul style="margin:0;padding:0px;">
                             <li><a href="#"><button>邮件主题</button></a></li>
                             <li><a href="#"><button>邮件主题</button></a></li>
@@ -130,6 +131,9 @@
                     <div style="overflow:hidden;height:370px;width:300px;float:left;margin:10px;border:1px solid">
                         <div style="margin:0;text-align:center;" id="chatroom_headline">小组聊天室</div>
                         <hr style="height:1px;border:none;border-top:1px solid #555555;"/>
+                        <select id="online">
+                            <option>在线列表</option>
+                        </select>
                         <hr style="height:1px;border:none;border-top:1px solid #555555;"/>
                         <!--聊天室模块开始-->
                         <div id="main">
@@ -243,6 +247,9 @@
                     <div style="overflow:hidden;height:500px;width:200px;float:left;">
                         <div style="border:1px solid;">&nbsp;&nbsp;&nbsp;共享列表</div>
                         <div id="sharelist">资源链接</div>
+                        <div id="attachment_history">作业附件历史</div>
+                        <form id="share_upload">待分享文件
+                        </form>
                         <button onclick="addInput('share_upload')">添加附件</button>
                         <button onclick="submitShareFile()">分享</button>
                     </div>
@@ -257,9 +264,7 @@
                          style="overflow:hidden;height:500px;width:800px;float:left;border:1px solid;margin:10 auto">
                         资源内容
                     </div>
-                    <form id="share_upload">
-                    </form>
-                    <div id="attachment_history">作业附件历史</div>
+
                 </div>
                 <!------------------------------------------------------------共享结束------------------------------------------------------------------------------------- -->
 

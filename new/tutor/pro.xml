@@ -6,13 +6,13 @@
         </taskName>
         <taskEmail>
             <backgroundInfo>
-                欢迎你来到华师附小实习。我是我校四年级的年级组长张华。在你实习期间，我将担任你的实习导师，负责实习任务的安排，实习工作的指导和反馈，以及整个实习阶段表现的评估。你将和其他参加此次实习的同学以小组的形式完成实习任务。这次实习的其中一个工作是要设计一门适合我们学校四年级小朋友的STEM校本课程，每个小组需要合作完成一个专题的课程教学设计。在实习结束后，我会根据你在实习期间的工作学习表现，向你所在的院系提交实习生评估报告。希望你在接下来四周的实习中，能学有所获，有出色的表现。
+                欢迎你来到华师附小实习。我是我校四年级的年级组长张华。在你实习期间，我将担任你的实习导师，负责实习任务的安排，实习工作的指导和反馈，以及整个实习阶段表现的评估。你将和其他参加此次实习的同学以小组的形式完成实习任务。这次实习的其中一个工作是要设计适合我们学校四年级学生的STEM校本课程，你们小组需要合作完成一个单元的STEM课程设计。在实习结束后，我会根据你在实习期间的工作学习表现，向你所在的院系提交实习生评估报告。希望你在接下来四周的实习中，能学有所获，有出色的表现。
             </backgroundInfo>
             <taskReq>
-                在正式开始工作之前，你需要先熟悉一下我们学校开发STEM课程的工作流程（请见附件），我们在完成此次STEM课程开发任务的时候将会依照这个流程开展。为了确保你对于工作流程了解无误，请根据附件的说明，撰写一个工作流程的总结报告。
+                在正式开始工作之前，你需要先熟悉一下我们学校开发STEM课程的工作流程（请见附件），我们在完成此次STEM课程开发任务的时候将会依照这个流程开展。为了确保你对于工作流程了解无误，请根据附件的说明，撰写一个工作流程的总结纪要。另外请你填写一份关于参加STEM教师实习的调查问卷（问卷网址）。
             </taskReq>
             <deadline>
-                请你在今天下午5点之前提交这份报告给我。
+                请你在今天下午5点之前回复纪要给我。
             </deadline>
         </taskEmail>
         <resources>
@@ -37,17 +37,6 @@
                     校本课程的开发步骤有所遗留，请再仔细阅读工作文档，并补充完整。
                 </feedback>
             </section>
-            <section id="2">
-                <rubrics>
-                    第二条评价标准
-                </rubrics>
-                <score>
-                    2
-                </score>
-                <feedback>
-                    第二条未通过反馈
-                </feedback>
-            </section>
         </assessment>
         <chats>
             <chat id="1">
@@ -64,6 +53,22 @@
                 </chatName>
                 <chatMsg>
                     为了使大家能尽快相互熟悉，我们先各自做个自我介绍，包括你来自哪所大学，就读什么专业，以及你参加这次实习有什么样的期待和目标。然后请大家相互提问，了解彼此。最后各组总结一下本组成员身上的3个共同点和各人的一个特点。
+                </chatMsg>
+            </chat>
+            <chat id="3">
+                <chatName>
+                    STEM1
+                </chatName>
+                <chatMsg>
+                    你对STEM课程教学的熟悉程度如何？
+                </chatMsg>
+            </chat>
+            <chat id="4">
+                <chatName>
+                    STEM1
+                </chatName>
+                <chatMsg>
+                    你觉得在设计STEM课程中，你存在哪些困难？你觉得需要哪些支持，来帮助你设计和开设STEM课程？
                 </chatMsg>
             </chat>
         </chats>
@@ -93,345 +98,805 @@
         </feedbackEmail>
     </task>
     <task id="2">
-        <taskName>task2</taskName>
+        <taskName>
+            初识STEM课程设计
+        </taskName>
         <taskEmail>
-            <backgroundInfo>b2</backgroundInfo>
-            <taskReq>R2</taskReq>
-            <deadline>d2</deadline>
+            <backgroundInfo>
+                STEM课程的特点是学科融合、任务导向，究竟什么是学科融合的课程？
+            </backgroundInfo>
+            <taskReq>
+                请阅读附件的“STEM学科融合三境界”、“STEM课程设计模式”和“STEM单元主题”清单，并进一步上网查找相关信息，了解STEM课程的相关知识。请你和小组其他成员分享对于STEM课程的认识，并就设计STEM课程和传统课程相比具有哪些挑战，为进行STEM课程设计需要做哪些学习准备，以及你们小组准备设计的STEM单元主题（不一定局限于附件的主题清单）展开讨论。最后，请你归纳总结你们小组的讨论结果，并提交一份纪要，其中至少需要包括与会人员、讨论主题和讨论结果。
+            </taskReq>
+            <deadline>
+                请你在今天下午5点之前回复纪要给我。
+            </deadline>
         </taskEmail>
         <resources>
             <resource id="1">
-                <introRes>workflow.pdf</introRes>
-                <resURL>workflow.pdf</resURL>
+                <introRes>
+                    STEM学科融合三境界
+                </introRes>
+                <resURL>
+                    STEM学科融合三境界.pdf
+                </resURL>
+            </resource>
+            <resource id="1">
+                <introRes>
+                    STEM课程设计模式
+                </introRes>
+                <resURL>
+                    STEM课程设计模式.pdf
+                </resURL>
+            </resource>
+            <resource id="1">
+                <introRes>
+                    STEM单元主题
+                </introRes>
+                <resURL>
+                    STEM单元主题.pdf
+                </resURL>
             </resource>
         </resources>
         <assessment>
             <section id="1">
-                <rubrics>rubrics2</rubrics>
-                <score>score2</score>
-                <feedback>feedback2</feedback>
+                <rubrics>
+                    包含与会人员名单
+                </rubrics>
+                <score>
+                    2
+                </score>
+                <feedback>
+                    缺少与会人员名单，请补充完整。
+                </feedback>
+            </section>
+            <section id="2">
+                <rubrics>
+                    包含STEM单元主题
+                </rubrics>
+                <score>
+                    2
+                </score>
+                <feedback>
+                    缺少单元主题，请补充完整。
+                </feedback>
+            </section>
+            <section id="3">
+                <rubrics>
+                    阐明主题选择理由
+                </rubrics>
+                <score>
+                    2
+                </score>
+                <feedback>
+                    缺少单元主题选择的理由说明，请补充完整。
+                </feedback>
             </section>
         </assessment>
         <chats>
             <chat id="1">
-                <chatName>chatName2</chatName>
-                <chatMsg>chatMsg2</chatMsg>
+                <chatName>
+                    学科整合
+                </chatName>
+                <chatMsg>
+                    请你总结一下不同层次的学科整合之间的区别
+                </chatMsg>
+            </chat>
+            <chat id="2">
+                <chatName>
+                    教学设计
+                </chatName>
+                <chatMsg>
+                    每一个层次的教学设计，你觉得分别会有什么困难和挑战？
+                </chatMsg>
+            </chat>
+            <chat id="3">
+                <chatName>
+                    教学经验
+                </chatName>
+                <chatMsg>
+                    描述你所讲授的一门课程（或者一个教学单元），并解释一下，你觉得属于哪个层次的整合？如果设计成其它学科整合的层次，你觉得这门课（或者这个教学单元）将会是怎样的？
+                </chatMsg>
             </chat>
         </chats>
         <feedbackEmail>
-            <feedbackIntro>feedbackIntro2</feedbackIntro>
-            <allAcceptFeedback>allAcceptFeedback2</allAcceptFeedback>
-            <allReviseFeedback>allReviseFeedback2</allReviseFeedback>
-            <excellentSection>excellentSection2</excellentSection>
-            <goodSection>goodSection2</goodSection>
-            <reviseSection>reviseSection2</reviseSection>
-            <reviseDeadline>reviseDeadline2</reviseDeadline>
-            <absentEmail>absentEmail2</absentEmail>
-            <missDeadlineEmail>missDeadlineEmail2</missDeadlineEmail>
+            <feedbackIntro>
+                你的报告已经收到。
+            </feedbackIntro>
+            <allAcceptFeedback>
+                你这次写的报告很完整，符合要求。
+            </allAcceptFeedback>
+            <allReviseFeedback>
+                你这次写的报告还不太符合要求。具体意见如下：
+            </allReviseFeedback>
+            <excellentSection>
+            </excellentSection>
+            <goodSection>
+            </goodSection>
+            <reviseSection>
+            </reviseSection>
+            <reviseDeadline>
+                请你在明天上午9点之前重新提交修改后的报告。
+            </reviseDeadline>
+            <absentEmail>
+            </absentEmail>
+            <missDeadlineEmail>
+            </missDeadlineEmail>
         </feedbackEmail>
     </task>
     <task id="3">
-        <taskName>task3</taskName>
+        <taskName>
+            明确STEM学习目标
+        </taskName>
         <taskEmail>
-            <backgroundInfo>b3</backgroundInfo>
-            <taskReq>R3</taskReq>
-            <deadline>d3</deadline>
+            <backgroundInfo>
+                在设计STEM课程时，首先要明确学习的主题任务是什么，涉及到哪些学科标准。因此，需要你在阅读“小学科学课程标准”和“如何明确学习目标”的基础上，针对你们小组所确定的STEM单元主题，讨论其中可能涉及哪些学科的哪些课程标准，并确定学习驱动问题和学科核心问题。为了便于后续的STEM课程的合作设计，可以根据可能涉及的学科，给组员分工，各人负责熟悉与STEM单元主题相关的一个学科的课程标准和内容。
+            </backgroundInfo>
+            <taskReq>
+                最后，请你归纳总结你们小组的讨论结果，并提交一份纪要，其中至少需要包括与会人员、讨论主题和讨论结果。
+            </taskReq>
+            <deadline>
+                请你在今天下午5点之前回复纪要给我。
+            </deadline>
         </taskEmail>
         <resources>
             <resource id="1">
-                <introRes>introRes3</introRes>
-                <resURL>resURL3</resURL>
+                <introRes>
+                    小学科学课程标准
+                </introRes>
+                <resURL>
+                    小学科学课程标准.pdf
+                </resURL>
+            </resource>
+            <resource id="2">
+                <introRes>
+                    如何明确学习目标
+                </introRes>
+                <resURL>
+                    如何明确学习目标.pdf
+                </resURL>
             </resource>
         </resources>
         <assessment>
             <section id="1">
-                <rubrics>rubrics3</rubrics>
-                <score>score3</score>
-                <feedback>feedback3</feedback>
+                <rubrics>
+                </rubrics>
+                <score>
+                </score>
+                <feedback>
+                </feedback>
             </section>
         </assessment>
         <chats>
             <chat id="1">
-                <chatName>chatName3</chatName>
-                <chatMsg>chatMsg3</chatMsg>
+                <chatName>
+                    教学技能
+                </chatName>
+                <chatMsg>
+                    如何在学习目标中体现技能的教学内容？
+                </chatMsg>
+            </chat>
+            <chat id="2">
+                <chatName>
+                    课程内容
+                </chatName>
+                <chatMsg>
+                    如何将特定的课程内容设计到学习目标中去？
+                </chatMsg>
+            </chat>
+            <chat id="3">
+                <chatName>
+                    核心问题
+                </chatName>
+                <chatMsg>
+                    如何针对学习内容修改学科核心问题？
+                </chatMsg>
+            </chat>
+            <chat id="2">
+                <chatName>
+                    驱动问题
+                </chatName>
+                <chatMsg>
+                    修改后学科核心问题如何影响聚焦的学习驱动问题？
+                </chatMsg>
             </chat>
         </chats>
         <feedbackEmail>
-            <feedbackIntro>feedbackIntro3</feedbackIntro>
-            <allAcceptFeedback>allAcceptFeedback3</allAcceptFeedback>
-            <allReviseFeedback>allReviseFeedback3</allReviseFeedback>
-            <excellentSection>excellentSection3</excellentSection>
-            <goodSection>goodSection3</goodSection>
-            <reviseSection>reviseSection3</reviseSection>
-            <reviseDeadline>reviseDeadline3</reviseDeadline>
-            <absentEmail>absentEmail3</absentEmail>
-            <missDeadlineEmail>missDeadlineEmail3</missDeadlineEmail>
+            <feedbackIntro>
+                你的报告已经收到。
+            </feedbackIntro>
+            <allAcceptFeedback>
+                你这次写的报告很完整，符合要求。
+            </allAcceptFeedback>
+            <allReviseFeedback>
+                你这次写的报告还不太符合要求。具体意见如下：
+            </allReviseFeedback>
+            <excellentSection>
+            </excellentSection>
+            <goodSection>
+            </goodSection>
+            <reviseSection>
+            </reviseSection>
+            <reviseDeadline>
+                请你在明天上午9点之前重新提交修改后的报告。
+            </reviseDeadline>
+            <absentEmail>
+            </absentEmail>
+            <missDeadlineEmail>
+            </missDeadlineEmail>
         </feedbackEmail>
     </task>
     <task id="4">
-        <taskName>task4</taskName>
+        <taskName>
+            确定可评估的STEM学习证据
+        </taskName>
         <taskEmail>
-            <backgroundInfo>b4</backgroundInfo>
-            <taskReq>R4</taskReq>
-            <deadline>d4</deadline>
+            <backgroundInfo>
+                为了确保学生在完成本单元的学习后能够回答之前确定的学习驱动问题和学科核心问题，我们要思考学生应该完成哪些学习活动、如何完成这些活动，以及在这些活动中教师可以获得哪些学习证据用来评估学生的学习目标达成情况。请你阅读“如何确定可评估的学习证据”，并和小组成员讨论之前确定的STEM单元需要包括哪些学习环节，学生才能回答本单元的学习驱动问题和学科核心问题，以及这些学习环节可能的学习作品。
+            </backgroundInfo>
+            <taskReq>
+                最后，请你归纳总结你们小组的讨论结果，并提交一份纪要，其中至少需要包括与会人员、讨论主题和讨论结果。
+            </taskReq>
+            <deadline>
+                请你在今天下午5点之前回复纪要给我。
+            </deadline>
         </taskEmail>
         <resources>
             <resource id="1">
-                <introRes>introRes4</introRes>
-                <resURL>resURL4</resURL>
+                <introRes>
+                    如何确定可评估的学习证据
+                </introRes>
+                <resURL>
+                    如何确定可评估的学习证据.pdf
+                </resURL>
             </resource>
         </resources>
         <assessment>
             <section id="1">
-                <rubrics>rubrics4</rubrics>
-                <score>score4</score>
-                <feedback>feedback4</feedback>
+                <rubrics>
+                </rubrics>
+                <score>
+                </score>
+                <feedback>
+                </feedback>
             </section>
         </assessment>
         <chats>
             <chat id="1">
-                <chatName>chatName4</chatName>
-                <chatMsg>chatMsg4</chatMsg>
+                <chatName>
+                    学习流程
+                </chatName>
+                <chatMsg>
+                    是否还可以设计其它的学习流程方案？
+                </chatMsg>
+            </chat>
+            <chat id="2">
+                <chatName>
+                    学习作品
+                </chatName>
+                <chatMsg>
+                    如何确定最终的学习作品是什么？
+                </chatMsg>
             </chat>
         </chats>
         <feedbackEmail>
-            <feedbackIntro>feedbackIntro4</feedbackIntro>
-            <allAcceptFeedback>allAcceptFeedback4</allAcceptFeedback>
-            <allReviseFeedback>allReviseFeedback4</allReviseFeedback>
-            <excellentSection>excellentSection4</excellentSection>
-            <goodSection>goodSection4</goodSection>
-            <reviseSection>reviseSection4</reviseSection>
-            <reviseDeadline>reviseDeadline4</reviseDeadline>
-            <absentEmail>absentEmail4</absentEmail>
-            <missDeadlineEmail>missDeadlineEmail4</missDeadlineEmail>
+            <feedbackIntro>
+                你的报告已经收到。
+            </feedbackIntro>
+            <allAcceptFeedback>
+                你这次写的报告很完整，符合要求。
+            </allAcceptFeedback>
+            <allReviseFeedback>
+                你这次写的报告还不太符合要求。具体意见如下：
+            </allReviseFeedback>
+            <excellentSection>
+            </excellentSection>
+            <goodSection>
+            </goodSection>
+            <reviseSection>
+            </reviseSection>
+            <reviseDeadline>
+                请你在明天上午9点之前重新提交修改后的报告。
+            </reviseDeadline>
+            <absentEmail>
+            </absentEmail>
+            <missDeadlineEmail>
+            </missDeadlineEmail>
         </feedbackEmail>
     </task>
     <task id="5">
-        <taskName>task5</taskName>
+        <taskName>
+            评估STEM学习表现
+        </taskName>
         <taskEmail>
-            <backgroundInfo>b5</backgroundInfo>
-            <taskReq>R5</taskReq>
-            <deadline>d5</deadline>
+            <backgroundInfo>
+                针对学生的STEM学习表现和学习作品进行评估，常用的评价方式是基于量规的评估。请阅读“什么是量规”，并为你之前设计的学习环节和可能的学习作品设计相应的评价量规。你可以和组员讨论分工完成，或者头脑风暴后形成小组意见。
+            </backgroundInfo>
+            <taskReq>
+                最后，请你将到目前为止完成的设计内容，以word附件的形式提交，文档应至少包括STEM单元主题、相关课程标准、学习驱动问题、学科核心问题、学习环节和学习作品、评价量规。并在回复邮件正文提交一份纪要，说明你在小组合作设计的这份报告中所做的贡献。
+            </taskReq>
+            <deadline>
+                请你在今天下午5点之前提交这份报告和纪要给我。
+            </deadline>
         </taskEmail>
         <resources>
             <resource id="1">
-                <introRes>introRes5</introRes>
-                <resURL>resURL5</resURL>
+                <introRes>
+                    什么是量规
+                </introRes>
+                <resURL>
+                    什么是量规.pdf
+                </resURL>
             </resource>
         </resources>
         <assessment>
             <section id="1">
-                <rubrics>rubrics5</rubrics>
-                <score>score5</score>
-                <feedback>feedback5</feedback>
+                <rubrics>
+                </rubrics>
+                <score>
+                </score>
+                <feedback>
+                </feedback>
             </section>
         </assessment>
         <chats>
             <chat id="1">
-                <chatName>chatName5</chatName>
-                <chatMsg>chatMsg5</chatMsg>
+                <chatName>
+                    评价量规
+                </chatName>
+                <chatMsg>
+                    如何采用学科核心问题帮助你制定评价量规？
+                </chatMsg>
+            </chat>
+            <chat id="2">
+                <chatName>
+                    前测工具
+                </chatName>
+                <chatMsg>
+                    有哪些策略可以用于开发前测工具？
+                </chatMsg>
             </chat>
         </chats>
         <feedbackEmail>
-            <feedbackIntro>feedbackIntro5</feedbackIntro>
-            <allAcceptFeedback>allAcceptFeedback5</allAcceptFeedback>
-            <allReviseFeedback>allReviseFeedback5</allReviseFeedback>
-            <excellentSection>excellentSection5</excellentSection>
-            <goodSection>goodSection5</goodSection>
-            <reviseSection>reviseSection5</reviseSection>
-            <reviseDeadline>reviseDeadline5</reviseDeadline>
-            <absentEmail>absentEmail5</absentEmail>
-            <missDeadlineEmail>missDeadlineEmail5</missDeadlineEmail>
+            <feedbackIntro>
+                你的报告已经收到。
+            </feedbackIntro>
+            <allAcceptFeedback>
+                你这次写的报告很完整，符合要求。
+            </allAcceptFeedback>
+            <allReviseFeedback>
+                你这次写的报告还不太符合要求。具体意见如下：
+            </allReviseFeedback>
+            <excellentSection>
+            </excellentSection>
+            <goodSection>
+            </goodSection>
+            <reviseSection>
+            </reviseSection>
+            <reviseDeadline>
+                请你在明天上午9点之前重新提交修改后的报告。
+            </reviseDeadline>
+            <absentEmail>
+            </absentEmail>
+            <missDeadlineEmail>
+            </missDeadlineEmail>
         </feedbackEmail>
     </task>
     <task id="6">
-        <taskName>task6</taskName>
+        <taskName>
+            改进STEM课程设计I
+        </taskName>
         <taskEmail>
-            <backgroundInfo>b6</backgroundInfo>
-            <taskReq>R6</taskReq>
-            <deadline>d6</deadline>
+            <backgroundInfo>
+                我们学校的年级组长和高年资教师对你们提交的STEM课程设计中期报告进行了审阅，并提出了一些修改意见。请你和小组成员对意见展开讨论，并在此基础上修改和完善之前的设计。
+            </backgroundInfo>
+            <taskReq>
+                请提交修改后的设计稿，并在回复邮件中说明你的修改稿中做了哪些主要的改进设计。
+            </taskReq>
+            <deadline>
+                请你在今天下午5点之前提交这份报告和纪要给我。
+            </deadline>
         </taskEmail>
         <resources>
             <resource id="1">
-                <introRes>introRes6</introRes>
-                <resURL>resURL6</resURL>
+                <introRes>
+                </introRes>
+                <resURL>
+                </resURL>
             </resource>
         </resources>
         <assessment>
             <section id="1">
-                <rubrics>rubrics6</rubrics>
-                <score>score6</score>
-                <feedback>feedback6</feedback>
+                <rubrics>
+                </rubrics>
+                <score>
+                </score>
+                <feedback>
+                </feedback>
             </section>
         </assessment>
         <chats>
             <chat id="1">
-                <chatName>chatName6</chatName>
-                <chatMsg>chatMsg6</chatMsg>
+                <chatName>
+                </chatName>
+                <chatMsg>
+                </chatMsg>
+            </chat>
+            <chat id="2">
+                <chatName>
+                </chatName>
+                <chatMsg>
+                </chatMsg>
             </chat>
         </chats>
         <feedbackEmail>
-            <feedbackIntro>feedbackIntro6</feedbackIntro>
-            <allAcceptFeedback>allAcceptFeedback6</allAcceptFeedback>
-            <allReviseFeedback>allReviseFeedback6</allReviseFeedback>
-            <excellentSection>excellentSection6</excellentSection>
-            <goodSection>goodSection6</goodSection>
-            <reviseSection>reviseSection6</reviseSection>
-            <reviseDeadline>reviseDeadline6</reviseDeadline>
-            <absentEmail>absentEmail6</absentEmail>
-            <missDeadlineEmail>missDeadlineEmail6</missDeadlineEmail>
+            <feedbackIntro>
+            </feedbackIntro>
+            <allAcceptFeedback>
+            </allAcceptFeedback>
+            <allReviseFeedback>
+            </allReviseFeedback>
+            <excellentSection>
+            </excellentSection>
+            <goodSection>
+            </goodSection>
+            <reviseSection>
+            </reviseSection>
+            <reviseDeadline>
+            </reviseDeadline>
+            <absentEmail>
+            </absentEmail>
+            <missDeadlineEmail>
+            </missDeadlineEmail>
         </feedbackEmail>
     </task>
     <task id="7">
-        <taskName>task7</taskName>
+        <taskName>
+            设计STEM学习情境
+        </taskName>
         <taskEmail>
-            <backgroundInfo>b7</backgroundInfo>
-            <taskReq>R7</taskReq>
-            <deadline>d7</deadline>
+            <backgroundInfo>
+                为了激发学生的STEM学习兴趣和学习热情，要能够将STEM主题和现实世界的问题、现象等相联系，并且考虑角色扮演的方式，鼓励学生主动承担学习探究的责任。请你在阅读“如何设计STEM学习情境”的基础上，为你们小组之前设计的单元主题写一段情境描述。
+            </backgroundInfo>
+            <taskReq>
+                请你独立完成这个任务后，再和组员分享交流，然后选出本组一致认为最好的情境设计（或者以其中一个情境为蓝本进一步修改完善），并更新到之前的设计报告中。
+            </taskReq>
+            <deadline>
+                请你在今天下午5点之前提交这份设计报告，并将你自己设计的情境作为邮件正文回复给我。
+            </deadline>
         </taskEmail>
         <resources>
             <resource id="1">
-                <introRes>introRes7</introRes>
-                <resURL>resURL7</resURL>
+                <introRes>
+                    学习情境
+                </introRes>
+                <resURL>
+                    如何设计STEM学习情境.pdf
+                </resURL>
             </resource>
         </resources>
         <assessment>
             <section id="1">
-                <rubrics>rubrics7</rubrics>
-                <score>score7</score>
-                <feedback>feedback7</feedback>
+                <rubrics>
+                </rubrics>
+                <score>
+                </score>
+                <feedback>
+                </feedback>
             </section>
         </assessment>
         <chats>
             <chat id="1">
-                <chatName>chatName7</chatName>
-                <chatMsg>chatMsg7</chatMsg>
+                <chatName>
+                    学习情境
+                </chatName>
+                <chatMsg>
+                    还有哪些主题和学习情境也可以驱动相同的数学内容的学习？
+                </chatMsg>
+            </chat>
+            <chat id="2">
+                <chatName>
+                    设计次序
+                </chatName>
+                <chatMsg>
+                    你是先从驱动问题开始，再设计问题情境的，还是先有问题情境，再考虑选择哪些学习内容？先后次序是否重要？
+                </chatMsg>
             </chat>
         </chats>
         <feedbackEmail>
-            <feedbackIntro>feedbackIntro7</feedbackIntro>
-            <allAcceptFeedback>allAcceptFeedback7</allAcceptFeedback>
-            <allReviseFeedback>allReviseFeedback7</allReviseFeedback>
-            <excellentSection>excellentSection7</excellentSection>
-            <goodSection>goodSection7</goodSection>
-            <reviseSection>reviseSection7</reviseSection>
-            <reviseDeadline>reviseDeadline7</reviseDeadline>
-            <absentEmail>absentEmail7</absentEmail>
-            <missDeadlineEmail>missDeadlineEmail7</missDeadlineEmail>
+            <feedbackIntro>
+            </feedbackIntro>
+            <allAcceptFeedback>
+            </allAcceptFeedback>
+            <allReviseFeedback>
+            </allReviseFeedback>
+            <excellentSection>
+            </excellentSection>
+            <goodSection>
+            </goodSection>
+            <reviseSection>
+            </reviseSection>
+            <reviseDeadline>
+            </reviseDeadline>
+            <absentEmail>
+            </absentEmail>
+            <missDeadlineEmail>
+            </missDeadlineEmail>
         </feedbackEmail>
     </task>
     <task id="8">
-        <taskName>task8</taskName>
+        <taskName>
+            设计STEM学习活动
+        </taskName>
         <taskEmail>
-            <backgroundInfo>b8</backgroundInfo>
-            <taskReq>R8</taskReq>
-            <deadline>d8</deadline>
+            <backgroundInfo>
+                为了促进学生STEM学习中的认知投入和社交投入，需要设计丰富多样的活动和任务来串联整个单元的学习，可以有个人的、小组的、全班的互动，可以是教师引领或者学生主导的、可以是演讲、辩论、游戏、比赛等等。
+            </backgroundInfo>
+            <taskReq>
+                请你阅读“学习活动设计”的材料，并在任务4设计的学习环节基础上，进一步细化设计，明确任务活动的目标、类型、过程、具体内容、要求、时间分配等。注意任务活动的选择不能仅考虑趣味性，而是要和课程标准、学习驱动问题、学科核心问题相一致，并以促进认知和社交投入的深度学习为首要考量，任务的数量控制在3-4个为宜，你可以和组员分工完成，并讨论改进。
+            </taskReq>
+            <deadline>
+                请你在今天下午5点之前提交更新后的设计报告，并说明报告中哪些是你负责的设计部分作为邮件正文回复给我。
+            </deadline>
         </taskEmail>
         <resources>
             <resource id="1">
-                <introRes>introRes8</introRes>
-                <resURL>resURL8</resURL>
+                <introRes>
+                    学习活动设计
+                </introRes>
+                <resURL>
+                    学习活动设计.pdf
+                </resURL>
             </resource>
         </resources>
         <assessment>
             <section id="1">
-                <rubrics>rubrics8</rubrics>
-                <score>score8</score>
-                <feedback>feedback8</feedback>
+                <rubrics>
+                </rubrics>
+                <score>
+                </score>
+                <feedback>
+                </feedback>
             </section>
         </assessment>
         <chats>
             <chat id="1">
-                <chatName>chatName8</chatName>
-                <chatMsg>chatMsg8</chatMsg>
+                <chatName>
+                </chatName>
+                <chatMsg>
+                </chatMsg>
+            </chat>
+            <chat id="2">
+                <chatName>
+                </chatName>
+                <chatMsg>
+                </chatMsg>
             </chat>
         </chats>
         <feedbackEmail>
-            <feedbackIntro>feedbackIntro8</feedbackIntro>
-            <allAcceptFeedback>allAcceptFeedback8</allAcceptFeedback>
-            <allReviseFeedback>allReviseFeedback8</allReviseFeedback>
-            <excellentSection>excellentSection8</excellentSection>
-            <goodSection>goodSection8</goodSection>
-            <reviseSection>reviseSection8</reviseSection>
-            <reviseDeadline>reviseDeadline8</reviseDeadline>
-            <absentEmail>absentEmail8</absentEmail>
-            <missDeadlineEmail>missDeadlineEmail8</missDeadlineEmail>
+            <feedbackIntro>
+            </feedbackIntro>
+            <allAcceptFeedback>
+            </allAcceptFeedback>
+            <allReviseFeedback>
+            </allReviseFeedback>
+            <excellentSection>
+            </excellentSection>
+            <goodSection>
+            </goodSection>
+            <reviseSection>
+            </reviseSection>
+            <reviseDeadline>
+            </reviseDeadline>
+            <absentEmail>
+            </absentEmail>
+            <missDeadlineEmail>
+            </missDeadlineEmail>
         </feedbackEmail>
     </task>
     <task id="9">
-        <taskName>task9</taskName>
+        <taskName>
+            准备STEM学习材料
+        </taskName>
         <taskEmail>
-            <backgroundInfo>b9</backgroundInfo>
-            <taskReq>R9</taskReq>
-            <deadline>d9</deadline>
+            <backgroundInfo>
+                真实的学习任务需要用到的学习资源，包括教材、网页、多媒体动画、视频、仿真游戏、软件工具和制作物理作品的各种材料工具等。
+            </backgroundInfo>
+            <taskReq>
+                请利用提供的资源链接探索相关STEM学习资料，搜集素材为你们小组设计的每个学习任务，准备所需要用到的学习资源，撰写对应的学习资源清单。并和你的组员讨论，筛选确定最后保留的学习资料，并更新到你的STEM课程设计报告中。同时在回复邮件的正文说明你所找到的资料有哪些。
+            </taskReq>
+            <deadline>
+                请你在今天下午5点之前回复邮件，提交STEM课程设计的完整版。
+            </deadline>
         </taskEmail>
         <resources>
             <resource id="1">
-                <introRes>introRes9</introRes>
-                <resURL>resURL9</resURL>
+                <introRes>
+                    STEM学习资源
+                </introRes>
+                <resURL>
+                    STEM学习资源.pdf
+                </resURL>
             </resource>
         </resources>
         <assessment>
             <section id="1">
-                <rubrics>rubrics9</rubrics>
-                <score>score9</score>
-                <feedback>feedback9</feedback>
+                <rubrics>
+                </rubrics>
+                <score>
+                </score>
+                <feedback>
+                </feedback>
             </section>
         </assessment>
         <chats>
             <chat id="1">
-                <chatName>chatName9</chatName>
-                <chatMsg>chatMsg9</chatMsg>
+                <chatName>
+                </chatName>
+                <chatMsg>
+                </chatMsg>
+            </chat>
+            <chat id="2">
+                <chatName>
+                </chatName>
+                <chatMsg>
+                </chatMsg>
             </chat>
         </chats>
         <feedbackEmail>
-            <feedbackIntro>feedbackIntro9</feedbackIntro>
-            <allAcceptFeedback>allAcceptFeedback9</allAcceptFeedback>
-            <allReviseFeedback>allReviseFeedback9</allReviseFeedback>
-            <excellentSection>excellentSection9</excellentSection>
-            <goodSection>goodSection9</goodSection>
-            <reviseSection>reviseSection9</reviseSection>
-            <reviseDeadline>reviseDeadline9</reviseDeadline>
-            <absentEmail>absentEmail9</absentEmail>
-            <missDeadlineEmail>missDeadlineEmail9</missDeadlineEmail>
+            <feedbackIntro>
+            </feedbackIntro>
+            <allAcceptFeedback>
+            </allAcceptFeedback>
+            <allReviseFeedback>
+            </allReviseFeedback>
+            <excellentSection>
+            </excellentSection>
+            <goodSection>
+            </goodSection>
+            <reviseSection>
+            </reviseSection>
+            <reviseDeadline>
+            </reviseDeadline>
+            <absentEmail>
+            </absentEmail>
+            <missDeadlineEmail>
+            </missDeadlineEmail>
         </feedbackEmail>
     </task>
     <task id="10">
-        <taskName>task10</taskName>
+        <taskName>
+            改进STEM课程设计II
+        </taskName>
         <taskEmail>
-            <backgroundInfo>b10</backgroundInfo>
-            <taskReq>R10</taskReq>
-            <deadline>d10</deadline>
+            <backgroundInfo>
+                由年级组长和高年资教师组成的课程审核小组对你们提交的STEM课程设计报告进行了审阅，并提出了一些修改意见。请你和小组成员对意见展开讨论，并在此基础上修改和完善之前的设计。
+            </backgroundInfo>
+            <taskReq>
+                请提交修改后的最终设计稿，并在回复邮件中说明你的修改稿中做了哪些主要的改进设计。
+            </taskReq>
+            <deadline>
+                请你在今天下午5点之前提交这份报告和纪要给我。
+            </deadline>
         </taskEmail>
         <resources>
             <resource id="1">
-                <introRes>introRes10</introRes>
-                <resURL>resURL10</resURL>
+                <introRes>
+                </introRes>
+                <resURL>
+                </resURL>
             </resource>
         </resources>
         <assessment>
             <section id="1">
-                <rubrics>rubrics10</rubrics>
-                <score>score10</score>
-                <feedback>feedback10</feedback>
+                <rubrics>
+                </rubrics>
+                <score>
+                </score>
+                <feedback>
+                </feedback>
             </section>
         </assessment>
         <chats>
             <chat id="1">
-                <chatName>chatName10</chatName>
-                <chatMsg>chatMsg10</chatMsg>
+                <chatName>
+                </chatName>
+                <chatMsg>
+                </chatMsg>
+            </chat>
+            <chat id="2">
+                <chatName>
+                </chatName>
+                <chatMsg>
+                </chatMsg>
             </chat>
         </chats>
         <feedbackEmail>
-            <feedbackIntro>feedbackIntro10</feedbackIntro>
-            <allAcceptFeedback>allAcceptFeedback10</allAcceptFeedback>
-            <allReviseFeedback>allReviseFeedback10</allReviseFeedback>
-            <excellentSection>excellentSection10</excellentSection>
-            <goodSection>goodSection10</goodSection>
-            <reviseSection>reviseSection10</reviseSection>
-            <reviseDeadline>reviseDeadline10</reviseDeadline>
-            <absentEmail>absentEmail10</absentEmail>
-            <missDeadlineEmail>missDeadlineEmail10</missDeadlineEmail>
+            <feedbackIntro>
+            </feedbackIntro>
+            <allAcceptFeedback>
+            </allAcceptFeedback>
+            <allReviseFeedback>
+            </allReviseFeedback>
+            <excellentSection>
+            </excellentSection>
+            <goodSection>
+            </goodSection>
+            <reviseSection>
+            </reviseSection>
+            <reviseDeadline>
+            </reviseDeadline>
+            <absentEmail>
+            </absentEmail>
+            <missDeadlineEmail>
+            </missDeadlineEmail>
+        </feedbackEmail>
+    </task>
+    <task id="11">
+        <taskName>
+            实习情况调查
+        </taskName>
+        <taskEmail>
+            <backgroundInfo>
+                恭喜你已经完成了全部的实习任务。感谢你这段时间在我校的辛勤工作。你和其他实习生的工作成果对我校的STEM教育改革起到了重要的推动作用。我也由衷希望这次的STEM课程设计经历，对于你未来的工作学习能有所帮助。
+            </backgroundInfo>
+            <taskReq>
+                最后，请你填写一份实习满意度和自我表现评定的问卷（见链接）。
+            </taskReq>
+            <deadline>
+            </deadline>
+        </taskEmail>
+        <resources>
+            <resource id="1">
+                <introRes>
+                </introRes>
+                <resURL>
+                </resURL>
+            </resource>
+        </resources>
+        <assessment>
+            <section id="1">
+                <rubrics>
+                </rubrics>
+                <score>
+                </score>
+                <feedback>
+                </feedback>
+            </section>
+        </assessment>
+        <chats>
+            <chat id="1">
+                <chatName>
+                </chatName>
+                <chatMsg>
+                </chatMsg>
+            </chat>
+            <chat id="2">
+                <chatName>
+                </chatName>
+                <chatMsg>
+                </chatMsg>
+            </chat>
+        </chats>
+        <feedbackEmail>
+            <feedbackIntro>
+            </feedbackIntro>
+            <allAcceptFeedback>
+            </allAcceptFeedback>
+            <allReviseFeedback>
+            </allReviseFeedback>
+            <excellentSection>
+            </excellentSection>
+            <goodSection>
+            </goodSection>
+            <reviseSection>
+            </reviseSection>
+            <reviseDeadline>
+            </reviseDeadline>
+            <absentEmail>
+            </absentEmail>
+            <missDeadlineEmail>
+            </missDeadlineEmail>
         </feedbackEmail>
     </task>
 </tasks>

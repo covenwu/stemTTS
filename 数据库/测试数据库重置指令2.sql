@@ -2,7 +2,8 @@
 drop database database1;
 create database database1;
 use database1;
-#账号管理4
+
+#账号管理5
 create table account(
 userid int not null primary key auto_increment,							#用户身份标识，具有唯一性	
 password varchar(20) not null, 
@@ -10,10 +11,10 @@ username varchar(10) not null,											#展示给他人的昵称
 classid varchar(30) ,													#classid，groupid暂时设为可为空，		
 groupid int ,															#因为教师不具有这两个属性
 role enum('admin','tutor','student') not null,							
-emailaddress varchar(50) unique,										#邮箱用于登录，不允许重复
-numberingroup int
+emailaddress varchar(50),												#邮箱用于登录，不允许重复
+numberingroup int,
+tutorid int 															#区分教师身份，同一个教师有多个userid，但tutorid唯一
 )charset utf8;
-
 #日志
 create table log(
 timeStamp datetime not null,			
@@ -54,7 +55,10 @@ groupNO int,
 userid int,
 taskid int,
 content text,
-url text
+url text,
+urlname text,
+timeStamp datetime,
+shared varchar(30)				#
 )charset utf8;
 
 create table chat(
@@ -86,7 +90,10 @@ create table group_attr(
 classid int not null,
 groupid int not null,
 taskidnow int not null,
-oknumber int default 0  			#作业通过人数
+oknumber int default 0,  			#作业通过人数
+sharefile text,
+filename text,
+sharetime text
 )charset utf8;
 
 
@@ -105,6 +112,10 @@ insert into account(password,username,classid,groupid,role,emailaddress,numberin
 insert into account(password,username,classid,groupid,role,emailaddress,numberingroup) values(123,'student9',1,3,'student','9@qq.com',2);
 insert into account(password,username,classid,groupid,role,emailaddress,numberingroup) values(123,'student10',1,3,'student','10@qq.com',3);
 insert into account(password,username,classid,groupid,role,emailaddress,numberingroup) values(123,'student11',1,3,'student','11@qq.com',4);
+insert into account(password,username,classid,groupid,role,emailaddress,numberingroup) values(123,'student16',1,4,'student','13@qq.com',1);
+insert into account(password,username,classid,groupid,role,emailaddress,numberingroup) values(123,'student17',1,4,'student','14@qq.com',2);
+insert into account(password,username,classid,groupid,role,emailaddress,numberingroup) values(123,'student18',1,4,'student','15@qq.com',3);
+insert into account(password,username,classid,groupid,role,emailaddress,numberingroup) values(123,'student19',1,4,'student','16@qq.com',4);
 
 #二班第三组学生
 insert into account(password,username,classid,groupid,role,emailaddress,numberingroup) values(123,'student12',2,3,'student','20@qq.com',1);
@@ -113,13 +124,24 @@ insert into account(password,username,classid,groupid,role,emailaddress,numberin
 insert into account(password,username,classid,groupid,role,emailaddress,numberingroup) values(123,'student15',2,3,'student','23@qq.com',4);
 
 #一班tutor
-insert into account(password,username,role,emailaddress,classid) values(123,'tutor1','tutor','12@qq.com',1);
+insert into account(password,username,role,emailaddress,classid,tutorid) values(123,'tutor1','tutor','12@qq.com',1,1);
+insert into account(password,username,role,emailaddress,classid,tutorid) values(123,'tutor1','tutor','12@qq.com',2,1);
+insert into account(password,username,role,emailaddress,classid,tutorid) values(123,'tutor1','tutor','12@qq.com',3,1);
+insert into account(password,username,role,emailaddress,classid,tutorid) values(123,'tutor1','tutor','12@qq.com',4,1);
+
 
 #小组当前任务
 insert into group_attr(classid,groupid,taskidnow) values(1,1,1);
 insert into group_attr(classid,groupid,taskidnow) values(1,2,1);
 insert into group_attr(classid,groupid,taskidnow) values(1,3,1);
+insert into group_attr(classid,groupid,taskidnow) values(1,4,1);
+insert into group_attr(classid,groupid,taskidnow) values(2,1,1);
+insert into group_attr(classid,groupid,taskidnow) values(2,2,1);
 insert into group_attr(classid,groupid,taskidnow) values(2,3,1);
+insert into group_attr(classid,groupid,taskidnow) values(2,4,1);
+
+
+
 
 
 

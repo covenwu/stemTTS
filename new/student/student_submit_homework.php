@@ -45,6 +45,9 @@ $shared_str='';
 
 foreach ($_FILES as $key => $value){
     $file=$value;
+    if($file['name']==''){
+        continue;
+    }
     $urlname.=$file['name'].'@!';
     $temp='../upload/'.upload_single($file,$allow_type,$allow_format,$error,$path,$max_size);
     $url.=$temp.',';
@@ -78,15 +81,18 @@ mysqli_query($link,$query);
 
 //更改作业状态记录
 //如果评价是‘待修改’，修改旧记录
-if($evaluation=='待修改'){
+if($evaluation=='待修改'|| $evaluation=='未提交'){
     //$query="DELETE FROM homework_mood WHERE userid='$userid' AND taskid='$taskidnow' limit 1";
     $query="UPDATE homework_mood SET evaluation='批改中' WHERE userid='$userid' AND taskid='$taskidnow' limit 1";
     mysqli_query($link,$query);
+    //echo ('进入未提交');
+
 }
 //插入新作业状态纪录
 else{
     $query="INSERT INTO homework_mood VALUES('$userid','$taskidnow','批改中')";
     mysqli_query($link,$query);
+    //echo ('进入插入分支');
 }
 
 //向report表插入记录

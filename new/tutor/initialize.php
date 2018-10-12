@@ -3,7 +3,7 @@
 //-----------------常量设置----------------------------------------------
 //教师对应小组数
 $group_num=4;
-$taskemailnum=10;
+$taskemailnum;
 
 //-----------------获取接口变量----------------------------------------------
 
@@ -40,6 +40,7 @@ while($rst=mysqli_fetch_assoc($ret_classid)){
 }
 $xml=simplexml_load_file('pro.xml');
 $pro=[];
+$taskemailnum=count($xml->children());
 for($i=0;$i<$taskemailnum;$i++){
     $task=$xml->task[$i];
     $pro[$i]=[];

@@ -11,36 +11,26 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="login.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/register_login/login.php">
+      <file leaf-file-name="registeraction.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/register_login/registeraction.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="392">
-              <caret line="61" column="20" lean-forward="true" selection-start-line="61" selection-start-column="20" selection-end-line="61" selection-end-column="20" />
+            <state relative-caret-position="667">
+              <caret line="29" column="42" lean-forward="true" selection-start-line="29" selection-start-column="42" selection-end-line="29" selection-end-column="42" />
+              <folding>
+                <marker date="1536288443777" expanded="true" signature="1759:1824" ph="SELECT usern... account" />
+                <marker date="1536288443777" expanded="true" signature="1847:1922" ph="SELECT email... account" />
+                <marker date="1536288443777" expanded="true" signature="2484:2596" ph="INSERT INTO account... " />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="register.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/register_login/register.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="143">
+              <caret line="46" column="37" lean-forward="true" selection-start-line="46" selection-start-column="37" selection-end-line="46" selection-end-column="37" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="loginsucc.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/register_login/loginsucc.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="530">
-              <caret line="55" column="39" lean-forward="false" selection-start-line="55" selection-start-column="39" selection-end-line="55" selection-end-column="39" />
-              <folding>
-                <marker date="1532752454297" expanded="true" signature="1321:1385" ph="SELECT * FRO... account" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="loginaction.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/register_login/loginaction.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="576">
-              <caret line="55" column="9" lean-forward="true" selection-start-line="55" selection-start-column="9" selection-end-line="55" selection-end-column="9" />
-              <folding>
-                <marker date="1534152420600" expanded="true" signature="906:1034" ph="SELECT email... account" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -57,7 +47,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>收件</find>
       <find>列表</find>
       <find>click()</find>
       <find>emailli</find>
@@ -87,6 +76,7 @@
       <find>delete</find>
       <find>ui</find>
       <find>注销</find>
+      <find>$role</find>
     </findStrings>
     <replaceStrings>
       <replace>receiveemail</replace>
@@ -151,7 +141,6 @@
         <option value="$PROJECT_DIR$/tutor/button_control.php" />
         <option value="$PROJECT_DIR$/group/group.html" />
         <option value="$PROJECT_DIR$/group/get_stu_info.php" />
-        <option value="$PROJECT_DIR$/register_login/registeraction.php" />
         <option value="$PROJECT_DIR$/group/login/loginsucc.php" />
         <option value="$PROJECT_DIR$/test/reset_nodata.php" />
         <option value="$PROJECT_DIR$/group/create_class.php" />
@@ -172,6 +161,7 @@
         <option value="$PROJECT_DIR$/tutor/tutor1.js" />
         <option value="$PROJECT_DIR$/register_login/login.php" />
         <option value="$PROJECT_DIR$/register_login/loginaction.php" />
+        <option value="$PROJECT_DIR$/register_login/registeraction.php" />
       </list>
     </option>
   </component>
@@ -182,7 +172,7 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" interpreter_name="PHP" />
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-9" />
     <option name="y" value="-9" />
     <option name="width" value="1400" />
@@ -203,8 +193,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -215,18 +203,12 @@
             <path>
               <item name="bushu" type="b2602c69:ProjectViewProjectNode" />
               <item name="bushu" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="all" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="bushu" type="b2602c69:ProjectViewProjectNode" />
+              <item name="bushu" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="class" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="bushu" type="b2602c69:ProjectViewProjectNode" />
-              <item name="bushu" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="group" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="bushu" type="b2602c69:ProjectViewProjectNode" />
-              <item name="bushu" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="group" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="login" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
               <item name="bushu" type="b2602c69:ProjectViewProjectNode" />
@@ -269,13 +251,15 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../group" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../bushu2" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
-    <property name="SearchEverywhereHistoryKey" value="log&#9;FILE&#9;file://C:/wamp64/www/xunishixi/bushu/register_login" />
+    <property name="SearchEverywhereHistoryKey" value="explode&#9;null&#9;null&#10;log&#9;FILE&#9;file://C:/wamp64/www/xunishixi/bushu/register_login" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -339,31 +323,34 @@
       <workItem from="1533205980089" duration="1780000" />
       <workItem from="1533509416691" duration="44335000" />
       <workItem from="1533861878301" duration="520000" />
-      <workItem from="1534065806361" duration="24066000" />
+      <workItem from="1534065806361" duration="25259000" />
+      <workItem from="1534765698215" duration="973000" />
+      <workItem from="1535096237995" duration="3764000" />
+      <workItem from="1536287367739" duration="1194000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="475924000" />
+    <option name="totallyTimeSpent" value="483048000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-9" y="-9" width="1938" height="1048" extended-state="7" />
+    <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21354167" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="PHP-CGI Server" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="PHP-CGI Server" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
@@ -391,188 +378,10 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/student/check_taskemail.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="184">
-          <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tutor/image/3.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/student/css/1.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="45" column="1" lean-forward="true" selection-start-line="45" selection-start-column="1" selection-end-line="45" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tutor/image/1.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tutor/image/2.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/student/student2.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3910">
-          <caret line="170" column="46" lean-forward="false" selection-start-line="170" selection-start-column="46" selection-end-line="170" selection-end-column="46" />
-          <folding>
-            <element signature="e#2182#2188#0" expanded="false" />
-            <element signature="e#2188#2194#0" expanded="false" />
-            <element signature="e#2194#2200#0" expanded="false" />
-            <element signature="e#2200#2206#0" expanded="false" />
-            <element signature="e#2206#2212#0" expanded="false" />
-            <element signature="e#2212#2218#0" expanded="false" />
-            <element signature="e#2218#2224#0" expanded="false" />
-            <element signature="e#2224#2230#0" expanded="false" />
-            <element signature="n#style#0;n#p#0;n#div#1;n#body#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#body#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#body#0;n#!!top" expanded="false" />
-            <element signature="e#3504#3510#0" expanded="false" />
-            <element signature="e#3510#3516#0" expanded="false" />
-            <element signature="e#3516#3522#0" expanded="false" />
-            <element signature="n#style#0;n#table#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#body#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#div#1;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#body#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#button#0;n#div#1;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#body#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#body#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#div#1;n#div#1;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#body#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#div#0;n#div#2;n#div#0;n#div#0;n#div#0;n#div#1;n#body#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#2;n#div#0;n#div#0;n#div#0;n#div#1;n#body#0;n#!!top" expanded="false" />
-            <element signature="e#5418#5424#0" expanded="false" />
-            <element signature="e#5424#5430#0" expanded="false" />
-            <element signature="e#5430#5436#0" expanded="false" />
-            <element signature="n#style#0;n#div#1;n#div#0;n#div#2;n#div#0;n#div#0;n#div#0;n#div#1;n#body#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#table#0;n#div#2;n#div#0;n#div#0;n#div#0;n#div#1;n#body#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#div#1;n#div#2;n#div#0;n#div#0;n#div#0;n#div#1;n#body#0;n#!!top" expanded="false" />
-            <element signature="e#5945#5951#0" expanded="false" />
-            <element signature="e#5951#5957#0" expanded="false" />
-            <element signature="e#5957#5963#0" expanded="false" />
-            <element signature="e#5963#5969#0" expanded="false" />
-            <element signature="e#5969#5975#0" expanded="false" />
-            <element signature="e#5975#5981#0" expanded="false" />
-            <element signature="e#5981#5987#0" expanded="false" />
-            <element signature="e#5987#5993#0" expanded="false" />
-            <element signature="e#5993#5999#0" expanded="false" />
-            <element signature="e#6024#6030#0" expanded="false" />
-            <element signature="e#6030#6036#0" expanded="false" />
-            <element signature="e#6036#6042#0" expanded="false" />
-            <element signature="e#6042#6048#0" expanded="false" />
-            <element signature="e#6048#6054#0" expanded="false" />
-            <element signature="e#6054#6060#0" expanded="false" />
-            <element signature="e#6060#6066#0" expanded="false" />
-            <element signature="e#6066#6072#0" expanded="false" />
-            <element signature="e#6072#6078#0" expanded="false" />
-            <element signature="e#6078#6084#0" expanded="false" />
-            <element signature="e#6084#6090#0" expanded="false" />
-            <element signature="e#6090#6096#0" expanded="false" />
-            <element signature="e#6096#6102#0" expanded="false" />
-            <element signature="e#6102#6108#0" expanded="false" />
-            <element signature="e#6108#6114#0" expanded="false" />
-            <element signature="e#6114#6120#0" expanded="false" />
-            <element signature="e#6120#6126#0" expanded="false" />
-            <element signature="e#6126#6132#0" expanded="false" />
-            <element signature="e#6132#6138#0" expanded="false" />
-            <element signature="e#6138#6144#0" expanded="false" />
-            <element signature="e#6144#6150#0" expanded="false" />
-            <element signature="e#6150#6156#0" expanded="false" />
-            <element signature="e#6156#6162#0" expanded="false" />
-            <element signature="e#6162#6168#0" expanded="false" />
-            <element signature="e#6168#6174#0" expanded="false" />
-            <element signature="e#6174#6180#0" expanded="false" />
-            <element signature="e#6180#6186#0" expanded="false" />
-            <element signature="e#6186#6192#0" expanded="false" />
-            <element signature="e#6192#6198#0" expanded="false" />
-            <element signature="e#6198#6204#0" expanded="false" />
-            <element signature="e#6204#6210#0" expanded="false" />
-            <element signature="e#6210#6216#0" expanded="false" />
-            <element signature="e#6216#6222#0" expanded="false" />
-            <element signature="e#6222#6228#0" expanded="false" />
-            <element signature="e#6228#6234#0" expanded="false" />
-            <element signature="e#6234#6240#0" expanded="false" />
-            <element signature="e#6240#6246#0" expanded="false" />
-            <element signature="e#6246#6252#0" expanded="false" />
-            <element signature="e#6252#6258#0" expanded="false" />
-            <element signature="e#6258#6264#0" expanded="false" />
-            <element signature="e#6264#6270#0" expanded="false" />
-            <element signature="e#6270#6276#0" expanded="false" />
-            <element signature="e#6276#6282#0" expanded="false" />
-            <element signature="e#6282#6288#0" expanded="false" />
-            <element signature="e#6288#6294#0" expanded="false" />
-            <element signature="e#6294#6300#0" expanded="false" />
-            <element signature="e#6300#6306#0" expanded="false" />
-            <element signature="e#6306#6312#0" expanded="false" />
-            <element signature="e#6312#6318#0" expanded="false" />
-            <element signature="e#6318#6324#0" expanded="false" />
-            <element signature="e#6324#6330#0" expanded="false" />
-            <element signature="e#6330#6336#0" expanded="false" />
-            <element signature="e#6336#6342#0" expanded="false" />
-            <element signature="e#6342#6348#0" expanded="false" />
-            <element signature="e#6348#6354#0" expanded="false" />
-            <element signature="e#6354#6360#0" expanded="false" />
-            <element signature="e#6360#6366#0" expanded="false" />
-            <element signature="e#6366#6372#0" expanded="false" />
-            <element signature="e#6372#6378#0" expanded="false" />
-            <element signature="e#6378#6384#0" expanded="false" />
-            <element signature="e#6384#6390#0" expanded="false" />
-            <element signature="e#6390#6396#0" expanded="false" />
-            <element signature="e#6396#6402#0" expanded="false" />
-            <element signature="e#6402#6408#0" expanded="false" />
-            <element signature="e#6408#6414#0" expanded="false" />
-            <element signature="e#6414#6420#0" expanded="false" />
-            <element signature="e#6420#6426#0" expanded="false" />
-            <element signature="e#6426#6432#0" expanded="false" />
-            <element signature="e#6432#6438#0" expanded="false" />
-            <element signature="e#6438#6444#0" expanded="false" />
-            <element signature="e#6444#6450#0" expanded="false" />
-            <element signature="e#6450#6456#0" expanded="false" />
-            <element signature="n#style#0;n#button#0;n#div#1;n#div#2;n#div#0;n#div#0;n#div#0;n#div#1;n#body#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#button#1;n#div#1;n#div#2;n#div#0;n#div#0;n#div#0;n#div#1;n#body#0;n#!!top" expanded="false" />
-            <element signature="e#6773#6779#0" expanded="false" />
-            <element signature="e#6779#6785#0" expanded="false" />
-            <element signature="e#6785#6791#0" expanded="false" />
-            <element signature="n#style#0;n#button#2;n#div#1;n#div#2;n#div#0;n#div#0;n#div#0;n#div#1;n#body#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#div#0;n#div#1;n#div#2;n#div#0;n#div#0;n#div#0;n#div#1;n#body#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#textarea#0;n#div#1;n#div#2;n#div#0;n#div#0;n#div#0;n#div#1;n#body#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#div#0;n#div#3;n#div#0;n#div#0;n#div#0;n#div#1;n#body#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#3;n#div#0;n#div#0;n#div#0;n#div#1;n#body#0;n#!!top" expanded="false" />
-            <element signature="e#7927#7933#0" expanded="false" />
-            <element signature="e#7933#7939#0" expanded="false" />
-            <element signature="e#7939#7945#0" expanded="false" />
-            <element signature="n#style#0;n#div#1;n#div#0;n#div#3;n#div#0;n#div#0;n#div#0;n#div#1;n#body#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#table#0;n#div#3;n#div#0;n#div#0;n#div#0;n#div#1;n#body#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#div#1;n#div#3;n#div#0;n#div#0;n#div#0;n#div#1;n#body#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#div#0;n#div#4;n#div#0;n#div#0;n#div#0;n#div#1;n#body#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#4;n#div#0;n#div#0;n#div#0;n#div#1;n#body#0;n#!!top" expanded="false" />
-            <element signature="e#9085#9091#0" expanded="false" />
-            <element signature="e#9091#9097#0" expanded="false" />
-            <element signature="e#9097#9103#0" expanded="false" />
-            <element signature="n#style#0;n#div#1;n#div#0;n#div#4;n#div#0;n#div#0;n#div#0;n#div#1;n#body#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#table#0;n#div#4;n#div#0;n#div#0;n#div#0;n#div#1;n#body#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#div#1;n#div#4;n#div#0;n#div#0;n#div#0;n#div#1;n#body#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#div#2;n#body#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#div#0;n#div#2;n#body#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#hr#0;n#div#2;n#body#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#hr#1;n#div#2;n#body#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#textarea#0;n#form#0;n#div#3;n#body#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#input#0;n#form#0;n#div#3;n#body#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#input#1;n#form#0;n#div#3;n#body#0;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/homepage/menu.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="667">
           <caret line="29" column="1" lean-forward="false" selection-start-line="29" selection-start-column="1" selection-end-line="29" selection-end-column="1" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -584,50 +393,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/group/get_stu_info.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="598">
-          <caret line="26" column="41" lean-forward="true" selection-start-line="26" selection-start-column="41" selection-end-line="26" selection-end-column="41" />
-          <folding>
-            <marker date="1534066792710" expanded="true" signature="395:481" ph="SELECT useri... account" />
-            <marker date="1534066792710" expanded="true" signature="566:622" ph="SELECT class... classinfo" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/register_login/register.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-483">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/register_login/registeraction.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="552">
-          <caret line="60" column="10" lean-forward="true" selection-start-line="60" selection-start-column="10" selection-end-line="60" selection-end-column="10" />
-          <folding>
-            <marker date="1534076757456" expanded="true" signature="1746:1811" ph="SELECT usern... account" />
-            <marker date="1534076757456" expanded="true" signature="1834:1909" ph="SELECT email... account" />
-            <marker date="1534076757456" expanded="true" signature="2382:2494" ph="INSERT INTO account... " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/test/.php" />
     <entry file="file://$PROJECT_DIR$/test/test1.sql">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2727">
           <caret line="271" column="0" lean-forward="true" selection-start-line="271" selection-start-column="0" selection-end-line="271" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -635,7 +405,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="598">
           <caret line="35" column="26" lean-forward="true" selection-start-line="35" selection-start-column="26" selection-end-line="35" selection-end-column="26" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -643,7 +412,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-23">
           <caret line="8" column="65" lean-forward="true" selection-start-line="8" selection-start-column="65" selection-end-line="8" selection-end-column="65" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -651,21 +419,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1114">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <marker date="1534078541519" expanded="true" signature="970:1403" ph="CREATE TABLE... account" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/group/create_class.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="506">
-          <caret line="28" column="0" lean-forward="true" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
-          <folding>
-            <marker date="1534121160119" expanded="true" signature="857:1007" ph="INSERT INTO account... " />
-            <marker date="1534121160119" expanded="true" signature="1157:1221" ph="INSERT INTO group_attr... " />
-            <marker date="1534121160119" expanded="true" signature="1351:1424" ph="INSERT INTO classinfo... " />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -673,9 +426,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1040">
           <caret line="292" column="7" lean-forward="true" selection-start-line="292" selection-start-column="7" selection-end-line="292" selection-end-column="7" />
-          <folding>
-            <marker date="1534066600663" expanded="true" signature="9300:9311" ph="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -683,10 +433,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="46">
           <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="7" selection-end-column="33" />
-          <folding>
-            <marker date="1532752580445" expanded="true" signature="1085:1223" ph="INSERT INTO log... " />
-            <marker date="1532752580445" expanded="true" signature="1262:1380" ph="INSERT INTO chat... " />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -694,11 +440,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="392">
           <caret line="19" column="16" lean-forward="true" selection-start-line="19" selection-start-column="16" selection-end-line="19" selection-end-column="16" />
-          <folding>
-            <marker date="1533113770550" expanded="true" signature="807:886" ph="delete from onlineuser... " />
-            <marker date="1533113770550" expanded="true" signature="957:1002" ph="delete from onlineuser... " />
-            <marker date="1533113770550" expanded="true" signature="1050:1301" ph="insert into onlineuser... " />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -706,9 +447,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="23">
           <caret line="1" column="4" lean-forward="false" selection-start-line="1" selection-start-column="4" selection-end-line="1" selection-end-column="4" />
-          <folding>
-            <marker date="1533113770761" expanded="true" signature="283:311" ph="SELECT usern... account" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -716,7 +454,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="46">
           <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="6" selection-end-column="18" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -724,9 +461,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <marker date="1532748221705" expanded="true" signature="269:297" ph="SELECT usern... account" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -734,9 +468,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="488">
           <caret line="38" column="0" lean-forward="false" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
-          <folding>
-            <marker date="1533113770693" expanded="true" signature="956:1071" ph="SELECT timeS... " />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -744,7 +475,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="437">
           <caret line="19" column="10" lean-forward="false" selection-start-line="19" selection-start-column="10" selection-end-line="19" selection-end-column="10" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -752,9 +482,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="299">
           <caret line="13" column="72" lean-forward="false" selection-start-line="13" selection-start-column="72" selection-end-line="13" selection-end-column="72" />
-          <folding>
-            <marker date="1534126341620" expanded="true" signature="412:568" ph="SELECT taski... account" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -762,12 +489,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="70">
           <caret line="53" column="35" lean-forward="true" selection-start-line="53" selection-start-column="35" selection-end-line="53" selection-end-column="35" />
-          <folding>
-            <marker date="1534126999200" expanded="true" signature="722:775" ph="SELECT class... account" />
-            <marker date="1534126999200" expanded="true" signature="832:894" ph="SELECT usern... account" />
-            <marker date="1534126999200" expanded="true" signature="952:991" ph="SELECT class... classinfo" />
-            <marker date="1534126999200" expanded="true" signature="952:992" ph="SELECT class... classinfo" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -775,10 +496,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="575">
           <caret line="25" column="0" lean-forward="true" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
-          <folding>
-            <marker date="1534126999126" expanded="true" signature="718:874" ph="SELECT taski... account" />
-            <marker date="1534126999126" expanded="true" signature="923:1005" ph="SELECT group... group_attr" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -786,11 +503,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <marker date="1533113269557" expanded="true" signature="774:851" ph="SELECT share... report" />
-            <marker date="1533113269557" expanded="true" signature="1162:1252" ph="UPDATE report... " />
-            <marker date="1533113269557" expanded="true" signature="1308:1540" ph="UPDATE group_attr... " />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -809,9 +521,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <marker date="1532752536720" expanded="true" signature="589:697" ph="SELECT share... group_attr" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -819,9 +528,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <marker date="1532752536644" expanded="true" signature="996:1177" ph="UPDATE report... " />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -829,9 +535,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-759">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <marker date="1533113269687" expanded="true" signature="555:632" ph="SELECT url,u... " />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -839,12 +542,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="461">
           <caret line="50" column="29" lean-forward="true" selection-start-line="50" selection-start-column="29" selection-end-line="50" selection-end-column="29" />
-          <folding>
-            <marker date="1534129360276" expanded="true" signature="395:415" ph="SELECT *FROM... account" />
-            <marker date="1534129360276" expanded="true" signature="648:671" ph="SELECT *FROM... group_attr" />
-            <marker date="1534129360276" expanded="true" signature="862:888" ph="SELECT *FROM... homework_mood" />
-            <marker date="1534129360276" expanded="true" signature="1079:1098" ph="SELECT *FROM... report" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -852,187 +549,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="166">
           <caret line="475" column="30" lean-forward="true" selection-start-line="475" selection-start-column="30" selection-end-line="475" selection-end-column="30" />
-          <folding>
-            <element signature="e#104#146#0" expanded="false" />
-            <element signature="e#363#407#0" expanded="false" />
-            <element signature="e#931#965#0" expanded="false" />
-            <element signature="e#1092#1126#0" expanded="false" />
-            <element signature="e#1240#1274#0" expanded="false" />
-            <element signature="e#1530#1586#0" expanded="false" />
-            <element signature="e#1799#1870#0" expanded="false" />
-            <element signature="n#!!block;n#initialize#0" expanded="false" />
-            <element signature="e#2017#3186#0" expanded="false" />
-            <element signature="e#2103#3180#0" expanded="false" />
-            <element signature="e#3192#3238#0" expanded="false" />
-            <element signature="n#!!block;n#sortEmailarr#0" expanded="false" />
-            <element signature="e#3400#3425#0" expanded="false" />
-            <element signature="n#!!block;n#testFeedback#0" expanded="false" />
-            <element signature="e#3773#3798#0" expanded="false" />
-            <element signature="e#3843#3919#0" expanded="false" />
-            <element signature="e#3965#4083#0" expanded="false" />
-            <element signature="e#4128#4153#0" expanded="false" />
-            <element signature="n#!!block;n#getNewEmail#0" expanded="false" />
-            <element signature="e#5122#6766#0" expanded="false" />
-            <element signature="e#5246#6760#0" expanded="false" />
-            <element signature="e#5426#5700#0" expanded="false" />
-            <element signature="e#6006#6330#0" expanded="false" />
-            <element signature="e#6356#6749#0" expanded="false" />
-            <element signature="e#6374#6426#0" expanded="false" />
-            <element signature="e#6772#6852#0" expanded="false" />
-            <element signature="n#!!block;n#getLastTaskEmail#0" expanded="false" />
-            <element signature="e#7002#7043#0" expanded="false" />
-            <element signature="e#7053#7104#0" expanded="false" />
-            <element signature="e#7108#7195#0" expanded="false" />
-            <element signature="n#!!block;n#reminder#0" expanded="false" />
-            <element signature="e#7312#7499#0" expanded="false" />
-            <element signature="e#7355#7493#0" expanded="false" />
-            <element signature="e#7530#7779#0" expanded="false" />
-            <element signature="n#!!block;n#updateGetOnlineuser#0" expanded="false" />
-            <element signature="e#7894#8941#0" expanded="false" />
-            <element signature="e#8171#8593#0" expanded="false" />
-            <element signature="e#8349#8427#0" expanded="false" />
-            <element signature="e#8433#8507#0" expanded="false" />
-            <element signature="e#8758#8814#0" expanded="false" />
-            <element signature="e#8820#8867#0" expanded="false" />
-            <element signature="e#8946#9016#0" expanded="false" />
-            <element signature="n#!!block;n#saveDraftLocal#0" expanded="false" />
-            <element signature="n#!!block;n#getQueryString#0" expanded="false" />
-            <element signature="n#!!block;n#hideButton#0" expanded="false" />
-            <element signature="n#!!block;n#hideAllButton#0" expanded="false" />
-            <element signature="n#!!block;n#showButton#0" expanded="false" />
-            <element signature="n#!!block;n#showAllButton#0" expanded="false" />
-            <element signature="n#!!block;n#objectLength#0" expanded="false" />
-            <element signature="e#10037#10107#0" expanded="false" />
-            <element signature="e#10440#10558#0" expanded="false" />
-            <element signature="e#11687#11765#0" expanded="false" />
-            <element signature="e#11770#11816#0" expanded="false" />
-            <element signature="e#11906#11975#0" expanded="false" />
-            <element signature="e#12119#12296#0" expanded="false" />
-            <element signature="e#12278#12289#0" expanded="false" />
-            <element signature="n#!!block;n#checkHomeworkEvaluation#0" expanded="false" />
-            <element signature="e#12461#13678#0" expanded="false" />
-            <element signature="e#12658#13067#0" expanded="false" />
-            <element signature="e#12794#12851#0" expanded="false" />
-            <element signature="e#12869#12928#0" expanded="false" />
-            <element signature="e#13106#13347#0" expanded="false" />
-            <element signature="e#13385#13627#0" expanded="false" />
-            <element signature="e#13767#15029#0" expanded="false" />
-            <element signature="e#14009#14442#0" expanded="false" />
-            <element signature="e#14169#14226#0" expanded="false" />
-            <element signature="e#14244#14303#0" expanded="false" />
-            <element signature="e#14481#14722#0" expanded="false" />
-            <element signature="e#14760#15001#0" expanded="false" />
-            <element signature="n#!!block;n#checkEvaluation#0" expanded="false" />
-            <element signature="e#15147#15217#0" expanded="false" />
-            <element signature="e#15222#15292#0" expanded="false" />
-            <element signature="e#16144#16213#0" expanded="false" />
-            <element signature="n#!!block;n#prepareTable#0" expanded="false" />
-            <element signature="e#16346#16388#0" expanded="false" />
-            <element signature="n#!!block;n#prepareAllTable#0" expanded="false" />
-            <element signature="e#17512#20082#0" expanded="false" />
-            <element signature="e#17552#20047#0" expanded="false" />
-            <element signature="e#17651#20032#0" expanded="false" />
-            <element signature="e#18236#20018#0" expanded="false" />
-            <element signature="e#18588#18769#0" expanded="false" />
-            <element signature="e#18820#19091#0" expanded="false" />
-            <element signature="e#19260#19353#0" expanded="false" />
-            <element signature="e#19545#19958#0" expanded="false" />
-            <element signature="e#20761#22778#0" expanded="false" />
-            <element signature="e#20783#20791#0" expanded="false" />
-            <element signature="e#21252#21434#0" expanded="false" />
-            <element signature="e#21485#21708#0" expanded="false" />
-            <element signature="e#21877#21970#0" expanded="false" />
-            <element signature="e#22253#22718#0" expanded="false" />
-            <element signature="e#23296#23516#0" expanded="false" />
-            <element signature="n#!!block;n#getLastTaskEmailIndex#0" expanded="false" />
-            <element signature="e#24657#24686#0" expanded="false" />
-            <element signature="e#24696#24752#0" expanded="false" />
-            <element signature="n#!!block;n#createEmailTable#0" expanded="false" />
-            <element signature="e#25052#28942#0" expanded="false" />
-            <element signature="e#25143#28932#0" expanded="false" />
-            <element signature="e#25487#26282#0" expanded="false" />
-            <element signature="e#26323#26457#0" expanded="false" />
-            <element signature="e#26607#28922#0" expanded="false" />
-            <element signature="e#26854#27291#0" expanded="false" />
-            <element signature="e#26963#27086#0" expanded="false" />
-            <element signature="e#27145#27273#0" expanded="false" />
-            <element signature="e#27527#28533#0" expanded="false" />
-            <element signature="e#27645#28515#0" expanded="false" />
-            <element signature="e#27684#28489#0" expanded="false" />
-            <element signature="e#28195#28414#0" expanded="false" />
-            <element signature="e#28698#28717#0" expanded="false" />
-            <element signature="e#28986#34348#0" expanded="false" />
-            <element signature="e#29077#34338#0" expanded="false" />
-            <element signature="e#29421#30217#0" expanded="false" />
-            <element signature="e#30258#30392#0" expanded="false" />
-            <element signature="e#30542#34328#0" expanded="false" />
-            <element signature="e#30756#31193#0" expanded="false" />
-            <element signature="e#30865#30988#0" expanded="false" />
-            <element signature="e#31047#31175#0" expanded="false" />
-            <element signature="e#31429#33937#0" expanded="false" />
-            <element signature="e#31548#32782#0" expanded="false" />
-            <element signature="e#31587#32754#0" expanded="false" />
-            <element signature="e#32208#32427#0" expanded="false" />
-            <element signature="e#32783#33919#0" expanded="false" />
-            <element signature="e#34104#34123#0" expanded="false" />
-            <element signature="n#!!block;n#urlList#0" expanded="false" />
-            <element signature="e#34528#34810#0" expanded="false" />
-            <element signature="e#34592#34804#0" expanded="false" />
-            <element signature="n#!!block;n#createUrlTable#0" expanded="false" />
-            <element signature="e#35052#35764#0" expanded="false" />
-            <element signature="e#35143#35754#0" expanded="false" />
-            <element signature="e#35644#35705#0" expanded="false" />
-            <element signature="n#!!block;n#checkTaskemail#0" expanded="false" />
-            <element signature="e#35824#35938#0" expanded="false" />
-            <element signature="e#35921#35932#0" expanded="false" />
-            <element signature="n#!!block;n#checkFeedback#0" expanded="false" />
-            <element signature="e#36004#36133#0" expanded="false" />
-            <element signature="e#36116#36127#0" expanded="false" />
-            <element signature="n#!!block;n#addInput#0" expanded="false" />
-            <element signature="e#36264#36398#0" expanded="false" />
-            <element signature="n#!!block;n#createInput#0" expanded="false" />
-            <element signature="e#36824#37031#0" expanded="false" />
-            <element signature="e#37219#37289#0" expanded="false" />
-            <element signature="n#!!block;n#showmessage#0" expanded="false" />
-            <element signature="e#37419#38670#0" expanded="false" />
-            <element signature="e#37455#38664#0" expanded="false" />
-            <element signature="e#37707#38279#0" expanded="false" />
-            <element signature="e#37759#37992#0" expanded="false" />
-            <element signature="e#38014#38264#0" expanded="false" />
-            <element signature="e#38344#38427#0" expanded="false" />
-            <element signature="e#38607#38654#0" expanded="false" />
-            <element signature="n#!!block;n#send#0" expanded="false" />
-            <element signature="e#39082#39134#0" expanded="false" />
-            <element signature="e#39117#39128#0" expanded="false" />
-            <element signature="n#!!block;n#autoflow#0" expanded="false" />
-            <element signature="n#!!block;n#changeAutoflow#0" expanded="false" />
-            <element signature="e#39501#39597#0" expanded="false" />
-            <element signature="e#39607#39705#0" expanded="false" />
-            <element signature="e#39709#39780#0" expanded="false" />
-            <element signature="n#!!block;n#submitShareFile#0" expanded="false" />
-            <element signature="e#40099#40192#0" expanded="false" />
-            <element signature="e#40134#40186#0" expanded="false" />
-            <element signature="n#!!block;n#shareListData#0" expanded="false" />
-            <element signature="e#40335#40642#0" expanded="false" />
-            <element signature="e#40432#40636#0" expanded="false" />
-            <element signature="e#40559#40626#0" expanded="false" />
-            <element signature="n#!!block;n#createShareTable#0" expanded="false" />
-            <element signature="e#40832#41866#0" expanded="false" />
-            <element signature="e#40855#41856#0" expanded="false" />
-            <element signature="e#41269#41288#0" expanded="false" />
-            <element signature="e#41388#41524#0" expanded="false" />
-            <element signature="e#41430#41510#0" expanded="false" />
-            <element signature="e#41565#41655#0" expanded="false" />
-            <element signature="e#43046#43182#0" expanded="false" />
-            <element signature="e#43088#43168#0" expanded="false" />
-            <element signature="e#43200#43290#0" expanded="false" />
-            <element signature="e#43638#44018#0" expanded="false" />
-            <element signature="e#43800#44004#0" expanded="false" />
-            <element signature="e#44036#44226#0" expanded="false" />
-            <element signature="n#!!block;n#shareAttachment#0" expanded="false" />
-            <element signature="e#44416#44593#0" expanded="false" />
-            <element signature="e#44576#44587#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1040,9 +556,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="368">
           <caret line="32" column="75" lean-forward="true" selection-start-line="32" selection-start-column="75" selection-end-line="32" selection-end-column="75" />
-          <folding>
-            <marker date="1534131198230" expanded="true" signature="1036:1202" ph="INSERT INTO report... " />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1050,10 +563,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="603">
           <caret line="34" column="48" lean-forward="true" selection-start-line="34" selection-start-column="48" selection-end-line="34" selection-end-column="48" />
-          <folding>
-            <marker date="1534065973207" expanded="true" signature="658:814" ph="SELECT taski... account" />
-            <marker date="1534065973207" expanded="true" signature="858:940" ph="SELECT group... group_attr" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1061,11 +570,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="184">
           <caret line="34" column="32" lean-forward="true" selection-start-line="34" selection-start-column="32" selection-end-line="34" selection-end-column="32" />
-          <folding>
-            <marker date="1534132442403" expanded="true" signature="719:828" ph="SELECT useri... account" />
-            <marker date="1534132442403" expanded="true" signature="947:1035" ph="SELECT evalu... homework_mood" />
-            <marker date="1534132442403" expanded="true" signature="1132:1213" ph="SELECT conte... report" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1073,21 +577,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="529">
           <caret line="61" column="19" lean-forward="false" selection-start-line="61" selection-start-column="19" selection-end-line="61" selection-end-column="19" />
-          <folding>
-            <marker date="1534132850763" expanded="true" signature="1028:1102" ph="SELECT useri... account" />
-            <marker date="1534132850763" expanded="true" signature="1230:1356" ph="SELECT useri... account" />
-            <marker date="1534132850763" expanded="true" signature="1499:1565" ph="SELECT oknum... group_attr" />
-            <marker date="1534132850763" expanded="true" signature="1760:1987" ph="INSERT INTO log... " />
-            <marker date="1534132850763" expanded="true" signature="2105:2197" ph="INSERT INTO feedback... " />
-            <marker date="1534132850763" expanded="true" signature="2289:2382" ph="UPDATE homework_mood... " />
-            <marker date="1534132850763" expanded="true" signature="2645:2749" ph="UPDATE group_attr... " />
-            <marker date="1534132850763" expanded="true" signature="2918:3067" ph="INSERT INTO log... " />
-            <marker date="1534132850763" expanded="true" signature="3193:3353" ph="UPDATE task... " />
-            <marker date="1534132850763" expanded="true" signature="3278:3352" ph="SELECT useri... account" />
-            <marker date="1534132850763" expanded="true" signature="3445:3514" ph="SELECT * FRO... account" />
-            <marker date="1534132850763" expanded="true" signature="3811:3874" ph="INSERT INTO homework_mood... " />
-            <marker date="1534132850763" expanded="true" signature="4163:4251" ph="UPDATE group_attr... " />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1095,9 +584,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="258">
           <caret line="355" column="5" lean-forward="true" selection-start-line="355" selection-start-column="5" selection-end-line="355" selection-end-column="5" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1105,13 +591,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="230">
           <caret line="93" column="0" lean-forward="true" selection-start-line="93" selection-start-column="0" selection-end-line="93" selection-end-column="0" />
-          <folding>
-            <marker date="1533113269636" expanded="true" signature="1677:1765" ph="SELECT taski... group_attr" />
-            <marker date="1533113269636" expanded="true" signature="1900:2128" ph="INSERT INTO log... " />
-            <marker date="1533113269636" expanded="true" signature="2247:2343" ph="UPDATE homework_mood... " />
-            <marker date="1533113269636" expanded="true" signature="2410:2472" ph="INSERT INTO homework_mood... " />
-            <marker date="1533113269636" expanded="true" signature="2533:2783" ph="UPDATE report... " />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1119,33 +598,41 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="534">
           <caret line="42" column="21" lean-forward="true" selection-start-line="42" selection-start-column="21" selection-end-line="42" selection-end-column="21" />
-          <folding>
-            <marker date="1534149057471" expanded="true" signature="492:554" ph="UPDATE account... " />
-            <marker date="1534149057471" expanded="true" signature="631:671" ph="DELETE FROM task" />
-            <marker date="1534149057471" expanded="true" signature="751:800" ph="DELETE FROM homework_mood" />
-            <marker date="1534149057471" expanded="true" signature="880:921" ph="DELETE FROM report... " />
-            <marker date="1534149057471" expanded="true" signature="1001:1044" ph="DELETE FROM feedback... " />
-          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/group/assign_stu.php">
+    <entry file="file://$PROJECT_DIR$/group/login/loginsucc.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="649">
-          <caret line="42" column="0" lean-forward="false" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
-          <folding>
-            <marker date="1534149057509" expanded="true" signature="670:780" ph="UPDATE account... " />
-            <marker date="1534149057509" expanded="true" signature="857:902" ph="INSERT INTO task... " />
-            <marker date="1534149057509" expanded="true" signature="857:903" ph="INSERT INTO task... " />
-            <marker date="1534149057509" expanded="true" signature="983:1035" ph="INSERT INTO homeworkmood... " />
-          </folding>
+        <state relative-caret-position="506">
+          <caret line="61" column="13" lean-forward="true" selection-start-line="61" selection-start-column="13" selection-end-line="61" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tutor/tutor1.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="276">
+          <caret line="285" column="48" lean-forward="false" selection-start-line="285" selection-start-column="48" selection-end-line="285" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tutor/tutor1.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="343">
+          <caret line="78" column="0" lean-forward="false" selection-start-line="78" selection-start-column="0" selection-end-line="78" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/group/create_class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="644">
+          <caret line="28" column="0" lean-forward="false" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/group/delete_class.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-413">
-          <caret line="27" column="28" lean-forward="true" selection-start-line="27" selection-start-column="28" selection-end-line="27" selection-end-column="28" />
+        <state relative-caret-position="621">
+          <caret line="27" column="28" lean-forward="false" selection-start-line="27" selection-start-column="28" selection-end-line="27" selection-end-column="28" />
           <folding>
             <marker date="1534150148437" expanded="true" signature="502:565" ph="UPDATE account... " />
             <marker date="1534150148437" expanded="true" signature="502:583" ph="UPDATE account... " />
@@ -1165,164 +652,140 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/group/get_stu_info.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="598">
+          <caret line="26" column="41" lean-forward="false" selection-start-line="26" selection-start-column="41" selection-end-line="26" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/register_login/logout.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/student/chatroom_insert.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1532752454250" expanded="true" signature="958:1149" ph="INSERT INTO log... " />
+            <marker date="1532752454250" expanded="true" signature="1261:1378" ph="INSERT INTO chat... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/student/check_feedback.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1533113269583" expanded="true" signature="579:652" ph="UPDATE feedback... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/student/get_homework_evaluation.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1532787402200" expanded="true" signature="633:721" ph="SELECT taski... group_attr" />
+            <marker date="1532787402200" expanded="true" signature="968:1059" ph="SELECT evalu... homework_mood" />
+            <marker date="1532787402200" expanded="true" signature="1247:1325" ph="INSERT INTO homework_mood... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/stubs/standard/standard_1.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="22494">
+          <caret line="978" column="9" lean-forward="false" selection-start-line="978" selection-start-column="9" selection-end-line="978" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/student/info.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2070">
+          <caret line="90" column="11" lean-forward="true" selection-start-line="90" selection-start-column="11" selection-end-line="90" selection-end-column="11" />
+          <folding>
+            <marker date="1533178832506" expanded="true" signature="603:691" ph="SELECT taski... group_attr" />
+            <marker date="1533178832506" expanded="true" signature="824:869" ph="SELECT * FRO... feedback" />
+            <marker date="1533178832506" expanded="true" signature="934:1002" ph="SELECT conte... report" />
+            <marker date="1533178832506" expanded="true" signature="1078:1143" ph="SELECT timeS... " />
+            <marker date="1533178832506" expanded="true" signature="1204:1335" ph="SELECT usern... account" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/group/assign_stu.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="644">
+          <caret line="28" column="20" lean-forward="true" selection-start-line="28" selection-start-column="20" selection-end-line="28" selection-end-column="20" />
+          <folding>
+            <marker date="1534149057509" expanded="true" signature="670:780" ph="UPDATE account... " />
+            <marker date="1534149057509" expanded="true" signature="857:902" ph="INSERT INTO task... " />
+            <marker date="1534149057509" expanded="true" signature="857:903" ph="INSERT INTO task... " />
+            <marker date="1534149057509" expanded="true" signature="983:1035" ph="INSERT INTO homeworkmood... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/group/login/login.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-115">
-          <caret line="17" column="13" lean-forward="true" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
+        <state relative-caret-position="690">
+          <caret line="30" column="25" lean-forward="true" selection-start-line="30" selection-start-column="25" selection-end-line="30" selection-end-column="25" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/group/login/loginsucc.php">
+    <entry file="file://$PROJECT_DIR$/register_login/loginaction.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="506">
-          <caret line="61" column="13" lean-forward="true" selection-start-line="61" selection-start-column="13" selection-end-line="61" selection-end-column="13" />
+        <state relative-caret-position="1012">
+          <caret line="44" column="22" lean-forward="false" selection-start-line="44" selection-start-column="22" selection-end-line="44" selection-end-column="22" />
           <folding>
-            <marker date="1534076972688" expanded="true" signature="1321:1385" ph="SELECT * FRO... account" />
+            <marker date="1534152420600" expanded="true" signature="906:1034" ph="SELECT email... account" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tutor/tutor1.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="276">
-          <caret line="285" column="48" lean-forward="false" selection-start-line="285" selection-start-column="48" selection-end-line="285" selection-end-column="48" />
-          <folding>
-            <element signature="n#head#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#script#0;n#head#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#script#4;n#head#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="e#636#755#0" expanded="false" />
-            <element signature="e#679#743#0" expanded="false" />
-            <element signature="n#style#0;n#head#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="e#898#932#0" expanded="false" />
-            <element signature="e#957#1281#0" expanded="false" />
-            <element signature="e#1306#1620#0" expanded="false" />
-            <element signature="e#1642#1722#0" expanded="false" />
-            <element signature="e#1740#1814#0" expanded="false" />
-            <element signature="e#1831#2029#0" expanded="false" />
-            <element signature="e#2046#2303#0" expanded="false" />
-            <element signature="e#2319#2604#0" expanded="false" />
-            <element signature="e#2621#2685#0" expanded="false" />
-            <element signature="e#2707#2844#0" expanded="false" />
-            <element signature="e#2856#2928#0" expanded="false" />
-            <element signature="e#2943#3086#0" expanded="false" />
-            <element signature="e#3104#3145#0" expanded="false" />
-            <element signature="e#3166#3361#0" expanded="false" />
-            <element signature="e#3384#3514#0" expanded="false" />
-            <element signature="e#3543#3608#0" expanded="false" />
-            <element signature="e#3632#3702#0" expanded="false" />
-            <element signature="e#3729#3826#0" expanded="false" />
-            <element signature="e#3855#3891#0" expanded="false" />
-            <element signature="e#3926#3973#0" expanded="false" />
-            <element signature="e#4003#4041#0" expanded="false" />
-            <element signature="e#4057#4093#0" expanded="false" />
-            <element signature="e#4112#4153#0" expanded="false" />
-            <element signature="e#4175#4370#0" expanded="false" />
-            <element signature="e#4394#4524#0" expanded="false" />
-            <element signature="e#4554#4619#0" expanded="false" />
-            <element signature="e#4644#4714#0" expanded="false" />
-            <element signature="e#4742#4839#0" expanded="false" />
-            <element signature="e#4869#4905#0" expanded="false" />
-            <element signature="e#4941#4988#0" expanded="false" />
-            <element signature="e#5019#5057#0" expanded="false" />
-            <element signature="n#style#1;n#head#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="e#5126#5184#0" expanded="false" />
-            <element signature="e#5204#5465#0" expanded="false" />
-            <element signature="e#5492#5799#0" expanded="false" />
-            <element signature="e#5818#6081#0" expanded="false" />
-            <element signature="e#6107#6412#0" expanded="false" />
-            <element signature="n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#ul#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#li#0;n#ul#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#ul#0;n#li#0;n#ul#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#2;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#0;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#1;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#2;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#3;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#4;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#0;n#div#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#0;n#div#0;n#div#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#ul#0;n#div#0;n#div#0;n#div#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#li#0;n#ul#0;n#div#0;n#div#0;n#div#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#0;n#li#0;n#ul#0;n#div#0;n#div#0;n#div#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="e#8459#8614#0" expanded="false" />
-            <element signature="n#textarea#0;n#div#0;n#li#0;n#ul#0;n#div#0;n#div#0;n#div#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#li#1;n#ul#0;n#div#0;n#div#0;n#div#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#0;n#li#1;n#ul#0;n#div#0;n#div#0;n#div#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#1;n#div#0;n#div#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#ul#0;n#div#1;n#div#0;n#div#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#li#0;n#ul#0;n#div#1;n#div#0;n#div#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#0;n#li#0;n#ul#0;n#div#1;n#div#0;n#div#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#textarea#0;n#div#0;n#li#0;n#ul#0;n#div#1;n#div#0;n#div#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#li#1;n#ul#0;n#div#1;n#div#0;n#div#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#0;n#li#1;n#ul#0;n#div#1;n#div#0;n#div#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#2;n#div#0;n#div#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#ul#0;n#div#2;n#div#0;n#div#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#li#0;n#ul#0;n#div#2;n#div#0;n#div#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#0;n#li#0;n#ul#0;n#div#2;n#div#0;n#div#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#textarea#0;n#div#0;n#li#0;n#ul#0;n#div#2;n#div#0;n#div#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#li#1;n#ul#0;n#div#2;n#div#0;n#div#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#0;n#li#1;n#ul#0;n#div#2;n#div#0;n#div#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#3;n#div#0;n#div#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#ul#0;n#div#3;n#div#0;n#div#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#li#0;n#ul#0;n#div#3;n#div#0;n#div#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#0;n#li#0;n#ul#0;n#div#3;n#div#0;n#div#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#textarea#0;n#div#0;n#li#0;n#ul#0;n#div#3;n#div#0;n#div#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#li#1;n#ul#0;n#div#3;n#div#0;n#div#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#0;n#li#1;n#ul#0;n#div#3;n#div#0;n#div#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#script#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="e#13942#13983#0" expanded="false" />
-            <element signature="n#script#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="e#14053#14190#0" expanded="false" />
-            <element signature="e#14219#14354#0" expanded="false" />
-            <element signature="n#div#5;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#0;n#div#5;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#2;n#div#5;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#3;n#div#5;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#textarea#0;n#div#3;n#div#5;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#a#0;n#div#5;n#body#0;n#html#0;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tutor/tutor1.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="343">
-          <caret line="78" column="0" lean-forward="false" selection-start-line="78" selection-start-column="0" selection-end-line="78" selection-end-column="0" />
-          <folding>
-            <element signature="n#!!block;n#emptyElement#0" expanded="false" />
-            <element signature="n#!!block;n#get_chat_data#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/register_login/login.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="392">
-          <caret line="61" column="20" lean-forward="true" selection-start-line="61" selection-start-column="20" selection-end-line="61" selection-end-column="20" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/register_login/loginsucc.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="530">
-          <caret line="55" column="39" lean-forward="false" selection-start-line="55" selection-start-column="39" selection-end-line="55" selection-end-column="39" />
+        <state relative-caret-position="920">
+          <caret line="40" column="30" lean-forward="false" selection-start-line="40" selection-start-column="30" selection-end-line="40" selection-end-column="30" />
           <folding>
             <marker date="1532752454297" expanded="true" signature="1321:1385" ph="SELECT * FRO... account" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/register_login/loginaction.php">
+    <entry file="file://$PROJECT_DIR$/register_login/login.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="576">
-          <caret line="55" column="9" lean-forward="true" selection-start-line="55" selection-start-column="9" selection-end-line="55" selection-end-column="9" />
+        <state relative-caret-position="737">
+          <caret line="61" column="20" lean-forward="false" selection-start-line="61" selection-start-column="20" selection-end-line="61" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/register_login/register.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="143">
+          <caret line="46" column="37" lean-forward="true" selection-start-line="46" selection-start-column="37" selection-end-line="46" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/register_login/registeraction.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="667">
+          <caret line="29" column="42" lean-forward="true" selection-start-line="29" selection-start-column="42" selection-end-line="29" selection-end-column="42" />
           <folding>
-            <marker date="1534152420600" expanded="true" signature="906:1034" ph="SELECT email... account" />
+            <marker date="1536288443777" expanded="true" signature="1759:1824" ph="SELECT usern... account" />
+            <marker date="1536288443777" expanded="true" signature="1847:1922" ph="SELECT email... account" />
+            <marker date="1536288443777" expanded="true" signature="2484:2596" ph="INSERT INTO account... " />
           </folding>
         </state>
       </provider>

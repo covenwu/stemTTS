@@ -8,8 +8,7 @@
  接口：1.$_GET{'sid']
        2.需要获取$_SESSION['emailaddress']
        3.依据身份跳转到student.html, teacher.html
- 提示：1.去掉html部分
-        2.未对$_SESSION["role']检查是否存在
+
 
  -->
 <head>
@@ -50,24 +49,9 @@
         }
         //根据用户身份跳转到不同页面
         if($_SESSION['role']=='student'){
-            /*$groupid=$_SESSION['groupid'];
-            //查询当前任务id
-            $query="SELECT taskidnow FROM group_attr WHERE groupid='$groupid' limit 1";
-            $ret=mysqli_query($link,$query);
-            $row=mysqli_fetch_assoc($ret);
-            $_SESSION['taskidnow']=$row['taskidnow'];*/
             header("Location:../student/student.html?sid=".$sid);
         }
         elseif ($_SESSION['role']=="tutor"){
-            //$userid=$_SESSION['userid'];
-            //查询教师管理的小组
-            /*$query_select="SELECT * FROM teacher_group WHERE userid='$userid'";
-            $ret=mysqli_query($link,$query_select);
-            $row=mysqli_fetch_assoc($ret);
-            //将信息存储到session
-            foreach ($row as $key => $value){
-                $_SESSION[$key]=$value;
-            }*/
             header("Location:../tutor/tutor.html?sid=".$sid);
         }
 

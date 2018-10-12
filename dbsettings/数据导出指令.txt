@@ -1,0 +1,10 @@
+select * from account into outfile 'C:\\ProgramData\\MySQL\\MySQL Server 5.7\\Uploads\\account.xls';
+select * from action_log into outfile 'C:\\ProgramData\\MySQL\\MySQL Server 5.7\\Uploads\\action_log.xls';
+select * from homework_history into outfile 'C:\\ProgramData\\MySQL\\MySQL Server 5.7\\Uploads\\homework_history.xls';
+select * from email_history into outfile 'C:\\ProgramData\\MySQL\\MySQL Server 5.7\\Uploads\\email_history.xls';
+select * from task_email into outfile 'C:\\ProgramData\\MySQL\\MySQL Server 5.7\\Uploads\\task_email.xls';
+select * from message into outfile 'C:\\ProgramData\\MySQL\\MySQL Server 5.7\\Uploads\\message.xls';
+select * from onlineuser into outfile 'C:\\ProgramData\\MySQL\\MySQL Server 5.7\\Uploads\\onlineuser.xls';
+select * from teacher_group into outfile 'C:\\ProgramData\\MySQL\\MySQL Server 5.7\\Uploads\\teacher_group.xls';
+select * from group_attr into outfile 'C:\\ProgramData\\MySQL\\MySQL Server 5.7\\Uploads\\group_attr.xls';
+

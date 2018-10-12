@@ -1,6 +1,6 @@
 <?php
 //header("Content-Type:application/json");
-$taskemailnum=10;
+$taskemailnum;
 
 
 
@@ -52,6 +52,8 @@ mysqli_close($link);
 //查询xml信息
 $xml=simplexml_load_file('pro.xml');
 $pro=[];
+$taskemailnum=count($xml->children());
+
 for($i=0;$i<$taskemailnum;$i++){
     $task=$xml->task[$i];
     $taskname=(string)$task->taskName;
@@ -75,7 +77,6 @@ for($i=0;$i<$taskemailnum;$i++){
 
 //把信息存储到一个数组
 $info=[];
-
 $info['pro']=[];
 $info['pro']=$pro;
 
@@ -103,8 +104,11 @@ for($i=0;$i<$num;$i++){
 
 
 $info['task']=[];
+//$taskindex=0;
 while ($rst = mysqli_fetch_assoc($ret_task)) {
     $info['task'][] = $rst;
+    //$info['task'][$taskindex]['taskindex']=$taskindex;
+    //++$taskindex;
 }
 $info['task']['checked']=$info['task'][0]['checked'];
 $time_arr=explode(",",$info['task'][0]['timeStamp']);

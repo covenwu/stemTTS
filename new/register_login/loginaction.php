@@ -8,6 +8,10 @@
     4.按照sid+user的方式生成sid，例： sid12
  */
 header("content-type:text/html;charset=utf-8");
+
+$dbname='database1';
+
+
 //声明变量
 $emailaddress = isset($_POST['emailaddress'])?$_POST['emailaddress']:"";
 $password = isset($_POST['password'])?$_POST['password']:"";
@@ -18,7 +22,8 @@ if(!empty($emailaddress)&&!empty($password)) {
     $link =mysqli_connect('localhost:3306','root','12345678') ;
     $res=mysqli_set_charset($link,'utf8');
     //选择数据库
-    mysqli_query($link,'use database1');
+   // mysqli_query($link,'use database1');
+    mysqli_query($link,'use '.$dbname);
     //准备SQL语句
     $query_select = "SELECT emailaddress,password,userid FROM account WHERE emailaddress = '$emailaddress' AND password = '$password' limit 1";
     //执行SQL语句

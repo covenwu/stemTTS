@@ -90,7 +90,9 @@ if($evaluation=='通过'){
             //更新学生作业状态为‘未提交’
             foreach ($userid_arr as $key=>$value){
                 $query="INSERT INTO homework_mood VALUES ('$value','$nexttaskid','未提交')";
-                mysqli_query($link,$query);
+                if(!mysqli_query($link,$query)){
+                    echo("error: failed to insert into (table)homework_mood in tutor_feedback_email.php");
+                }
             }
 
 

@@ -1,0 +1,3 @@
+select *from chuqin;
+select *from xiaozu;
+select *from geren;

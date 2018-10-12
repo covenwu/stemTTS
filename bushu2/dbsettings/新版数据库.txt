@@ -1,0 +1,182 @@
+
+drop database database2;
+create database database2;
+use database2;
+
+#账号管理5
+create table account(
+userid int not null primary key auto_increment,							#用户身份标识，具有唯一性	
+password varchar(20) not null, 											#登录密码
+username varchar(10) not null,											#展示给他人的昵称
+classid varchar(30) default 0,											#classid，groupid暂时设为可为空，未分组默认为0班0组		
+groupid int default 0,													#因为教师不具有这两个属性
+role enum('admin','tutor','student') not null,							#身份
+emailaddress varchar(50),												#邮箱用于登录，不允许重复
+numberingroup int ,														#学生在组内的编号
+tutorid int 															#区分教师身份，同一个教师有多个userid，但tutorid唯一
+)charset utf8;
+#日志
+create table log(
+timeStamp datetime not null,											
+classid varchar(30) not null,
+groupid int,
+groupNO int,															#与numberingroup等价，学生在组内的编号
+userid int,
+username varchar(10),		#username为用户名
+actiontype enum('ReportSubmit','ReportFeedback','ChatMsg','TaskEmail','ReadTask','EditReport','ReadResource') not null,
+taskid int,
+content text,
+url text,																#附件链接
+checked tinyint default 0												#这个字段可能并没被使用
+)charset utf8;
+
+#反馈邮件表
+create table feedback(
+timeStamp datetime not null,			
+userid int,
+taskid int,
+content text,
+evaluation text,														#这个字段可能并没被使用
+checked tinyint default 0												#邮件是否已读
+)charset utf8;
+
+#任务时间表
+create table task(
+userid int,																
+timeStamp text,
+checked tinyint default 0												#邮件是否已读
+)charset utf8;
+
+#report表
+create table report(
+classid int,
+groupid int,
+groupNO int,															#与numberingroup等价，学生在组内的编号
+userid int,
+taskid int,
+content text,
+url text,																#report附件的地址
+urlname text,															#report附件的文件名
+timeStamp datetime,														#report提交时间
+shared varchar(30)														#是否已分享				（附件信息的存储形式比较特殊，在一个字段中存储多条信息，用符号分隔，查询后再在后台做		
+)charset utf8;															#							处理，如有多种信息则并列存储，例如：要存储多个文件名和对应的上传时间，各占一条记录的
+																		#              				的一个字段， 字段1：filename1,filename2,filename3  字段2：time1，time2，time3
+
+create table chat(
+timeStamp datetime not null,			
+classid varchar(30) not null,
+groupid int,
+username varchar(10),		#username为用户名
+content text
+)charset utf8;
+
+#作业状态
+create table homework_mood(
+userid int not null ,
+taskid int not null,
+evaluation enum("未提交",'批改中','待修改','通过') not null		#作业状态	1未提交 2批改中 3待修改 4通过 
+)charset utf8;
+
+#在线用户表
+create table onlineuser(
+userid int not null,
+username varchar(10) not null,	
+groupid int not null,
+classid int not null,
+time datetime
+)charset utf8;
+
+#小组信息表
+create table group_attr(
+classid int not null,
+groupid int not null,
+taskidnow int not null default 1,	#小组当前的taskid
+oknumber int default 0,  			#当前任务作业通过人数
+sharefile text,						#小组分享的文件路径			（分享文件三项与附件存储逻辑相同）
+filename text,						#小组分享的文件名
+sharetime text						#小组分享文件的分享时间
+)charset utf8;
+
+#班级信息表
+create table classinfo(
+classid int,
+classname varchar(30)
+)charset utf8;
+
+#两个班的班级信息（班级名）
+insert into classinfo(classid,classname) values(1,'测试的一班');
+insert into classinfo(classid,classname) values(2,'调皮的二班');
+
+#一班三个小组学生
+insert into account(password,username,classid,groupid,role,emailaddress,numberingroup) values(123,'student0',1,1,'student','0@qq.com',1);
+insert into account(password,username,classid,groupid,role,emailaddress,numberingroup) values(123,'student1',1,1,'student','1@qq.com',2);
+insert into account(password,username,classid,groupid,role,emailaddress,numberingroup) values(123,'student2',1,1,'student','2@qq.com',3);
+insert into account(password,username,classid,groupid,role,emailaddress,numberingroup) values(123,'student3',1,1,'student','3@qq.com',4);
+insert into account(password,username,classid,groupid,role,emailaddress,numberingroup) values(123,'student4',1,1,'student','4@qq.com',5);
+insert into account(password,username,classid,groupid,role,emailaddress,numberingroup) values(123,'student5',1,2,'student','5@qq.com',2);
+insert into account(password,username,classid,groupid,role,emailaddress,numberingroup) values(123,'student6',1,2,'student','6@qq.com',3);
+insert into account(password,username,classid,groupid,role,emailaddress,numberingroup) values(123,'student7',1,2,'student','7@qq.com',4);
+insert into account(password,username,classid,groupid,role,emailaddress,numberingroup) values(123,'student8',1,3,'student','8@qq.com',1);
+insert into account(password,username,classid,groupid,role,emailaddress,numberingroup) values(123,'student9',1,3,'student','9@qq.com',2);
+insert into account(password,username,classid,groupid,role,emailaddress,numberingroup) values(123,'student10',1,3,'student','10@qq.com',3);
+insert into account(password,username,classid,groupid,role,emailaddress,numberingroup) values(123,'student11',1,3,'student','11@qq.com',4);
+insert into account(password,username,classid,groupid,role,emailaddress,numberingroup) values(123,'student16',1,4,'student','13@qq.com',1);
+insert into account(password,username,classid,groupid,role,emailaddress,numberingroup) values(123,'student17',1,4,'student','14@qq.com',2);
+insert into account(password,username,classid,groupid,role,emailaddress,numberingroup) values(123,'student18',1,4,'student','15@qq.com',3);
+insert into account(password,username,classid,groupid,role,emailaddress,numberingroup) values(123,'student19',1,4,'student','16@qq.com',4);
+
+#二班第三组学生
+insert into account(password,username,classid,groupid,role,emailaddress,numberingroup) values(123,'student12',2,3,'student','20@qq.com',1);
+insert into account(password,username,classid,groupid,role,emailaddress,numberingroup) values(123,'student13',2,3,'student','21@qq.com',2);
+insert into account(password,username,classid,groupid,role,emailaddress,numberingroup) values(123,'student14',2,3,'student','22@qq.com',3);
+insert into account(password,username,classid,groupid,role,emailaddress,numberingroup) values(123,'student15',2,3,'student','23@qq.com',4);
+
+#未分组学生
+insert into account(password,username,role,emailaddress) values(123,'student30','student','30@qq.com');
+insert into account(password,username,role,emailaddress) values(123,'student31','student','31@qq.com');
+insert into account(password,username,role,emailaddress) values(123,'student32','student','32@qq.com');
+insert into account(password,username,role,emailaddress) values(123,'student33','student','33@qq.com');
+insert into account(password,username,role,emailaddress) values(123,'student34','student','34@qq.com');
+insert into account(password,username,role,emailaddress) values(123,'student35','student','35@qq.com');
+insert into account(password,username,role,emailaddress) values(123,'student36','student','36@qq.com');
+
+
+
+
+#一班tutor
+insert into account(password,username,role,emailaddress,classid,tutorid) values(123,'tutor1','tutor','12@qq.com',1,1);
+insert into account(password,username,role,emailaddress,classid,tutorid) values(123,'tutor1','tutor','12@qq.com',2,1);
+insert into account(password,username,role,emailaddress,classid,tutorid) values(123,'tutor1','tutor','12@qq.com',3,1);
+insert into account(password,username,role,emailaddress,classid,tutorid) values(123,'tutor1','tutor','12@qq.com',4,1);
+
+
+#小组当前任务
+insert into group_attr(classid,groupid,taskidnow) values(1,1,1);
+insert into group_attr(classid,groupid,taskidnow) values(1,2,1);
+insert into group_attr(classid,groupid,taskidnow) values(1,3,1);
+insert into group_attr(classid,groupid,taskidnow) values(1,4,1);
+insert into group_attr(classid,groupid,taskidnow) values(2,1,1);
+insert into group_attr(classid,groupid,taskidnow) values(2,2,1);
+insert into group_attr(classid,groupid,taskidnow) values(2,3,1);
+insert into group_attr(classid,groupid,taskidnow) values(2,4,1);
+
+
+
+
+
+
+#1班1组的第一封任务邮件
+
+INSERT INTO log(timeStamp,classid,groupid,actiontype,content,taskid) VALUES ('1000-01-02 00:00:00',1,1,'TaskEmail','系统任务1',1);
+INSERT INTO task VALUES (1,'1000-01-02 00:00:00',0);
+INSERT INTO task VALUES (2,'1000-01-02 00:00:00',0);
+INSERT INTO task VALUES (3,'1000-01-02 00:00:00',0);
+INSERT INTO task VALUES (4,'1000-01-02 00:00:00',0);
+INSERT INTO task VALUES (5,'1000-01-02 00:00:00',0);
+
+
+
+#url 测试
+#INSERT INTO log(timeStamp,classid,groupid,actiontype,content,userid,url) VALUES ('1000-01-01 00:00:00',1,1,'ReadTask','系统任务22',1,'../upload/test.pdf');
+
+

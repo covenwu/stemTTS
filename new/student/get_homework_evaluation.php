@@ -23,14 +23,21 @@ $taskidnow=$taskid_arr['taskidnow'];
 //$query = "SELECT evaluation FROM homework_history WHERE userid='$userid' AND taskid='$taskidnow' limit 1";
 $query="SELECT evaluation FROM homework_mood WHERE userid='$userid' AND taskid='$taskidnow' limit 1";
 $ret = mysqli_query($link, $query);
-mysqli_close($link);
 $evaluation_array = mysqli_fetch_assoc($ret);
 $evaluation = $evaluation_array['evaluation'];
 //无此条作业记录为‘未提交’
+//仅适用于第一个report,第一个report的homework——mood在此处插入记录，之后的在小组通过时为全组插入‘未提交’
 if ($evaluation == NULL) {
+    $query="INSERT INTO homework_mood(userid,taskid,evaluation) VALUES ('$userid',1,'未提交')";
+    $ret=mysqli_query($link,$query);
+    if(!$ret){
+        echo(json_encode('error 1:insert failed'));
+    }
+    mysqli_close($link);
     echo(json_encode('未提交'));
 } //返回查询的评价字段
 else {
+    mysqli_close($link);
     echo(json_encode($evaluation));
 }
 

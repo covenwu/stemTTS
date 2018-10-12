@@ -5,6 +5,7 @@
         2.homework_history表
 提示：有可移至前端完成的查询
 */
+
 header('content-type:text/html;charset=utf-8');
 
 //设置时区保证时间戳正确
@@ -146,3 +147,6 @@ function upload_single($file,$allow_type,$allow_format=array(),$error,$path,$max
     echo 'upload succeed';
     return($fullname);
 }
+
+
+

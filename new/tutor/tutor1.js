@@ -12,7 +12,7 @@ var homework = [];
 var user_info_array = [];
 var group_num=4;
 var maxtimeStamp='1000-01-01 00:00:00';
-var tasknum=10;
+var tasknum;
 //小组成员数
 var membernum=5;
 var sid = getQueryString("sid");
@@ -37,8 +37,6 @@ var stu_taskid = 0;
 var stu_numberingroup = 0;
 
 //-----------------执行部分----------------------------------------------
-//getUserInfo();
-//getHomework();
 initialize();
 setInterval("buttonControl()", buttonInterval);
 
@@ -57,6 +55,11 @@ function getQueryString(name) {
     if (r != null) return decodeURI(r[2]);
     return null;
 }
+//计算类型为object的数组的长度
+function objectLength(obj) {
+    var arr=Object.keys(obj);
+    return arr.length;
+}
 //取得$_SESSION中的用户信息
 function getUserInfo() {
     $.get("../all/get_user_info.php", {sid:sid}, function (data) {
@@ -69,39 +72,68 @@ function getUserInfo() {
 //初始化所有内容
 function initialize() {
     $.get("initialize.php", {sid:sid}, function (data) {
+        console.log('initialize');
+        console.log(data);
         var info = JSON.parse(data);
         //var homeworkmood=info['homeworkmood'];
         info_pro=info['pro'];
         info_taskid=info['taskid'];
         info_classid=info['classid'];
-        /*
-        //第一次处理作业图标状态
-        for(var i=0;i<homeworkmood.length;i++){
-            var numberingroup=homeworkmood[i]['numberingroup'];
-            //按规则求出按钮的id，规则为：id三位命名数字分别为：组号，taskid，numberingroup
-            var id=homeworkmood[i]['groupid'].toString()+homeworkmood[i]['taskid']+numberingroup;
-            var button=document.getElementById(id);
-            var evaluation=homeworkmood[i]['evaluation'];
-            //button.setAttribute('evaluation',evaluation);
-            if(evaluation=='通过'){
-                button.innerHTML='<img border="0" src="image/1.png">';
-                button.style.display='inline';
-            }
-            else if(evaluation=='批改中'){
-                button.innerHTML='<img border="0" src="image/2.png">';
-                button.style.display='inline';
-            }else if(evaluation=='未提交'||evaluation=='待修改'){
-                button.innerHTML='<img border="0" src="image/3.png">';
-                button.style.display='inline';
-            }
-        }
-        */
-        //initializepop();
-        //initializeSentence();
+        tasknum=objectLength(info_pro);
+        console.log('tasknum');
+        console.log(tasknum);
         classSelect();
+        //1111111111111111111111111111111
+        createAllTaskbutton(group_num,tasknum);
         console.log('initialize');
         console.log(info);
     })
+}
+//创建一个任务按钮
+//参数为组号，taskid，numberingroup,索引均从一开始
+function createButton(groupid,taskid,numberingroup,parentnode) {
+    //创建图片标签
+    var img=document.createElement('img');
+    img.src="image/3.png";
+    //创建button标签
+    var button=document.createElement('button');
+    button.id=''+groupid+taskid+numberingroup;
+    console.log('button created id:');
+    console.log(button.id);
+    button.onclick=function (ev) {
+        dialog(groupid,taskid,numberingroup);
+    };
+    button.style.display='none';
+    //元素绑定
+    button.appendChild(img);
+    parentnode.appendChild(button);
+}
+//创建一个任务div（任务图标），参数taskid从1开始索引
+function createTaskdiv(taskid,parentnode,groupid) {
+    //创建div
+    var div=document.createElement('div');
+    div.innerHTML='任务'+taskid;
+    //创建每一个button并绑定
+    for (var i=0;i<membernum;++i){
+        createButton(groupid,taskid,i+1,div)
+    }
+    //父节点绑定
+    parentnode.appendChild(div)
+}
+//为指定id的父节点绑定任务
+function appendTask(tasknum,parentid,groupid) {
+    var parent=document.getElementById(parentid);
+    for(var i=0;i<tasknum;++i){
+        createTaskdiv(i+1,parent,groupid);
+    }
+}
+//创建各组的任务图标
+function createAllTaskbutton(groupnum,tasknum){
+    for (var i=0;i<groupnum;++i){
+        var groupid=i+1;
+        var parentid='group'+groupid;
+        appendTask(tasknum,parentid,groupid)
+    }
 }
 
 //-----------------切换班级部分-----------------------------------------------------------------------
@@ -172,7 +204,6 @@ function resetButton(){
         for(var j=1;j<=membernum;j++){
             for(var k=1;k<=tasknum;k++){
                 var id=i.toString()+k+j;
-                console.log("id:"+id)
                 var button=document.getElementById(id);
                 button.style.display='none';
             }
@@ -266,8 +297,7 @@ function sentence(targetid,index,taskid) {
     var target=document.getElementById(targetid);
     var chatname=info_pro[taskid-1]['chatName'][index];
     var chatmsg=info_pro[taskid-1]['chatMsg'][index];
-    //console.log(chatname);
-    //console.log(index)
+
     target.value=chatname;
     target.setAttribute('index',index);
     target.setAttribute('chatmsg',chatmsg);
@@ -400,6 +430,7 @@ function buttonControl(classid) {
             }else if(evaluation=='未提交'||evaluation=='待修改'){
                 button.innerHTML='<img border="0" src="image/3.png">';
                 button.style.display='inline';
+                button.setAttribute('disabled','disabled');
             }
         }
         console.log('button control');
@@ -412,7 +443,10 @@ function dialog(groupid, taskid, numberingroup) {
     stu_numberingroup = numberingroup;
     stu_taskid = taskid;
     EVALUATIONNUM=info_pro[taskid-1]['rubrics'].length;
-    document.getElementById("教师反馈").innerHTML='';
+    var textarea=document.getElementById("教师反馈");
+    //console.log("clear");
+    textarea.removeAttribute('readonly');
+    textarea.value='';
     $.get("check_homework_evaluation.php", {
         groupid: stu_group,
         numberingroup: stu_numberingroup,
@@ -430,21 +464,18 @@ function dialog(groupid, taskid, numberingroup) {
             a.href=info_arr['url'][i];
             //a.innerText=info_arr['urlname'][i];
             a.download=info_arr['urlname'][i];
-            //a.target="_blank";
             var node = document.createTextNode(info_arr['urlname'][i]);
             a.appendChild(node);
             urldiv.appendChild(a);
         }
         var button = $("#feedback");
-        var textarea = document.getElementById("教师反馈");
         if (message == '作业已通过！' || message == '作业待学生修改！') {
             textarea.setAttribute('readonly', 'readonly');
             textarea.value = message;
             button.hide();
 
         } else {
-            //textarea.value = "";
-            //textarea.setAttribute('readonly', 'readonly');
+
             textarea.removeAttribute('readonly');
             button.show();
             document.getElementById('feedback').removeAttribute('disabled');

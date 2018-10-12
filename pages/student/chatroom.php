@@ -15,15 +15,13 @@ mysqli_query($link, 'use database1');
 
 //-----------------获取接口变量----------------------------------------------
 $sid = $_GET['sid'];
-//$maxId = $_GET['maxId'];
 session_id($sid);
 session_start();
 $groupid = $_SESSION['groupid'];
 $classid=$_SESSION['classid'];
 $maxtimeStamp=$_GET['maxtimeStamp'];
 
-// 防止获取重复数据，本次请求的记录结果id要大于上次获得的id
-//$query = "select * from message where messageid >'$maxId'AND groupid='$groupid'";
+// 防止获取重复数据，本次请求的记录结果id要大于上次获得的timeStamp
 $query="SELECT timeStamp,username,content FROM log WHERE classid='$classid' AND groupid='$groupid' AND actiontype='ChatMsg' AND timeStamp>'$maxtimeStamp';";
 $qry = mysqli_query($link, $query);
 mysqli_close($link);
