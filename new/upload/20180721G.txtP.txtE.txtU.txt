@@ -1,5 +1,0 @@
-1 jack math 50
-2 ruby Chinese 60
-3 Summer Chinese 90
-4 Ben math 90
-5 jack Chinese 50

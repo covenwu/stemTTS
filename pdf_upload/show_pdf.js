@@ -1,1 +1,0 @@
-PDFObject.embed("pdf1.pdf","#pdf")
