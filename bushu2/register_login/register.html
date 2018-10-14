@@ -8,7 +8,7 @@
 -->
 <head>
     <title>注册</title>
-    <meta name="content-type" charset=UTF-8">
+    <meta name="content-type" charset="UTF-8">
 </head>
 <body>
 <div class="content" align="center">
@@ -18,7 +18,7 @@
     </div>
     <!--中部-->
     <div class="middle">
-        <form action="registeraction.php" method="post">
+        <form  method="post" id="regform">
             <table border="0">
                 <tr>
                     <td>昵&nbsp;&nbsp;&nbsp;称：</td>
@@ -32,13 +32,13 @@
                     <td>重复密码：</td>
                     <td><input type="password" id="re_password" name="re_password" required="required"></td>
                 </tr>
-               <!-- <tr>
-                    <td>身&nbsp;&nbsp;&nbsp;份：</td>
-                    <td>
-                        <input type="radio" id="role" name="role" value="tutor">教师
-                        <input type="radio" id="role" name="role" value="student">学生
-                    </td>
-                </tr>-->
+                <!-- <tr>
+                     <td>身&nbsp;&nbsp;&nbsp;份：</td>
+                     <td>
+                         <input type="radio" id="role" name="role" value="tutor">教师
+                         <input type="radio" id="role" name="role" value="student">学生
+                     </td>
+                 </tr>-->
                 <tr>
                     <td>Email：</td>
                     <td><input type="email" id="email" name="emailaddress" required="required"></td>
@@ -48,29 +48,9 @@
                     <td><input type="email" id="re_email" name="re_emailaddress" required="required"></td>
                 </tr>
                 <tr>
-                    <td colspan="2" align="center" style="color:red;font-size:10px;">
+                    <td colspan="2" align="center" style="color:red;font-size:10px;" id="msg">
                         <!--提示信息-->
-                        <?php
-                        header("content-type:text/html;charset=utf-8");//防止文字乱码
-                        $err=isset($_GET["err"])?$_GET["err"]:"";
-                        switch($err) {
-                            case 1:
-                                echo "用户名已存在！";
-                                break;
-                            case 2:
-                                echo "密码与重复密码不一致！";
-                                break;
-                            case 3:
-                                echo "注册成功！";
-                                break;
-                            case 4:
-                                echo "两次输入的邮箱不一致！";
-                                break;
-                            case 5:
-                                echo "邮箱已被注册！";
-                                break;
-                        }
-                        ?>
+
                     </td>
                 </tr>
                 <tr>
@@ -89,15 +69,56 @@
     </div>
     <!--脚部-->
     <div class="footer">
-        <small>Copyright &copy; 版权所有·欢迎翻版
+        <small>Copyright &copy; 版权所有·欢迎翻版</small>
     </div>
 </div>
+<script src="../all/jquery-3.3.1.min.js"></script>
 <script>
+    //在返回注册是否成功前再次点击注册按钮，点击按钮时置1，初始及返回了注册信息置0
+    var RECLICK=0;
     var but=document.getElementById('register');
     but.onclick=function (ev) {
-
         document.getElementById('register').setAttribute('disabled','disabled');
-        alert('注册验证中，请稍候');
+        register();
+    };
+    /*注册*/
+    function register() {
+        console.log('23');
+        var form=document.getElementById('regform');
+        var formdata= new FormData(form);
+        $.ajax({
+            url: "registeraction2.php",
+            type:"POST",
+            data: formdata,
+            processData: false,
+            contentType: false,
+            success: function (data) {
+                console.log(data);
+                var but=document.getElementById('register');
+                but.removeAttribute('disabled');
+                RECLICK=0;
+                var msg='';
+                switch(Number(data)) {
+                    case 1:
+                         msg="用户名已存在！";
+                        break;
+                    case 2:
+                        msg="密码与重复密码不一致！";
+                        break;
+                    case 3:
+                        msg="注册成功！";
+                        break;
+                    case 4:
+                        msg="两次输入的邮箱不一致！";
+                        break;
+                    case 5:
+                        msg="邮箱已被注册！";
+                        break;
+                }
+                console.log(msg)
+                document.getElementById('msg').innerHTML=msg;
+            }
+        });
     }
 
 </script>
