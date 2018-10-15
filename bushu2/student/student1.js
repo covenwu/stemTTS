@@ -54,7 +54,9 @@ var attachnum = 1;
 var maxEmailTimeStamp = '1000-01-01 00:00:00';
 //-----------------聊天室------------
 // 同上，服务器只返回maxtimeStamp以后的聊天信息
-var maxChattimeStamp = '1000-01-01 00:00:00';
+var maxChattimeStamp = '1000-01-02 00:00:00';
+//上次发出查询聊天的ajax已返回
+var LASTCHATAJAXEND=true;
 //聊天室自动滚动功能是否开启
 var chatautoflow = 1;
 //-----------------执行部分----------------------------------------------
@@ -1090,12 +1092,19 @@ function createInput(nm, parentid) {
 
 
 //-----------------聊天室部分----------------------------------------------
+
 //显示聊天内容的函数
 function showmessage() {
     //ajax请求
+    if(!LASTCHATAJAXEND){
+        return;
+    }else{
+        LASTCHATAJAXEND=false;
+    }
     var ajax = new XMLHttpRequest();
     ajax.onreadystatechange = function () {
         if (ajax.readyState == 4) {
+            LASTCHATAJAXEND=true;
             // 将获取到的字符串存入data变量
             eval('var data = ' + ajax.responseText);
             // 遍历data数组，把内部的信息一个个的显示到页面上
@@ -1153,23 +1162,7 @@ function formatTextInHtml(str) {
     return str;
 }
 //发送聊天消息的函数
-/*
-function send() {
-    var form = document.getElementById('chatform');
-    //将取得的表单数据转换为formdata形式，在php中以$_POST['name']形式引用
-    var formdata = new FormData(form);
-    formdata.append('sid', sid);
-    //ajax请求
-    var xhr = new XMLHttpRequest();
-    xhr.onreadystatechange = function () {
-        if (xhr.readyState == 4) {
-        }
-    };
-    xhr.open('post', './chatroom_insert.php');
-    xhr.send(formdata);
-    //自动清空输入框
-    document.getElementById("msg").value = "";
-}*/
+
 function send() {
     var msg=document.getElementById("msg").value;
     msg=n2t(msg);
