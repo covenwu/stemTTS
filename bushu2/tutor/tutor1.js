@@ -234,33 +234,12 @@ function updateAutosend(value) {
     var select=document.getElementById('autosend');
     for(var i=0;i<select.options.length;++i){
         if(select.options[i].value == value){
-            console.log('found')
+            //console.log('found')
             select.options[i].selected = true;
             break;
         }
     }
 }
-/*
-//改变班级时获得班级相关数据
-function changeClassData() {
-    $.get("initialize.php", {sid:sid}, function (data) {
-        console.log('initialize');
-        console.log(data);
-        var info = JSON.parse(data);
-        info_pro=info['pro'];
-        info_taskid=info['taskid'];
-        info_classid=info['classid'];
-        info_username=info['username'];
-        info_classinfo=info['classinfo'];
-        tasknum=objectLength(info_pro);
-        console.log('tasknum');
-        console.log(tasknum);
-        classSelect();
-        createAllTaskbutton(group_num,tasknum);
-        console.log('initialize');
-        console.log(info);
-    })
-}*/
 //重置聊天室
 function resetChatroom() {
     //停止聊天消息刷新
@@ -389,10 +368,6 @@ function get_chat_data(){
 }
 //调用使聊天室右侧滑块滚动至最下方的函数
 function autoflow(id) {
-    /*
-    var target = document.getElementById(id);
-    target.scrollTop = target.scrollHeight - target.style.height;*/
-
     var target=$("#"+id);
     target.scrollTop(target[0].scrollHeight);
 }
@@ -537,9 +512,11 @@ function updateTaskid(newarr) {
             //var targetid='sentence'+number;
             var taskid=newarr[i]['taskidnow'];
             var len=info_pro[taskid-1]['chatMsg'].length;
-            for(var j=0;j<len;++j){
-                console.log('begin send');
-                sendSentence(chatroomid,info_pro[taskid-1]['chatMsg'][j])
+            if(AUTOSEND==1){
+                for(var j=0;j<len;++j){
+                    console.log('begin send');
+                    sendSentence(chatroomid,info_pro[taskid-1]['chatMsg'][j])
+                }
             }
         }
     }
