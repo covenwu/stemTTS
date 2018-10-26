@@ -11,7 +11,7 @@ var getEmailInterval = 6000;
 //小组学生数
 var groupstunumber = 4;
 //获取聊天信息的间隔
-var getChatmsgInterval = 3000;
+var getChatmsgInterval = 5000;
 //更新在线用户列表的间隔
 var updateOnlineInterval = 10000;
 //小组共分享文件列表的更新间隔
@@ -1137,14 +1137,15 @@ function showmessage() {
             //记录最大的timeStamp
             if (data.length !== 0) {
                 maxChattimeStamp = data[data.length - 1].timeStamp;
+                // 显示聊天内容
+                var showmessage = document.getElementById("up");
+                showmessage.innerHTML += s;
+                //自动滚动功能
+                if (chatautoflow == 1) {
+                    autoflow('up');
+                }
             }
-            // 显示聊天内容
-            var showmessage = document.getElementById("up");
-            showmessage.innerHTML += s;
-            //自动滚动功能
-            if (chatautoflow == 1) {
-                autoflow('up');
-            }
+
         }
     };
     ajax.open('get', './chatroom.php?maxtimeStamp=' + maxChattimeStamp + '&sid=' + sid);

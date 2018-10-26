@@ -352,10 +352,11 @@ function get_chat_data(){
                 }
             }
 
-            // 显示聊天内容（onload事件）
-            var showmessage = document.getElementById("chatcontent"+k);
-            showmessage.innerHTML += s;
+
             if(s!=''){
+                // 显示聊天内容（onload事件）
+                var showmessage = document.getElementById("chatcontent"+k);
+                showmessage.innerHTML += s;
                 if(chatautoflow[k]){
                     autoflow('chatcontent'+k)
                 }
