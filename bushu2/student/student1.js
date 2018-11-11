@@ -98,6 +98,7 @@ function initialize() {
             console.log(info);
             console.log('info_email');
             console.log(info_email);
+            maxEmailTimeStamp = info_email[info_email.length - 1]['timeStamp'];
 
             //补充最后一封邮件的信息，（此处补充的信息可能没有被使用）
             var lasttask = getLastTaskEmail(info_email.length - 1);
@@ -190,7 +191,6 @@ function emailUI(type) {
 
 //轮询取得新收到的邮件
 function getNewEmail() {
-    maxEmailTimeStamp = info_email[info_email.length - 1]['timeStamp'];
     $.ajax({
         url: "new_email.php",
         data: {sid: sid, maxtimestamp: maxEmailTimeStamp},
@@ -198,7 +198,8 @@ function getNewEmail() {
             var info = JSON.parse(data);
             //getdata记录本次是否获查询到了新邮件
             var getdata = 0;
-            if (typeof (info['feedback'][0]['content']) != 'undefined') {
+            if (typeof (info['feedback'][0]['content']) != 'undefined'&&info['feedback'][0]['timeStamp']>maxEmailTimeStamp) {
+                maxEmailTimeStamp=info['feedback'][0]['timeStamp'];
                 info_email.push(info['feedback'][0]);
                 //提醒未读消息
                 var subject = 'RE:Report' + info['feedback'][0]['taskid'] + '<br/>' + info['feedback'][0]['timeStamp'];
@@ -225,11 +226,8 @@ function getNewEmail() {
                     checkEvaluation();
                     hideButton('response');
                     //刷新收件和发件列表
-                    createEmailTable('emailtable', info_email, 'emailtbody');
+                    ('emailtable', info_email, 'emailtbody');
                 }
-
-
-
                 createHomeworkTable(info_report, 'homeworktbody');
                 urlList();
             }
