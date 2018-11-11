@@ -38,6 +38,8 @@ var buttoncontrol=0;
 var AUTOSEND=0;
 //聊天室内容是否自动滚动(第一个0占位）
 var chatautoflow=[0,1,1,1,1];
+//上次发出查询聊天的ajax已返回
+var LASTCHATAJAXEND=true;
 
 //--------评价作业时的学生信息
 var stu_group = 0;
@@ -305,8 +307,14 @@ function get_chat_data(){
     if(!chatupdatecontrol){
         return 0;
     }
+    if(!LASTCHATAJAXEND){
+        return;
+    }else{
+        LASTCHATAJAXEND=false;
+    }
     //ajax请求
     $.get("get_chat_data.php",{sid:sid,maxtimeStamp:maxtimeStamp,classid:classidnow},function(data){
+        LASTCHATAJAXEND=true;
         if(!chatupdatecontrol){
             return 0;
         }
