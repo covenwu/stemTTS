@@ -263,7 +263,8 @@ function resetChatroom() {
     resetChatMsg();
     //重置聊天参数
     //maxtimeStamp='1000-01-01 00:00:00';
-    var maxtimeStamp=GetDateStr(-14);
+    maxtimeStamp=GetDateStr(-14);
+    console.log('resetchatroom:'+maxtimeStamp)
     //启动聊天信息自动刷新
     chatupdatecontrol=1;
     //重置预定语弹出数组
@@ -390,11 +391,11 @@ function autoflow(id) {
 function changeAutoflow(chatroomid) {
     if (chatautoflow[chatroomid] == 1) {
         chatautoflow[chatroomid] = 0;
-        document.getElementById('autocontrol').innerHTML = '自动滚动';
+        document.getElementById('autocontrol'+chatroomid).innerHTML = '自动滚动';
     }
     else {
         chatautoflow[chatroomid] = 1;
-        document.getElementById('autocontrol').innerHTML = '停止自动滚动';
+        document.getElementById('autocontrol'+chatroomid).innerHTML = '停止自动滚动';
     }
 }
 //发送聊天消息的函数
