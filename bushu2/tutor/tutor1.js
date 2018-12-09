@@ -9,7 +9,10 @@ var EVALUATIONNUM ;
 //小组数
 var group_num=4;
 //聊天室的最大时间戳，每次查询只查时间戳以后的聊天信息
-var maxtimeStamp='1000-01-01 00:00:00';
+//var maxtimeStamp='1000-01-01 00:00:00';
+//var maxtimeStamp=getNowFormatDate();
+var maxtimeStamp=GetDateStr(-14);
+//console.log(maxtimeStamp);
 //任务数量，会在初始化时根据xml内容获取
 var tasknum;
 //小组成员最大数量
@@ -58,6 +61,16 @@ setInterval("updateGetOnlineuser()",onlineuserInterval);
 
 //-----------------函数定义部分------------------------------------------------------------------------
 //-----------------功能小函数----------------------------------------------
+//获取与当前时间差指定天数的时间戳
+function GetDateStr(AddDayCount) {
+    var dd = new Date();
+    dd.setDate(dd.getDate()+AddDayCount);//获取AddDayCount天后的日期
+    var y = dd.getFullYear();
+    var m = (dd.getMonth()+1)<10?"0"+(dd.getMonth()+1):(dd.getMonth()+1);//获取当前月份的日期，不足10补0
+    var d = dd.getDate()<10?"0"+dd.getDate():dd.getDate();//获取当前几号，不足10补0
+    return y+"-"+m+"-"+d;
+}
+
 //获取get传值的方法
 function getQueryString(name) {
     var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
@@ -249,7 +262,8 @@ function resetChatroom() {
     //清空聊天室旧聊天信息
     resetChatMsg();
     //重置聊天参数
-    maxtimeStamp='1000-01-01 00:00:00';
+    //maxtimeStamp='1000-01-01 00:00:00';
+    var maxtimeStamp=GetDateStr(-14);
     //启动聊天信息自动刷新
     chatupdatecontrol=1;
     //重置预定语弹出数组
@@ -312,6 +326,7 @@ function get_chat_data(){
     }else{
         LASTCHATAJAXEND=false;
     }
+    console.log(maxtimeStamp);
     //ajax请求
     $.get("get_chat_data.php",{sid:sid,maxtimeStamp:maxtimeStamp,classid:classidnow},function(data){
         LASTCHATAJAXEND=true;
@@ -330,9 +345,6 @@ function get_chat_data(){
                     s+='<p class="userchatname" >'+'张华'+'</p>'+'<br>';
                     s += '<p class="userchattime">' + data_array[k][i].timeStamp + '<p/>' ;
                     s += "<p class='userbox'>";
-                    //s += data_array[k][i].timeStamp+'<br/>';
-                    //s += '张华' + "&nbsp;" + "说：" + data_array[k][i].content;
-                    //s += data_array[k][i].content;
                     s+=formatTextInHtml(data_array[k][i].content);
                     s += "</p>"+"<br/>";
                 }
@@ -340,17 +352,11 @@ function get_chat_data(){
                     s+='<p class="otherchatname" >'+data_array[k][i].username+'</p>'+'<br>';
                     s += '<p class="otherchattime">' +data_array[k][i].timeStamp + '<p/>' ;
                     s += "<p class='otherbox'>";
-                    //s += "(" + data_array[k][i].timeStamp + ") >>>"+'<br/>';
-                    //s += data_array[k][i].username + "&nbsp;" + "说：" + data_array[k][i].content;
-                   // s +=  data_array[k][i].content;
                     s+=formatTextInHtml(data_array[k][i].content);
                     s += "</p>"+"<br/>";
                 }
 
             }
-
-
-
             var lastmessage=data_array[k].length-1;
             //有新聊天信息
             if(lastmessage!=-1){
@@ -359,7 +365,6 @@ function get_chat_data(){
                     maxtimeStamp=lasttimeStamp;
                 }
             }
-
 
             if(s!=''){
                 // 显示聊天内容（onload事件）

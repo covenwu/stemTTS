@@ -54,7 +54,7 @@ var attachnum = 1;
 var maxEmailTimeStamp = '1000-01-01 00:00:00';
 //-----------------聊天室------------
 // 同上，服务器只返回maxtimeStamp以后的聊天信息
-var maxChattimeStamp = '1000-01-02 00:00:00';
+var maxChattimeStamp = GetDateStr(-14);
 //上次发出查询聊天的ajax已返回
 var LASTCHATAJAXEND=true;
 //聊天室自动滚动功能是否开启
@@ -1090,7 +1090,15 @@ function createInput(nm, parentid) {
 
 
 //-----------------聊天室部分----------------------------------------------
-
+//获取与当前时间差指定天数的时间戳
+function GetDateStr(AddDayCount) {
+    var dd = new Date();
+    dd.setDate(dd.getDate()+AddDayCount);//获取AddDayCount天后的日期
+    var y = dd.getFullYear();
+    var m = (dd.getMonth()+1)<10?"0"+(dd.getMonth()+1):(dd.getMonth()+1);//获取当前月份的日期，不足10补0
+    var d = dd.getDate()<10?"0"+dd.getDate():dd.getDate();//获取当前几号，不足10补0
+    return y+"-"+m+"-"+d;
+}
 //显示聊天内容的函数
 function showmessage() {
     //ajax请求
